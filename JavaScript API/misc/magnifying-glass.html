@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<met charset="utf-8">
+		<title>Nokia Maps API: Magnifying Glass</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="http://api.maps.nokia.com/2.2.3/jsl.js"></script>
+		<style type="text/css">
+		html,body, #mapContainer {
+			font-family: sans-serif;
+			background: #fff;
+			color: #444;
+			height: 100%;
+			padding:0;
+			margin:0;
+		}
+		#map2Container {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			top: 50%;
+			left: 50%;
+			cursor: move;
+			border:3px solid white;
+			border-radius: 3px;
+			box-shadow:0 0 5px black;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="mapContainer"></div>
+		<div id="map2Container"></div>
+		<script type="text/javascript">
+		(function() {
+			var map, map2, zoomLevelDifference = -5;
+
+		    function init() {
+				
+		        // Authentication set-up is the first thing that you must do with the API 
+		        nokia.maps.util.ApplicationContext.set({
+		            "appId": "YOUR_APP_ID",
+		            "authenticationToken": "YOUR_AUTHENTICATION_TOKEN"
+		        });
+
+		        createMap();
+
+		        createSecondMap();
+
+		        // Sync everything on load
+				setOverview();
+
+		    };
+
+		    // We create a map centered on the HERE office in Berlin
+		    function createMap() {
+		        var mapContainer = document.getElementById("mapContainer");
+	        	map = new nokia.maps.map.Display(mapContainer, {
+	            center: [52.51, 13.4],
+	            zoomLevel: 14, // Bigger numbers are closer in
+	            components: [  // We use these components to make the map interactive
+	                new nokia.maps.map.component.ZoomBar(),
+	                new nokia.maps.map.component.Behavior()
+	                ]
+		        });
+		    };
+
+		    function createSecondMap() {
+		        var mapContainer = document.getElementById("map2Container");
+	        	map2 = new nokia.maps.map.Display(mapContainer, {
+		            center: [52.51, 13.4],
+		            zoomLevel: 14, // Bigger numbers are closer in
+		        });
+
+				// Now we make the  overview map draggable
+				var dragElt = nokia.maps.dom.EventTarget(
+					nokia.maps.dom.EventTarget(map2Container)
+				).enableDrag();
+
+				// We install an event lister on dragging the element
+				dragElt.addListener("drag", function (evt) {
+					// Adds delta to the start position of overview map. 
+					var newX = map2Container.offsetLeft + evt.deltaX,
+						newY = map2Container.offsetTop + evt.deltaY;
+		
+					// We move the draggable container to it new position
+					map2Container.style.left = newX + "px";
+					map2Container.style.top = newY + "px";
+		
+					map2.set({ center: map.pixelToGeo(newX+100, newY+100) });
+		
+				});
+				// Add the "copy" function as observers for the first map's center and zoom level
+				map.set("observers", { center: setOverview, zoomLevel: setOverview });
+
+				// Initialize the map center and zoom level
+				map.set({ center: new nokia.maps.geo.Coordinate(53,13), zoomLevel: 5 });
+
+		    }
+
+			// Create an observer function that sets values on the second map
+			var setOverview = function (obj, key, value, oldValue) {
+				if (key === "center") {
+					map2.set({ center: map.pixelToGeo(map2Container.offsetLeft+100, map2Container.offsetTop+100)});
+				} else if(key === "zoomLevel") {
+					value = (value-zoomLevelDifference >= map2.minZoomLevel) ? value-zoomLevelDifference : map2.minZoomLevel;
+					map2.set(key, value);
+				}
+			};
+			$(function() {
+		        init();
+		    });
+		})();
+		</script>
+	</body>
+</html>
