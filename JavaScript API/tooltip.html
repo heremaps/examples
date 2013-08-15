@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9" />
+		<title>HERE Maps API Example: Creating Tooltips</title>
+
+		 <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="extend,addTooltipControlToMap,addMarkersWithTooltips">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="all" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>  
+    <script type="text/javascript" charset="UTF-8" src="libs/tooltip.js"></script>	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Creating a Marker Tooltip</h1>
+	<p>Hover over a marker to see the tooltip text</p>
+	<div id="mapContainer" style="width:540px; height:334px;"></div>
+	<div id="src" style="width:100%" ><p>Code:</p></div>
+<script type="text/javascript">
+							
+function afterHereMapLoad (map){ 
+
+	map.set("baseMapType", map.SATELLITE);
+	map.set("center", new nokia.maps.geo.Coordinate(52.52, 13.37));
+	map.setZoomLevel(13);
+	
+	addTooltipControlToMap(map);
+	addMarkersWithTooltips(map);
+	
+
+}
+function addTooltipControlToMap (map){ 
+	extend(Tooltip,
+		nokia.maps.map.component.Component);
+	
+	map.components.add(new Tooltip());
+}
+function addMarkersWithTooltips (map){
+
+	// Simple Marker with tooltip
+	var brandenburgerTorMarker = new nokia.maps.map.StandardMarker(
+		new nokia.maps.geo.Coordinate(52.516237, 13.35),
+		{title : "Brandenburger Tor"}
+	);
+
+
+	//
+	//  Marker with HTML Tooltip
+	//
+	var  fernsehturmTooltip = '<div>' +
+			'<h2>Tooltip with HTML content<\/h2>' +
+			'<img width=120 height=90 src=' +
+			'"http://upload.wikimedia.org/wikipedia/commons/' +
+			'8/84/Berlin-fernsehturm.JPG" ' +
+			'alt=""/><br/><b>Fernsehturm, Berlin<\/b>' +
+	    '<\/div>';
+	var fernsehturmMarker = new nokia.maps.map.StandardMarker(
+		new nokia.maps.geo.Coordinate(52.520816, 13.409417),
+		{title : fernsehturmTooltip}
+	);
+
+	// Add the markers onto the map
+	map.objects.addAll([brandenburgerTorMarker, fernsehturmMarker]);
+}
+ </script>
+	</body>
+</html>

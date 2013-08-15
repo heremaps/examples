@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Getting Geocoodinates on Mouse Click</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="setUpClickListener">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="setUpClickListener" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Getting Geocoodinates on Mouse Click</h1>
+	<p>Click on the map to obtain the Geocoordinates.</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+function setUpClickListener (map){
+	/* Attach an event listener to map display
+	 * obtain the coordinates an display in an alert box.
+	 */
+	map.addListener("click", function (evt) {
+		var coord = map.pixelToGeo(evt.displayX, evt.displayY);
+		alert("Clicked at " + coord);
+	});
+}    
+</script>
+</body>
+</html>

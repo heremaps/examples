@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=EmulateIE10;"/>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>HERE Maps API for JavaScript Example: Pre-open an information bubble</title>
+		<meta name="description" content="How to load a page with a read opened information bubbler"/>
+		<meta name="keywords" content="infobubble, marker, map component, bubble"/>
+		<!-- For scaling content for mobile devices, setting the viewport to the width of the device-->
+		<meta name=viewport content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		
+		    <!-- Set up constants such as APP ID and token -->
+	    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+	    <!-- Bootstrap jQuery Library -->
+	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+	    
+		<script type="text/javascript" src="libs/prettyprint.js"
+    		id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    		data-display-functions="getParameterByName,openInfoBubble,addMarkers">
+		</script> 
+	    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+	    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+	    	data-params="all" /*These are the features to load */ 
+	    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+	    </script>  	
+	    <link rel="icon" href="http://here.com/favicon.ico">
+	    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1>Opening Infobubbles</h1>
+		<div id="mapContainer" style="width:540px; height:334px;"></div>
+		<div id="uiContainer">
+			Click on a link to pre-open the info bubble:<br/>
+			<a href="infobubble-with-id.html?id=1">Brandenburg Gate</a><br/>
+			<a href="infobubble-with-id.html?id=2">Ferhsehturm</a><br/>
+			<br/>			
+		</div>
+		<div id="src" style="width:100%" >Code:</div>
+<script type="text/javascript">
+
+function afterHereMapLoad (map){
+	this.map = map;
+	map.set("center", new nokia.maps.geo.Coordinate(52.52, 13.37));
+	map.setZoomLevel(13);
+	
+	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
+	map.components.add(infoBubbles);
+	addMarkers(map);			  
+	openInfoBubble();
+};
+	
+	
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+	
+function openInfoBubble(){
+	var param = getParameterByName('id');
+	if (param == ""){
+		return; // Don't open a bubble.
+	}
+	// Iterate through the markers to find the correct id.
+	for (var i = 0; i < container.objects.getLength(); i++){
+		if (param  === container.objects.get(i).id){
+			// fire an event to open the bubble.
+			container.dispatch(
+				 new nokia.maps.dom.Event(
+				 	{type: "click", 
+				 	target: container.objects.get(i)}));
+			map.zoomTo(container.objects.get(i).getBoundingBox(), true)
+			break;
+		}
+	}
+}
+
+function addMarkers (map){
+	this.container = new nokia.maps.map.Container();
+	
+	/* Add two markers and their infoBubble text
+	* along with a unique id attribute
+	*/
+	var brandenburgerTorMarker = new nokia.maps.map.StandardMarker(
+		new nokia.maps.geo.Coordinate(52.516237, 13.377686),
+			{bubbleText : "Brandenburger Tor",
+			id : "1"	}
+	);
+	//
+	// The Infobubble attribute can also be HTML.
+	//
+	var infoBubbleHTML = '<div>' +
+		'<h2>InfoBubble with HTML content<\/h2>' +
+		'<img width=120 height=90 src=' +
+		'"http://upload.wikimedia.org/wikipedia/commons/' +
+		'8/84/Berlin-fernsehturm.JPG" ' +
+		'alt=""/><br/><b>Fernsehturm, Berlin<\/b>' +
+		'<\/div>';
+	var fernsehturmMarker = new nokia.maps.map.StandardMarker(
+		new nokia.maps.geo.Coordinate(52.520816, 13.409417),
+			{bubbleText : infoBubbleHTML,
+				id : "2"	}
+		);
+	// Add the markers onto the map
+	container.objects.addAll([brandenburgerTorMarker, fernsehturmMarker]); 
+	// Add a listener to the on click event for the markers.
+	container.addListener(
+		"click", function (evt) { 
+			// Set the tail of the bubble to the coordinate of the marker
+			infoBubbles.openBubble(evt.target.bubbleText, evt.target.coordinate);
+		}
+	);
+	map.objects.add(container);
+}
+</script>
+	</body>
+</html>

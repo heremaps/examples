@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Zooming to all markers.</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="addMarkersAndZoomTo">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="addMarkersAndZoomTo" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Zooming to all markers </h1>
+	<p>Adds three markers and zooms the map to display them.</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+function addMarkersAndZoomTo (map){
+	markerOne  = new nokia.maps.map.Marker([19.119, 72.8957]);
+	markerTwo  = new nokia.maps.map.Marker([19.119, 73.8957]);
+	markerThree = new nokia.maps.map.Marker([19.119, 74.8957]);
+	 
+	var container = new nokia.maps.map.Container()
+	 
+	container.objects.add(markerOne);
+	container.objects.add(markerTwo);
+	container.objects.add(markerThree);
+	 
+	map.objects.add(container)
+	 
+	map.zoomTo(container.getBoundingBox(),false,true);
+}    
+</script>
+</body>
+</html>

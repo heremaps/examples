@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Reading and displaying Map Features</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="retrieveMapFeatures">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="retrieveMapFeatures" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Reading and displaying Map Features</h1>
+	<p>This example loops through and displays all supported features/sets and features of the loaded current map.
+		 It also attempts to load features and handles success and failure, and in this example the load should be a success. 
+	</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+
+
+function retrieveMapFeatures (map){
+
+	var list = nokia.maps.Features.getFeatureMap(); 
+	
+	// Loop through the features and show them in an alert
+	// Returns a map of implementations for each registered feature. 
+	for( var i in list ) {
+		if ( list.hasOwnProperty(i) ) {
+			alert("Feature Map: "+list[i]);
+		} 
+	}
+
+	var list = nokia.maps.Features.getLoadedMap(); 
+	// Loop through the features and show them in an alert
+	// Returns a map of the names of fully loaded feature 
+	// implementations per feature. 
+	for( var i in list ) {
+	 if ( list.hasOwnProperty(i) ) {
+		alert("Loaded Map:" +list[i]); 
+		}
+	}
+
+	var load_Successful =function (result){
+		alert("SUCCESSFUL FEATURE LOADING");
+	}
+	var load_Failed =function (result){
+		alert("FEATURE LOADING FAILED");
+	}
+
+	nokia.maps.Features.load(
+		{"map": "auto", "routing": "auto"}, load_Successful, load_Failed); 
+	nokia.maps.Features.load({"map": "auto", "search": "auto"}, load_Successful, load_Failed); 
+}
+
+</script>
+</body>
+</html>

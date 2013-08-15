@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9" />
+ <title>Combining HERE Maps API for JavaScript and the RESTful Map API</title>
+ <!-- No additional support required here. -->
+<!-- Set up constants such as APP ID and token -->
+	    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+	    <!-- Bootstrap jQuery Library -->
+	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+	    <script type="text/javascript" src="libs/prettyprint.js"
+    		id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    		data-display-functions="afterHereMapLoad">
+    	</script> 
+	    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+	    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+	    	data-params="all" /*These are the features to load */ 
+	    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+	    </script>  	
+	<link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+
+
+</head>
+<body>
+	<h1>Combining Asynchronous Loading with Static Map Images</h1>
+	<p>A static map is loaded in an <code>&lt;img&gt;</code> element on page load. jQuery
+		and the HERE Maps API for JavaScript are asychronously loaded thereafter. 
+		Library loading will only occur if JavaScript is enabled. Assuming the HERE Maps API has been
+		loaded successfully, node holding the static map is removed thereafter.
+	</p>
+  <div id="mapContainer" style="width:540px; height:334px;">
+    <img id='HereStaticMap' src="http://m.nok.it/?c=50.5,15.5&amp;h=334&amp;w=540&amp;z=4&amp;nord&amp;nodot&amp;sb=k"
+    	 alt="Map of Europe" />
+  </div>
+  <div id="src" style="width:100%" ><p>Code:</p></div>
+ <script type="text/javascript">
+ function afterHereMapLoad(map){
+ 	// This matches the static map:
+ 	// http://m.nok.it/?c=50.5,15.5&h=334&w=540&z=4"
+ 	map.set("center", new nokia.maps.geo.Coordinate(50.5,15.5));
+ 	map.setZoomLevel(4);
+ 	var marker = new nokia.maps.map.StandardMarker([50.5,15.5]);
+	map.objects.add(marker);
+	
+	$('#HereStaticMap').remove();
+ }
+ </script>
+</body>
+</html>

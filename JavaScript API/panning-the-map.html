@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Panning the Map</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="panTheMap">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Panning the Map</h1>
+	
+	 <div id="showCoords" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+function afterHereMapLoad (map){
+	this.map = map;
+	map.set("center", new nokia.maps.geo.Coordinate(19.11, 72.89));
+	map.setZoomLevel(3);
+	
+	setInterval (panTheMap, 300);
+	
+}
+
+  var myInterval = 0;
+    var myTimer;
+    var incX = 1;
+    var incY = 2;
+    var x = 0;
+    var y = 0;
+    
+
+ 
+function panTheMap()
+{  
+    
+    x = x + incX;
+	if (Math.abs(x) > 20 ){
+    	incX = -incX;
+    }
+
+	y= y + incY;
+	if (Math.abs(y) > 20 ){
+    	incY = -incY;
+    }
+ 
+    $("#showCoords").text("Pan from: "+0+","+0+" to:"+x+","+y);
+ 
+    map.pan(0, 0, x, y);
+}  
+ 
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Adding a Marker</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="startGeoCode,onGeocodeComplete,startFreeTextSearch,onPlaceSearchComplete">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Using the Geocoding Service</h1>
+	 <div id="extra"> 
+		 <label for="geo_text_box"> Geocode </label><br/>              
+		<input type="text" id="geo_text_box"/>
+	  <input type="button" value="Geo code with name" onclick="startGeoCode()"/>
+	  <br/> 
+	  	 <label for="free_text_text_box"> Free text search</label><br/>    
+	  	<input type="text" id="free_text_text_box"/>
+	  <input type="button" value="Search" onclick="startFreeTextSearch()"/>
+	</div>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+function afterHereMapLoad (map){
+	this.map = map;
+	map.setCenter (new nokia.maps.geo.Coordinate(18.975, 72.825833));
+	map.setZoomLevel(10);
+} 
+
+function onGeocodeComplete  (data, requestStatus, requestId) {
+	if (requestStatus == "OK") {   		
+		alert("GEOCODE ENDED SUCCESSFULLY");
+		map.objects.clear();
+		var marker = new nokia.maps.map.StandardMarker(data.location.position);
+		map.objects.add(marker); 
+		map.zoomTo(marker.getBoundingBox(), false);
+		if(map.get("zoomLevel") > 15){
+			map.setZoomLevel(15);
+		}
+	} else if(requestStatus == "ERROR") {
+		alert("GEOCODE FAILED.");
+	}
+};
+ 
+function onPlaceSearchComplete (data, requestStatus, requestId) {
+	if (requestStatus == "OK") {   
+		alert("SEARCH ENDED SUCCESSFULLY");
+		map.objects.clear();
+		// Convert all found locations into a set of markers
+		var resultSet = new nokia.maps.map.Container();
+		var locations = data.results.items;
+		for (i = 0, len = locations.length; i < len; i++) {
+			marker = new nokia.maps.map.StandardMarker(locations[i].position, { text: i+1 });
+			resultSet.objects.add(marker);
+		}
+		// Next we add the marker(s) to the map's object collection so they will be rendered onto the map
+		map.objects.add(resultSet);
+		// We zoom the map to a view that encapsulates all the markers into map's viewport
+		map.zoomTo(resultSet.getBoundingBox(), false);
+	} else if(requestStatus == "ERROR") {
+		alert("SEARCH FAILED.");
+	}
+};            
+ 
+function startGeoCode(){ 
+	var geocode = document.getElementById("geo_text_box");
+		nokia.places.search.manager.geoCode({
+			searchTerm :  geocode.value,
+		 	onComplete:  onGeocodeComplete
+	}); 	  
+}
+ 
+function startFreeTextSearch(){ 
+	var freetext = document.getElementById("free_text_text_box");
+	  nokia.places.search.manager.findPlaces({
+		searchTerm :  freetext.value,
+			 onComplete:  onPlaceSearchComplete,
+		searchCenter: map.center
+	});
+}
+   
+</script>
+</body>
+</html>
