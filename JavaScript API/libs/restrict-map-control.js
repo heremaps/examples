@@ -34,7 +34,7 @@ var restrictCenter = function(evt) {
 
       var latitude =  Math.max(Math.min(that.__map.center.latitude, that.boundingBox.topLeft.latitude),
       	 that.boundingBox.bottomRight.latitude);
-      var longitude = Math.max(Math.min(that.__map.center.longitude, that.boundingBox.topLeft.longitude), 
+      var longitude = Math.min(Math.max(that.__map.center.longitude, that.boundingBox.topLeft.longitude), 
       	that.boundingBox.bottomRight.longitude);    
       that.__map.setCenter(new nokia.maps.geo.Coordinate(latitude,longitude));      
       evt.cancel();
