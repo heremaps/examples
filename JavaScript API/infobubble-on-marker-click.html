@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Adding an Infobubble</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="addInfoBubble,addMarkerToContainer">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="addInfoBubble" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Adding an Infobubble with HTML content to the map</h1>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+
+ function addInfoBubble(map){
+ 	map.set("center", new nokia.maps.geo.Coordinate(53.430,-2.961));
+ 	map.setZoomLevel(7);
+ 	
+ 	var infoBubbles = new nokia.maps.map.component.InfoBubbles();
+ 	map.components.add(infoBubbles);
+ 	
+ 	container = new nokia.maps.map.Container();
+ 	container.addListener("click" ,  function(evt) {
+		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);   
+			}, false);			
+	map.objects.add(container);
+	
+ 	addMarkerToContainer(container, [53.439,-2.221], 
+		"<div><a href='http://www.mcfc.co.uk' >Manchester City</a>" +
+		"</div><div >City of Manchester Stadium<br>Capacity: 48,000</div>");
+ 	
+	addMarkerToContainer(container,  [53.430,-2.961],
+		"<div ><a href='http://www.liverpoolfc.tv' >Liverpool</a>" +
+		"</div><div >Anfield<br>Capacity: 45,362</div>");
+ }
+ 
+ function addMarkerToContainer(container, coordinate , html) {
+	 var marker =  new nokia.maps.map.StandardMarker(
+			coordinate, {html: html});		
+	container.objects.add(marker);
+}
+  
+</script>
+</body>
+</html>
