@@ -50,16 +50,18 @@
 	functionsArr = functions.split(',');
 	$.each(functionsArr , function(index, value) {
     	var functionToDisplay = exports[value];	
-		var text = functionToDisplay.toString();
-		var textNode = ctx.createTextNode(text);
-		var preNode = $("<pre></pre>");
-		var spanNode =  $("<span></span>"); 
-		var codeNode =  $("<code class='prettyprint'></code>");
-		
-		codeNode.append(textNode);
-		spanNode.append(codeNode);
-		preNode.append (spanNode)
-		$('#src').append(preNode)
+    	if (functionToDisplay !== undefined){
+			var text = functionToDisplay.toString();
+			var textNode = ctx.createTextNode(text);
+			var preNode = $("<pre></pre>");
+			var spanNode =  $("<span></span>"); 
+			var codeNode =  $("<code class='prettyprint'></code>");
+			
+			codeNode.append(textNode);
+			spanNode.append(codeNode);
+			preNode.append (spanNode)
+			$('#src').append(preNode)
+		}
     	
 	});
 		

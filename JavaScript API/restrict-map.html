@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>HERE Maps API Example: Restricting the Map</title>
+  	<!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="extend,addMapRestriction">
+    </script>  
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="all" /*These are the features to load */ 
+    	data-callback="addMapRestriction" /*This is the name of the callback method */ >
+    </script> 
+    <script type="text/javascript" charset="UTF-8" src="libs/restrict-map-control.js"></script> 	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+  </head>
+  <body>
+  	<h1>Restricting the Map to a specified area</h1>
+  	<p>This example adds a custom  component, which  restricts the display to a set area, the center
+  		of the map is unable to leave the area specified by the bounding box. </p>
+    <div id="mapContainer"  style="width:540px; height:334px;" ></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+  </body>
+<script type="text/javascript">	
+function addMapRestriction (map){
+	map.set("zoomLevel",  5);
+	addOutline(map);
+
+
+	extend(RestrictMap,
+		nokia.maps.map.component.Component);
+	
+	var bounds = new nokia.maps.geo.BoundingBox(
+		new nokia.maps.geo.Coordinate(54.8073, 5.9845),
+		new nokia.maps.geo.Coordinate(47.4136,14.3671)
+	);
+	var restrictControl = new RestrictMap(5, 20,
+		bounds);
+	
+	map.components.add(restrictControl);
+}
+
+function addOutline(map){
+	// Set of initial geo coordinates to create the purple polyline
+	var points = [
+			new nokia.maps.geo.Coordinate(47.4136, 5.9845),
+			new nokia.maps.geo.Coordinate(47.4136, 14.3671),
+			new nokia.maps.geo.Coordinate(54.8073, 14.3671),
+			new nokia.maps.geo.Coordinate(54.8073, 5.9845),
+			new nokia.maps.geo.Coordinate(47.4136, 5.9845)
+		];
+	
+	// Transparent purple polyline
+	map.objects.add(new nokia.maps.map.Polyline(
+		points,
+		{	
+			pen: {
+				strokeColor: "#22CA", 
+				lineWidth: 5
+			}
+		}
+	));	
+}
+</script>
+</html>
