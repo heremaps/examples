@@ -9,7 +9,7 @@
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="addCircleToMap">
+    	data-display-functions="setUpContainer,addOnClickEventListener,checkDateBorder">
     </script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
@@ -31,22 +31,21 @@
 
 function afterHereMapLoad(map){
 	this.map = map;
-	map.set("center", new nokia.maps.geo.Coordinate(-18.10, 176.46));
+	map.set("center", new nokia.maps.geo.Coordinate(-18.10, 180.0));
 	map.setZoomLevel(15);
 
-	var container = new nokia.maps.map.Container();
-	addTwoMarkers(container);
+	setUpContainer();
 	checkDateBorder(container);
-	
-	
-	map.addListener("click",function (event){
-		event.preventDefault();
-		coordinate = map.pixelToGeo(event.displayX, event.displayY);
-		container.objects.add(new nokia.maps.map.Marker(coordinate));
-		map.zoomTo(container.getBoundingBox(),true);
-		checkDateBorder(container);
-	});
+	addOnClickEventListener(map);
 
+}
+
+function addOnClickEventListener(map){
+	map.addListener("click", function(evt){
+		evt.preventDefault();
+		coordinate = map.pixelToGeo(evt.displayX, evt.displayY);
+		container.objects.add(new nokia.maps.map.Marker(coordinate));
+		checkDateBorder(container);});
 }
 
  
@@ -59,7 +58,8 @@ function checkDateBorder(container){
 	}
 }
 
-function addTwoMarkers(container){
+function setUpContainer(){
+	this.container = new nokia.maps.map.Container();
 	container.objects.addAll([
 		new nokia.maps.map.StandardMarker([-18.10, 176.46]),
 		new nokia.maps.map.StandardMarker([-18.10, 180.00])]
