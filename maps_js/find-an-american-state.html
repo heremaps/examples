@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Find a USA state</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="addClickEventListener,processResults">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Reverse Geocoding Game : Find a USA state </h1>
+	<p>This simple game introduces how to use the map Event listener for user map clicks,
+	 how to find the geocoordinate under the clicked mouse point and how to further use
+	  the coordinates to perform a reverseGeoCode() search - all this in a form of a guessing game.</p>
+	<div id="question" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+	<div id="answer" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+	<span id="correct_answers" style="height: 2.0em; font-size: 2em; color: green;"></span>
+	<span id="incorrect_answers" style="height: 2.0em; font-size: 2em; color: green;"></span>
+
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+ var statesArray = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
+"Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
+"Kentucky","Louisiana","Maine","Maryland",  "Massachusetts","Michigan","Minnesota",
+"Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico",
+"New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania",    "Rhode Island",
+"South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington",
+"West Virginia","Wisconsin","Wyoming"];
+ 
+var right = 0;
+var wrong = 0;
+	
+function afterHereMapLoad(map){
+	this.map = map;
+	
+	map.set("center",  new nokia.maps.geo.Coordinate(42.16, -100.16));
+	map.set("zoomLevel", 3);
+	map.set("baseMapType", nokia.maps.map.Display.SATELLITE_PLAIN);
+	select_random_state();
+	addClickEventListener(map);
+}
+
+function addClickEventListener(map){
+	map.addListener("click",function (event){
+		event.preventDefault();
+		coordinate = map.pixelToGeo(event.displayX, event.displayY);
+		map.objects.add(new nokia.maps.map.Marker(coordinate));
+		nokia.places.search.manager.reverseGeoCode({
+			latitude: coordinate.latitude,
+			longitude: coordinate.longitude,
+			onComplete: processResults
+		})
+	});
+} 
+
+function select_random_state(){
+    randomnumber=Math.floor(Math.random()*50);
+    $("#question").text('Find : ' +statesArray[randomnumber]);
+} 
+
+function processResults (data, requestStatus, requestId) {	
+	if (requestStatus == "OK" ) {
+		if (data.location !== undefined){
+			var state = data.location.address.state;
+			
+			if (statesArray[randomnumber] == state){
+				map.objects.clear();
+				select_random_state();
+				$("#answer").text("Correct answer, that was:"	 + state);
+				 right += 1;
+				
+			} else {
+				$("#answer").text("That was:"	 + state);
+				 wrong += 1;
+			}
+			$("#correct_answers").text("Correct:"	 + right);
+			$("#incorrect_answers").text("Wrong:"	 + wrong);
+		}
+	}
+}
+ 
+</script>
+</body>
+</html>
