@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+		<title>HERE Maps API Example: Magnifying Glass</title>
+		<!-- Set up constants such as APP ID and token -->
+	    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+	    <!-- Bootstrap jQuery Library -->
+	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+	    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+	    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+	    	data-params="all" /*These are the features to load */ 
+	    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+	    </script>  	
+	    <script type="text/javascript" charset="UTF-8" src="libs/magnifier.js"></script>	
+    
+    	<link rel="icon" href="http://here.com/favicon.ico">
+    	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1>Using Map Observers: Magnifying Glass</h1>
+		<div id="mapContainer" style="width:540px; height:334px;"></div>
+		<div id="src" style="width:100%" ><p>Code:</p></div>
+		<script type="text/javascript">
+//		(function() {
+			var map, map2, zoomLevelDifference = -5;
+
+		    function afterHereMapLoad(map) {
+				this.map = map
+		       // createSecondMap();
+		       extend(Magnifier,
+		nokia.maps.map.component.Component);
+	
+	map.components.add(new Magnifier(200,200, 5));
+
+
+
+		    };
+
+
+			
+
+//		})();
+		</script>
+	</body>
+</html>
