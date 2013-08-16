@@ -7,32 +7,39 @@
 		  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
 	    <!-- Bootstrap jQuery Library -->
 	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+	    <script type="text/javascript" src="libs/prettyprint.js"
+			id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+			data-display-functions="extend,addXRayControl">
+		</script>
 	    <!-- Asynchronously the HERE Maps API for  JavaScript -->
 	    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
 	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
 	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
 	    	data-params="all" /*These are the features to load */ 
-	    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+	    	data-callback="addXRayControl" /*This is the name of the callback method */ >
 	    </script>  	
 	    <script type="text/javascript" charset="UTF-8" src="libs/x-ray.js"></script>	
 	    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 	</head>
 	<body>
 		<h1>Using Map Observers: X-Ray Vision</h1>
+		<p>This example adds a custom map component, which displays 
+			a mini-map showing the satellite view of the current location.</p>
+		
 		<div id="mapContainer"  style="width:540px; height:334px;" ></div>
-		<div id="src" style="width:100%" ><p>Code:</p></div>
-		<script type="text/javascript">
-		function afterHereMapLoad(map) {
-				this.map = map
-
-		       extend(XRayControl,
+		
+		<div id="src" style="width:100%" >
+			<br/>
+			<p> The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/x-ray.js">libs/x-ray.js</a>"&gt;&lt;/script></code></pre>
+		</p>
+		<p>Code:</p></div>
+<script type="text/javascript">
+function addXRayControl(map) {
+	extend(XRayControl,
 		nokia.maps.map.component.Component);
-	
 	map.components.add(new XRayControl(200,200));
-
-
-
-		    };
-		</script>
+}
+</script>
 	</body>
 </html>

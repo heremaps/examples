@@ -6,13 +6,17 @@
 		<!-- Set up constants such as APP ID and token -->
 	    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
 	    <!-- Bootstrap jQuery Library -->
-	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+	    <script type="text/javascript" src="libs/jQl.min.js"></script>
+		<script type="text/javascript" src="libs/prettyprint.js"
+			id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+			data-display-functions="extend,addMagnifierControl">
+		</script> 
 	    <!-- Asynchronously the HERE Maps API for  JavaScript -->
 	    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
 	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
 	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
 	    	data-params="all" /*These are the features to load */ 
-	    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+	    	data-callback="addMagnifierControl" /*This is the name of the callback method */ >
 	    </script>  	
 	    <script type="text/javascript" charset="UTF-8" src="libs/magnifier.js"></script>	
     
@@ -21,28 +25,22 @@
 	</head>
 	<body>
 		<h1>Using Map Observers: Magnifying Glass</h1>
-		<div id="mapContainer" style="width:540px; height:334px;"></div>
-		<div id="src" style="width:100%" ><p>Code:</p></div>
-		<script type="text/javascript">
-//		(function() {
-			var map, map2, zoomLevelDifference = -5;
-
-		    function afterHereMapLoad(map) {
-				this.map = map
-		       // createSecondMap();
-		       extend(Magnifier,
-		nokia.maps.map.component.Component);
-	
-	map.components.add(new Magnifier(200,200, 5));
-
-
-
-		    };
-
-
+		<p>This example adds a custom map component, which displays 
+			a mini-map showing the current location at a higher zoom-level.</p>
 			
-
-//		})();
-		</script>
+		<div id="mapContainer" style="width:540px; height:334px;"></div>
+		<div id="src" style="width:100%" >
+		<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/magnifier.js">libs/magnifier.js</a>"&gt;&lt;/script></code></pre>
+			<p>Code:</p>
+		</div>
+<script type="text/javascript">
+function addMagnifierControl(map) {
+	extend(Magnifier,
+		nokia.maps.map.component.Component);
+	map.components.add(new Magnifier(200,200, 5));
+}
+</script>
 	</body>
 </html>

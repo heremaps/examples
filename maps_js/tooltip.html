@@ -25,9 +25,17 @@
 </head>
 <body>
 	<h1>Creating a Marker Tooltip</h1>
-	<p>Hover over a marker to see the tooltip text</p>
+	<p>This example adds a custom map component, which adds tooltips to the map markers.
+	 Hover over a marker to see the tooltip text</p>
+	
 	<div id="mapContainer" style="width:540px; height:334px;"></div>
-	<div id="src" style="width:100%" ><p>Code:</p></div>
+
+	<div id="src" style="width:100%" >
+		<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/tooltip.js">libs/tooltip.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+	</div>
 <script type="text/javascript">
 							
 function afterHereMapLoad (map){ 
@@ -38,8 +46,6 @@ function afterHereMapLoad (map){
 	
 	addTooltipControlToMap(map);
 	addMarkersWithTooltips(map);
-	
-
 }
 function addTooltipControlToMap (map){ 
 	extend(Tooltip,

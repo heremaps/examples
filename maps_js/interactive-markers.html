@@ -26,9 +26,9 @@
 <body>
 	<h1>Interacting with markers</h1>
 	<p>
-		Tooltips have been added to all of the markers on the map below.
-		Hover over each of the three markers in turn to see what they do.
-		The green and blue the markers on the map are <strong>interactive</strong> -
+		This example adds a custom map component, which adds interactivity to the map markers.
+		Tooltips have also been added to all of the markers on the map below, to explain what 
+		they do. The green and blue the markers on the map are <strong>interactive</strong> -
 		as you hover over them  the cursor will change to offer the user visual feedback to showing
 		that clicking on the marker will cause something to happen.
 	</p>
@@ -39,7 +39,12 @@
 			 change as you hover over it.</li>
  	</ul>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" >
+		<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/interactive-control.js">libs/interactive-control.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+	</div>
 <script  type="text/javascript" >
 
 function afterHereMapLoad(map){
