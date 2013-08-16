@@ -3,7 +3,8 @@
 	jQl.loadjQ(exports.HereMapsConstants.JSLibs.jQueryUrl, function(){
 	var script = null,
 		baseNS = null,
-		mapsNS = null;
+		mapsNS = null,
+		map = null;
 	
 	// Iterate through the <SCRIPT> Tags to find the loader
 	// Then use the element to obtain additional constants
@@ -58,10 +59,12 @@
 	 	var onApiFeaturesLoaded = function(error) {
 	 		mapsNS = baseNS.maps.map;
 	    	authenticate(exports.HereMapsConstants.AppIdAndToken);
-			var map = createMap(exports.HereMapsConstants.InitialLocation,
-				ctx.getElementById($(script).data('map-container'))),
-				callbackKey = $(script).data('callback');
-			exports[callbackKey](map);
+	    	if (map === undefined){
+				var map = createMap(exports.HereMapsConstants.InitialLocation,
+					ctx.getElementById($(script).data('map-container'))),
+					callbackKey = $(script).data('callback');
+				exports[callbackKey](map);
+			}
 		};
 		// This callback is run if an error occurs during the feature loading
 		var onApiFeaturesError = function(error) {
