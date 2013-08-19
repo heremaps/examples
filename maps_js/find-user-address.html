@@ -23,7 +23,8 @@
 </head>
 <body>
 	<h1>Locating the Address of a User</h1>
-	<p>This example finds the location of a user and displays the address on the map.</p>
+	<p>This example finds the location of a user and displays the address on the map.
+		If the geolocation fails, a random address is displayed.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="src" style="width:100%" ><p>Code:</p></div>
 <script  type="text/javascript" >
@@ -52,11 +53,20 @@ function locateUser(map){
 				var errorMsg = "Location could not be determined: ";
 				errors = ["PERMISSION_DENIED", "POSITION_UNAVAILABLE","TIMEOUT"];
 				if (error.code < 4){
-					 errorMsg += errors[i-1]
+					 errorMsg += errors[error-1]
 				} else {
 					 errorMsg += "UNKNOWN ERROR";
 				}
 				alert(errorMsg);
+				// Display a random nearby address.
+				nearby = moveRandomly();
+				nokia.places.search.manager.reverseGeoCode({
+					latitude: nearby.latitude,
+					longitude: nearby.longitude,
+					onComplete: displayAddress
+				});
+				
+				
 			}, {maximumAge: 750}
 		);
 	}
@@ -66,6 +76,15 @@ function displayAddress(data, requestStatus, requestId)  {
 	infoBubbles.addBubble(data.location.address.text, 
 		data.location.position);
 }
+
+function moveRandomly(){
+	var viewPort = map.getViewBounds();
+	var coord = new nokia.maps.geo.Coordinate 
+		(viewPort.topLeft.latitude - Math.random()*viewPort.getHeight(),
+		viewPort.topLeft.longitude + Math.random()*viewPort.getWidth()
+	);
+ 	return coord;
+} 
 </script>
 </body>
 </html>

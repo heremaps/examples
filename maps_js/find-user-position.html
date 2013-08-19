@@ -44,7 +44,7 @@ function locateUser(map){
 				var errorMsg = "Location could not be determined: ";
 				errors = ["PERMISSION_DENIED", "POSITION_UNAVAILABLE","TIMEOUT"];
 				if (error.code < 4){
-					 errorMsg += errors[i-1]
+					 errorMsg += errors[error-1]
 				} else {
 					 errorMsg += "UNKNOWN ERROR";
 				}
