@@ -1,0 +1,122 @@
+ï»¿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Context Menu Routing with Directions</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="extend,addDirectionsRenderer,addContextMenu,makeRouteRequest,onRouteCalculated">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps,directions" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>  	
+    <script type="text/javascript" src="libs/directions-renderer.js"></script>
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Context Menu Routing with Directions</h1>
+	<p>Right click on the map to set the start and end points of a journey. The direction
+		instructions are displayed to the right of the map.
+	</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="directions" style="position:absolute; width:540px; top:30px; left:600px"></div>
+    <div id="src" style="width:540px;" ><br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+	</div>
+<script  type="text/javascript" >
+
+ function afterHereMapLoad(map){
+ 	this.map = map;
+ 	addDirectionsRenderer (map);
+ 	addContextMenu(map);
+ }
+ 
+ function addDirectionsRenderer (map){
+ 	map.addComponent(new nokia.maps.map.component.InfoBubbles());
+	map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
+	
+ 	extend(DirectionsRenderer,
+		nokia.maps.map.component.Component);
+ 	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
+ 	map.addComponent(directionsRenderer); 
+}
+
+function addContextMenu(map){
+	var startPoint;
+	var endPoint;
+	
+	contextMenu = new nokia.maps.map.component.ContextMenu();
+	var myHandler = function(contextMenuEvent, group) {
+	
+		group.addEntry(
+			"Directions from Here",
+			function(activationEvent) {
+				startPoint = map.pixelToGeo(contextMenuEvent.targetX, contextMenuEvent.targetY);
+				if (endPoint !== undefined){
+					makeRouteRequest(startPoint,endPoint);
+				}
+		});
+		group.addEntry(
+			"Directions to Here",
+			function(activationEvent) {
+				endPoint  = map.pixelToGeo(contextMenuEvent.targetX, contextMenuEvent.targetY);
+				if (startPoint !== undefined){
+					makeRouteRequest(startPoint,endPoint);
+				}
+		});
+
+	}
+	contextMenu.removeHandler(nokia.maps.routing.component.ContextMenuHandler);
+	contextMenu.addHandler(myHandler);
+	map.components.add(contextMenu);
+}
+ 
+function makeRouteRequest(startPoint, endPoint){
+	var waypoints = new nokia.maps.routing.WaypointParameterList();
+ 
+	waypoints.addCoordinate(startPoint);
+	waypoints.addCoordinate(endPoint);
+		
+	var modes = [{    
+		type: "shortest",
+		transportModes: ["car"],
+		options: "avoidTollroad",
+		trafficMode: "default"
+	}];
+
+	router = new nokia.maps.routing.Manager(); 
+	router.addObserver("state", onRouteCalculated);
+	router.calculateRoute(waypoints, modes);
+}
+
+function onRouteCalculated (observedRouter, key, value){
+	if (value == "finished") {
+		var routes = observedRouter.getRoutes();
+		
+		//create the default map representation of a route
+		var mapRoute = 
+			new nokia.maps.routing.component.RouteResultSet(
+				routes[0]).container; //first option found
+		map.objects.add(mapRoute);
+		directionsRenderer.setRoute(routes[0]);
+		
+		//Zoom to the bounding box of the route
+		map.zoomTo(mapRoute.getBoundingBox(), false, "default");
+	} else if(value == "failed") {
+		alert("The routing request failed.");
+	}
+};    
+</script>
+</body>
+</html>

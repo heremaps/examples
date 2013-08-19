@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: A to B routing with Directions</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="extend,addDirectionsRenderer,makeRouteRequest,onRouteCalculated">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps,directions" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>  	
+    <script type="text/javascript" src="libs/directions-renderer.js"></script>
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Calculating a route between two points</h1>
+	<p>This example uses the routing manager to calculate a route between Berlin and Paris.
+		Directions instructions are written to the right of the map.
+	</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="directions" style="position:absolute; width:540px; top:30px; left:600px"></div>
+    <div id="src" style="width:540px;" ><br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+	</div>
+<script  type="text/javascript" >
+
+ function afterHereMapLoad(map){
+ 	this.map = map;
+ 	addDirectionsRenderer (map);
+ 	makeRouteRequest();
+ }
+ 
+ function addDirectionsRenderer (map){
+ 	map.addComponent(new nokia.maps.map.component.InfoBubbles());
+	//map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
+	
+ 	extend(DirectionsRenderer,
+		nokia.maps.map.component.Component);
+ 	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
+ 	map.addComponent(directionsRenderer); 
+
+}
+ 
+function makeRouteRequest(){
+	var waypoints = new nokia.maps.routing.WaypointParameterList();
+ 
+	waypoints.addCoordinate( 
+		new nokia.maps.geo.Coordinate(52.500556, 13.398889));  // Berlin, Germany
+	waypoints.addCoordinate( 
+		new nokia.maps.geo.Coordinate(48.856667, 2.350833));   // Paris, France
+		
+	var modes = [{    
+		type: "shortest",
+		transportModes: ["car"],
+		options: "avoidTollroad",
+		trafficMode: "default"
+	}];
+
+	router = new nokia.maps.routing.Manager(); 
+	router.addObserver("state", onRouteCalculated);
+	router.calculateRoute(waypoints, modes);
+}
+
+function onRouteCalculated (observedRouter, key, value){
+	if (value == "finished") {
+		var routes = observedRouter.getRoutes();
+		
+		//create the default map representation of a route
+		var mapRoute = 
+			new nokia.maps.routing.component.RouteResultSet(
+				routes[0]).container; //first option found
+		map.objects.add(mapRoute);
+		directionsRenderer.setRoute(routes[0]);
+		
+		//Zoom to the bounding box of the route
+		map.zoomTo(mapRoute.getBoundingBox(), false, "default");
+	} else if(value == "failed") {
+		alert("The routing request failed.");
+	}
+};    
+</script>
+</body>
+</html>
