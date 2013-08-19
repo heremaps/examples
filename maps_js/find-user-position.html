@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Locating the User</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="locateUser">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */     	
+    	data-params="maps" /*These are the features to load */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-callback="locateUser" /*This is the name of the callback method */ >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Locating the User</h1>
+	<p>This example finds the location of a user and display it on the map.</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+function locateUser(map){
+	if (nokia.maps.positioning.Manager) {
+		var positioning = new nokia.maps.positioning.Manager();
+		// Alternatively : navigator.geolocation.getCurrentPosition()
+		positioning.getCurrentPosition(
+			function (position) {
+				var coords = position.coords,
+				marker = new nokia.maps.map.StandardMarker(coords), 
+				accuracyCircle = new nokia.maps.map.Circle(coords, coords.accuracy);
+				map.objects.addAll([accuracyCircle, marker]);
+				map.zoomTo(accuracyCircle.getBoundingBox(), false, "default");
+			}, 
+			// Something went wrong we were unable to retrieve the GPS location
+			function (error) {
+				var errorMsg = "Location could not be determined: ";
+				errors = ["PERMISSION_DENIED", "POSITION_UNAVAILABLE","TIMEOUT"];
+				if (error.code < 4){
+					 errorMsg += errors[i-1]
+				} else {
+					 errorMsg += "UNKNOWN ERROR";
+				}
+				alert(errorMsg);
+			}, {maximumAge: 750}
+		);
+	}
+}
+</script>
+</body>
+</html>
