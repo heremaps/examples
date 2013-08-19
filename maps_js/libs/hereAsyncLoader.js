@@ -59,11 +59,13 @@
 	 	var onApiFeaturesLoaded = function(error) {
 	 		mapsNS = baseNS.maps.map;
 	    	authenticate(exports.HereMapsConstants.AppIdAndToken);
-	    	if (map === undefined){
-				var map = createMap(exports.HereMapsConstants.InitialLocation,
-					ctx.getElementById($(script).data('map-container'))),
-					callbackKey = $(script).data('callback');
-				exports[callbackKey](map);
+	    	if (map == null){
+	    		callbackKey = $(script).data('callback');
+	    		if ($(script).data('map-container')!== undefined){
+					map = createMap(exports.HereMapsConstants.InitialLocation,
+						ctx.getElementById($(script).data('map-container')));						
+				} 
+				exports[callbackKey](map);				
 			}
 		};
 		// This callback is run if an error occurs during the feature loading
