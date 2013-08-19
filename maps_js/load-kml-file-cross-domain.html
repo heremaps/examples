@@ -40,7 +40,7 @@ function afterHereMapLoad(map){
 }
 
 function loadCrossDomainKMLFile(map){
-	
+	jQuery.support.cors = true;
 	$.ajax({
 		type: "GET",
 		url: "http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml" ,
@@ -56,7 +56,7 @@ function onKMLFileLoaded(xml)
 	doc =  xml.getElementsByTagName('Document')[0];
 	kml.parse( doc);	
 }
-function onKMLFileLoadError (){
+function onKMLFileLoadError (err){
 	alert("An Error has occurred.");
 }
 
