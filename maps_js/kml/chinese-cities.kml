@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?><kml xmlns='http://www.opengis.net/kml/2.2'><Document>
+<Placemark id="1">
+   <name>Chongqing</name>
+   <description><![CDATA[<h2>&#37325;&#24198; </h2><br/>pop:4,802,511 <br/>urban:5,402,721]]></description>
+   <address>&amp;#37325;&amp;#24198;</address>
+    <Point><coordinates>106.55183,29.56256,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="2">
+   <name>Shanghai</name>
+   <description><![CDATA[<h2>&#19978;&#28023; </h2><br/>pop:25,607,016 <br/>urban:22,315,426]]></description>
+   <address>&amp;#19978;&amp;#28023;</address>
+    <Point><coordinates>121.47489,31.23037,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="3">
+   <name>Beijing</name>
+   <description><![CDATA[<h2>&#21271;&#20140; </h2><br/>pop:19,980,328 <br/>urban:18,827,000]]></description>
+   <address>&amp;#21271;&amp;#20140;</address>
+    <Point><coordinates>116.40707,39.90468,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="4">
+   <name>Chengdu</name>
+   <description><![CDATA[<h2>&#25104;&#37117; </h2><br/>pop:6,730,749 <br/>urban:7,123,697]]></description>
+   <address>&amp;#25104;&amp;#37117;</address>
+    <Point><coordinates>104.06478,30.6585,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="5">
+   <name>Tianjin</name>
+   <description><![CDATA[<h2>&#22825;&#27941; </h2><br/>pop:10,290,987 <br/>urban:11,090,314]]></description>
+   <address>&amp;#22825;&amp;#27941;</address>
+    <Point><coordinates>117.21462,39.12051,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="6">
+   <name>Guangzhou</name>
+   <description><![CDATA[<h2>&#24191;&#24030; </h2><br/>pop:41,230,000 <br/>urban:11,070,654]]></description>
+   <address>&amp;#24191;&amp;#24030;</address>
+    <Point><coordinates>113.26545,23.12886,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="7">
+   <name>Baoding</name>
+   <description><![CDATA[<h2>&#20445;&#23450; </h2><br/>pop:1,665,360 <br/>urban:1,028,000]]></description>
+   <address>&amp;#20445;&amp;#23450;</address>
+    <Point><coordinates>115.46458,38.87371,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="8">
+   <name>Suzhou</name>
+   <description><![CDATA[<h2>&#33487;&#24030; </h2><br/>pop:4,074,000 <br/>urban:4,074,000]]></description>
+   <address>&amp;#33487;&amp;#24030;</address>
+    <Point><coordinates>120.58291,31.29828,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="9">
+   <name>Shenzhen</name>
+   <description><![CDATA[<h2>&#28145;&#22323; </h2><br/>pop:10,357,938 <br/>urban:10,357,938]]></description>
+   <address>&amp;#28145;&amp;#22323;</address>
+    <Point><coordinates>114.05797,22.54273,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="10">
+   <name>Nanyang</name>
+   <description><![CDATA[<h2>&#21335;&#38451; </h2><br/>pop:1,672,171 <br/>urban:1,672,171]]></description>
+   <address>&amp;#21335;&amp;#38451;</address>
+    <Point><coordinates>112.5285,32.99099,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="11">
+   <name>Shijiazhuang</name>
+   <description><![CDATA[<h2>&#30707;&#23478;&#24196; </h2><br/>pop:3,833,606 <br/>urban:2,604,930]]></description>
+   <address>&amp;#30707;&amp;#23478;&amp;#24196;</address>
+    <Point><coordinates>114.51431,38.04298,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="12">
+   <name>Linyi</name>
+   <description><![CDATA[<h2>&#20020;&#27778; </h2><br/>pop:1,876,770 <br/>urban:1,876,770]]></description>
+   <address>&amp;#20020;&amp;#27778;</address>
+    <Point><coordinates>118.35646,35.10452,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="13">
+   <name>Harbin</name>
+   <description><![CDATA[<h2>&#21704;&#23572;&#28392; </h2><br/>pop:5,282,783 <br/>urban:4,517,549]]></description>
+   <address>&amp;#21704;&amp;#23572;&amp;#28392;</address>
+    <Point><coordinates>126.53586,45.80199,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="14">
+   <name>Wuhan</name>
+   <description><![CDATA[<h2>&#27494;&#27721; </h2><br/>pop:6,886,253 <br/>urban:6,434,373]]></description>
+   <address>&amp;#27494;&amp;#27721;</address>
+    <Point><coordinates>114.30542,30.59269,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="15">
+   <name>Handan</name>
+   <description><![CDATA[<h2>&#37039;&#37112; </h2><br/>pop:1,371,399 <br/>urban:946,159]]></description>
+   <address>&amp;#37039;&amp;#37112;</address>
+    <Point><coordinates>114.49363,36.61215,0</coordinates></Point>
+</Placemark>
+
+</Document></kml>
