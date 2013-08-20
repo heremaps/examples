@@ -2,20 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>HERE Maps API Example: Context Menu Routing with Directions</title>
+    <title>HERE Maps API Example: Combining Routing with Geocoding</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="extend,addDirectionsRenderer,addContextMenu,makeRouteRequest,onRouteCalculated">
+    	data-display-functions="setUpGeocodeBox,extend,addDirectionsRenderer,makeRouteRequest,onRouteCalculated">
     </script> 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
-    	data-params="maps,directions" /*These are the features to load */ 
+    	data-params="maps,directions,places" /*These are the features to load */ 
     	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
     </script>  	
     <script type="text/javascript" src="libs/directions-renderer.js"></script>
@@ -23,10 +23,21 @@
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
 <body>
-	<h1>Context Menu Routing with Directions</h1>
-	<p style="width:540px;">Right click on the map to set the start and end points of a journey. The direction
-		instructions are displayed to the right of the map.
+	<h1>Combining Routing with Geocoding - All Roads lead to Rome</h1>
+	<p style="width:540px;" >This example uses geocoding and a routing manager to calculate the
+		the calculate a route between one unknown location supplied by user input and one fixed point. (Rome)
+		Directions instructions are written to the right of the map.
 	</p>
+	
+	
+	<div style="width:500px; padding: 1em;">
+
+		<label for="fromSearchBox">Start Location </label><br/>              
+		<input type="text" id="fromSearchBox" value="Genoa"/>
+		<input  type="button" id="findRoute" value="Find Route to Rome" />
+		</br/> 
+	</div>
+	
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="directions" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102);"></div>
     <div id="src" style="width:540px;" ><br/>
@@ -38,52 +49,46 @@
 
  function afterHereMapLoad(map){
  	this.map = map;
- 	map.set("zoomLevel", 10);
- 	addDirectionsRenderer (map);
- 	addContextMenu(map);
- }
- 
- function addDirectionsRenderer (map){
+ 	map.set("zoomLevel", 6);
+ 	map.set("center", [43.674, 10.999] );
+ 	
  	infoBubbles = new nokia.maps.map.component.InfoBubbles();
  	infoBubbles.options.defaultWidth = 200;
  	infoBubbles.options.width = 200;
  	map.addComponent(infoBubbles);
-	map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
+ 	addDirectionsRenderer (map);
+ 	setUpGeocodeBox();
+
+ }
+ 
+function setUpGeocodeBox(){
+	endPoint =  new nokia.maps.geo.Coordinate(41.897,12.792); // Rome, Italy
+	$("#findRoute" ).click(function() {
+		var freetext = $("#fromSearchBox" ).val();
+		nokia.places.search.manager.geoCode({
+                 searchTerm : freetext,
+			onComplete:  function (data, requestStatus) {
+				if (requestStatus == "OK") {
+					startPoint  = data.location.position; 
+					makeRouteRequest(startPoint, endPoint);	
+				} else if(requestStatus === "ERROR") {
+					alert("error");				
+				}
+		}
+		});
+	});
+}
+
+ 
+ function addDirectionsRenderer (map){
+ 	map.addComponent(new nokia.maps.map.component.InfoBubbles());
+	//map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
 	
  	extend(DirectionsRenderer,
 		nokia.maps.map.component.Component);
  	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
  	map.addComponent(directionsRenderer); 
-}
 
-function addContextMenu(map){
-	var startPoint;
-	var endPoint;
-	
-	contextMenu = new nokia.maps.map.component.ContextMenu();
-	var myHandler = function(contextMenuEvent, group) {
-	
-		group.addEntry(
-			"Directions from Here",
-			function(activationEvent) {
-				startPoint = map.pixelToGeo(contextMenuEvent.targetX, contextMenuEvent.targetY);
-				if (endPoint !== undefined){
-					makeRouteRequest(startPoint,endPoint);
-				}
-		});
-		group.addEntry(
-			"Directions to Here",
-			function(activationEvent) {
-				endPoint  = map.pixelToGeo(contextMenuEvent.targetX, contextMenuEvent.targetY);
-				if (startPoint !== undefined){
-					makeRouteRequest(startPoint,endPoint);
-				}
-		});
-
-	}
-	contextMenu.removeHandler(nokia.maps.routing.component.ContextMenuHandler);
-	contextMenu.addHandler(myHandler);
-	map.components.add(contextMenu);
 }
  
 function makeRouteRequest(startPoint, endPoint){
@@ -112,7 +117,6 @@ function onRouteCalculated (observedRouter, key, value){
 		var mapRoute = 
 			new nokia.maps.routing.component.RouteResultSet(
 				routes[0]).container; //first option found
-		map.objects.clear();
 		map.objects.add(mapRoute);
 		directionsRenderer.setRoute(routes[0]);
 		

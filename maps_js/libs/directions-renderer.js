@@ -17,6 +17,32 @@ function  DirectionsRenderer(panel) {
 	this.panel = panel;
 	that = this;
 	var map,nodeOL,bubble;
+	
+	// ensure CSS is injected
+ var directionsStyleNode = document.createElement('style');
+ directionsStyleNode.type = 'text/css';
+ var css = '.manuever_instruction{' +
+		' line-height: 130%; ' +
+		' font-size: 11px; '+
+		' font-family: "Lucida Grande",'+
+		'"Lucida Sans Unicode",Arial,Helvetica,sans-serif; '+		  	  
+	'}' +
+	'.manuever_instruction .heading, '+
+	'.manuever_instruction .length, '+
+	'.manuever_instruction .direction{' +
+		' font-weight: bold; '+ 			  	  
+	'}' ;
+	
+	
+	
+	
+
+if (directionsStyleNode.styleSheet) { // IE
+    directionsStyleNode.styleSheet.cssText = css;
+} else {
+    directionsStyleNode.appendChild(document.createTextNode(css));
+}
+document.body.appendChild(directionsStyleNode);
 
 
 this.getInfobubbles = function() {
@@ -96,7 +122,6 @@ this.setRoute = function  (route) {
 		nodeOL.parentNode.removeChild(nodeOL);
 		if ((this.bubble !== undefined)&& 
 			(this.bubble.getState() == "opened" )){
-			debugger;
 			this.bubble.close();
 		}
 	}
@@ -148,7 +173,10 @@ this.setRoute = function  (route) {
 						}
 					};
 					details.appendChild (document.createTextNode(' '));
-					details.appendChild (addText(instructions));
+					manueverText = addText(instructions);
+					manueverText.className  ="manuever_instruction";
+					details.appendChild (manueverText);
+					
 					nodeOL.appendChild(details);
 			  }
 		}

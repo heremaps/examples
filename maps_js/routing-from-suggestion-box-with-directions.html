@@ -2,20 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>HERE Maps API Example: Context Menu Routing with Directions</title>
+    <title>HERE Maps API Example: Routing with Directions using Places Suggestions</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="extend,addDirectionsRenderer,addContextMenu,makeRouteRequest,onRouteCalculated">
+    	data-display-functions="setUpSuggestionBoxes,extend,addDirectionsRenderer,makeRouteRequest,onRouteCalculated">
     </script> 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
-    	data-params="maps,directions" /*These are the features to load */ 
+    	data-params="maps,directions,places" /*These are the features to load */ 
     	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
     </script>  	
     <script type="text/javascript" src="libs/directions-renderer.js"></script>
@@ -23,10 +23,34 @@
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
 <body>
-	<h1>Context Menu Routing with Directions</h1>
-	<p style="width:540px;">Right click on the map to set the start and end points of a journey. The direction
-		instructions are displayed to the right of the map.
+	<h1>Calculating a route between two points using the Places Suggestion Box</h1>
+	<p style="width:540px;" >This example uses a pair of places suggestions boxes to populate the
+	routing manager and calculate a route between two loacations.
+		Directions instructions are written to the right of the map.
 	</p>
+	
+	
+	<div style="width:500px; padding: 1em;">
+		<a class="anchor" name="Customized suggestion list"></a>
+		<div id="fromSearchBox" class="main-search">
+			<span class ="caption">from:</span>
+			<div module="SearchBox">
+				<input rel="searchbox-input" class="search-box-bckgrnd" type="text" />
+				<div rel="searchbox-list" class="search-list"></div>
+			</div>
+		</div>
+		<div id="toSearchBox" class="main-search">
+			<span class ="caption">To:</span>
+			<div module="SearchBox">
+				<input rel="searchbox-input" class="search-box-bckgrnd" type="text" />
+				<div rel="searchbox-list" class="search-list"></div>
+			</div>
+		</div>
+		
+		<input  type="button" id="findRoute" value="Find Route" />
+		</br/> 
+	</div>
+	
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="directions" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102);"></div>
     <div id="src" style="width:540px;" ><br/>
@@ -38,52 +62,51 @@
 
  function afterHereMapLoad(map){
  	this.map = map;
- 	map.set("zoomLevel", 10);
- 	addDirectionsRenderer (map);
- 	addContextMenu(map);
- }
- 
- function addDirectionsRenderer (map){
  	infoBubbles = new nokia.maps.map.component.InfoBubbles();
  	infoBubbles.options.defaultWidth = 200;
  	infoBubbles.options.width = 200;
  	map.addComponent(infoBubbles);
-	map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
+ 	addDirectionsRenderer (map);
+ 	setUpSuggestionBoxes();
+
+ }
+ 
+function setUpSuggestionBoxes(){
+	var fromSearchBox = new nokia.places.widgets.SearchBox({
+		targetNode: "fromSearchBox",
+		template: "fromSearchBox",
+		map: map,
+		onResults: function (data) {
+			// The argument data, which is an instance of nokia.places.objectsSearchResponseView
+			// contains the search results
+			startPoint =data.results.items[0].position;
+		}
+	});
+	
+	var toSearchBox = new nokia.places.widgets.SearchBox({
+		targetNode: "toSearchBox",
+		template: "toSearchBox",
+		map: map,
+		onResults: function (data) {
+			// The argument data, which is an instance of nokia.places.objectsSearchResponseView
+			// contains the search results
+			endPoint = data.results.items[0].position;
+		}
+	});
+	$( "#findRoute" ).click(function() {
+		makeRouteRequest(startPoint, endPoint);
+});
+}
+ 
+ function addDirectionsRenderer (map){
+ 	map.addComponent(new nokia.maps.map.component.InfoBubbles());
+	//map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
 	
  	extend(DirectionsRenderer,
 		nokia.maps.map.component.Component);
  	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
  	map.addComponent(directionsRenderer); 
-}
 
-function addContextMenu(map){
-	var startPoint;
-	var endPoint;
-	
-	contextMenu = new nokia.maps.map.component.ContextMenu();
-	var myHandler = function(contextMenuEvent, group) {
-	
-		group.addEntry(
-			"Directions from Here",
-			function(activationEvent) {
-				startPoint = map.pixelToGeo(contextMenuEvent.targetX, contextMenuEvent.targetY);
-				if (endPoint !== undefined){
-					makeRouteRequest(startPoint,endPoint);
-				}
-		});
-		group.addEntry(
-			"Directions to Here",
-			function(activationEvent) {
-				endPoint  = map.pixelToGeo(contextMenuEvent.targetX, contextMenuEvent.targetY);
-				if (startPoint !== undefined){
-					makeRouteRequest(startPoint,endPoint);
-				}
-		});
-
-	}
-	contextMenu.removeHandler(nokia.maps.routing.component.ContextMenuHandler);
-	contextMenu.addHandler(myHandler);
-	map.components.add(contextMenu);
 }
  
 function makeRouteRequest(startPoint, endPoint){
@@ -112,7 +135,6 @@ function onRouteCalculated (observedRouter, key, value){
 		var mapRoute = 
 			new nokia.maps.routing.component.RouteResultSet(
 				routes[0]).container; //first option found
-		map.objects.clear();
 		map.objects.add(mapRoute);
 		directionsRenderer.setRoute(routes[0]);
 		
