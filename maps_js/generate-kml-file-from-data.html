@@ -108,7 +108,13 @@ function afterHereMapLoad(map){
  function addKMLGenerator (map){	
  	extend(KMLGenerator,
 		nokia.maps.map.component.Component);
- 	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"));
+ 	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
+ 		datasource : "$data",
+ 		id :"id",
+		description: "description",
+		name: "name",
+		address: "address",
+		styleURL: "styleURL" });
  	map.addComponent(kmlGenerator); 
 }
  

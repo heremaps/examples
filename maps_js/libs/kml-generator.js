@@ -12,8 +12,9 @@ function extend(B, A) {
 	B.prototype.constructor = B;
 }
 
-function  KMLGenerator(panel) {
+function  KMLGenerator(panel, options) {
 	this.panel = panel;
+	this.options = options;
 	that = this;
 
 var toUnicode = function  (prefix, input){
@@ -33,37 +34,61 @@ var toUnicode = function  (prefix, input){
 		return output;
 };
 
-var getMarkerData = function(){
-	markers = new Array();
+var getMarkerData = function(objects){
+	
 
-	for (i=0; i< that.map.objects.getLength(); i++) {
-		if ( that.map.objects.get(i) instanceof nokia.maps.map.Marker ) {
-			 // Retrieve all the Marker data and add it to an array
-			 var markerData = new Object();
-			 markerData.id = toUnicode("&amp;#",that.map.objects.get(i).$data.id);
-			 markerData.latitude = that.map.objects.get(i).coordinate.latitude;
-			 markerData.longitude = that.map.objects.get(i).coordinate.longitude;
-
-			 markerData.description =  toUnicode("&#", that.map.objects.get(i).$data.description);    //map.objects.get(i).$data.description.toUnicodeCDATA();
-			 markerData.name = toUnicode("&amp;#",that.map.objects.get(i).$data.name);
-			 markerData.address = toUnicode("&amp;#",that.map.objects.get(i).$data.address);
-
-			  markerData.styleURL = that.map.objects.get(i).$data.styleURL;
-
+	for (i=0; i< objects.getLength(); i++) {
+		if ( objects.get(i) instanceof nokia.maps.map.Marker ) {
+			// Retrieve all the Marker data and add it to an array
+			var markerData = new Object();
+			var dataSource = (that.options.datasource !== undefined) ?
+				objects.get(i)[that.options.datasource] : objects.get(i);
+			if (that.options.id !== undefined){
+				markerData.id = toUnicode("&amp;#",
+					dataSource[that.options.id]);
+			}
+			markerData.latitude = objects.get(i).coordinate.latitude;
+			markerData.longitude = objects.get(i).coordinate.longitude;
+			if (that.options.description !== undefined){
+				markerData.description =  toUnicode("&#", 
+					dataSource[that.options.description]);    //map.objects.get(i).$data.description.toUnicodeCDATA();
+			}
+			if (that.options.name !== undefined){
+				markerData.name = toUnicode("&amp;#",
+				dataSource[that.options.name]);
+			}
+			if (that.options.address !== undefined){
+				markerData.address = toUnicode("&amp;#",
+					dataSource[that.options.address]);
+			}
+			if (that.options.styleURL !== undefined){
+				markerData.styleURL = dataSource[that.options.styleURL];
+			} else {
+				if (dataSource.icon  !== undefined && dataSource.icon.src  !== undefined ){
+					markerData.href = dataSource.icon.src;
+				} else if (dataSource.brush !== undefined) {
+			 		markerData.color = dataSource.brush.color;
+				}
+			}
 			markers.push(markerData);
 
+		} else if ( objects.get(i) instanceof nokia.maps.map.Container ) {
+			getMarkerData(objects.get(i).objects);
 		}
 	}
 }
 
 this.generateKML = function() {
 
-	getMarkerData();	
+	markers = new Array();
+	getMarkerData(that.map.objects);	
 
 	// Now output the KML, start with the header.
 	 kmlOutput = "<?xml version='1.0' encoding='UTF-8'?><"+"kml xmlns='http://www.opengis.net/kml/2.2'><"+"Document>\n";
 
-
+	if (that.options.defaultStyles !== undefined){
+		kmlOutput = kmlOutput + that.options.defaultStyles;
+	}
 
 	// Loop nthrough the markers and add Point Placemarks
 	for (i=0; i< markers.length; i ++){
@@ -103,10 +128,14 @@ this.generateKML = function() {
 
 		kmlOutput = kmlOutput + "    <"+"Point><"+"coordinates>"  + markers[i].longitude + "," + markers[i].latitude + ",0<\/coordinates><\/Point>\n";
 
-		if ( markers[i].styleURL === undefined ){
-			// Do Nothing if no style URL entered as it is optional
-		} else if  ( markers[i].styleURL == ""){
-			// Do Nothing if no style URL  entered as it is optional
+		if ( markers[i].styleURL === undefined ||  markers[i].styleURL == ""){
+			if ( markers[i].href === undefined ){
+				kmlOutput = kmlOutput + "    <styleUrl>" +  markers[i].color + "</styleUrl>\n";						
+			}  else {	
+				kmlOutput = kmlOutput + "    <Style><IconStyle><Icon>";
+				kmlOutput = kmlOutput + "<href>" +  markers[i].href + "</href>";
+				kmlOutput = kmlOutput + "	</Icon></IconStyle></Style>\n";
+			}
 		} else {
 			kmlOutput = kmlOutput + "    <"+"styleUrl>#" + markers[i].styleURL +"<\/styleUrl>\n";
 		}
