@@ -9,7 +9,7 @@
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="loadKMLFile,onKMLParsed">
+    	data-display-functions="extend,addKMLGenerator,buttonSetUp">
     </script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
@@ -26,7 +26,9 @@
 	<h1>KML Placemark Generator</h1>
 	<div style="width:500px;margin:1em" >
 		<p>This example is able to covert an arbitrary HERE Map to KML. The sample file shows the
-		location of football grounds in the English Prermier League</p>
+		location of football grounds in the English Premier League</p>
+		
+		 <p>The result can be seen in the  <a href="./load-kml-premier-league-football-teams.html">Premier League Football</a>
 		
 		<div style="height: 2.0em; font-size: 2em; color: blue;">Generate KML from Map Objects:	
 			<input id="generateKML" type="button" value="Generate"  />
