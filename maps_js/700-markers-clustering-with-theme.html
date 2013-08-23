@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Adding 700 Markers on a Map</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="clusterDataPoints">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps,datarendering" /*These are the features to load */ 
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>
+    <script type="text/javascript" src="libs/random-point-generator.js"></script>
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Adding 700 Markers on a Map (Custom Theme)</h1>
+	<p>700 data points are added to a map.They are clustered using the standard
+		clustering algorthm and displayed using a custom theme.</p>
+	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+	
+	
+
+function afterHereMapLoad(map){
+	this.map = map;
+	map.set("zoomLevel", 2);
+	map.set("center", [30, -54]);
+	pointGenerator =  new randomLocationGenerator(10);
+	$("#ticker").text("Generating 700 Coordinates. Please Wait");
+	pointGenerator.createCoordinates(onCoordinatesCreated);
+}  
+
+function onCoordinatesCreated(data){
+	$("#ticker").text("");
+	initialiseSVGParser();
+	clusterDataPoints(data);
+}
+
+
+function clusterDataPoints(data){
+	
+	var svgTheme ={
+		// Add a SVG Marker for Clusters.
+		getClusterPresentation :  function (dataPoints) {
+			if (dataPoints.getSize() > 0){
+				var markerIcon = createIcon(dataPoints.getSize());
+				return new nokia.maps.map.Marker(dataPoints.getBounds().getCenter() , 
+					{icon: markerIcon}
+				);
+			}
+		},
+		// Add a Standard Marker for Noise Points.
+		getNoisePresentation :  function (dataPoint) {
+			return new nokia.maps.map.StandardMarker ([dataPoint.latitude, dataPoint.longitude]);
+		}
+	};
+
+	clusterProvider = new nokia.maps.clustering.ClusterProvider(map, {
+		eps: 16,
+		minPts: 1,
+		dataPoints: data,
+		theme : svgTheme
+
+	});
+	clusterProvider.cluster();
+	
+}
+
+function initialiseSVGParser(){
+	this.svgParser = new nokia.maps.gfx.SvgParser(),
+		createIcon = function (count, mainColor) {
+			var digit= Math.min (3,4-Math.floor(Math.log(count)/Math.log(10)));
+			for (var i in stops) {
+				if (count > i){
+					color = stops[i];
+				}
+			}
+			var svg = iconSVG[digit]
+				.replace(/__TEXTCONTENT__/g, count)
+				.replace(/__TEXT__/g, count)
+				.replace(/__MAINCOLOR__/g, color);
+			return new nokia.maps.gfx.GraphicsImage(svgParser.parseSvg(svg));
+	},
+	iconSVG = 
+		[
+		'<svg width="51" height="51" xmlns="http://www.w3.org/2000/svg">' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="25" cy="25" r="25" stroke-width="2" />' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="25" cy="25" r="21" stroke-width="2"/>' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="25" cy="25" r="17" stroke-width="2"/>' +
+		'<text x="25" y="29" font-size="10pt" font-family="arial" font-weight="bold" text-anchor="middle" fill="#FFF" textContent="__TEXTCONTENT__">__TEXT__</text>' +
+		'</svg>',
+		'<svg width="47" height="47" xmlns="http://www.w3.org/2000/svg">' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="23" cy="23" r="23" stroke-width="2" />' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="23" cy="23" r="19" stroke-width="2"/>' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="23" cy="23" r="15" stroke-width="2"/>' +
+		'<text x="23" y="27" font-size="10pt" font-family="arial" font-weight="bold" text-anchor="middle" fill="#FFF" textContent="__TEXTCONTENT__">__TEXT__</text>' +
+		'</svg>',
+		'<svg width="43" height="43" xmlns="http://www.w3.org/2000/svg">' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="21" cy="21" r="21" stroke-width="2" />' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="21" cy="21" r="17" stroke-width="2"/>' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="21" cy="21" r="13" stroke-width="2"/>' +
+		'<text x="21" y="25" font-size="10pt" font-family="arial" font-weight="bold" text-anchor="middle" fill="#FFF" textContent="__TEXTCONTENT__">__TEXT__</text>' +
+		'</svg>',
+		'<svg width="39" height="39" xmlns="http://www.w3.org/2000/svg">' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="19" cy="19" r="19" stroke-width="2" />' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="19" cy="19" r="15" stroke-width="2"/>' +
+		'<circle stroke="#FFF" fill="__MAINCOLOR__" cx="19" cy="19" r="11" stroke-width="2"/>' +
+		'<text x="19" y="23" font-size="10pt" font-family="arial" font-weight="bold" text-anchor="middle" fill="#FFF" textContent="__TEXTCONTENT__">__TEXT__</text>' +
+		'</svg>'],
+	 stops = {
+		"0": "#8A8A8A",       //Grey for 0-10
+		"10": "#CACA00",  //Yellow for 11-50
+		"50": "#00CC00",	//Green for 51-100
+		"100": "#0000CC",  //Blue for 101-200
+		"200": "#CC00CC",	//Purple for 201-500
+		"500": "#FF0000"	  //Red for over 500
+	};
+}
+</script>
+</body>
+</html>
