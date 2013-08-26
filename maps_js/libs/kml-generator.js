@@ -16,6 +16,7 @@ function  KMLGenerator(panel, options) {
 	this.panel = panel;
 	this.options = options;
 	that = this;
+	var preNode;
 
 var toUnicode = function  (prefix, input){
 		var output = "";
@@ -34,54 +35,81 @@ var toUnicode = function  (prefix, input){
 		return output;
 };
 
-var getMarkerData = function(objects){
+var getPlaceMarkData = function(objects){
 	
-
+	
 	for (i=0; i< objects.getLength(); i++) {
 		if ( objects.get(i) instanceof nokia.maps.map.Marker ) {
 			// Retrieve all the Marker data and add it to an array
-			var markerData = new Object();
+			var placemark = new Object();
 			var dataSource = (that.options.datasource !== undefined) ?
 				objects.get(i)[that.options.datasource] : objects.get(i);
 			if (that.options.id !== undefined){
-				markerData.id = toUnicode("&amp;#",
+				placemark.id = toUnicode("&amp;#",
 					dataSource[that.options.id]);
 			}
-			markerData.latitude = objects.get(i).coordinate.latitude;
-			markerData.longitude = objects.get(i).coordinate.longitude;
+			placemark.latitude = objects.get(i).coordinate.latitude;
+			placemark.longitude = objects.get(i).coordinate.longitude;
 			if (that.options.description !== undefined){
-				markerData.description =  toUnicode("&#", 
+				placemark.description =  toUnicode("&#", 
 					dataSource[that.options.description]);    //map.objects.get(i).$data.description.toUnicodeCDATA();
 			}
 			if (that.options.name !== undefined){
-				markerData.name = toUnicode("&amp;#",
+				placemark.name = toUnicode("&amp;#",
 				dataSource[that.options.name]);
 			}
 			if (that.options.address !== undefined){
-				markerData.address = toUnicode("&amp;#",
+				placemark.address = toUnicode("&amp;#",
 					dataSource[that.options.address]);
 			}
-			if (that.options.styleURL !== undefined){
-				markerData.styleURL = dataSource[that.options.styleURL];
+			if (that.options.styleURL !== undefined &&
+				dataSource[that.options.styleURL] !== undefined ){
+				placemark.styleURL = dataSource[that.options.styleURL];
 			} else {
 				if (dataSource.icon  !== undefined && dataSource.icon.src  !== undefined ){
-					markerData.href = dataSource.icon.src;
+					placemark.href = dataSource.icon.src;
 				} else if (dataSource.brush !== undefined) {
-			 		markerData.color = dataSource.brush.color;
+			 		placemark.color = dataSource.brush.color;
+				} else if (objects.get(i).icon  !== undefined && objects.get(i).icon.src  !== undefined ){
+					placemark.href = objects.get(i).icon.src;
+				} else if (objects.get(i).brush !== undefined) {
+			 		placemark.color = objects.get(i).brush.color;
 				}
 			}
-			markers.push(markerData);
+			placemarks.push(placemark);
 
 		} else if ( objects.get(i) instanceof nokia.maps.map.Container ) {
-			getMarkerData(objects.get(i).objects);
-		}
+			getPlaceMarkData(objects.get(i).objects);
+		} else if( map.objects.get(i) instanceof nokia.maps.map.Polyline ){
+			// Retrieve all the Polyline data and add it to an array
+			var lineString = new Object();
+			var dataSource = (that.options.datasource !== undefined) ?
+				objects.get(i)[that.options.datasource] : objects.get(i);
+			var path =  map.objects.get(i).path.asArray();
+			var geocoords = new Array();
+			// Ensure we have all the Geo-coordinates longitude and latitude.
+			for (j=0; j< path.length; j = j + 3){
+				var geocoord = new Object();
+				geocoord.latitude = path[j];
+				   geocoord.longitude = path[j+ 1];
+				   geocoords.push(geocoord); 
+				}
+				lineString.coordinates = geocoords;          
+				if (that.options.styleURL !== undefined &&
+					dataSource[that.options.styleURL] !== undefined ){
+					lineString.styleURL = dataSource[that.options.styleURL];
+				}
+				lineStrings.push( lineString);
+			}         
 	}
 }
 
 this.generateKML = function() {
 
-	markers = new Array();
-	getMarkerData(that.map.objects);	
+	placemarks = new Array();
+	lineStrings = new Array();
+	getPlaceMarkData(that.map.objects);	
+
 
 	// Now output the KML, start with the header.
 	 kmlOutput = "<?xml version='1.0' encoding='UTF-8'?><"+"kml xmlns='http://www.opengis.net/kml/2.2'><"+"Document>\n";
@@ -89,55 +117,77 @@ this.generateKML = function() {
 	if (that.options.defaultStyles !== undefined){
 		kmlOutput = kmlOutput + that.options.defaultStyles;
 	}
+	
+	for (i=0; i< lineStrings.length; i ++){
+	
+		kmlOutput = kmlOutput + "<Placemark>\n";
+		kmlOutput = kmlOutput + "   <LineString>\n"  
+		kmlOutput = kmlOutput + "       <coordinates>"  
+		for (j=0; j< lineStrings[i].coordinates.length; j++){
+			kmlOutput = kmlOutput + lineStrings[i].coordinates[j].longitude + 
+				"," + lineStrings[i].coordinates[j].latitude + ",0\n";
+		}
+		kmlOutput = kmlOutput + "       <\/coordinates>\n"  
+		kmlOutput = kmlOutput + "   <\/LineString>\n";
+		
+		if ( lineStrings[i].styleURL === undefined ){
+			// Do Nothing if no StyleURL entered as it is optional
+		} else if  ( lineStrings[i].styleURL == ""){
+			// Do Nothing if no StyleURL entered as it is optional
+		} else {
+			kmlOutput = kmlOutput + "   <styleUrl>" + lineStrings[i].styleURL +"<\/styleUrl>\n";
+		}
+		kmlOutput = kmlOutput + "<\/Placemark>\n";
+	}
 
 	// Loop nthrough the markers and add Point Placemarks
-	for (i=0; i< markers.length; i ++){
+	for (i=0; i< placemarks.length; i ++){
 
-		if ( markers[i].id === undefined ){
+		if ( placemarks[i].id === undefined ){
 				kmlOutput = kmlOutput + "<"+"Placemark>\n";
-		} else if  ( markers[i].id == ""){
+		} else if  ( placemarks[i].id == ""){
 				kmlOutput = kmlOutput + "<"+"Placemark>\n";
 		} else {
 			  kmlOutput = kmlOutput + "<"+"Placemark id=\"" +
-				 markers[i].id +"\">\n";
+				 placemarks[i].id +"\">\n";
 		}
 
-		if ( markers[i].name === undefined ){
+		if ( placemarks[i].name === undefined ){
 			// Do Nothing  if no name entered as it is optional
-		} else if  ( markers[i].name == ""){
+		} else if  ( placemarks[i].name == ""){
 		   // Do Nothing if no name entered as it is optional
 		} else {
-				kmlOutput = kmlOutput + "   <"+"name>" +  markers[i].name +"<\/name>\n";
+				kmlOutput = kmlOutput + "   <"+"name>" +  placemarks[i].name +"<\/name>\n";
 		}
 
-		if ( markers[i].description === undefined ){
+		if ( placemarks[i].description === undefined ){
 			// Do Nothing if no description entered as it is optional
-		} else if  ( markers[i].description == ""){
+		} else if  ( placemarks[i].description == ""){
 			kmlOutput = kmlOutput + "   <"+"description/>\n";
 		} else {
-			kmlOutput = kmlOutput + "   <"+"description><![CDATA[" +  markers[i].description +"]]><\/description>\n";
+			kmlOutput = kmlOutput + "   <"+"description><![CDATA[" +  placemarks[i].description +"]]><\/description>\n";
 		}
 
-		if ( markers[i].address === undefined ){
+		if ( placemarks[i].address === undefined ){
 			// Do Nothing if no address entered as it is optional
-		} else if  ( markers[i].address == ""){
+		} else if  ( placemarks[i].address == ""){
 		   // Do Nothing if no address entered as it is optional
 		} else {
-		   kmlOutput = kmlOutput + "   <"+"address>" +  markers[i].address +"<\/address>\n";
+		   kmlOutput = kmlOutput + "   <"+"address>" +  placemarks[i].address +"<\/address>\n";
 		}
 
-		kmlOutput = kmlOutput + "    <"+"Point><"+"coordinates>"  + markers[i].longitude + "," + markers[i].latitude + ",0<\/coordinates><\/Point>\n";
+		kmlOutput = kmlOutput + "    <"+"Point><"+"coordinates>"  + placemarks[i].longitude + "," + placemarks[i].latitude + ",0<\/coordinates><\/Point>\n";
 
-		if ( markers[i].styleURL === undefined ||  markers[i].styleURL == ""){
-			if ( markers[i].href === undefined ){
-				kmlOutput = kmlOutput + "    <styleUrl>" +  markers[i].color + "</styleUrl>\n";						
-			}  else {	
+		if ( placemarks[i].styleURL === undefined ||  placemarks[i].styleURL == ""){
+			if ( placemarks[i].href === undefined &&  placemarks[i].color !== undefined ){
+					kmlOutput = kmlOutput + "    <styleUrl>" +  placemarks[i].color + "</styleUrl>\n";				
+			}  else if  (placemarks[i].href !== undefined) {	
 				kmlOutput = kmlOutput + "    <Style><IconStyle><Icon>";
-				kmlOutput = kmlOutput + "<href>" +  markers[i].href + "</href>";
+				kmlOutput = kmlOutput + "<href>" +  placemarks[i].href + "</href>";
 				kmlOutput = kmlOutput + "	</Icon></IconStyle></Style>\n";
 			}
-		} else {
-			kmlOutput = kmlOutput + "    <"+"styleUrl>#" + markers[i].styleURL +"<\/styleUrl>\n";
+		} else  {
+			kmlOutput = kmlOutput + "    <"+"styleUrl>#" + placemarks[i].styleURL +"<\/styleUrl>\n";
 		}
 
 		kmlOutput = kmlOutput + "<\/Placemark>\n\n";
@@ -149,10 +199,16 @@ this.generateKML = function() {
   }
   
 var outputToPanel = function (text){
-	textNode = document.createTextNode(text);
-	var preNode = document.createElement("pre");
+	
+	
+	if (preNode !== undefined){
+		preNode.parentNode.removeChild(preNode);
+	}
+	
+	preNode = document.createElement("pre");
 	var spanNode =  document.createElement("span"); 
 	var codeNode =  document.createElement("code");
+	var textNode = document.createTextNode(text);
 
 	codeNode.appendChild(textNode);
 	spanNode.appendChild(codeNode);
