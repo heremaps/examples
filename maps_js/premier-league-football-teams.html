@@ -21,6 +21,16 @@
     <script type="text/javascript" src="libs/kml-generator.js"></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <style type="text/css">
+    	
+    	#kmlData {position:absolute; 
+    		top:10px; left:600px;
+    		color: rgb(102, 102, 102);
+    		height:500px;
+    		margin: 0em;
+    		overflow:auto;	
+    	}
+    </style>
 </head>
 <body>
 	<h1>KML Placemark Generator</h1>
@@ -34,9 +44,9 @@
 			<input id="generateKML" type="button" value="Generate"  />
 		</div>
 
-    	<div id="mapContainer" style="width:540px; height:334px;">
+    	<div id="mapContainer" style="width:540px; height:334px;"></div>
 	</div>
-    <div id="kmlData" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102);"></div>
+    <div id="kmlData"></div>
     <div id="src" style="width:100%" ><p>Code:</p></div>
 <script  type="text/javascript" >
 function afterHereMapLoad(map){

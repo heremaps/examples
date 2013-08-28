@@ -18,15 +18,37 @@
     	data-params="maps" /*These are the features to load */
     	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
     </script>
+    <script type="text/javascript" src="libs/sidebar-control.js"></script>
+    
     <script type="text/javascript" src="data/election-result-data-for-german-states.js" /></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <style type="text/css">
+    	
+    	#sidebar {position:absolute; 
+    		 
+    		top:40px; left:550px;
+    		color: rgb(102, 102, 102);
+
+    		height:300px;
+    		margin: 0em;
+    	}
+
+		#sidebar .nm_sidebar{
+					
+			list-style: none;
+			width:250px;
+			height:270px;
+    		overflow:auto;		  	  			  	  
+		}
+	</style>
 </head>
 <body>
-	<h1>Addding Multiple Bar Charts to the Map</h1>
+	<h1>Adding Multiple Bar Charts to the Map</h1>
 	<p>The example shows a series of bars showing the size and composition of
 		the state legislatures in Germany.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="sidebar"></div>
     <div id="src" style="width:100%" ><p>Code:</p></div>
         <script type="text/javascript">
 function afterHereMapLoad(map){
@@ -34,8 +56,16 @@ function afterHereMapLoad(map){
 	map.set( "zoomLevel", 6 );
 	map.set( "center" ,[52.500556, 13.398889]);
 	map.components.add(infoBubbles);
-
-	map.objects.add(createMarkerBars(popData));
+	
+	extend(Sidebar,
+		nokia.maps.map.Container);
+	container =  new Sidebar(document.getElementById("sidebar"),
+		{title : "title"});
+ 	container.addListener("click" ,  function(evt) {
+		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);
+			}, false);
+	createMarkerBars(container, popData);
+	map.objects.add(container);
 }
 function barChart(stops, tick) {
 	this.stops = stops; 
@@ -75,12 +105,9 @@ function barChart(stops, tick) {
 
 
 
-function createMarkerBars(popData){
+function createMarkerBars(container, popData){
 
-	container = new nokia.maps.map.Container();
- 	container.addListener("click" ,  function(evt) {
-		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);
-			}, false);
+	
 
 	var  i = popData.length;
 	var tick = 2; // 12 thousand inhabitants = 1 pixel height
@@ -112,10 +139,10 @@ function createMarkerBars(popData){
 				 	+ popData[i].values[5] + "<br/>": html;
 
 		marker.html = html;
+		marker.title = popData[i].name;
 		container.objects.add(marker);
 	}
 
-	return container;
 }
         </script>
     </body>

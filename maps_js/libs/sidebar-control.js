@@ -79,10 +79,7 @@ function  Sidebar(panel, options) {
 		};
 		var text =  (that.options.title !== undefined) ?  
 			element[that.options.title] : getType(element);
-		var textNode = (text !== undefined)?
-			 document.createTextNode(text): document.createTextNode(getType(element));
-		liNode.appendChild(textNode);
-
+		liNode.innerHTML= (text !== undefined) ? text : getType(element);
 		
 		if (operation == "add"){
 			if (idx == olNode.childNodes.length){
