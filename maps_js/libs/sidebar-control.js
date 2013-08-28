@@ -15,7 +15,7 @@ function  Sidebar(panel, options) {
 	this.panel = panel;
 	this.options = options;
 	that = this;
-	var ulNode;
+	var olNode;
 	
 	var styleNode = document.createElement('style');
 	styleNode.type = 'text/css';
@@ -40,10 +40,10 @@ function  Sidebar(panel, options) {
 		}
 	);
 	this.addListener("click" ,  function(evt) {
-		if (ulNode !== undefined){
-			for (var i = 0; i < ulNode.childNodes.length; i++){
-				ulNode.childNodes[i].className =
-					(ulNode.childNodes[i].object == evt.target) ?
+		if (olNode !== undefined){
+			for (var i = 0; i < olNode.childNodes.length; i++){
+				olNode.childNodes[i].className =
+					(olNode.childNodes[i].object == evt.target) ?
 					"highlight":	"";
 			}
 		}
@@ -63,33 +63,66 @@ function  Sidebar(panel, options) {
 	var outputToPanel = function (oList, operation, element, idx){
 		
 		
-		if (ulNode !== undefined){
-			ulNode.parentNode.removeChild(ulNode);
+		if (!olNode){
+			olNode = document.createElement("ol");
+			olNode.className = "nm_sidebar";
+			that.panel.appendChild(olNode);
 		}
 		
-		var titleDefined = (that.options.title !== undefined);
+		var liNode =  document.createElement("li"); 
+		liNode.object = element;
+		liNode.onclick = function() {
+			that.dispatch(
+				 new nokia.maps.dom.Event(
+				 	{type: "click", 
+				 	target: this.object}));
+		};
+		var text =  (that.options.title !== undefined) ?  
+			element[that.options.title] : getType(element);
+		var textNode = (text !== undefined)?
+			 document.createTextNode(text): document.createTextNode(getType(element));
+		liNode.appendChild(textNode);
+
 		
-		ulNode = document.createElement("ul");
-		ulNode.className = "nm_sidebar";
-		for (var i = 0; i < oList.getLength(); i++){
-			var liNode =  document.createElement("li"); 
-			liNode.object = oList.get(i);
-			liNode.onclick = function() {
-				that.dispatch(
-					 new nokia.maps.dom.Event(
-					 	{type: "click", 
-					 	target: this.object}));
-			};
-			var text =  titleDefined ?  
-				oList.get(i)[that.options.title] : getType(oList.get(i));
-			var textNode = (text !== undefined)?
-				 document.createTextNode(text): document.createTextNode(getType(oList.get(i)));
-			liNode.appendChild(textNode);
-			ulNode.appendChild(liNode);
+		if (operation == "add"){
+			if (idx == olNode.childNodes.length){
+				olNode.appendChild(liNode);
+			} else if (idx == 0){
+				if(olNode.firstChild) {
+					olNode.insertBefore(liNode,pa.firstChild);
+				}else{
+					 olNode.appendChild(liNode);
+				}
+			} else {
+				insertAfter(liNode, olNode.childNodes[idx-1]);
+			}
+		} else if (operation == "remove"){
+			olNode.childNodes[idx].parentNode.removeChild(olNode.childNodes[idx]);			
 		}
-		
-		
-		that.panel.appendChild(ulNode);
+		if (olNode.childNodes.length == 0){
+			olNode.parentNode.removeChild(olNode);
+			olNode = null;
+		}
+	}
+	
+	var insertAfter = function (newElement,targetElement) {
+		var parent = targetElement.parentNode;
+		if(parent.lastchild == targetElement) {
+			parent.appendChild(newElement);
+		} else {
+			parent.insertBefore(newElement, targetElement.nextSibling);
+		}
+	}
+	
+	this.getListElement = function(object){
+		if (olNode){
+			for (var i = 0; i < olNode.childNodes.length; i++){
+				if (olNode.childNodes[i].object == object) {
+					return olNode.childNodes[i];
+				}
+			}
+		}
+		return null;
 	}
 };
 
