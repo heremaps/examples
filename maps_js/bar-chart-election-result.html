@@ -52,6 +52,7 @@
     <div id="src" style="width:100%" ><p>Code:</p></div>
         <script type="text/javascript">
 function afterHereMapLoad(map){
+	this.map = map;
 	infoBubbles = new nokia.maps.map.component.InfoBubbles();
 	map.set( "zoomLevel", 6 );
 	map.set( "center" ,[52.500556, 13.398889]);
@@ -63,6 +64,7 @@ function afterHereMapLoad(map){
 		{title : "title"});
  	container.addListener("click" ,  function(evt) {
 		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);
+		map.set("center", evt.target.coordinate);
 			}, false);
 	createMarkerBars(container, popData);
 	map.objects.add(container);

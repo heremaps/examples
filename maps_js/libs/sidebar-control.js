@@ -14,7 +14,7 @@ function extend(B, A) {
 function  Sidebar(panel, options) {
 	this.panel = panel;
 	this.options = options;
-	that = this;
+	var that = this;
 	var olNode;
 	
 	var styleNode = document.createElement('style');

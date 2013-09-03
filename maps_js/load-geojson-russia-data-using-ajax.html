@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Loading geoJSON MultiPolygons using AJAX: Russia</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+    	data-display-functions="extend,addGeoJSONContainer,getGeoJSON,onGeoJSONParsed">
+    </script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
+    	data-params="maps,datarendering" /*These are the features to load */
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>
+    <script type="text/javascript" charset="UTF-8" src="libs/geojson-parser.js"></script>
+    <script type="text/javascript" src="libs/sidebar-control.js"></script>
+    
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Loading geoJSON MultiPolygons using AJAX: Russia </h1>
+	<p>This retrieves and parses geoJSON data holding the names and shapes
+		of the provinces of Russia from a file using AJAX.
+	</p>
+	<p>The JSON file is located at: 
+		<a href="./geojson/russia.geojson">./geojson/russia.geojson</a>
+	</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="sidebar" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102);"></div>
+    <div id="src" style="width:100%">
+    	<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
+	</div>
+<script  type="text/javascript" >
+function afterHereMapLoad(map){
+	this.map = map;
+	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
+ 	map.components.add(infoBubbles);
+ 	addGeoJSONContainer (map);
+ 	getGeoJSON();
+}
+
+function addGeoJSONContainer (map){
+	extend(GeoJSONContainer, nokia.maps.map.Container);
+		geoJsonContainer = new GeoJSONContainer();
+	map.objects.add(geoJsonContainer);
+	
+	geoJsonContainer.addListener("click" ,  function(evt) {
+		// The FO property holds the province name.
+		infoBubbles.addBubble(evt.target.properties.FO,
+			 evt.target.getBoundingBox().getCenter());
+	}, false); 
+}
+
+function getGeoJSON(){
+	var filename = './geojson/russia.geojson';
+	extend(JSONManager,
+		nokia.maps.util.OObject);
+	
+	jsonManager = new JSONManager();
+	jsonManager.parseJSON(filename);
+	jsonManager.addObserver("state", onGeoJSONParsed);
+}
+
+
+
+function onGeoJSONParsed(geoJSON){
+	if (jsonManager.state == "finished"){
+		var err = geoJsonContainer.addGeoJSON(jsonManager.object);
+		if (geoJsonContainer.state == "finished") {
+			map.zoomTo(geoJsonContainer.getBoundingBox());
+		} else {
+			alert(err);
+		}
+	}
+}
+
+
+
+</script>
+</body>
+</html>
