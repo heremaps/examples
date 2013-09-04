@@ -41,7 +41,7 @@ function GeoJSONContainer (options){
 		this.theme = [];
 		this.theme.getPointPresentation =(options.theme.getPointPresentation !== undefined) ?
 			options.theme.getPointPresentation : GeoJSONTheme.getPointPresentation;
-		this.theme.getPointPresentation =
+		this.theme.getLineStringPresentation =
 			(options.theme.getLineStringPresentation !== undefined) ?
 			options.theme.getLineStringPresentation: GeoJSONTheme.getLineStringPresentation;
 		this.theme.getPolygonPresentation = 
