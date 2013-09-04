@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Loading Marker Data from an XML file</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+    	data-display-functions="extend,createGeoJsonParser,parseJson">
+    </script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
+    	data-params="maps" /*These are the features to load */
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    </script>
+    <script type="text/javascript" charset="UTF-8" src="libs/geojson-parser.js"></script>
+    
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Parsing geoJSON data</h1>
+	<p>This example parses geoJSON data and displays it on a map.
+	</p>
+	<p>The full data set can be found at: 
+		<a href="./geojson/test.geojson">./geojson/test.geojson</a>
+	</p>
+	<label for="point">Add a:<label/>
+	<input type="button" id="point" value="Point" />
+	<input type="button" id="lineString" value="LineString" />
+	<input type="button" id="polygon" value="Polygon" />
+	<input type="button" id="feature" value="Feature" />
+	<input type="button" id="collection" value="FeatureCollection" />
+	
+	<br/><br/>
+	 <p>GeoJSON:</p>
+	 <div id="sidebar" style="width:540px; color: rgb(102, 102, 102);">NONE LOADED</div>
+	 <br/>
+	
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+   
+    <div id="src" style="width:100%">
+    	<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
+			<br/><p>Code:</p>
+	</div>
+<script  type="text/javascript" >
+function afterHereMapLoad(map){
+	this.map = map;
+	this.bubble = null;
+	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
+	infoBubbles.options.defaultWidth = 200;
+ 	infoBubbles.options.width = 200;
+ 	
+ 	map.components.add(infoBubbles);
+	map.set("zoomLevel", 16);
+	map.set("center", [35.04267, -80.66252]);
+	
+	defineGeoJson();
+	createGeoJsonParser();
+	buttonsSetUp();
+}
+
+
+
+function buttonsSetUp(){
+	
+	var  parse  = function(object){
+		map.objects.clear();
+		if ((bubble)&& 
+			(bubble.getState() == "opened" )){
+			bubble.close();
+		}
+		parseJson(object);
+		displayJSONSource(object);
+	};	
+	
+	
+	$("#point" ).click(function() {
+		parse(geoJSON.Point);
+	});
+	$("#lineString" ).click(function() {
+		parse(geoJSON.LineString);
+	});
+	$("#polygon" ).click(function() {
+		parse(geoJSON.Polygon);
+	});
+	$("#feature" ).click(function() {
+		parse(geoJSON.Feature);
+	});
+	$("#collection" ).click(function() {
+		parse(geoJSON.FeatureCollection);
+		
+	});
+		
+}
+
+function createGeoJsonParser(){
+	extend(GeoJSONContainer, nokia.maps.map.Container);
+	parser = new GeoJSONContainer();
+
+}
+
+
+
+
+
+function parseJson(jsonObject){
+	
+	
+	result = parser.parseGeoJSON(jsonObject);	
+	if (parser.state == "finished") {
+		map.objects.addAll(result);
+		map.set("center", map.objects.get(0).getBoundingBox().getCenter());
+		
+		map.addListener("click" ,  function(evt) {
+			var text = JSON.stringify(evt.target.properties);
+			bubble = infoBubbles.addBubble(text!== undefined ?   text : "properties undefined",
+				 evt.target.getBoundingBox().getCenter());
+		}, false);
+	} else {
+		console.log(result);
+	}
+}
+
+function displayJSONSource(jsonObject){
+	
+	$("#sidebar").empty();
+	
+	var text = JSON.stringify(jsonObject);
+	var textNode = document.createTextNode(text);
+	var preNode = $("<pre></pre>");
+	var spanNode =  $("<span></span>"); 
+	var codeNode =  $("<code class='prettyprint'></code>");
+	
+	codeNode.append(textNode);
+	spanNode.append(codeNode);
+	preNode.append (spanNode)
+	$('#sidebar').append(preNode)
+}
+
+function defineGeoJson(){
+	geoJSON = {
+	"Point" : {
+		"type": "Point",
+		"coordinates": [-80.66252,35.04267]
+	},
+	"LineString" :{
+		"type": "LineString",
+		"coordinates": [
+			[-80.661983228058659, 35.042968081213758],
+			[-80.662076494242413, 35.042749414542243],
+			[-80.662196794397431, 35.042626481357232],
+			[-80.664238981504525, 35.041175532632963]
+		]
+	},
+	"Polygon" :{
+		"type": "Polygon",
+		"coordinates": [
+			[
+				[-80.662120612605904, 35.042875219905184],
+				[-80.662141716053014, 35.042832740965068],
+				[-80.662171938563816, 35.042789546962993],
+				[-80.662209174653029, 35.042750233165179],
+				[-80.662250709107454, 35.042716920859959],
+				[-80.662627586829899, 35.043072078075667],
+				[-80.662595574310288, 35.043162322407341],
+				[-80.662142312824884, 35.043015448098977],
+				[-80.662145396323511, 35.042970839922489],
+				[-80.662117972448982, 35.042908385949438],
+				[-80.662120612605904, 35.042875219905184]
+			]
+		]
+	},
+	"Feature" :{
+		"type": "Feature",
+		"id": 9876,
+		"geometry": {
+			"type": "Point",
+			"coordinates": [-80.66252,35.04267]
+		},
+		"properties": {
+			"condition": "Satisfactory",
+			"has_garage": false,
+			"number_of_bedrooms": 3
+		}
+	},
+
+	"FeatureCollection" :{
+		"type": "FeatureCollection",
+		"features": [
+			{
+				"type": "Feature",
+				"id": 9876,
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+						-80.66252,
+						35.04267
+					]
+				},
+				"properties": {
+					"condition": "Satisfactory",
+					"has_garage": false,
+					"number_of_bedrooms": 3
+				}
+			},{
+				"type": "Feature",
+				"id": 9875,
+				"geometry": {
+					"type": "Point",
+					"coordinates": [
+						-80.66262,
+						35.04277
+					]
+				},
+				"properties": {
+					"condition": "Excellent",
+					"has_garage": true,
+					"number_of_bedrooms": 4
+				}
+			}
+		]
+	}
+};}
+
+
+
+</script>
+</body>
+</html>

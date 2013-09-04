@@ -69,20 +69,14 @@ function getGeoJSON(){
 	
 function addGeoJSONContainer(map){
 	extend(GeoJSONContainer, nokia.maps.map.Container);
-	resultSet = new GeoJSONContainer(
-		{container: container,
-			theme : {getPointPresentation :	function(dataPoint, properties){
+	resultSet = new GeoJSONContainer({
+		container: container,
+		theme : {
+			getPointPresentation :	function(dataPoint, properties){
 				return getCustomPointPresentation(dataPoint, properties);
-			}, 
-			getLineStringPresentation: function(dataPoints, properties){
-				return GeoJSONTheme.getPointPresentation(dataPoint, properties);
-			},
-			getPolygonPresentation: function(geoStrip, properties){
-				return GeoJSONTheme.getPolygonPresentation(geoStrip, properties);			
 			}
 		}
-		}
-	);
+	});
 
 }
 
@@ -90,7 +84,6 @@ function onGeoJSONParsed(geoJSON){
 	
 	if (jsonManager.state == "finished"){
 		var err = resultSet.addGeoJSON(jsonManager.object);
-		//map.objects.add(resultSet);
 		if (resultSet.state == "finished") {
 			map.zoomTo(container.getBoundingBox());
 			container.addListener("click" ,  function(evt) {

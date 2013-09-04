@@ -60,18 +60,12 @@ function afterHereMapLoad(map){
 function addGeoJSONContainer (map){
 	extend(GeoJSONContainer, nokia.maps.map.Container);
 	geoJsonContainer = new GeoJSONContainer({
-		theme : {getPointPresentation :	function(dataPoint, properties){
+		theme : {
+			getPointPresentation :	function(dataPoint, properties){
 				return createGraphicsMarker(dataPoint, properties);
-			}, 
-			getLineStringPresentation: function(dataPoints, properties){
-				return GeoJSONTheme.getPointPresentation(dataPoint, properties);
-			},
-			getPolygonPresentation: function(geoStrip, properties){
-				return GeoJSONTheme.getPolygonPresentation(geoStrip, properties);			
 			}
 		}
-		}
-	);
+	});
 	
 	map.objects.add(geoJsonContainer);
 	

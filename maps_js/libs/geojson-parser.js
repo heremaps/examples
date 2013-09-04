@@ -33,17 +33,30 @@ function GeoJSONContainer (options){
 	nokia.maps.map.Container.call(this);
 	this.set("state","initial");
 	
-	if (options !==undefined &&
-		options.container !== undefined){
+	
+	if (options !==undefined && options.container !== undefined){
 		this.container = container;
 	}
-	if (options !==undefined &&
-		options.theme !== undefined){
-		this.theme = options.theme;
+	if (options !==undefined && options.theme !== undefined){
+		this.theme = [];
+		this.theme.getPointPresentation =(options.theme.getPointPresentation !== undefined) ?
+			options.theme.getPointPresentation : GeoJSONTheme.getPointPresentation;
+		this.theme.getPointPresentation =
+			(options.theme.getLineStringPresentation !== undefined) ?
+			options.theme.getLineStringPresentation: GeoJSONTheme.getLineStringPresentation;
+		this.theme.getPolygonPresentation = 
+			(options.theme.getPolygonPresentation !== undefined) ?
+			options.theme.getPolygonPresentation: GeoJSONTheme.getPolygonPresentation;
 	} else {
 		this.theme = GeoJSONTheme;
 	}
 	
+	this.parseGeoJSON = function (geojson){
+		that.objects.clear();
+		that.addGeoJSON(geojson);
+		return that.objects.asArray();
+		
+	}
 	
 	this.addGeoJSON = function (geojson){
 		var error;
