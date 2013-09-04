@@ -49,16 +49,29 @@ function  Sidebar(panel, options) {
 		}
 	}, false);
 	
-	var getType = function(object){
+	var getDefaultTitle = function(object){
 		if(object instanceof nokia.maps.map.Marker ){
 			return "Marker";
 		} else if(object instanceof nokia.maps.map.Polyline ){
 			return "Polyline";
 		} else if(object instanceof nokia.maps.map.Polygon ){
 			return "Polygon";
+		} else if(object instanceof nokia.maps.map.Container ){
+			return "Container";
 		} else {
 			return "Object";
 		}
+	}
+	var getTitle= function(object){
+		
+		var parts = that.options.title.split('.');		
+		var curElement = object;
+		var i = 0; 
+		while (i< parts.length && curElement !== undefined){
+			curElement = curElement[parts[i]];
+			i++;
+		}
+		return curElement
 	}
 	var outputToPanel = function (oList, operation, element, idx){
 		
@@ -78,8 +91,8 @@ function  Sidebar(panel, options) {
 				 	target: this.object}));
 		};
 		var text =  (that.options.title !== undefined) ?  
-			element[that.options.title] : getType(element);
-		liNode.innerHTML= (text !== undefined) ? text : getType(element);
+			getTitle(element) : getDefaultTitle(element);
+		liNode.innerHTML= (text !== undefined) ? text : getDefaultTitle(element);
 		
 		if (operation == "add"){
 			if (idx == olNode.childNodes.length){

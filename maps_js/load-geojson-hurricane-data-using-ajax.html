@@ -1,6 +1,7 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8; IE=EmulateIE9; IE=EmulateIE10;"/>
     <meta charset="utf-8">
     <title>HERE Maps API Example: Loading custom geoJSON data Points using AJAX: Hurricanes</title>
     <!-- Set up constants such as APP ID and token -->
@@ -115,22 +116,22 @@ function onGeoJSONParsed(geoJSON){
 function defineColors(){
 	 colors = arrayToHashTable([
 	 	['Hurricane', 'Color'],
-		["Alex" ,nokia.maps.gfx.Color.compress(255, 0, 0, 127)],
-		["Bonnie" , nokia.maps.gfx.Color.compress(0, 255, 0, 127)],
-		["Charley" ,nokia.maps.gfx.Color.compress(0, 0, 255, 127)],
-		["Danielle" ,nokia.maps.gfx.Color.compress(255, 255, 0, 127)],
-		["Earl" ,nokia.maps.gfx.Color.compress(0, 255, 255, 127)],
-		["Frances",nokia.maps.gfx.Color.compress(255, 0, 255, 127)],
-		["Gaston" ,nokia.maps.gfx.Color.compress(255, 255, 255, 127)],
-		["Hermine" ,nokia.maps.gfx.Color.compress(127, 255, 255, 127)],
-		["Ivan" ,nokia.maps.gfx.Color.compress(255, 127, 255, 127)],
-		["Jeanne" ,nokia.maps.gfx.Color.compress(127, 255, 127, 127)],
-		["Karl" ,nokia.maps.gfx.Color.compress(255, 255, 127, 127)],
-		["Lisa" ,nokia.maps.gfx.Color.compress(196, 196, 255, 127)],
-		["Nicole" ,nokia.maps.gfx.Color.compress(196, 255, 196, 127)],
-		["Matthew",nokia.maps.gfx.Color.compress(255, 127, 196, 127)],
-		["Otto",nokia.maps.gfx.Color.compress(255, 196, 196, 127)],
-		["Other",nokia.maps.gfx.Color.compress(196, 196, 196, 127)]]);
+		["Alex" , "#ff0000"],
+		["Bonnie" ,"#cc00aa"],
+		["Charley" ,"#ff0088"],
+		["Danielle" ,"#00ff00"],
+		["Earl" ,"#00cc00"],
+		["Frances","#448844"],
+		["Gaston" ,"#0088ff"],
+		["Hermine" ,"#008888"],
+		["Ivan" ,"#aa8800"],
+		["Jeanne" ,"#8844ff"],
+		["Karl" ,"#884488"],
+		["Lisa" ,"#884444"],
+		["Nicole" ,"#ff88ff"],
+		["Matthew","#ee44cc"],
+		["Otto","#eeeeaa"],
+		["Other", "#888888"]]);
 	undefinedColor = colors.getItem('Other');
 	
 	
@@ -146,22 +147,14 @@ function createLegend(data, panel){
 		// use hasOwnProperty to filter out keys from the Object.prototype
 		if (data.hasOwnProperty(k)) {
 			nodeLI =document.createElement("li");
-			
-			
-			graphicsContext.beginImage(16, 8, "");
-			graphicsContext.drawRect(4,1, 10,6);
-			graphicsContext.set("fillColor",  data[k]);
-			graphicsContext.set("strokeColor", "#000");
-			graphicsContext.set("lineWidth", 1);
-			graphicsContext.fill();
-			graphicsContext.stroke();
-			var image = graphicsContext.getIDL();
-			
-			// Create a DOM element from the image using the default painter.
-			var imageNode =  painter.createElement(image, document);
-			
-			nodeLI.appendChild(imageNode);
-			textNode = document.createTextNode(k);
+			spanNode =  document.createElement("span");  
+			spanNode.style.display = "inline-block";
+			spanNode.style.minWidth = "10px";
+			spanNode.style.minHeight = "10px";
+			spanNode.style.backgroundColor = data[k];
+			spanNode.style.border= "1px solid black";
+			nodeLI.appendChild(spanNode);
+			textNode = document.createTextNode(' ' + k);
 			nodeLI.appendChild(textNode);
 			nodeUL.appendChild(nodeLI);
 		}
@@ -175,17 +168,17 @@ function getColor(name){
 }
 
 function createGraphicsMarker(datapoint, props){
-	// This method c
 	var graphicsContext = new nokia.maps.gfx.Graphics();
 	
 	var x = ((Math.floor(props.WIND /10))+ 4);
 	graphicsContext.beginImage(x,x);
-	graphicsContext.set("fillColor", getColor(props.NAME));
+	graphicsContext.set("fillColor", nokia.maps.gfx.Color.parseCss(getColor(props.NAME), 0.5));
 	graphicsContext.set("strokeColor", "#000");
 	graphicsContext.set("lineWidth", 1);
 	graphicsContext.drawEllipse(0, 0, x, x);
 	graphicsContext.fill();
 	graphicsContext.stroke();
+		
 	return  new nokia.maps.map.Marker( datapoint,
 		{icon: new nokia.maps.gfx.GraphicsImage(graphicsContext.getIDL()),
 			visibility: true,
