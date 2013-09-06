@@ -16,9 +16,9 @@
 	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
 	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
 	    	data-params="all" /*These are the features to load */ 
-	    	data-callback="addXRayControl" /*This is the name of the callback method */ >
-	    </script>  	
-	    <script type="text/javascript" charset="UTF-8" src="libs/x-ray.js"></script>	
+	    	data-callback="addXRayControl" /*This is the name of the callback method */
+	    	data-libs="x-ray" >
+	    </script>
 	    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 	</head>
 	<body>
@@ -36,8 +36,6 @@
 		<p>Code:</p></div>
 <script type="text/javascript">
 function addXRayControl(map) {
-	extend(XRayControl,
-		nokia.maps.map.component.Component);
 	map.components.add(new XRayControl(200,200));
 }
 </script>

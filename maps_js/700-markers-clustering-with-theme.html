@@ -57,7 +57,8 @@ function clusterDataPoints(data){
 			if (dataPoints.getSize() > 0){
 				var markerIcon = createIcon(dataPoints.getSize());
 				return new nokia.maps.map.Marker(dataPoints.getBounds().getCenter() , 
-					{icon: markerIcon}
+					{icon: markerIcon,
+					anchor: new nokia.maps.util.Point(25, 25)}
 				);
 			}
 		},

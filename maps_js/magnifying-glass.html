@@ -16,10 +16,10 @@
 	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
 	    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
 	    	data-params="all" /*These are the features to load */ 
-	    	data-callback="addMagnifierControl" /*This is the name of the callback method */ >
-	    </script>  	
-	    <script type="text/javascript" charset="UTF-8" src="libs/magnifier.js"></script>	
-    
+	    	data-callback="addMagnifierControl" /*This is the name of the callback method */
+	    	data-libs="magnifier" >
+	    </script>
+	        
     	<link rel="icon" href="http://here.com/favicon.ico">
     	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 	</head>
@@ -37,8 +37,6 @@
 		</div>
 <script type="text/javascript">
 function addMagnifierControl(map) {
-	extend(Magnifier,
-		nokia.maps.map.component.Component);
 	map.components.add(new Magnifier(200,200, 5));
 }
 </script>

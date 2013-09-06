@@ -16,10 +16,11 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
     	data-params="maps,datarendering" /*These are the features to load */
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
+    	data-libs="sidebar-control">
     </script>
     <script type="text/javascript" charset="UTF-8" src="libs/geojson-parser.js"></script>
-    <script type="text/javascript" src="libs/sidebar-control.js"></script>
+
     
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
@@ -98,8 +99,6 @@ function onGeoJSONParsed(geoJSON){
 
 function addSidebarControl (map){
  	
- 	extend(Sidebar,
-		nokia.maps.map.Container);
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "properties.Name"});// This indicates that the summary is held in a property called "Name"
 	map.objects.add(container);
