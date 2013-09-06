@@ -17,9 +17,9 @@
     	data-params="maps,datarendering" /*These are the features to load */
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
-    	data-libs="sidebar-control">
+    	data-libs="sidebar-control,geojson-parser">
     </script>
-    <script type="text/javascript" charset="UTF-8" src="libs/geojson-parser.js"></script>
+
 
     
     <link rel="icon" href="http://here.com/favicon.ico">
@@ -59,17 +59,12 @@ function afterHereMapLoad(map){
 
 function getGeoJSON(){
 	var filename = './geojson/premiership.geojson';	
-	extend(JSONManager,
-		nokia.maps.util.OObject);
-	
-	
 	jsonManager = new JSONManager();
 	jsonManager.parseJSON(filename);
 	jsonManager.addObserver("state", onGeoJSONParsed);
 }
 	
 function addGeoJSONContainer(map){
-	extend(GeoJSONContainer, nokia.maps.map.Container);
 	resultSet = new GeoJSONContainer({
 		container: container,
 		theme : {

@@ -5,11 +5,20 @@ function extend(B, A) {
 	B.prototype.constructor = B;
 }
 
+
 function JSONManager (){
-	var that = this;
 	nokia.maps.util.OObject.call(this);
-	this.set("state","initial");	
-	this.parseJSON = function (filename){
+	this.init();
+}
+
+extend(JSONManager,
+		nokia.maps.util.OObject);
+
+
+JSONManager.prototype.init = function  (){
+	var that = this;
+	that.set("state","initial");	
+	that.parseJSON = function (filename){
 		that.set("state", "started");
 		$.ajax({
 			type: "GET",
@@ -28,9 +37,18 @@ function JSONManager (){
 
 
 function GeoJSONContainer (options){
+	nokia.maps.map.Container.call(this);
+	this.init(options);
+}
+
+extend(GeoJSONContainer,
+		nokia.maps.map.Container);
+
+
+GeoJSONContainer.prototype.init =function  (options){
 	
 	var that = this;
-	nokia.maps.map.Container.call(this);
+	
 	this.set("state","initial");
 	
 	
@@ -51,14 +69,14 @@ function GeoJSONContainer (options){
 		this.theme = GeoJSONTheme;
 	}
 	
-	this.parseGeoJSON = function (geojson){
+	that.parseGeoJSON = function (geojson){
 		that.objects.clear();
 		that.addGeoJSON(geojson);
 		return that.objects.asArray();
 		
 	}
 	
-	this.addGeoJSON = function (geojson){
+	that.addGeoJSON = function (geojson){
 		var error;
 		that.set("state","started");
 		if (that.container !== undefined){
@@ -70,11 +88,11 @@ function GeoJSONContainer (options){
 		switch (geojson.type ){
 			case "FeatureCollection":
 				if (!geojson.features){
-					error = _error("Invalid GeoJSON object: FeatureCollection object missing \"features\" member.");
+					error = that._error("Invalid GeoJSON object: FeatureCollection object missing \"features\" member.");
 				}else{
 					//
 					for (var i = 0; i < geojson.features.length; i++){
-						that.objects.add(geometryToMapObjects(geojson.features[i].geometry,
+						that.objects.add(that.geometryToMapObjects(geojson.features[i].geometry,
 							geojson.features[i].properties));
 					}
 				}
@@ -82,35 +100,35 @@ function GeoJSONContainer (options){
 	
 			case "GeometryCollection":
 				if (!geojson.geometries){
-					error = _error("Invalid GeoJSON object: GeometryCollection object missing \"geometries\" member.");
+					error = that._error("Invalid GeoJSON object: GeometryCollection object missing \"geometries\" member.");
 				}else{
 					
 					for (var i = 0; i < geojson.geometries.length; i++){
-						that.objects.add(geometryToMapObjects(geojson.geometries[i], null));
+						that.objects.add(that.geometryToMapObjects(geojson.geometries[i], null));
 					}
 				}
 				break;
 	
 			case "Feature":
 				if (!( geojson.properties && geojson.geometry )){
-					error = _error("Invalid GeoJSON object: Feature object missing \"properties\" or \"geometry\" member.");
+					error = that._error("Invalid GeoJSON object: Feature object missing \"properties\" or \"geometry\" member.");
 				}else{
 					//resultSet = 
-					that.objects.add(geometryToMapObjects(geojson.geometry, geojson.properties));
+					that.objects.add(that.geometryToMapObjects(geojson.geometry, geojson.properties));
 				}
 				break;
 	
 			case "Point": case "MultiPoint": case "LineString": case "MultiLineString": case "Polygon": case "MultiPolygon":
 				//resultSet = 
 				if(geojson.coordinates){
-					that.objects.add(geometryToMapObjects(geojson, null));
+					that.objects.add(that.geometryToMapObjects(geojson, null));
 				} else{
-					error = _error("Invalid GeoJSON object: Geometry object missing \"coordinates\" member.");
+					error = that._error("Invalid GeoJSON object: Geometry object missing \"coordinates\" member.");
 				}
 				break;
 	
 			default:
-				error = _error("Invalid GeoJSON object: GeoJSON object must be one of \"Point\"," + 
+				error = that._error("Invalid GeoJSON object: GeoJSON object must be one of \"Point\"," + 
 					" \"LineString\", \"Polygon\", \"MultiPolygon\", \"Feature\", \"FeatureCollection\" or \"GeometryCollection\".");
 	
 		}
@@ -127,7 +145,7 @@ function GeoJSONContainer (options){
 	
 	
 
-	var geometryToMapObjects = function( geojsonGeometry, properties ){
+	that.geometryToMapObjects = function( geojsonGeometry, properties ){
 	
 		var mapObject;
 
@@ -258,7 +276,7 @@ function GeoJSONContainer (options){
 
 	};
 
-	var _error = function( message ){
+	that._error = function( message ){
 		that.set("state","failed");
 		return {
 			type: "Error",

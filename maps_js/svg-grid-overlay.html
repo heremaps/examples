@@ -16,11 +16,11 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="maps" /*These are the features to load */ 
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */
+    	data-libs="marker-grid-overlay" >
     </script>  	
     <link rel="icon" href="http://here.com/favicon.ico">
-    <script type="text/javascript" charset="UTF-8" src="http://nls.tileserver.com/api.js"></script>
-     <script type="text/javascript" charset="UTF-8" src="./libs/marker-grid-overlay.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://nls.tileserver.com/api.js"></script>     
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" />
 </head>
@@ -92,8 +92,8 @@ function addSVGMarkerGridOverlay(map){
 		return new nokia.maps.gfx.GraphicsImage(svgParser.parseSvg(svg));
 	}
 	
-	tileURL =   new MarkerGridOverlay(map, tileUrl);
-	tileURL.add();
+	tileURL =   new MarkerGridOverlay(tileUrl);
+	map.components.add(tileURL);
 }
 
 function getTileUrl (zoom, row, column) {

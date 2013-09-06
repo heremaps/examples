@@ -16,10 +16,9 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
     	data-params="maps" /*These are the features to load */
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */
+    	data-libs="geojson-parser">
     </script>
-    <script type="text/javascript" charset="UTF-8" src="libs/geojson-parser.js"></script>
-    
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
@@ -102,13 +101,8 @@ function buttonsSetUp(){
 }
 
 function createGeoJsonParser(){
-	extend(GeoJSONContainer, nokia.maps.map.Container);
 	parser = new GeoJSONContainer();
-
 }
-
-
-
 
 
 function parseJson(jsonObject){
