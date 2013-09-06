@@ -69,81 +69,6 @@ GeoJSONContainer.prototype.init =function  (options){
 		this.theme = GeoJSONTheme;
 	}
 	
-	that.parseGeoJSON = function (geojson){
-		that.objects.clear();
-		that.addGeoJSON(geojson);
-		return that.objects.asArray();
-		
-	}
-	
-	that.addGeoJSON = function (geojson){
-		var error;
-		that.set("state","started");
-		if (that.container !== undefined){
-			// clear the internal representation of map objects,
-			// since we are using an external container.
-			that.objects.clear();
-		}
-		
-		switch (geojson.type ){
-			case "FeatureCollection":
-				if (!geojson.features){
-					error = that._error("Invalid GeoJSON object: FeatureCollection object missing \"features\" member.");
-				}else{
-					//
-					for (var i = 0; i < geojson.features.length; i++){
-						that.objects.add(that.geometryToMapObjects(geojson.features[i].geometry,
-							geojson.features[i].properties));
-					}
-				}
-				break;
-	
-			case "GeometryCollection":
-				if (!geojson.geometries){
-					error = that._error("Invalid GeoJSON object: GeometryCollection object missing \"geometries\" member.");
-				}else{
-					
-					for (var i = 0; i < geojson.geometries.length; i++){
-						that.objects.add(that.geometryToMapObjects(geojson.geometries[i], null));
-					}
-				}
-				break;
-	
-			case "Feature":
-				if (!( geojson.properties && geojson.geometry )){
-					error = that._error("Invalid GeoJSON object: Feature object missing \"properties\" or \"geometry\" member.");
-				}else{
-					//resultSet = 
-					that.objects.add(that.geometryToMapObjects(geojson.geometry, geojson.properties));
-				}
-				break;
-	
-			case "Point": case "MultiPoint": case "LineString": case "MultiLineString": case "Polygon": case "MultiPolygon":
-				//resultSet = 
-				if(geojson.coordinates){
-					that.objects.add(that.geometryToMapObjects(geojson, null));
-				} else{
-					error = that._error("Invalid GeoJSON object: Geometry object missing \"coordinates\" member.");
-				}
-				break;
-	
-			default:
-				error = that._error("Invalid GeoJSON object: GeoJSON object must be one of \"Point\"," + 
-					" \"LineString\", \"Polygon\", \"MultiPolygon\", \"Feature\", \"FeatureCollection\" or \"GeometryCollection\".");
-	
-		}
-		
-		if (that.get("state") == "failed"){
-			return error;
-		} else if (that.container !== undefined){
-			that.container.objects.addAll(that.objects.asArray())
-		}
-		
-		that.set("state","finished");
-		return (that.container  !== undefined) ? that.container  :that;
-	}
-	
-	
 
 	that.geometryToMapObjects = function( geojsonGeometry, properties ){
 	
@@ -286,6 +211,81 @@ GeoJSONContainer.prototype.init =function  (options){
 	};
 
 }
+
+GeoJSONContainer.prototype.parseGeoJSON = function (geojson){
+	this.objects.clear();
+	this.addGeoJSON(geojson);
+	return this.objects.asArray();	
+}
+	
+GeoJSONContainer.prototype.addGeoJSON = function (geojson){
+	var error;
+	this.set("state","started");
+	if (this.container !== undefined){
+		// clear the internal representation of map objects,
+		// since we are using an external container.
+		this.objects.clear();
+	}
+	
+	switch (geojson.type ){
+		case "FeatureCollection":
+			if (!geojson.features){
+				error = this._error("Invalid GeoJSON object: FeatureCollection object missing \"features\" member.");
+			}else{
+				//
+				for (var i = 0; i < geojson.features.length; i++){
+					this.objects.add(this.geometryToMapObjects(geojson.features[i].geometry,
+						geojson.features[i].properties));
+				}
+			}
+			break;
+
+		case "GeometryCollection":
+			if (!geojson.geometries){
+				error = this._error("Invalid GeoJSON object: GeometryCollection object missing \"geometries\" member.");
+			}else{
+				
+				for (var i = 0; i < geojson.geometries.length; i++){
+					this.objects.add(this.geometryToMapObjects(geojson.geometries[i], null));
+				}
+			}
+			break;
+
+		case "Feature":
+			if (!( geojson.properties && geojson.geometry )){
+				error = this._error("Invalid GeoJSON object: Feature object missing \"properties\" or \"geometry\" member.");
+			}else{
+				//resultSet = 
+				this.objects.add(this.geometryToMapObjects(geojson.geometry, geojson.properties));
+			}
+			break;
+
+		case "Point": case "MultiPoint": case "LineString": case "MultiLineString": case "Polygon": case "MultiPolygon":
+			//resultSet = 
+			if(geojson.coordinates){
+				this.objects.add(this.geometryToMapObjects(geojson, null));
+			} else{
+				error = this._error("Invalid GeoJSON object: Geometry object missing \"coordinates\" member.");
+			}
+			break;
+
+		default:
+			error = this._error("Invalid GeoJSON object: GeoJSON object must be one of \"Point\"," + 
+				" \"LineString\", \"Polygon\", \"MultiPolygon\", \"Feature\", \"FeatureCollection\" or \"GeometryCollection\".");
+
+	}
+	
+	if (this.get("state") == "failed"){
+		return error;
+	} else if (this.container !== undefined){
+		this.container.objects.addAll(this.objects.asArray())
+	}
+	
+	this.set("state","finished");
+	return (this.container  !== undefined) ? this.container  :this;
+}
+
+
 
 // This is the default representation of a point, a line string and a
 // polygon, override as necessary.

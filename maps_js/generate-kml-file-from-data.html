@@ -16,9 +16,9 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
     	data-params="maps,datarendering" /*These are the features to load */
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */
+    	data-libs="kml-generator" >
     </script>
-    <script type="text/javascript" src="libs/kml-generator.js"></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
@@ -106,8 +106,6 @@ function afterHereMapLoad(map){
 }
 
  function addKMLGenerator (map){	
- 	extend(KMLGenerator,
-		nokia.maps.map.component.Component);
  	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
  		datasource : "$data",
  		id :"id",
