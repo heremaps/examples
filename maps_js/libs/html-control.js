@@ -5,19 +5,30 @@ function extend(B, A) {
 	B.prototype.constructor = B;
 }
 
-HtmlControl = function (myHTML, id) {
-	that = this;
-	this.id = id
-	
-	this.getId = function() { return "HtmlControl";
-	};	
-	this.attach = function(display) {
-		var node = document.createElement("div");	
-		node.innerHTML = myHTML;
-		display.getUIContainer().appendChild(node);
-	};
-	this.detach = function(display) {
-		display.getUIContainer().removeChild(node);
-	};
+function HtmlControl (html, id) {
 	nokia.maps.map.component.Component.call(this);
+	this.init(html, id);
+}
+
+extend(HtmlControl,
+		nokia.maps.map.component.Component);
+
+
+HtmlControl.prototype.init = function (html, id) {
+	that = this;
+	that.id = id
+	that.set("node",  document.createElement("div"));	
+	that.node.innerHTML = html;
+};
+
+HtmlControl.prototype.getId = function() { 
+	return "HtmlControl." + this.id;
+};
+	
+HtmlControl.prototype.attach = function(map) {
+	map.getUIContainer().appendChild(this.node);
+};
+
+HtmlControl.prototype.detach = function(display) {
+	map.getUIContainer().removeChild(this.node);
 };

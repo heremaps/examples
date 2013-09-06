@@ -17,9 +17,9 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="all" /*These are the features to load */ 
-    	data-callback="addGroundOverlay" /*This is the name of the callback method */ >
-    </script> 
-    <script type="text/javascript" charset="UTF-8" src="libs/groundoverlay.js"></script> 	
+    	data-callback="addGroundOverlay" /*This is the name of the callback method */ 
+    	data-libs="groundoverlay" >
+    </script>     
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
   </head>
@@ -38,21 +38,19 @@
   </body>
 <script type="text/javascript">	
 function addGroundOverlay (map){
+	this.map = map;
 	var berlinBounds = new nokia.maps.geo.BoundingBox(
 		new nokia.maps.geo.Coordinate(52.687,13.06),
 		new nokia.maps.geo.Coordinate(52.328,13.78)
 	);
 
-	map.zoomTo(berlinBounds, false);
-	extend(GroundOverlay,
-		nokia.maps.map.component.Component);
-	
-	var dividedBerlin = new GroundOverlay(
+	map.zoomTo(berlinBounds, false);	
+	 dividedBerlin = new GroundOverlay(
 		'./img/berlin-sector.png',
 		berlinBounds);
 	
 	map.components.add(dividedBerlin);
-	dividedBerlin.setOpacity(0.5);
+	dividedBerlin.set("opacity", 0.5);
 }
 </script>
 </html>

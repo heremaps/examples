@@ -4,6 +4,42 @@ if(typeof String.prototype.trim !== 'function') {
   }
 }
 
+(function(ctx) {
+		// ensure CSS is injected
+	var directionsStyleNode = ctx.createElement('style');
+	directionsStyleNode.type = 'text/css';
+	 var css = '.manuever_instruction{' +
+			' line-height: 130%; ' +
+			' font-size: 11px; '+
+			' font-family: "Lucida Grande",'+
+			'"Lucida Sans Unicode",Arial,Helvetica,sans-serif; '+		  	  
+		'}' +
+		'.manuever_instruction .heading, '+
+		'.manuever_instruction .length, '+
+		'.manuever_instruction .direction{' +
+			' font-weight: bold; '+ 			  	  
+		'}' ;
+
+	if (directionsStyleNode.styleSheet) { // IE
+	    directionsStyleNode.styleSheet.cssText = css;
+	} else {
+	    directionsStyleNode.appendChild(ctx.createTextNode(css));
+	}	
+	if (ctx.body){
+		ctx.body.appendChild(directionsStyleNode);
+	} else if(ctx.addEventListener) {
+		ctx.addEventListener("DOMContentLoaded",  function() {
+			ctx.body.appendChild(directionsStyleNode);
+		}, false);
+	} else {
+		ctx.attachEvent("DOMContentLoaded",  function() {
+			ctx.body.appendChild(directionsStyleNode);
+		});
+	}
+	
+})(document);
+
+
 
 function extend(B, A) {
 	function I() {}
@@ -14,120 +50,115 @@ function extend(B, A) {
 
 
 function  DirectionsRenderer(panel) {
-	this.panel = panel;
-	that = this;
-	var map,nodeOL,bubble;
-	
-	// ensure CSS is injected
- var directionsStyleNode = document.createElement('style');
- directionsStyleNode.type = 'text/css';
- var css = '.manuever_instruction{' +
-		' line-height: 130%; ' +
-		' font-size: 11px; '+
-		' font-family: "Lucida Grande",'+
-		'"Lucida Sans Unicode",Arial,Helvetica,sans-serif; '+		  	  
-	'}' +
-	'.manuever_instruction .heading, '+
-	'.manuever_instruction .length, '+
-	'.manuever_instruction .direction{' +
-		' font-weight: bold; '+ 			  	  
-	'}' ;
-	
-	
-	
-	
-
-if (directionsStyleNode.styleSheet) { // IE
-    directionsStyleNode.styleSheet.cssText = css;
-} else {
-    directionsStyleNode.appendChild(document.createTextNode(css));
+	nokia.maps.map.component.Component.call(this);
+	this.init(panel);
 }
-document.body.appendChild(directionsStyleNode);
+extend(DirectionsRenderer,
+		nokia.maps.map.component.Component);
 
 
-this.getInfobubbles = function() {
-	return  (that.map !== undefined) ? 
-		that.map.getComponentById("InfoBubbles") : undefined;
-};
-this.showImperialUnits = function() {
-	var scaleBar =  (that.map !== undefined) ?  
-		that.map.getComponentById("ScaleBar") : null;
-	return (scaleBar != null) ?  
-		scaleBar.showImperialUnits : false;
-};
+DirectionsRenderer.prototype.init = function (panel){
+	var that = this;
+	that.set("panel", panel);
 
-
-// The total journey time taken is defined in seconds.
-// This is a transformation function
-// to alter the units into a more reasonable hours:minutes
-// format.
-
-function secondsToTime(secs)  {
-	var hours = Math.floor(secs / (60 * 60));
-	var divisor_for_minutes = secs % (60 * 60);
-	var minutes = Math.floor(divisor_for_minutes / 60);
-	return "" + hours + ":" + minutes;
-}
-
-//
-// The API returns all distances in meters (yards).
-// This should be altered to kilometers (miles) for longer 
-// distances.
-function calculateDistance(distance, metricMeasurements){
-	if (metricMeasurements){
-		if (distance < 1000){
-			return "" + maneuver.length 
-				+ " m.";
-		} else {
-			return "" + Math.floor(distance/100)/10 
-				+ " km.";
-		}
-} else {
-		if (distance < 1610){
-			return "" + Math.floor(distance/1.0936) 
-				+ " yards";
-		} else {
-			return "" + Math.floor(distance/160.934)/10 
-				+ " miles";
+	that.getInfobubbles = function() {
+		return  (that.map !== undefined) ? 
+			that.map.getComponentById("InfoBubbles") : undefined;
+	};
+	that.showImperialUnits = function() {
+		var scaleBar =  (that.map !== undefined) ?  
+			that.map.getComponentById("ScaleBar") : null;
+		return (scaleBar != null) ?  
+			scaleBar.showImperialUnits : false;
+	};
+	
+	
+	// The total journey time taken is defined in seconds.
+	// This is a transformation function
+	// to alter the units into a more reasonable hours:minutes
+	// format.
+	
+	that.secondsToTime = function (secs)  {
+		var hours = Math.floor(secs / (60 * 60));
+		var divisor_for_minutes = secs % (60 * 60);
+		var minutes = Math.floor(divisor_for_minutes / 60);
+		return "" + hours + ":" + minutes;
+	}
+	
+	//
+	// The API returns all distances in meters (yards).
+	// This should be altered to kilometers (miles) for longer 
+	// distances.
+	that.calculateDistance = function (distance, metricMeasurements){
+		if (metricMeasurements){
+			if (distance < 1000){
+				return "" + maneuver.length 
+					+ " m.";
+			} else {
+				return "" + Math.floor(distance/100)/10 
+					+ " km.";
+			}
+	} else {
+			if (distance < 1610){
+				return "" + Math.floor(distance/1.0936) 
+					+ " yards";
+			} else {
+				return "" + Math.floor(distance/160.934)/10 
+					+ " miles";
+			}
 		}
 	}
+	
+	
+	
+	that.addBold = function (text){
+		var bold = document.createElement('strong');
+		bold.appendChild(document.createTextNode(text));
+		return bold;
+	}
+	
+	that.addText = function (text){
+		var node = document.createElement("span");
+		node.innerHTML = text;
+		return node;
+	}
+	
+	that.onClick = function(details) {
+		return function (){
+			var infoBubbles = that.getInfobubbles();
+		
+			if (infoBubbles !== undefined){
+				that.bubble = infoBubbles.openBubble(
+					details.innerHTML , details.position);
+			}
+		};
+	}
+
 }
 
 
-
-function addBold(text){
-	var bold = document.createElement('strong');
-	bold.appendChild(document.createTextNode(text));
-	return bold;
-}
-
-function addText(text){
-	var node = document.createElement("span");
-	node.innerHTML = text;
-	return node;
-}
-
-
-this.attach = function(display) {
+DirectionsRenderer.prototype.attach = function(display) {
 	this.map = display;
 }
-this.detach = function(display) {
+
+DirectionsRenderer.prototype.detach = function(display) {
 	this.map = undefined;
 }
 
 
-this.setRoute = function  (route) {
-	
-	if (nodeOL !== undefined){
-		nodeOL.parentNode.removeChild(nodeOL);
+DirectionsRenderer.prototype.setRoute = function  (route) {
+	if (this.nodeOL !== undefined){
+		this.nodeOL.parentNode.removeChild(this.nodeOL);
 		if ((this.bubble !== undefined)&& 
 			(this.bubble.getState() == "opened" )){
 			this.bubble.close();
 		}
 	}
-	nodeOL  = document.createElement("ol");
+	this.nodeOL  = document.createElement("ol");
 
-	var showImperialUnits = that.showImperialUnits();
+    
+	var showImperialUnits = this.showImperialUnits();
+
 	
 	for (var i = 0;  i < route.legs.length; i++){
 		for (var j = 0;  j < 
@@ -165,24 +196,18 @@ this.setRoute = function  (route) {
 					  // to the list along with a link back to 
 					  // infobubble.
 					details.position = route.legs[i].maneuvers[j].position;
-					details.onclick = function() {
-							var infoBubbles = that.getInfobubbles();
-							if (infoBubbles !== undefined){
-							that.bubble = infoBubbles.openBubble(
-								this.innerHTML , this.position);
-						}
-					};
 					details.appendChild (document.createTextNode(' '));
-					manueverText = addText(instructions);
+					manueverText = this.addText(instructions);
 					manueverText.className  ="manuever_instruction";
 					details.appendChild (manueverText);
+					details.onclick = new this.onClick(details);
 					
-					nodeOL.appendChild(details);
+					this.nodeOL.appendChild(details);
 			  }
 		}
 
 	}
-	this.panel.appendChild(nodeOL);
+	this.panel.appendChild(this.nodeOL);
 }
-};
+
 

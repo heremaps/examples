@@ -9,16 +9,16 @@
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="setUpSuggestionBoxes,extend,addDirectionsRenderer,makeRouteRequest,onRouteCalculated">
+    	data-display-functions="setUpSuggestionBoxes,addDirectionsRenderer,makeRouteRequest,onRouteCalculated">
     </script> 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="maps,directions,places" /*These are the features to load */ 
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
+    	data-libs="directions-renderer" >
     </script>  	
-    <script type="text/javascript" src="libs/directions-renderer.js"></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
@@ -99,11 +99,6 @@ function setUpSuggestionBoxes(){
 }
  
  function addDirectionsRenderer (map){
- 	map.addComponent(new nokia.maps.map.component.InfoBubbles());
-	//map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
-	
- 	extend(DirectionsRenderer,
-		nokia.maps.map.component.Component);
  	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
  	map.addComponent(directionsRenderer); 
 

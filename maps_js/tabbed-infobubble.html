@@ -16,9 +16,13 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="maps" /*These are the features to load */ 
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
+    	data-libs="tabbed-infobubble" >
     </script>
+    
+    <script type="text/javascript" charset="UTF-8" src="http://api.maps.nokia.com/2.2.4/jsl.js?with=all"></script>
     <script type="text/javascript" charset="UTF-8" src="libs/tabbed-infobubble.js"></script>   	
+    
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
     
@@ -55,7 +59,6 @@ function afterHereMapLoad (map){
 	map.set('zoomLevel', 2);
 	map.set('center',[14.632, -11.838] );
 	
-	extend(TabbedInfoBubbles, nokia.maps.map.component.InfoBubbles);
 	infoBubbles = new TabbedInfoBubbles('white', 'red', 'blue');
 	infoBubbles.options.defaultWidth = 400;
 	map.components.add(infoBubbles);

@@ -16,10 +16,10 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="maps" /*These are the features to load */ 
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
+    	data-libs="tooltip,interactive-control">
     </script>  	
-    <script type="text/javascript" charset="UTF-8" src="libs/tooltip.js"></script>
-    <script type="text/javascript" charset="UTF-8" src="libs/interactive-control.js"></script>
+
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
@@ -59,16 +59,10 @@ function afterHereMapLoad(map){
 }
 
 function addTooltipControlToMap (map){ 
-	extend(Tooltip,
-		nokia.maps.map.component.Component);
-	
 	map.components.add(new Tooltip());
 }
 
 function addInteractiveControlToMap (map){ 
-	extend(Interactive,
-		nokia.maps.map.component.Component);
-	
 	map.components.add(new Interactive());
 }
 

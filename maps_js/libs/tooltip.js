@@ -1,20 +1,10 @@
-function extend(B, A) {
-	function I() {}
-	I.prototype = A.prototype;
-	B.prototype = new I();
-	B.prototype.constructor = B;
-}
+	
 
-
-function Tooltip() {
-var tooltip; // Inject a tooltip DIV into the DOM
-var map;
-
-// ensure CSS is injected
- var tooltipStyleNode = document.createElement('style');
- tooltipStyleNode.type = 'text/css';
- var css = '#nm_tooltip{' +
-		' position: absolute;' +
+(function(ctx) {
+	// ensure CSS is injected
+	var tooltipStyleNode = ctx.createElement('style');
+	tooltipStyleNode.type = 'text/css';
+	var css = '#nm_tooltip{' +
 		' color:white;' +
 		' background:black;' +
 		' border: 1px solid grey;' +
@@ -23,88 +13,111 @@ var map;
 		' display: none;	' +
 		' min-width: 120px;	' +  			  	  
 	'}';
-
-if (tooltipStyleNode.styleSheet) { // IE
-    tooltipStyleNode.styleSheet.cssText = css;
-} else {
-    tooltipStyleNode.appendChild(document.createTextNode(css));
-}
-document.body.appendChild(tooltipStyleNode);
-
-
-var showTooltip = function (evt){
 	
-	if (( evt.target.title === undefined) == false){
-			tooltip.innerHTML =  evt.target.title;
-			tooltip.style.display ='block';
-		
-			var left = evt.target.getDisplayBoundingBox(map).getCenter().x - (tooltip.offsetWidth/2);
-			var top =  evt.target.getDisplayBoundingBox(map).bottomRight.y + 1; // Slight offset to avoid flicker.
-			
-			document.getElementById("nm_tooltip").style.left = left + "px";
-			document.getElementById("nm_tooltip").style.top = top + "px";
-  }
+	if (tooltipStyleNode.styleSheet) { // IE
+	    tooltipStyleNode.styleSheet.cssText = css;
+	} else {
+	    tooltipStyleNode.appendChild(ctx.createTextNode(css));
+	}
+	if (ctx.body){
+		ctx.body.appendChild(tooltipStyleNode);
+	} else if(ctx.addEventListener) {
+		ctx.addEventListener("DOMContentLoaded",  function() {
+			ctx.body.appendChild(tooltipStyleNode);
+		}, false);
+	} else {
+		ctx.attachEvent("DOMContentLoaded",  function() {
+			ctx.body.appendChild(tooltipStyleNode);
+		});
+	}
+})(document);
+
+
+
+function extend(B, A) {
+	function I() {}
+	I.prototype = A.prototype;
+	B.prototype = new I();
+	B.prototype.constructor = B;
 }
 
-var hideTooltip = function ( evt){
-	if (( evt.target.title === undefined) == false){
-				tooltip.style.display ='none';			
+function Tooltip() {
+	nokia.maps.map.component.Component.call(this);
+	this.init();
+}
+extend(Tooltip,
+		nokia.maps.map.component.Component);
+
+
+Tooltip.prototype.init = function (){
+	var that = this;
+	that.tooltip  = document.createElement("div");
+	that.tooltip.id = 'nm_tooltip';
+	that.tooltip.style.position = 'absolute';
+	
+	EventHandlers = function(ctx) {	 
+		var that = ctx;
+		this.showTooltip = function (evt){
+			if (( evt.target.title === undefined) == false){
+				that.tooltip.innerHTML =  evt.target.title;
+				that.tooltip.style.display ='block';
+				var point = that.map.geoToPixel( evt.target.getBoundingBox().getCenter());
+				var left = point.x 
+					- (that.tooltip.offsetWidth/2);
+				var top =  point.y + 1; // Slight offset to avoid flicker.
+				
+				that.tooltip.style.left = left + "px";
+				that.tooltip.style.top = top + "px";
+			}
 		}
+		
+		this.hideTooltip = function ( evt){
+			if (( evt.target.title === undefined) == false){
+						that.tooltip.style.display ='none';			
+			}
+		}
+
+		this.dragTooltip = function(evt) {	 
+			if (that.tooltip.style.display == 'block'){
+				that.map.dispatch(
+				 new nokia.maps.dom.Event({
+				 	type: "mouseover",
+				 	target: map.getObjectAt(evt.displayX, evt.displayY)
+				 }));
+			}
+		}
+	}
+	that.eventHandlers = new EventHandlers(that);
 }
 
-var dragTooltip = function(evt) {	 
-			 if (tooltip.style.display == 'block'){
-			 	    map.dispatch( new nokia.maps.dom.Event({type: "mouseover", target: map.getObjectAt(evt.displayX, evt.displayY)}));
-			 }
-};
 
-
-this.attach = function (mapDisplay) {
-
-		map = mapDisplay;	
-		tooltip  = document.createElement("div");
-		tooltip.id = 'nm_tooltip';
-		map.getUIContainer().appendChild(tooltip);
-
-		//
-		//  Show tooltip on Mouse Over.
-		//
-		//
-		map.addListener("mouseover", showTooltip);
-		//
-		// Return the cursor to normal if the marker which has a click or an href
-		// loses focus. Also clear the tooltip one was displayed.
-		//
-		map.addListener("mouseout", hideTooltip);
-		//
-		// On click we want to forward or do the "onclick" functiion
-		//
-		map.addListener("click", hideTooltip);
-		//
-		// If the map is draggable, and the tooltip is displayed, drag the tooltip
-		// with the map.
-		//
-		map.addListener("drag", dragTooltip);
-
-};
-
-this.detatch = function(mapDisplay){
+Tooltip.prototype.attach = function (mapDisplay) {
+	this.map = map;
 	
-		mapDisplay.removeListener("mouseover", showTooltip);	
-		mapDisplay.removeListener("mouseout" , hideTooltip);
-		mapDisplay.removeListener("click" , hideTooltip);	
-		mapDisplay.removeListener("drag", dragTooltip);
-	
+	map.getUIContainer().appendChild(this.tooltip);
+	map.addListener("mouseover", this.eventHandlers.showTooltip);
+	map.addListener("mouseout", this.eventHandlers.hideTooltip);
+	map.addListener("click", this.eventHandlers.hideTooltip);
+	map.addListener("drag", this.eventHandlers.dragTooltip);
+
 };
 
-this.getId = function () {
+Tooltip.prototype.detach = function(map){
+	this.tooltip.parentNode.removeChild(this.tooltip); 
+	map.removeListener("mouseover", this.eventHandlers.showTooltip);	
+	map.removeListener("mouseout" , this.eventHandlers.hideTooltip);
+	map.removeListener("click" , this.eventHandlers.hideTooltip);	
+	map.removeListener("drag", this.eventHandlers.dragTooltip);
+	this.map = null;
+};
+
+Tooltip.prototype.getId = function () {
 	return 'Tooltip';
 };
 
 
-this.getVersion = function(){
+Tooltip.prototype.getVersion = function(){
 		return '1.0.0';
 }; 
 
-};
 

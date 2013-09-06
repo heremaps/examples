@@ -10,16 +10,16 @@
     <script type="text/javascript" src="libs/jQl.min.js"></script> 
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="extend,addTooltipControlToMap,addMarkersWithTooltips">
+    	data-display-functions="addTooltipControlToMap,addMarkersWithTooltips">
     </script> 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="all" /*These are the features to load */ 
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
+    	data-libs="tooltip" >
     </script>  
-    <script type="text/javascript" charset="UTF-8" src="libs/tooltip.js"></script>	
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
@@ -39,7 +39,7 @@
 <script type="text/javascript">
 							
 function afterHereMapLoad (map){ 
-
+	this.map = map;
 	map.set("baseMapType", map.SATELLITE);
 	map.set("center", new nokia.maps.geo.Coordinate(52.52, 13.37));
 	map.setZoomLevel(13);
@@ -48,10 +48,8 @@ function afterHereMapLoad (map){
 	addMarkersWithTooltips(map);
 }
 function addTooltipControlToMap (map){ 
-	extend(Tooltip,
-		nokia.maps.map.component.Component);
-	
-	map.components.add(new Tooltip());
+	th = new Tooltip();
+	map.components.add(th  );
 }
 function addMarkersWithTooltips (map){
 

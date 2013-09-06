@@ -10,16 +10,16 @@
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <script type="text/javascript" src="libs/prettyprint.js"
     	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="extend,addMapRestriction">
+    	data-display-functions="addMapRestriction">
     </script>  
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
-    	data-params="all" /*These are the features to load */ 
-    	data-callback="addMapRestriction" /*This is the name of the callback method */ >
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="addMapRestriction" /*This is the name of the callback method */
+    	data-libs="restrict-map-control" >
     </script> 
-    <script type="text/javascript" charset="UTF-8" src="libs/restrict-map-control.js"></script> 	
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
   </head>
@@ -37,18 +37,15 @@
   </body>
 <script type="text/javascript">	
 function addMapRestriction (map){
+	this.map = map;
 	map.set("zoomLevel",  5);
 	addOutline(map);
 
-
-	extend(RestrictMap,
-		nokia.maps.map.component.Component);
-	
 	var bounds = new nokia.maps.geo.BoundingBox(
 		new nokia.maps.geo.Coordinate(54.8073, 5.9845),
 		new nokia.maps.geo.Coordinate(47.4136,14.3671)
 	);
-	var restrictControl = new RestrictMap(5, 20,
+	 restrictControl = new RestrictMap(5, 20,
 		bounds);
 	
 	map.components.add(restrictControl);

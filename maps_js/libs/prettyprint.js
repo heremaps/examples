@@ -3,13 +3,7 @@
 
 
 (function(exports, ctx) {
-	
-	
-	
-	
-	      
-	$(ctx).ready(function(){
-	
+	$((function(){
 		var codeStyleNode = ctx.createElement('style');
 		codeStyleNode.type = 'text/css';
 		var css = 'code.prettyprint{' +
@@ -27,8 +21,17 @@
 		} else {
 		    codeStyleNode.appendChild(ctx.createTextNode(css));
 		}
-		ctx.body.appendChild(codeStyleNode);
-		
+		if (ctx.body){
+			ctx.body.appendChild(codeStyleNode);
+		} else if(ctx.addEventListener) {
+			ctx.addEventListener("DOMContentLoaded",  function() {
+				ctx.body.appendChild(codeStyleNode);
+			}, false);
+		} else {
+			ctx.attachEvent("DOMContentLoaded",  function() {
+				ctx.body.appendChild(codeStyleNode);
+			});
+		}
 		
 		var script = null,
 		baseNS = null,
@@ -66,5 +69,5 @@
 	});
 		
 		;
-	});
+	}));
 })(window, document);

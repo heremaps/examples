@@ -1,75 +1,62 @@
-﻿function extend(B, A) {
+function extend(B, A) {
 	function I() {}
 	I.prototype = A.prototype;
 	B.prototype = new I();
 	B.prototype.constructor = B;
 }
 
-function Interactive() {
-//
-// If the object has a click or an href,
-// change the cursor to give visual feedback.
-//
-function changeCursor(target, cursor){
-	if ((( target.$href === undefined) == false) ||  
-	   (( target.$click === undefined) == false)){
-		document.body.style.cursor = cursor;	 
-  }
+function Interactive(minZoom, maxZoom, boundingBox) {
+	nokia.maps.map.component.Component.call(this);
+	this.init(minZoom, maxZoom, boundingBox);
 }
 
-var onMouseOver = function(evt) {
-	  changeCursor(evt.target, 'pointer');
+extend(Interactive,
+	nokia.maps.map.component.Component);
+
+Interactive.prototype.init =  function() {
+	var that = this;
+	that.changeCursor= function(target, cursor){
+		if ((( target.$href === undefined) == false) ||  
+		   (( target.$click === undefined) == false)){
+			document.body.style.cursor = cursor;	 
+	  }
+	}
+	EventHandlers = function(ctx) {	 
+		var that = ctx;
+		this.onMouseOver = function(evt) {
+	  		that.changeCursor(evt.target, 'pointer');
+		}
+		this.onMouseOut = function(evt) {
+			that.changeCursor(evt.target, 'default');
+		}
+		this.onClick = function(evt) {
+			that.changeCursor(evt.target, 'default');
+			if (( evt.target.$href === undefined) == false){
+				  window.location = evt.target.$href; 
+			}  else if (( evt.target.$click === undefined) == false){
+				var onClickDo = new Function(evt.target.$click);
+					onClickDo(); 
+			}
+		}
+	}
+	that.eventHandlers = new EventHandlers(that);
+}
+
+Interactive.prototype.attach = function (map) {
+	map.addListener("mouseover", this.eventHandlers.onMouseOver);
+	map.addListener("mouseout", this.eventHandlers.onMouseOut);
+	map.addListener("click", this.eventHandlers.onClick);
+}
+
+Interactive.prototype.detach = function(map){
+	map.removeListener("mouseover", this.eventHandlers.onMouseOver);
+	map.removeListener("mouseout", this.eventHandlers.onMouseOut);
+	map.removeListener("click", this.eventHandlers.onClick);
 };
 
-var onMouseOut = function(evt) {
-	changeCursor(evt.target, 'default');
-};
-var onClick = function(evt) {
-	changeCursor(evt.target, 'default');
-
-	if (( evt.target.$href === undefined) == false){
-		  window.location = evt.target.$href; 
-	}  else if (( evt.target.$click === undefined) == false){
-  		var onClickDo = new Function(evt.target.$click);
-			onClickDo(); 
-  }
-};;
-
-/////////////////////////////////////////////////////////////////////////
-//
-//   Now wire up the events by adding a single listener to the map.
-//
-//
-this.attach = function (mapDisplay) {
-		
-		// If the marker has a click or an href change the cursor as well
-		// to give more visual feedback.  
-		//
-		mapDisplay.addListener("mouseover", onMouseOver);
-		//
-		// Return the cursor to normal if the marker which has a click or an href
-		// loses focus.
-		//
-		mapDisplay.addListener("mouseout", onMouseOut);
-		//
-		// On click we want to forward or do the "onclick" functiion
-		//
-		mapDisplay.addListener("click", onClick);
- 
-};
-
-this.detach = function(mapDisplay){
-	 mapDisplay.removeListener("mouseover", onMouseOver);
-   mapDisplay.removeListener("mouseout", onMouseOut);
-   mapDisplay.removeListener("click", onClick);
-	
-};
-
-this.getId = function () {
+Interactive.prototype.getId = function () {
 	return 'Interactive';
 };
-this.getVersion = function(){
-		return '1.0.0';
+Interactive.prototype.getVersion = function(){
+	return '1.0.0';
 }; 
-
-};

@@ -10,7 +10,7 @@ window.HereMapsConstants = {
 	AppIdAndToken :{
 		appId: "_peU-uCkp-j8ovkzFGNU",
 		appCode: "gBoUkAMoxoqIWfxWA5DuMQ",
-		language: "fr-FR"
+		language: "en-US"
 	},
 	// Initial center and zoom level of the map
 	InitialLocation : {
@@ -24,7 +24,8 @@ window.HereMapsConstants = {
 		// to obtain the latest version.
 		HereMapsUrl :"http://api.maps.nokia.com/2.2.4/jsl.js?blank=true",
 		// versioned URL to load jQuery
-		jQueryUrl : 'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js'
+		jQueryUrl : 'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
+		jQueryUIUrl: 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
 	},
 	NS : "nokia"
 	

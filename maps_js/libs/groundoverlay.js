@@ -5,135 +5,109 @@ function extend(B, A) {
 	B.prototype.constructor = B;
 }
 
+function GroundOverlay (url, boundingBox)  {
+	nokia.maps.map.component.Component.call(this);
+	this.init(url, boundingBox);
+}
 
-function GroundOverlay(url, boundingBox) {
-	var overlayDiv; 
-	var overlayImg;
-	this.__map;
-	this._url= url;
-	this.boundingBox = boundingBox;
-	this._visible = true;
-	this._opacity = 1;
-	var that = this;
-	var addOverlay = function ( evt){
-		if (that.isVisible() == false){
-			overlayDiv.style.display ='none';			
+extend(GroundOverlay,
+		nokia.maps.map.component.Component);
+
+
+GroundOverlay.prototype.init = function (url, boundingBox) {
+	that = this;
+	that.overlayDiv  = document.createElement("div");
+	that.overlayDiv.style.position = 'absolute';
+	that.overlayDiv.style.cursor= 'default';
+	that.overlayImage =document.createElement("img"); 	
+	that.overlayImage.id = "groundoverlay";
+	that.overlayDiv.appendChild(that.overlayImage);
+	
+	that.set("url", url);
+	that.set("boundingBox", boundingBox);
+	that.set("visible", true);
+	that.set("opacity", 1);
+	
+	that.addOverlay = function ( evt){
+		var isVisible = that.get("visible");
+		if (isVisible == false){
+			that.overlayDiv.style.display ='none';			
 		} else {
+			var boundingBox = that.get("boundingBox");
+			
 			var topLeft = 
-				that.__map.geoToPixel(boundingBox.topLeft);
+				that.map.geoToPixel(boundingBox.topLeft);
 			var bottomRight = 
-				that.__map.geoToPixel(boundingBox.bottomRight);
-			overlayDiv.style.display ='block';
-			overlayDiv.style.left = topLeft.x + "px";
-			overlayDiv.style.top = topLeft.y + "px";
-			overlayDiv.style.width = 
+				that.map.geoToPixel(boundingBox.bottomRight);
+			that.overlayDiv.style.display ='block';
+			that.overlayDiv.style.left = topLeft.x + "px";
+			that.overlayDiv.style.top = topLeft.y + "px";
+			that.overlayDiv.style.width = 
 				(bottomRight.x - topLeft.x) + "px";
-			overlayDiv.style.height = 
+			that.overlayDiv.style.height = 
 				(bottomRight.y - topLeft.y) + "px";	
-			overlayImage.src= that.getUrl();
-			overlayImage.style.width = 
+			that.overlayImage.src= that.get("url");
+			that.overlayImage.style.width = 
 				(bottomRight.x - topLeft.x) + "px";
-			overlayImage.style.height = 
+			that.overlayImage.style.height = 
 				(bottomRight.y - topLeft.y) + "px";
+			that.overlayImage.style.opacity = that.get("opacity");
 		}
 		
 	}
 	
-	
-	
-	this.attach = function (mapDisplay) {
-	
-		that.__map = mapDisplay;
-		overlayDiv  = document.createElement("div");
-		overlayDiv.style.position = 'absolute';
-		overlayDiv.style.cursor= 'default';
-				
-		controls = that.__map.getUIContainer().firstChild;
-		child = controls.firstChild;
-		
-		 controls.insertBefore(overlayDiv, child);
-		//map.getUIContainer().appendChild(overlayDiv);
-		overlayImage =document.createElement("img"); 	
-		overlayImage.id = "groundoverlay";
-
-		overlayDiv.appendChild(overlayImage);   	
-		 that.__map.addObserver("center", addOverlay);
-		 that.__map.addObserver("zoomLevel", addOverlay);
-
-		
-		if(!this.evtTarget) {
-			this.evtTarget =  nokia.maps.dom.EventTarget(
-                             document.getElementById(
-                                     "groundoverlay")).enableDrag();           
-            this.evtTarget.addListener("drag",  function(evt){
-            	var newGeo = that.__map.pixelToGeo (that.__map.width/2 -  evt.deltaX , that.__map.height/2 - evt.deltaY);                       	
-            	that.__map.set("center", newGeo);
-            	evt.stopPropagation(); 
-            	});
-              this.evtTarget.addListener("dblclick",  function(evt){
-              	evt.target = this.parentNode.parentNode;
-              	that.__map.dispatch(evt);
-              });
-               this.evtTarget.addListener("mousewheel",  function(evt){
-              	evt.target = this.parentNode.parentNode;
-              	that.__map.dispatch(evt);
-              });
-              
-            
-			addOverlay();
-		}
-	
-	};
-	
-	this.detatch = function(mapDisplay){
-		that.__map.removeObserver("center", addOverlay);
-		 that.__map.removeObserver("zoomLevel", addOverlay);
-	};
-	
-	this.getId = function () {
-		return 'GroundOverlay';
-	};
-	
-	
-	this.getVersion = function(){
-			return '1.0.0';
-	}; 
-	
-	this.isVisible = function(){
-		 return this._visible; 
-	};
-	
-	this.setVisible = function(x) {
-		this._visible = x;
-		if ( this._visible == false){
-			overlayDiv.style.display ='none';			
-		} else {
-			overlayDiv.style.display ='block';
-		}
-	};
-	
-	this.getOpacity = function(){
-		 return this._opacity; 
-	};
-	
-	this.setOpacity = function(x) {
-		this._opacity = x;
-		if ( this._visible == false){
-			overlayImage.style.opacity =x;			
-		} else {
-			overlayImage.style.opacity = x;
-		}
-	};
-	
-	this.getUrl = function(){ 
-		return this._url 
-	};
-	
-	this.setUrl = function(x) {
-		this._url = x;	
-		if (overlayImage !== undefined){
-			overlayImage.src= that.getUrl();
-		}
-	};
+	that.addObserver("opacity", that.addOverlay);
+	that.addObserver("visible", that.addOverlay);
+	that.addObserver("url", that.addOverlay);
+	that.addObserver("boundingBox", that.addOverlay);
 
 };
+
+
+GroundOverlay.prototype.attach = function (map) {
+	
+	this.map = map;
+	var controls = map.getUIContainer().firstChild;
+	var child = controls.firstChild;
+	controls.insertBefore(this.overlayDiv, child);
+
+	map.addObserver("center", this.addOverlay);
+	map.addObserver("zoomLevel", this.addOverlay);
+	
+	if(!this.evtTarget) {
+		this.evtTarget =  nokia.maps.dom.EventTarget(
+			document.getElementById("groundoverlay")).enableDrag();           
+		this.evtTarget.addListener("drag",  function(evt){
+			var newGeo = that.map.pixelToGeo (that.map.width/2 - 
+			evt.deltaX , that.map.height/2 - evt.deltaY);                       	
+			that.map.set("center", newGeo);
+			evt.stopPropagation(); 
+		});
+		this.evtTarget.addListener("dblclick",  function(evt){
+			evt.target = this.parentNode.parentNode;
+			that.map.dispatch(evt);
+		});
+		this.evtTarget.addListener("mousewheel",  function(evt){
+			evt.target = this.parentNode.parentNode;
+			that.map.dispatch(evt);
+		});
+		this.addOverlay();
+	}
+
+}
+	
+GroundOverlay.prototype.detach = function(map){
+	this.map = null;
+	map.removeObserver("center", this.addOverlay);
+	map.removeObserver("zoomLevel", this.addOverlay);
+	this.overlayDiv.parentNode.removeChild(this.overlayDiv);
+}
+	
+GroundOverlay.prototype.getId = function () {
+	return 'GroundOverlay';
+}
+	
+	
+GroundOverlay.prototype.getVersion = function(){
+	return '1.0.0';
+}

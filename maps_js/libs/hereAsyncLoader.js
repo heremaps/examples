@@ -59,6 +59,18 @@
 	 	var onApiFeaturesLoaded = function(error) {
 	 		mapsNS = baseNS.maps.map;
 	    	authenticate(exports.HereMapsConstants.AppIdAndToken);
+	    	
+	    	var libsArray = $(script).data('libs');
+	    	if (libsArray !== undefined){
+	    		$.ajaxSetup({async: false});
+	    		libs = libsArray.split(',');
+	    		$.each(libs, function(index, value) {
+					$.getScript('libs/'+ value + '.js');
+	    		});
+	    		$.ajaxSetup({async: true});
+			}
+
+	    	
 	    	if (map == null){
 	    		callbackKey = $(script).data('callback');
 	    		if ($(script).data('map-container')!== undefined){
