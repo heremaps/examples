@@ -16,9 +16,9 @@
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-params="maps" /*These are the features to load */
-    	data-callback="afterHereMapLoad" /*This is the name of the callback method */ >
+    	data-callback="afterHereMapLoad" /*This is the name of the callback method */
+    	data-libs="sidebar-control"  >
     </script>
-    <script type="text/javascript" src="libs/sidebar-control.js"></script>
     <script type="text/javascript" src="data/population-data-for-german-cities.js" /></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
@@ -56,9 +56,6 @@ function afterHereMapLoad(map){
 	map.set( "zoomLevel", 6 );
 	map.set( "center" ,[52.500556, 13.398889]);
 	map.components.add(infoBubbles);
-
-	extend(Sidebar,
-		nokia.maps.map.Container);
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "title"});
 		
