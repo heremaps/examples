@@ -49,48 +49,65 @@ function extend(B, A) {
 }
 
 
-function  DirectionsRenderer(panel) {
+function  DirectionsRenderer(panel, route, showImperialUnits) {
 	nokia.maps.map.component.Component.call(this);
-	this.init(panel);
+	this.init(panel, route, showImperialUnits);
 }
 extend(DirectionsRenderer,
 		nokia.maps.map.component.Component);
 
 
-DirectionsRenderer.prototype.init = function (panel){
+DirectionsRenderer.prototype.init = function (panel, route, showImperialUnits){
 	var that = this;
 	that.set("panel", panel);
+	that.set("route", route);
+	that.set("showImperialUnits", showImperialUnits !== undefined ? showImperialUnits : false);
+	
 
 	that.getInfobubbles = function() {
 		return  (that.map !== undefined) ? 
 			that.map.getComponentById("InfoBubbles") : undefined;
 	};
-	that.showImperialUnits = function() {
-		var scaleBar =  (that.map !== undefined) ?  
-			that.map.getComponentById("ScaleBar") : null;
-		return (scaleBar != null) ?  
-			scaleBar.showImperialUnits : false;
-	};
-	
 	
 	// The total journey time taken is defined in seconds.
 	// This is a transformation function
 	// to alter the units into a more reasonable hours:minutes
 	// format.
 	
-	that.secondsToTime = function (secs)  {
-		var hours = Math.floor(secs / (60 * 60));
-		var divisor_for_minutes = secs % (60 * 60);
-		var minutes = Math.floor(divisor_for_minutes / 60);
-		return "" + hours + ":" + minutes;
+	var secondsToTime = function (secs)  {
+
+		var hours   = Math.floor(secs / 3600);
+		var minutes = Math.floor((secs - (hours * 3600)) / 60);
+		var seconds = secs - (hours * 3600) - (minutes * 60);	  
+		if (hours   < 10) {
+			hours   = "0"+hours;
+		}
+		if (minutes < 10) {
+			minutes = "0"+minutes;
+		}
+		if (seconds < 10) {
+			seconds = "0"+seconds;
+		}
+		var time    = hours+':'+minutes+':'+seconds;
+		return time;
 	}
 	
 	//
 	// The API returns all distances in meters (yards).
 	// This should be altered to kilometers (miles) for longer 
 	// distances.
-	that.calculateDistance = function (distance, metricMeasurements){
-		if (metricMeasurements){
+	var calculateDistance = function (distance, imperial){
+		if (imperial){
+			if (distance < 800){
+				return "" + Math.floor(distance/1.0936) 
+					+ " yards";
+			} else {
+				return "" + Math.floor(distance/160.934)/10 
+					+ " miles";
+			}
+			
+		} else {
+			
 			if (distance < 1000){
 				return "" + maneuver.length 
 					+ " m.";
@@ -98,26 +115,10 @@ DirectionsRenderer.prototype.init = function (panel){
 				return "" + Math.floor(distance/100)/10 
 					+ " km.";
 			}
-	} else {
-			if (distance < 1610){
-				return "" + Math.floor(distance/1.0936) 
-					+ " yards";
-			} else {
-				return "" + Math.floor(distance/160.934)/10 
-					+ " miles";
-			}
 		}
 	}
 	
-	
-	
-	that.addBold = function (text){
-		var bold = document.createElement('strong');
-		bold.appendChild(document.createTextNode(text));
-		return bold;
-	}
-	
-	that.addText = function (text){
+	var addText = function (text){
 		var node = document.createElement("span");
 		node.innerHTML = text;
 		return node;
@@ -133,7 +134,80 @@ DirectionsRenderer.prototype.init = function (panel){
 			}
 		};
 	}
+	
+	that.update = function () {
+		if (that.nodeOL !== undefined){
+			that.nodeOL.parentNode.removeChild(that.nodeOL);
+			if ((that.bubble !== undefined)&& 
+				(that.bubble.getState() == "opened" )){
+				that.bubble.close();
+			}
+		}
+		
+		var route = that.get("route");
+		if (route === undefined){
+			return;
+		}
+		that.nodeOL  = document.createElement("ol");
+		var showImperialUnits = that.get("showImperialUnits");
 
+		for (var i = 0;  i < route.legs.length; i++){
+			for (var j = 0;  j < 
+				route.legs[i].maneuvers.length; j++){
+				var details =  document.createElement("li");
+	
+				// Get the next maneuver.
+				maneuver = route.legs[i].maneuvers[j];
+				var instructions = maneuver.instruction;
+				// For imperial measurements, extract the
+				// distance span
+	
+				  if (showImperialUnits == true){
+					   var ls = instructions.indexOf
+					   		("<span class=\"length\">")
+					   var ln = instructions.indexOf
+					   		("</span>" , ls);
+					   if (ls > -1 && ln > -1){
+							distNode = instructions.substring(ls + 21, ln);
+							var n=distNode.split(" ");
+							if (n[1] == "meters"){
+								imperialText = 
+								 	calculateDistance(n[0], true);
+							} else {
+								 imperialText = 
+								 	calculateDistance(n[0] * 1000, true);
+						}
+							instructions = instructions.substring(0, ls + 21)
+								+  imperialText + instructions.substring(ln);
+					   }
+				  }
+	
+				  if (instructions.trim() != ""){
+						  // Finally add the instruction
+						  // to the list along with a link back to 
+						  // infobubble.
+						details.position = route.legs[i].maneuvers[j].position;
+						details.appendChild (document.createTextNode(' '));
+						manueverText = addText(instructions);
+						manueverText.className  ="manuever_instruction";
+						details.appendChild (manueverText);
+						details.onclick = new that.onClick(details);
+						
+						that.nodeOL.appendChild(details);
+				  }
+			}
+	
+		}
+		that.panel.appendChild(that.nodeOL);
+		
+		that.baseTime = secondsToTime(route.summary.baseTime);
+		that.distance = calculateDistance(route.summary.distance, showImperialUnits);
+	}
+	
+	
+	that.addObserver("route", that.update);
+	that.addObserver("panel", that.update);
+	that.addObserver("showImperialUnits", that.update);
 }
 
 
@@ -145,69 +219,5 @@ DirectionsRenderer.prototype.detach = function(display) {
 	this.map = undefined;
 }
 
-
-DirectionsRenderer.prototype.setRoute = function  (route) {
-	if (this.nodeOL !== undefined){
-		this.nodeOL.parentNode.removeChild(this.nodeOL);
-		if ((this.bubble !== undefined)&& 
-			(this.bubble.getState() == "opened" )){
-			this.bubble.close();
-		}
-	}
-	this.nodeOL  = document.createElement("ol");
-
-    
-	var showImperialUnits = this.showImperialUnits();
-
-	
-	for (var i = 0;  i < route.legs.length; i++){
-		for (var j = 0;  j < 
-			route.legs[i].maneuvers.length; j++){
-			var details =  document.createElement("li");
-
-			// Get the next maneuver.
-			maneuver = route.legs[i].maneuvers[j];
-			var instructions = maneuver.instruction;
-			// For imperial measurements, extract the
-			// distance span
-
-			  if (showImperialUnits == true){
-				   var ls = instructions.indexOf
-				   		("<span class=\"length\">")
-				   var ln = instructions.indexOf
-				   		("</span>" , ls);
-				   if (ls > -1 && ln > -1){
-						distNode = instructions.substring(ls + 21, ln);
-						var n=distNode.split(" ");
-						if (n[1] == "meters"){
-							imperialText = 
-							 	calculateDistance(n[0], false);
-						} else {
-							 imperialText = 
-							 	calculateDistance(n[0] * 1000, false);
-					}
-						instructions = instructions.substring(0, ls + 21)
-							+  imperialText + instructions.substring(ln);
-				   }
-			  }
-
-			  if (instructions.trim() != ""){
-					  // Finally add the instruction
-					  // to the list along with a link back to 
-					  // infobubble.
-					details.position = route.legs[i].maneuvers[j].position;
-					details.appendChild (document.createTextNode(' '));
-					manueverText = this.addText(instructions);
-					manueverText.className  ="manuever_instruction";
-					details.appendChild (manueverText);
-					details.onclick = new this.onClick(details);
-					
-					this.nodeOL.appendChild(details);
-			  }
-		}
-
-	}
-	this.panel.appendChild(this.nodeOL);
-}
 
 

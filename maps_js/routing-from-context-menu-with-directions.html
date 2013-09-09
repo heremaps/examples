@@ -48,10 +48,15 @@
  	infoBubbles.options.defaultWidth = 200;
  	infoBubbles.options.width = 200;
  	map.addComponent(infoBubbles);
-	map.addComponent(new nokia.maps.map.component.ScaleBar ()); 
+ 	scaleBar = new nokia.maps.map.component.ScaleBar ();
+	map.addComponent(scaleBar); 
 	
  	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
  	map.addComponent(directionsRenderer); 
+ 	
+ 	scaleBar.addObserver("showImperialUnits" , function(obj, key, value, oldValue){
+ 		directionsRenderer.set("showImperialUnits", value);
+ 	});
 }
 
 function addContextMenu(map){
@@ -112,7 +117,7 @@ function onRouteCalculated (observedRouter, key, value){
 				routes[0]).container; //first option found
 		map.objects.clear();
 		map.objects.add(mapRoute);
-		directionsRenderer.setRoute(routes[0]);
+		directionsRenderer.set("route",routes[0]);
 		
 		//Zoom to the bounding box of the route
 		map.zoomTo(mapRoute.getBoundingBox(), false, "default");
