@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HERE Maps API Example: Adding a Defaced Custom Marker</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <script type="text/javascript" src="libs/prettyprint.js"
+    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+    	data-display-functions="addMarkerToMap">
+    </script> 
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
+    	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
+    	data-params="maps" /*These are the features to load */ 
+    	data-callback="addMarkerToMap" /*This is the name of the callback method */
+    	data-libs="text-on-icon-marker" >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+</head>
+<body>
+	<h1>Adding a Defaced Custom Marker to the map</h1>
+	<p>This example extends the custom marker to allow text to be placed over the image.
+	Legacy browsers which are unable to support this feature display as normal.</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src" style="width:100%" ><p>Code:</p></div>
+<script  type="text/javascript" >
+function addMarkerToMap (map){
+	imageMarker = new TextOnIconMarker([52.53, 13.39], {
+		icon: "./img/marker.png",
+		anchor: new nokia.maps.util.Point(29, 71),
+		text: "My Text"
+	});
+	map.objects.add(imageMarker);
+}    
+</script>
+</body>
+</html>
