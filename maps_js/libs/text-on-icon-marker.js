@@ -1,4 +1,4 @@
-﻿
+
 function extend(B, A) {
 	function I() {}
 	I.prototype = A.prototype;
@@ -6,9 +6,21 @@ function extend(B, A) {
 	B.prototype.constructor = B;
 }
 
-function TextOnIconMarker (coord, props)  {
-	nokia.maps.map.Marker.call(this, coord, props);
+function TextOnIconMarker (coords, props)  {
+	nokia.maps.map.Marker.call(this, coords, props);
+	this.init(props);
+}
+
+extend(TextOnIconMarker,
+		nokia.maps.map.Marker);
+	
+TextOnIconMarker.prototype.init = function ( props) {
 	var that = this;
+	if (props){
+		that.set("text", props.text !== undefined ? props.text : "");
+	} else {
+		that.set("text", "");
+	}	
 	that.body = document.body || document._documentElement;
 	
 	that.createDefacedIcon = function(image){
@@ -72,30 +84,18 @@ function TextOnIconMarker (coord, props)  {
 	
 	that.updateIcon();
 	that.addObserver("text", that.updateIcon);
-	that.addObserver("icon", that.updateIcon);
-	
+	that.addObserver("icon", that.updateIcon);	
 }
 
-extend(TextOnIconMarker,
-		nokia.maps.map.Marker);
-
-
-TextOnIconMarker.prototype.init = function (props) {
-	that = this;
-	if (props){
-		that.set("text", props.text !== undefined ? props.text : "");
-	} else {
-		that.set("text", "");
-	}
-}
 
 TextOnIconMarker.prototype.getIconForRendering  = function (doc) {
-	img1 = nokia.maps.map.Marker.prototype.getIconForRendering.call(this, doc);	
+	var icon = nokia.maps.map.Marker.prototype.getIconForRendering.call(this, doc);	
 	if (document.all && !document.addEventListener) {
 		// Return basic marker for older browsers.
-    	return img1;
+    	return icon;
 	}
-	return (this.defacedIcon) ? this.defacedIcon : img1 ;
+
+	return (this.defacedIcon) ? this.defacedIcon : icon ;
 
 }
  
