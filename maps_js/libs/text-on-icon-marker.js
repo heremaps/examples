@@ -8,6 +8,7 @@ function extend(B, A) {
 
 function TextOnIconMarker (coords, props)  {
 	nokia.maps.map.Marker.call(this, coords, props);
+	nokia.maps.map.Marker.prototype.getIconForRendering.call(this, document);
 	this.init(props);
 }
 
@@ -79,7 +80,7 @@ TextOnIconMarker.prototype.init = function ( props) {
 		if(that._imgElement &&  that._imgElement.parentNode){
 			that._imgElement.parentNode.removeChild(that._imgElement);
 		}
-				
+		
 		var baseBitmap = new nokia.maps.gfx.BitmapImage(that.get("icon").src);
 		baseBitmap.prepare(that.addImageToDOM, that);
 	}
