@@ -4,6 +4,9 @@
 
 (function(exports, ctx) {
 	$((function(){
+		$("<link href='./css/prism.css' rel='stylesheet'>").appendTo('head');
+		$("<script type='text/javascript' src='libs/prism.js' >").appendTo('head');
+
 		var codeStyleNode = ctx.createElement('style');
 		codeStyleNode.type = 'text/css';
 		var css = 'code.prettyprint{' +
@@ -12,7 +15,7 @@
 				' padding: 1em;' +
 				' white-space: pre-wrap;' +
 				' word-wrap: break-word; ' +
-				' background-color:#e0e0e0; ' +		
+				' background-color: #f5f2f0; ' +		
 				' font-size:12px; ' +		  	  
 			'}';
 			
@@ -52,13 +55,13 @@
 	var functions = $(script).data('display-functions');
 	functionsArr = functions.split(',');
 	$.each(functionsArr , function(index, value) {
-    	var functionToDisplay = exports[value];	
-    	if (functionToDisplay !== undefined){
+		var functionToDisplay = exports[value];	
+		if (functionToDisplay !== undefined){
 			var text = functionToDisplay.toString();
 			var textNode = ctx.createTextNode(text);
 			var preNode = $("<pre></pre>");
 			var spanNode =  $("<span></span>"); 
-			var codeNode =  $("<code class='prettyprint'></code>");
+			var codeNode =  $("<code class='prettyprint language-javascript'></code>");
 			
 			codeNode.append(textNode);
 			spanNode.append(codeNode);
@@ -67,7 +70,6 @@
 		}
     	
 	});
-		
-		;
+	Prism.highlightAll();
 	}));
 })(window, document);

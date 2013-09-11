@@ -7,10 +7,7 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="extend,setUpTabbedInfoBubbles,loadKMLFile,onKMLParsed">
-    </script> 
+    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -79,5 +76,9 @@ function onKMLParsed(kmlManager){
 }
   
 </script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="setUpTabbedInfoBubbles,loadKMLFile,onKMLParsed">
+</script> 
 </body>
 </html>

@@ -7,10 +7,7 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="loadXMLFile,parseXML,onXMLLoadFailed">
-    </script>
+    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
@@ -30,7 +27,7 @@
 		<a href="./data/markers.xml">./data/markers.xml</a>
 	</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function afterHereMapLoad(map){
 	this.map = map;
@@ -70,6 +67,10 @@ function parseXML(xml){
 function onXMLLoadFailed(){
 	alert("An Error has occurred.");
 }
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+	data-display-functions="loadXMLFile,parseXML,onXMLLoadFailed">
 </script>
 </body>
 </html>

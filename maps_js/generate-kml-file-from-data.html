@@ -7,10 +7,7 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="loadKMLFile,onKMLParsed">
-    </script>
+    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
@@ -19,6 +16,8 @@
     	data-callback="afterHereMapLoad" /*This is the name of the callback method */
     	data-libs="kml-generator" >
     </script>
+    <link href='./css/prism.css' rel='stylesheet'>
+	<script type='text/javascript' src='libs/prism.js' ></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
 </head>
@@ -82,9 +81,9 @@
 </div>
 	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="kmlData" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102);"></div>
+    <div id="kmlData" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102); background-color: #f5f2f0;"></div>
 
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function afterHereMapLoad(map){
 	this.map = map;
@@ -370,6 +369,10 @@ function doNextGeoCode(){
 	} else {
 	      // We can generate the KML
 	    kmlGenerator.generateKML();
+	    // Pretty print if necessary
+	    if(Prism){
+			Prism.highlightAll();
+		}
 	}
  }
 
@@ -435,6 +438,10 @@ function addMarker(markerData) {
 
 
 
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+	data-display-functions="loadKMLFile,onKMLParsed">
 </script>
 </body>
 </html>

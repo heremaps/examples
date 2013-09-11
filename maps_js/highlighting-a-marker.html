@@ -7,10 +7,7 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="addHighlightableMarker">
-    </script> 
+    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -27,7 +24,7 @@
 	<a href="http://en.wikipedia.org/wiki/Istanbul_%28Not_Constantinople%29">capital of Turkey </a>
 </p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 
 function afterHereMapLoad(map){
@@ -63,10 +60,10 @@ function addHighlightableMarker(map) {
 	});
 	map.objects.add(marker);
 } 
-
-
- 
-  
 </script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="addHighlightableMarker">
+</script> 
 </body>
 </html>

@@ -6,11 +6,7 @@
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="addMarkerToMap">
-    </script> 
+    <script type="text/javascript" src="libs/jQl.min.js"></script>    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -27,7 +23,7 @@
 	<p>This example extends the custom marker to allow text to be placed over the image.
 	Legacy browsers which are unable to support this feature display as normal.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function addMarkerToMap (map){
 	this.map = map;
@@ -39,5 +35,9 @@ function addMarkerToMap (map){
 	imageMarker.set("text", "My Text");
 }    
 </script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="addMarkerToMap">
+</script> 
 </body>
 </html>

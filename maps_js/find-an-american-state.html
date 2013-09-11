@@ -6,11 +6,7 @@
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="addClickEventListener,processResults">
-    </script> 
+    <script type="text/javascript" src="libs/jQl.min.js"></script> 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -32,7 +28,7 @@
 	<span id="incorrect_answers" style="height: 2.0em; font-size: 2em; color: green;"></span>
 
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
  var statesArray = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
 "Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
@@ -94,6 +90,10 @@ function processResults (data, requestStatus, requestId) {
 	}
 }
  
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="addClickEventListener,processResults">
 </script>
 </body>
 </html>

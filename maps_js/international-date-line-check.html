@@ -7,10 +7,6 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="setUpContainer,addOnClickEventListener,checkDateBorder">
-    </script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
@@ -26,7 +22,7 @@
 	<p>Add additional markers by clicking on the map.</p>
 	<div id="dateline" style="height: 2.0em; font-size: 2em; color: blue;"></div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 
 function afterHereMapLoad(map){
@@ -68,6 +64,10 @@ function setUpContainer(){
 	map.objects.add(container);
 	map.zoomTo(container.getBoundingBox(),false,true);
 }
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+	data-display-functions="setUpContainer,addOnClickEventListener,checkDateBorder">
 </script>
 </body>
 </html>

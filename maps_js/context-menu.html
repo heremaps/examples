@@ -6,11 +6,7 @@
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="createContextMenu,addRemoveGroup">
-    </script> 
+    <script type="text/javascript" src="libs/jQl.min.js"></script>     
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -28,7 +24,7 @@
 	<p>Use the button to add and remove additional menu items.</p>
 	<input type = "button" id ="addRemove" value = "Add Menu Items" onclick = "addRemoveGroup(extraMenuItems)"/>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 	
 var isAdded = false;
@@ -67,8 +63,7 @@ function createContextMenu(map){
 }
     
  
- 
-		// Simple function to add/remove a group of menu items...
+ // Simple function to add/remove a group of menu items...
 function addRemoveGroup(handler){
 	if (isAdded == false){
 		contextMenu.addHandler(handler);
@@ -80,6 +75,10 @@ function addRemoveGroup(handler){
 		isAdded = false;
 	}
 } 
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="createContextMenu,addRemoveGroup">
 </script>
 </body>
 </html>

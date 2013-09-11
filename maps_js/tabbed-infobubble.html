@@ -7,10 +7,6 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    	data-display-functions="">
-    </script> 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js" 
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -104,5 +100,9 @@ function showTabbedInfoBubble(){
 		infoBubbles.addTabbedBubble(tabs, content, "<h2>Battle of Saratoga</h2>", new nokia.maps.geo.Coordinate(43.09, -73.674))	;
 }    
 </script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="showTabbedInfoBubble">
+</script> 
 </body>
 </html>

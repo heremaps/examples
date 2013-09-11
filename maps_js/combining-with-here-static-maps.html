@@ -9,11 +9,7 @@
 <!-- Set up constants such as APP ID and token -->
 	    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
 	    <!-- Bootstrap jQuery Library -->
-	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
-	    <script type="text/javascript" src="libs/prettyprint.js"
-    		id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    		data-display-functions="afterHereMapLoad">
-    	</script> 
+	    <script type="text/javascript" src="libs/jQl.min.js"></script> 	    
 	    <!-- Asynchronously the HERE Maps API for  JavaScript -->
 	    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
 	    	id="HereMapsLoaderScript" /*This identifies the Loader Script */ 
@@ -37,18 +33,22 @@
     <img id='HereStaticMap' src="http://m.nok.it/?c=50.5,15.5&amp;h=334&amp;w=540&amp;z=4&amp;nord&amp;nodot&amp;sb=k"
     	 alt="Map of Europe" />
   </div>
-  <div id="src" style="width:100%" ><p>Code:</p></div>
- <script type="text/javascript">
- function afterHereMapLoad(map){
- 	// This matches the static map:
- 	// http://m.nok.it/?c=50.5,15.5&h=334&w=540&z=4"
- 	map.set("center", new nokia.maps.geo.Coordinate(50.5,15.5));
- 	map.setZoomLevel(4);
- 	var marker = new nokia.maps.map.StandardMarker([50.5,15.5]);
+  <div id="src" style="width:100%" ><br/><p>Code:</p></div>
+<script type="text/javascript">
+function afterHereMapLoad(map){
+	// This matches the static map:
+	// http://m.nok.it/?c=50.5,15.5&h=334&w=540&z=4"
+	map.set("center", new nokia.maps.geo.Coordinate(50.5,15.5));
+	map.setZoomLevel(4);
+	var marker = new nokia.maps.map.StandardMarker([50.5,15.5]);
 	map.objects.add(marker);
 	
 	$('#HereStaticMap').remove();
- }
- </script>
+}
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="afterHereMapLoad">
+</script> 
 </body>
 </html>

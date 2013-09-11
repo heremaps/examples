@@ -6,11 +6,7 @@
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="displayPlaceData">
-    </script>
+    <script type="text/javascript" src="libs/jQl.min.js"></script>    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
@@ -27,7 +23,7 @@
 	The place Id was: <a href=" http://m.nokia.me/p?pid=250u0ts2-78a011f821684d489e709ad6a3329fac">
 	250u0ts2-78a011f821684d489e709ad6a3329fac</a></p>
     <div id="placeContainer" style="width:540px; height:334px;"></div>
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function displayPlaceData(map){
 	var basicPlace = new nokia.places.widgets.Place({
@@ -35,6 +31,10 @@ function displayPlaceData(map){
 		targetNode: 'placeContainer',
 		template: 'nokia.blue.extended'});
 }
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+	data-display-functions="displayPlaceData">
 </script>
 </body>
 </html>

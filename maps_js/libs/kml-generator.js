@@ -122,6 +122,7 @@ KMLGenerator.prototype.init = function(panel, options) {
 		that.preNode = document.createElement("pre");
 		var spanNode =  document.createElement("span"); 
 		var codeNode =  document.createElement("code");
+		codeNode.className ="language-markup";
 		var textNode = document.createTextNode(text);
 	
 		codeNode.appendChild(textNode);

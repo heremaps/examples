@@ -7,19 +7,15 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="extend,addHtmlControl,addSidebarControl">
-    </script>
+    
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
     	data-params="maps,datarendering" /*These are the features to load */
     	data-map-container="mapContainer"  /*This is the name of DOM element that holds the map */
     	data-callback="afterHereMapLoad" /*This is the name of the callback method */ 
-    	data-libs="html-control" >
+    	data-libs="html-control,sidebar-control" >
     </script>
-    <script type="text/javascript" src="libs/sidebar-control.js"></script>
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
     
@@ -97,9 +93,6 @@ function afterHereMapLoad(map){
 }
  	
  function addSidebarControl (map){
- 
- 	extend(Sidebar,
-		nokia.maps.map.Container);
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "title"});// This indicates that the summary is held in a property called "title"
 
@@ -225,6 +218,10 @@ new nokia.maps.map.Marker( [53.7285,-2.4892],  {
 }
 
 
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+	data-display-functions="addHtmlControl,addSidebarControl">
 </script>
 </body>
 </html>
