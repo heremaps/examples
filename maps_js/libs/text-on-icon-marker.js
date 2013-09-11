@@ -39,7 +39,6 @@ TextOnIconMarker.prototype.init = function ( props) {
 				]); 
 		that.defacedIcon = 
 		new nokia.maps.gfx.GraphicsImage(idlImage);
-		
 	}
 	that.addTextToDOM = function(image){
 		var GraphicsImage = nokia.maps.gfx.GraphicsImage,
@@ -63,23 +62,26 @@ TextOnIconMarker.prototype.init = function ( props) {
 		
 		that._textAsImgElement = textImage.createElement();
 		that._textAsImgElement.style.display = "none";
-		that.body.appendChild(that._textAsImgElement, that.createDefacedIcon(image) );
+		that.body.appendChild(that._textAsImgElement);
+		that.createDefacedIcon(image) ;
 	}
 	that.addImageToDOM = function (image) {
 			that._imgElement = image.createElement();
 			that._imgElement.style.display = "none";				
-			that.body.appendChild(that._imgElement, that.addTextToDOM( image));
+			that.body.appendChild(that._imgElement);
+			that.addTextToDOM( image)
 	}
 
 	that.updateIcon = function (){
-		if(that._textAsImgElement){
+		if(that._textAsImgElement && that._textAsImgElement.parentNode ){
 			that._textAsImgElement.parentNode.removeChild(that._textAsImgElement);
 		}
-		if(that._imgElement){
+		if(that._imgElement &&  that._imgElement.parentNode){
 			that._imgElement.parentNode.removeChild(that._imgElement);
-		}		
+		}
+				
 		var baseBitmap = new nokia.maps.gfx.BitmapImage(that.get("icon").src);
-		baseBitmap.prepare(that.addImageToDOM, null);
+		baseBitmap.prepare(that.addImageToDOM, that);
 	}
 	
 	that.updateIcon();
