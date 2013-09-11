@@ -7,10 +7,7 @@
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <script type="text/javascript" src="libs/prettyprint.js"
-    	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-    	data-display-functions="createMarkerBars,barChart">
-    </script>
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
     	id="HereMapsLoaderScript" /*This identifies the Loader Script */
@@ -49,7 +46,7 @@
     <div id="mapContainer" style="width:540px; height:334px;"></div>
      <div id="sidebar"></div>
 
-    <div id="src" style="width:100%" ><p>Code:</p></div>
+    <div id="src" style="width:100%" ><br/><p>Code:</p></div>
         <script type="text/javascript">
 function afterHereMapLoad(map){
 	infoBubbles = new nokia.maps.map.component.InfoBubbles();
@@ -124,6 +121,10 @@ function createMarkerBars(container, popData){
 	}
 
 }
-        </script>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
+	data-display-functions="createMarkerBars,barChart">
+</script>
     </body>
 </html>

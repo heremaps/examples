@@ -7,17 +7,12 @@
  <title>Combining HERE Maps API for JavaScript and the RESTful Map API</title>
  <!-- No additional support required here. -->
 <!-- Set up constants such as APP ID and token -->
-	    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-	    <!-- Bootstrap jQuery Library -->
-	    <script type="text/javascript" src="libs/jQl.min.js"></script> 
-	    <script type="text/javascript" src="libs/prettyprint.js"
-    		id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-    		data-display-functions="asyncLoadMapsLibrary,hereMapLoaderCallback,authenticate,createMap,afterHereMapLoad">
-    	</script> 
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    
 	<link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
-
-
 </head>
 <body>
 	<h1>Asynchronous Loading</h1>
@@ -30,7 +25,7 @@
     <img id='HereStaticMap' src="http://m.nok.it/?c=50.5,15.5&amp;h=334&amp;w=540&amp;z=4&amp;nord&amp;nodot&amp;sb=k"
     	 onclick="asyncLoadMapsLibrary();" alt="Map of Europe" />
   </div>
-  <div id="src" style="width:100%" ><p>Code:</p></div>
+  <div id="src" style="width:100%" ><br/><p>Code:</p></div>
  <script type="text/javascript">
 
 
@@ -105,10 +100,10 @@ function asyncLoadMapsLibrary(){
 	$.getScript(HereMapsConstants.JSLibs.HereMapsUrl , hereMapLoaderCallback);
 }
  
- </script>
- 
- 
- 
- 
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"
+	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
+	data-display-functions="asyncLoadMapsLibrary,hereMapLoaderCallback,authenticate,createMap,afterHereMapLoad">
+</script>  
 </body>
 </html>
