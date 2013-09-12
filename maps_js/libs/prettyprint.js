@@ -17,7 +17,10 @@
 				' word-wrap: break-word; ' +
 				' background-color: #f5f2f0; ' +		
 				' font-size:12px; ' +		  	  
-			'}';
+			'}' +
+			'div#src {' +
+				'width:100%;max-width:900px;' +           
+			'}' ;
 			
 		if (codeStyleNode.styleSheet) { // IE
 		    codeStyleNode.styleSheet.cssText = css;
