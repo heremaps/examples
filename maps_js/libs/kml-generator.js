@@ -87,7 +87,7 @@ KMLGenerator.prototype.init = function(panel, options) {
 				that.placemarks.push(placemark);
 	
 			} else if ( objects.get(i) instanceof nokia.maps.map.Container ) {
-				getPlaceMarkData(objects.get(i).objects);
+				that.getPlaceMarkData(objects.get(i).objects);
 			} else if( map.objects.get(i) instanceof nokia.maps.map.Polyline ){
 				// Retrieve all the Polyline data and add it to an array
 				var lineString = new Object();
