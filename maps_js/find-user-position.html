@@ -34,7 +34,7 @@ function locateUser(map){
 				marker = new nokia.maps.map.StandardMarker(coords), 
 				accuracyCircle = new nokia.maps.map.Circle(coords, coords.accuracy);
 				map.objects.addAll([accuracyCircle, marker]);
-				map.zoomTo(accuracyCircle.getBoundingBox(), false, "default");
+				map.zoomTo(accuracyCircle.getBoundingBox());
 			}, 
 			// Something went wrong we were unable to retrieve the GPS location
 			function (error) {

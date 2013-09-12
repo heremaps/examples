@@ -47,8 +47,8 @@ function addMarkerToMap (map){
 	map.objects.add(marker);
 }    
 function updateMarker(){
-	marker.set("text",  map.zoomLevel);
-	var brush = {color: arrColor[map.zoomLevel]};
+	marker.set("text",  Math.floor(map.zoomLevel));
+	var brush = {color: arrColor[Math.floor(map.zoomLevel)]};
 	marker.set("brush", brush);
 }
 </script>

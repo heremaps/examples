@@ -68,7 +68,7 @@ function locateUser(map){
 }
 
 function displayAddress(data, requestStatus, requestId)  {
-	infoBubbles.addBubble(data.location.address.text, 
+	infoBubbles.openBubble(data.location.address.text, 
 		data.location.position);
 }
 

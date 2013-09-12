@@ -8,9 +8,10 @@ window.HereMapsConstants = {
 	// sign in and register on http://developer.here.com
 	// and obtain your own developer's API key 
 	AppIdAndToken :{
-		appId: "_peU-uCkp-j8ovkzFGNU",
-		appCode: "gBoUkAMoxoqIWfxWA5DuMQ",
-		language: "en-US"
+		appId: "DemoAppId01082013GAL",
+		appCode: "AJKnXv84fjrb0KIHawS0Tg",
+		language: "en-US",
+		serviceMode: "cit",
 	},
 	// Initial center and zoom level of the map
 	InitialLocation : {
@@ -22,7 +23,7 @@ window.HereMapsConstants = {
 		// versioned URL to load the HERE maps API.
 		// Check on:  http://developer.here.com/versions 
 		// to obtain the latest version.
-		HereMapsUrl :"http://api.maps.nokia.com/2.2.4/jsl.js?blank=true",
+		HereMapsUrl :"http://js.cit.api.here.com/se/2.5.3/jsl.js?blank=true",
 		// versioned URL to load jQuery
 		jQueryUrl : 'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
 		jQueryUIUrl: 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'

@@ -32,11 +32,11 @@ function setMapLanguage(){
 		randomLanguage = availableLanguages[randomLanguageIndex]; 
 
  	$("#initialLangauge").text("The Initial Default Language is " + 
- 	 	nokia.maps.util.ApplicationContext.get("defaultLanguage")); 
+ 	 	nokia.Settings.defaultLanguage); 
 
-	nokia.maps.util.ApplicationContext.set("defaultLanguage", randomLanguage); 
+	nokia.Settings.set("defaultLanguage", randomLanguage); 
 	$("#currentLanguage").text("Now the Default Language is " + 
-		nokia.maps.util.ApplicationContext.get("defaultLanguage")); 
+		nokia.Settings.defaultLanguage); 
 	
 	
 	map = new nokia.maps.map.Display(document.getElementById('mapContainer'), {

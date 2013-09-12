@@ -48,13 +48,13 @@ function addHighlightableMarker(map) {
 
 
  	marker.addListener("mouseover" ,  function(evt) { 
- 		infoBubbles.addBubble("It's Istanbul!", evt.target.coordinate);	
+ 		infoBubbles.openBubble("It's Istanbul!", evt.target.coordinate);	
  		evt.target.set("brush", blue);
  		map.update(-1, 0);
  	});
 
  	marker.addListener("mouseout" ,  function(evt) { 
-		infoBubbles.addBubble("not Constantinople" , evt.target.coordinate);	
+		infoBubbles.openBubble("not Constantinople" , evt.target.coordinate);	
 		evt.target.set("brush", red);
 		map.update(-1, 0);
 	});

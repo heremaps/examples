@@ -80,7 +80,7 @@ function onGeoJSONParsed(geoJSON){
 		if (resultSet.state == "finished") {
 			map.zoomTo(container.getBoundingBox());
 			container.addListener("click" ,  function(evt) {
-				infoBubbles.addBubble(evt.target.properties.Description,
+				infoBubbles.openBubble(evt.target.properties.Description,
 				 evt.target.getBoundingBox().getCenter());
 			}, false);
 		} else {

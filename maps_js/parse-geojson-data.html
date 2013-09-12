@@ -112,7 +112,7 @@ function parseJson(jsonObject){
 		
 		map.addListener("click" ,  function(evt) {
 			var text = JSON.stringify(evt.target.properties);
-			bubble = infoBubbles.addBubble(text!== undefined ?   text : "properties undefined",
+			bubble = infoBubbles.openBubble(text!== undefined ?   text : "properties undefined",
 				 evt.target.getBoundingBox().getCenter());
 		}, false);
 	} else {

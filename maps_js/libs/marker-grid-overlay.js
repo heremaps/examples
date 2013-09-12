@@ -15,7 +15,7 @@ extend(MarkerGridOverlay,
 
 
 MarkerGridOverlay.prototype.init = function(tileUrl, overlayMin, overlayMax) {
-	that = this;
+	var that = this;
 	that.tileUrl = tileUrl;
 	that.overlayZoom = -1;
 	that.max =  (overlayMax) ? overlayMax : 30;
@@ -73,7 +73,7 @@ MarkerGridOverlay.prototype.init = function(tileUrl, overlayMin, overlayMax) {
 		
 	// If the viewport is altered, recalculate the images associated to the overlay.
 	that.eventHandler = function (evt) { 
-		if(that.container.isAdded(map)){
+		if(that.map){
 			if (that.overlayZoom != map.zoomLevel){
 				that.overlayZoom = map.zoomLevel;
 				that.tileWidth= Math.pow(2, that.overlayZoom);

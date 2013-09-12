@@ -23,7 +23,7 @@
     	
     	#sidebar {position:absolute; 
     		 
-    		top:40px; left:550px;
+    		top:120px; left:550px;
     		color: rgb(102, 102, 102);
 
     		height:300px;
@@ -44,7 +44,7 @@
 	<p>The example shows a series of bars showing the relative population of one hundred
 	cities in Germany.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-     <div id="sidebar"></div>
+    <div id="sidebar"></div>
 
     <div id="src"><br/><p>Code:</p></div>
         <script type="text/javascript">
@@ -57,7 +57,7 @@ function afterHereMapLoad(map){
 		{title : "title"});
 		
  	container.addListener("click" ,  function(evt) {
-		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);
+		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 			}, false);
 	createMarkerBars(container, popData)
 	

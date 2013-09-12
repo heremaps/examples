@@ -128,7 +128,7 @@ function onRouteCalculated (observedRouter, key, value){
 			new nokia.maps.routing.component.RouteResultSet(
 				routes[0]).container; //first option found
 		map.objects.add(mapRoute);
-		directionsRenderer.setRoute(routes[0]);
+		directionsRenderer.set("route",routes[0]);
 		
 		//Zoom to the bounding box of the route
 		map.zoomTo(mapRoute.getBoundingBox(), false, "default");

@@ -32,7 +32,7 @@
  	
  	container = new nokia.maps.map.Container();
  	container.addListener("click" ,  function(evt) {
-		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);   
+		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);   
 			}, false);			
 	map.objects.add(container);
 	

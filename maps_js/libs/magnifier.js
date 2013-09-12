@@ -44,10 +44,11 @@ Magnifier.prototype.init= function (width, height, zoomOffset ) {
 		}
 	};
 	
-	that.createSecondMap = function (map) {
+	that.createSecondMap = function (map, zoomOffset) {
+
 		that.__map2 = new nokia.maps.map.Display(that.__div, {
 			center: map.center,
-			zoomLevel: map.zoomLevel
+			zoomLevel: map.get("zoomLevel") + zoomOffset
 		});
 			
 		// Now we make the  overview map draggable
@@ -72,11 +73,7 @@ Magnifier.prototype.init= function (width, height, zoomOffset ) {
 						 center: that.__map.pixelToGeo(newX+100, newY+100) });
 			}
 		});
-			
-		// Initialize the map center and zoom level
-		that.__map2.set({ 
-			center: that.__map.get("center"),
-			zoomLevel: (that.__map.get("zoomLevel")+ that.get("zoomOffset")) });
+				
 	}
 	
 	that.addObserver("height", function(){
@@ -102,7 +99,7 @@ Magnifier.prototype.attach = function (map) {
 	var child = controls.firstChild;
 	controls.insertBefore(this.__div, child);
 	this.set("visible", true);
-	this.createSecondMap(map);
+	this.createSecondMap(map, this.get("zoomOffset"));
 	
 	this.__map.addObserver("center",  this.setOverview);
 	this.__map.addObserver("zoomLevel",  this.setOverview);

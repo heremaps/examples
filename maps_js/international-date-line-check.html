@@ -28,7 +28,7 @@
 function afterHereMapLoad(map){
 	this.map = map;
 	map.set("center", new nokia.maps.geo.Coordinate(-18.10, 180.0));
-	map.setZoomLevel(15);
+	map.set("zoomLevel", 15);
 
 	setUpContainer();
 	checkDateBorder(container);
@@ -62,7 +62,7 @@ function setUpContainer(){
 		);
 
 	map.objects.add(container);
-	map.zoomTo(container.getBoundingBox(),false,true);
+	map.zoomTo(container.getBoundingBox());
 }
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"

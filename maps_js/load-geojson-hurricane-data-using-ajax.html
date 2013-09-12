@@ -72,7 +72,7 @@ function addGeoJSONContainer (map){
 			"Wind Speed: "  + evt.target.properties.WIND + '<br/>' +
 			"Status: "  + evt.target.properties.STAT;
 			
-		infoBubbles.addBubble(text,
+		infoBubbles.openBubble(text,
 			 evt.target.getBoundingBox().getCenter());
 	}, false); 
 }

@@ -35,9 +35,14 @@
 	// This method is a convenience function that intialises the Settings
 	// to authenticate the app with the HERE Maps JS library.
 	function authenticate (settings){
-			baseNS.Settings.set("appId", settings.appId); 
-			baseNS.Settings.set("authenticationToken", settings.appCode);
-			baseNS.Settings.set("defaultLanguage", settings.language);
+			baseNS.Settings.set("app_id", settings.appId); 
+			baseNS.Settings.set("app_code", settings.appCode);
+			if (settings.language){
+				baseNS.Settings.set("defaultLanguage", settings.language);
+			}
+			if (settings.serviceMode){
+				baseNS.Settings.set("serviceMode", settings.serviceMode);
+			}
 	};
     
     // This method is called once the base JS library has loaded, it 
@@ -75,9 +80,13 @@
 	    		callbackKey = $(script).data('callback');
 	    		if ($(script).data('map-container')!== undefined){
 					map = createMap(exports.HereMapsConstants.InitialLocation,
-						ctx.getElementById($(script).data('map-container')));						
-				} 
-				exports[callbackKey](map);				
+						ctx.getElementById($(script).data('map-container')));
+					map.addListener("displayready", function () { 
+						exports[callbackKey](map);
+					}, false);							
+				} else {
+					exports[callbackKey](null);
+				}
 			}
 		};
 		// This callback is run if an error occurs during the feature loading

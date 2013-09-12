@@ -24,9 +24,10 @@
 <script  type="text/javascript" >
 
  function addInfoBubble(map){
- 	map.set("baseMapType", map.SATELLITE);
+ 	
  	map.set("center", new nokia.maps.geo.Coordinate(19.119, 72.8957));
  	map.setZoomLevel(10);
+    map.set("baseMapType", map.SATELLITE);
  	
  	var infoBubbles = new nokia.maps.map.component.InfoBubbles();
  	map.components.add(infoBubbles);
@@ -35,7 +36,7 @@
  		" src='http://www.youtube.com/embed/Nr41eRzUnrg' frameborder='0' allowfullscreen>" +
  		"</iframe></div>";
 
- 	infoBubbles.addBubble(myHTMLcontent, 
+ 	infoBubbles.openBubble(myHTMLcontent, 
  		new nokia.maps.geo.Coordinate(19.119, 72.8957))	;
  }
   

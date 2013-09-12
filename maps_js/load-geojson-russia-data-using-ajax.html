@@ -50,7 +50,7 @@ function addGeoJSONContainer (map){
 	
 	geoJsonContainer.addListener("click" ,  function(evt) {
 		// The FO property holds the province name.
-		infoBubbles.addBubble(evt.target.properties.FO,
+		infoBubbles.openBubble(evt.target.properties.FO,
 			 evt.target.getBoundingBox().getCenter());
 	}, false); 
 }

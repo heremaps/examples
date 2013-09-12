@@ -25,7 +25,7 @@
     	
     	#sidebar {position:absolute; 
     		 
-    		top:40px; left:550px;
+    		top:120px; left:550px;
     		color: rgb(102, 102, 102);
 
     		height:300px;
@@ -58,7 +58,7 @@ function afterHereMapLoad(map){
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "title"});
  	container.addListener("click" ,  function(evt) {
-		infoBubbles.addBubble(evt.target.html, evt.target.coordinate);
+		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 		map.set("center", evt.target.coordinate);
 			}, false);
 	createMarkerBars(container, popData);
