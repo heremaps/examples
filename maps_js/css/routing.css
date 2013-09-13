@@ -1,0 +1,81 @@
+.directions li span.arrow {
+	display: inline-block; 
+	min-width:28px;
+	min-height: 28px;
+	background-position:0px;
+	background-image: url("../img/arrows.png");
+}
+.directions li span.rightUTurn  {
+	background-position:-56px;
+}
+.directions li span.leftUTurn  {
+	background-position:-84px;
+}
+.directions li span.rightMerge  {
+	background-position:-112px;
+}
+.directions li span.leftMerge  {
+	background-position:-140px;
+}
+.directions li span.slightRightTurn  {
+	background-position:-168px;
+}
+.directions li span.slightLeftTurn{
+	background-position:-196px;
+}
+.directions li span.rightTurn  {
+	background-position:-224px;
+}
+.directions li span.leftTurn{
+	background-position:-252px;
+}
+.directions li span.sharpRightTurn  {
+	background-position:-280px;
+}
+.directions li span.sharpLeftTurn{
+	background-position:-308px;
+}
+.directions li span.rightRoundaboutExit1 {
+	background-position:-616px;
+}
+.directions li span.rightRoundaboutExit2 {
+	background-position:-644px;
+}
+.directions li span.rightRoundaboutExit3 {
+	background-position:-672px;
+}
+.directions li span.rightRoundaboutExit4 {
+	background-position:-700px;
+}	
+.directions li span.leftRoundaboutExit1  {
+	background-position:-952px;
+}
+.directions li span.leftRoundaboutExit2  {
+	background-position:-980px;
+}
+.directions li span.leftRoundaboutExit3  {
+	background-position:-1008px;
+}
+.directions li span.leftRoundaboutExit2  {
+	background-position:-1036px;
+}
+
+.directions li span.leftRamp  {
+	background-position:-392px;
+}
+
+.directions li span.rightRamp  {
+	background-position:-420px;
+}
+
+.directions li span.leftExit  {
+	background-position:-448px;
+}
+
+.directions li span.rightExit  {
+	background-position:-476px;
+}
+
+.directions li span.ferry  {
+	background-position:-1316px;
+}

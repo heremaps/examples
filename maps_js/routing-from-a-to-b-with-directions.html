@@ -18,6 +18,7 @@
     </script>  	
     <link rel="icon" href="http://here.com/favicon.ico">
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link href="css/routing.css" rel="stylesheet">
 </head>
 <body>
 	<h1>Calculating a route between two points</h1>
@@ -71,7 +72,7 @@ function makeRouteRequest(){
 
 function onRouteCalculated (observedRouter, key, value){
 	if (value == "finished") {
-		var routes = observedRouter.getRoutes();
+		this.routes = observedRouter.getRoutes();
 		
 		//create the default map representation of a route
 		var mapRoute = 

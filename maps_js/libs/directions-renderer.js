@@ -17,8 +17,8 @@ if(typeof String.prototype.trim !== 'function') {
 		'.manuever_instruction .heading, '+
 		'.manuever_instruction .length, '+
 		'.manuever_instruction .direction{' +
-			' font-weight: bold; '+ 			  	  
-		'}' ;
+			' font-weight: bold; '+ 	
+		'}';
 
 	if (directionsStyleNode.styleSheet) { // IE
 	    directionsStyleNode.styleSheet.cssText = css;
@@ -149,16 +149,17 @@ DirectionsRenderer.prototype.init = function (panel, route, showImperialUnits){
 			return;
 		}
 		that.nodeOL  = document.createElement("ol");
+		that.nodeOL.className = "directions";
 		var showImperialUnits = that.get("showImperialUnits");
 
 		for (var i = 0;  i < route.legs.length; i++){
 			for (var j = 0;  j < 
 				route.legs[i].maneuvers.length; j++){
-				var details =  document.createElement("li");
-	
 				// Get the next maneuver.
-				maneuver = route.legs[i].maneuvers[j];
-				var instructions = maneuver.instruction;
+				var maneuver = route.legs[i].maneuvers[j],
+				details =  document.createElement("li"),
+				instructions = maneuver.instruction;
+				
 				// For imperial measurements, extract the
 				// distance span
 	
@@ -186,8 +187,11 @@ DirectionsRenderer.prototype.init = function (panel, route, showImperialUnits){
 						  // Finally add the instruction
 						  // to the list along with a link back to 
 						  // infobubble.
-						details.position = route.legs[i].maneuvers[j].position;
-						details.appendChild (document.createTextNode(' '));
+						details.position = maneuver.position;
+						
+						var span =  document.createElement("span");
+						span.className = "arrow "  + maneuver.action;
+						details.appendChild (span);						
 						manueverText = addText(instructions);
 						manueverText.className  ="manuever_instruction";
 						details.appendChild (manueverText);

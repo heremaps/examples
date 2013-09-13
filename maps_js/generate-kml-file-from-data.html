@@ -376,7 +376,7 @@ function doNextGeoCode(){
 		if (rGeoFields != "") {
 			
 			var lat = getFieldsFromDefinition(rGeoFields.latitude, headers, row );
-			var lng = getFieldsFromDefinition(rGeoFields.latitude, headers, row );
+			var lng = getFieldsFromDefinition(rGeoFields.longitude, headers, row );
 			if (lat != "" && lng != "" ){
 				nokia.places.search.manager.reverseGeoCode({
 					latitude:lat,
