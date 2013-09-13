@@ -474,7 +474,7 @@ function addMarker(markerData) {
 	// When the marker is clicked,show Infobubble.
 	marker.addListener("click" ,  function(evt) {
 		if ( evt.target.$data.description != ""){
-			infoBubbles.addBubble(evt.target.$data.description, evt.target.coordinate);
+			infoBubbles.openBubble(evt.target.$data.description, evt.target.coordinate);
 		} else {
 			infoBubbles.removeBubble();
 		}
