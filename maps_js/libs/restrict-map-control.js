@@ -50,25 +50,14 @@ RestrictMap.prototype.init = function (minZoom, maxZoom, boundingBox) {
 
 RestrictMap.prototype.attach = function (map) {
 	this.__map = map;
-	
-	
-
 	map.addListener("dragend", this.eventHandlers.restrictCenter);
-	map.addListener("drag",this.eventHandlers.restrictCenter);
-	map.addListener("mapviewchange", this.eventHandlers.restrictCenter);
 	map.addListener("mapviewchangeend", this.eventHandlers.restrictCenter);
-	map.addListener("mapviewchangestart", this.eventHandlers.restrictCenter);
-
 	map.addObserver("zoomLevel",  this.eventHandlers.restrictZoom);
 };
 
 RestrictMap.prototype.detach = function(map){
 	map.removeListener("dragend",  this.eventHandlers.restrictCenter);
-	map.removeListener("drag",  this.eventHandlers.restrictCenter);
-	map.removeListener("mapviewchange", this.eventHandlers.restrictCenter);
 	map.removeListener("mapviewchangeend",  this.eventHandlers.restrictCenter);
-	map.removeListener("mapviewchangestart",  this.eventHandlers.restrictCenter);
-
 	map.removeObserver("zoomLevel",  this.eventHandlers.restrictZoom);
 	this.__map = null;
 	
