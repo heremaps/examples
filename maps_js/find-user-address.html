@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="locateUser,displayAddress" />
+    <meta name="categories" content="positioning,infobubble" />
     <title>HERE Maps API Example: Locating the Address of a User</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -21,7 +24,6 @@
 	<h1>Locating the Address of a User</h1>
 	<p>This example finds the location of a user and displays the address on the map.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function afterMapLoad(map){
 	this.map = map;
@@ -81,9 +83,6 @@ function moveRandomly(){
  	return coord;
 } 
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="locateUser,displayAddress">
-</script> 
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

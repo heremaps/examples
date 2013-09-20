@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="categories" content="kml" >
     <title>HERE Maps API Example: KML Placemark Generator</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -88,7 +90,11 @@
 
     <div id="src"><br/><p>Code:</p></div>
 <script  type="text/javascript" >
-function afterHereMapLoad(map){
+	
+
+function (){
+		
+this.afterHereMapLoad = function(map){
 	this.map = map;
 	map.set('zoomLevel', 12);
     map.set('center', [52.51, 13.4]);
@@ -107,7 +113,7 @@ function afterHereMapLoad(map){
  	
 }
 
- function addKMLGenerator (map){	
+ this.addKMLGenerator = function(map){	
  	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
  		datasource : "$data",
  		id :"id",
@@ -134,14 +140,14 @@ String.prototype.splitCSV = function(sep) {
 	return foo;
 };
 
-function geocodeButtonSetUp(){
+this.geocodeButtonSetUp = function(){
 	$("#geocodeData" ).click(function() {
 		map.objects.clear();
 		doSplit ();
 	});
 }
 
-function rightMoveSetUp(){
+this.rightMoveSetUp = function(){
 	$("#rightMoveSetUp" ).click(function() {
 		$('#headerStart').val("#DEFINITION#\\n");
 		$('#dataStart').val("#DATA#\\n");
@@ -163,7 +169,7 @@ function rightMoveSetUp(){
 //
 //
 //
-function finlandSetUp(){
+this.finlandSetUp = function(){
 	$("#finlandSetUp" ).click(function() {
 		$('#headerStart').val("");
 		$('#dataStart').val("\\n");
@@ -184,7 +190,7 @@ function finlandSetUp(){
 //
 //
 //
-function chinaSetUp(){
+this.chinaSetUp = function(){
 	$("#chinaSetUp" ).click(function() {
 		$('#headerStart').val("");
 		$('#dataStart').val("\\n");
@@ -204,7 +210,7 @@ function chinaSetUp(){
 }
 
 
-function tabSetUp(){
+this.tabSetUp = function(){
 	$("#tabSetUp" ).click(function() {
 		$('#headerStart').val("");
 		$('#dataStart').val("\\n");
@@ -226,7 +232,7 @@ function tabSetUp(){
 //
 //
 //
-function csvSetUp(){
+this.csvSetUp = function(){
 	$("#csvSetUp" ).click(function() {
 		$('#headerStart').val("");
 		$('#dataStart').val("\\n");
@@ -291,7 +297,7 @@ var onSearchComplete =  function (data, requestStatus) {
 
    // Decide which fields are to be placed in which part of the KML.
    // Split the header from the data and process each record in turn.
-   function doSplit (){
+   this.doSplit = function (){
 
 	var dataInput = $('#dataInput').val();
 
@@ -359,7 +365,7 @@ var onSearchComplete =  function (data, requestStatus) {
 }
 // Obtains the Longitude and Latitude of the next record
 // Based upon the data in the chosen fields of that recod.
-function doNextGeoCode(){
+this.doNextGeoCode = function(){
 
 	if (currentRecord < rows.length){
 
@@ -423,7 +429,7 @@ function doNextGeoCode(){
 	}
  }
 
-function splitAndTrimFields( source, fieldSep){
+this.splitAndTrimFields = function( source, fieldSep){
 	var fields = new Array();
 	source = source.replace("\t", "\\t").replace("\t", "\\t");
 	rawFields = source.split(fieldSep);
@@ -435,7 +441,7 @@ function splitAndTrimFields( source, fieldSep){
 	return fields;
 }
 
-function getFieldsFromDefinition(definition, headerFields, dataRecord ){
+this.getFieldsFromDefinition = function(definition, headerFields, dataRecord ){
 	var result = "";
 	for (var defFieldCount = 0; defFieldCount <  definition.length ; defFieldCount++){
 		for (var headerFieldCount = 0; headerFieldCount <  headerFields.length ; headerFieldCount++){
@@ -460,7 +466,7 @@ function getFieldsFromDefinition(definition, headerFields, dataRecord ){
 }
 
 /* Adds a new marker to the map, with additional functionality based on the edit box data. */
-function addMarker(markerData) {
+this.addMarker = function(markerData) {
 
 	if (markerData.title === undefined){
 		markerData.title = "";
@@ -483,12 +489,9 @@ function addMarker(markerData) {
 	map.objects.add(marker);
 }
 
+}
 
 
-</script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-	data-display-functions="loadKMLFile,onKMLParsed">
 </script>
 </body>
 </html>

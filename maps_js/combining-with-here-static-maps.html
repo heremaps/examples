@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
- <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
- <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="afterHereMapLoad" />
+    <meta name="categories" content="map" />
  <title>Combining HERE Maps API for JavaScript and the RESTful Map API</title>
  <!-- No additional support required here. -->
 <!-- Set up constants such as APP ID and token -->
@@ -33,7 +34,6 @@
     <img id='HereStaticMap' src="http://m.nok.it/?c=50.5,15.5&amp;h=334&amp;w=540&amp;z=4&amp;nord&amp;nodot&amp;sb=k"
     	 alt="Map of Europe" />
   </div>
-  <div id="src"><br/><p>Code:</p></div>
 <script type="text/javascript">
 function afterHereMapLoad(map){
 	// This matches the static map:
@@ -46,9 +46,6 @@ function afterHereMapLoad(map){
 	$('#HereStaticMap').remove();
 }
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="afterHereMapLoad">
-</script> 
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

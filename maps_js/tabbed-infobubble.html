@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="showTabbedInfoBubble" />
+    <meta name="categories" content="infobubble,library" />
     <title>HERE Maps API Example:  Tabbed Infobubbles</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -82,24 +85,21 @@ function showInfoBubble(){
 }
 
 function showTabbedInfoBubble(){
-   
-    var tabs = new Array();
-				tabs.push ("Excerpt");
-				tabs.push ("Combatants");
-
-    var content = new Array();
-				content.push ("<i><q>" + 
-						"The ancient Roman boasted, with reason, of the growth of Rome from humble beginnings to the greatest magnitude " + 
-						"which the world had then ever witnessed. But the citizen of the United States is still more justly entitled to claim this praise." + 
-						"</q></i>");
-				content.push ("Great Britain, Brunswick-Wolfenb&uuml;ttel, Hesse-Hanau 	 vs. United States<br/>" + 
-						"Commanders and leaders: John Burgoyne, Simon Fraser &dagger;, F.A. Riedesel, Johann Specht, Wilhelm R. von Gall, 	Horatio Gates ");  
+	
+	var tabs = new Array();
+		tabs.push ("Excerpt");
+		tabs.push ("Combatants");
+	
+	var content = new Array();
+		content.push ("<i><q>" + 
+			"The ancient Roman boasted, with reason, of the growth of Rome from humble beginnings to the greatest magnitude " + 
+			"which the world had then ever witnessed. But the citizen of the United States is still more justly entitled to claim this praise." + 
+			"</q></i>");
+		content.push ("Great Britain, Brunswick-Wolfenb&uuml;ttel, Hesse-Hanau 	 vs. United States<br/>" + 
+			"Commanders and leaders: John Burgoyne, Simon Fraser &dagger;, F.A. Riedesel, Johann Specht, Wilhelm R. von Gall, 	Horatio Gates ");  
 		infoBubbles.addTabbedBubble(tabs, content, "<h2>Battle of Saratoga</h2>", new nokia.maps.geo.Coordinate(43.09, -73.674))	;
 }    
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="showTabbedInfoBubble">
-</script> 
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

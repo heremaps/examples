@@ -42,20 +42,11 @@
 		var script = null,
 		baseNS = null,
 		mapsNS = null;
-	
-	// Iterate through the <SCRIPT> Tags to find the loader
-	// Then use the element to obtain additional constants
-	// such as the name of the DOM element that displays the
-	// map	
-	$(ctx.getElementsByTagName('script')).each(function(index, value) {
-    	if ($(this).attr('id') == 'HereMapsPrettyPrint'){
-    		script = $(this);
-    		return false;
-    	}
-    	return true;
-	});
 		
-	var functions = $(script).data('display-functions');
+	var functions = $('meta[name=keywords]').attr("content");
+	if ( $("#src").length == 0 ) {
+		$('body').append('<div id="src"><br/><p>Code:</p></div>');
+	}
 	functionsArr = functions.split(',');
 	$.each(functionsArr , function(index, value) {
 		var functionToDisplay = exports[value];	

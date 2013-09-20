@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="setUpClickListener" />
+    <meta name="categories" content="events" />
     <title>HERE Maps API Example: Getting Geocoodinates on Mouse Click</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -21,7 +24,6 @@
 	<h1>Getting Geocoodinates on Mouse Click</h1>
 	<p>Click on the map to obtain the Geocoordinates.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function setUpClickListener (map){
 	/* Attach an event listener to map display
@@ -33,9 +35,6 @@ function setUpClickListener (map){
 	});
 }    
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="setUpClickListener">
-</script>
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

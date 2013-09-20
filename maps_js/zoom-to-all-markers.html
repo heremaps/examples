@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="addMarkersAndZoomTo" />
+    <meta name="categories" content="clustering" />
     <title>HERE Maps API Example: Zooming to all markers.</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -22,7 +25,6 @@
 	<h1>Zooming to all markers </h1>
 	<p>Adds three markers and zooms the map to display them.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function addMarkersAndZoomTo (map){
 	markerOne  = new nokia.maps.map.Marker([19.119, 72.8957]);
@@ -40,9 +42,6 @@ function addMarkersAndZoomTo (map){
 
 }    
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="addMarkersAndZoomTo">
-</script> 
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

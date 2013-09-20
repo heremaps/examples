@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="findNearestMarker,addClickEventListenerToMap" />
+    <meta name="categories" content="marker,events" />
     <title>HERE Maps API Example: Finding the Nearest Marker</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -25,7 +28,6 @@
 	 position.</p>
 	<p>The nearest marker is: <span id="nearestMarker">*None*</span></p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 
 function afterHereMapLoad(map){
@@ -74,12 +76,7 @@ function addClickEventListenerToMap(map){
 		findNearestMarker (coords);
 	}, false);
 }
- 
-  
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="findNearestMarker,addClickEventListenerToMap">
-</script>
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

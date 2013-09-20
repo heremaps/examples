@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="addSidebarControl,addGeoJSONContainer,getGeoJSON,onGeoJSONParsed,getCustomPointPresentation" />
+    <meta name="categories" content="geojson,library" />
     <title>HERE Maps API Example: Loading styled geoJSON Points using AJAX: Premiership Teams</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -112,12 +115,7 @@ function getCustomPointPresentation(dataPoint, props){
 	
 	 return GeoJSONTheme.getPointPresentation(dataPoint, props);
 }
-
-
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */
-	data-display-functions="addSidebarControl,addGeoJSONContainer,getGeoJSON,onGeoJSONParsed,getCustomPointPresentation">
-</script>
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>

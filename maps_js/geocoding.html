@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>HERE Maps API Example: Adding a Marker</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="startGeoCode,onGeocodeComplete,startFreeTextSearch,onPlaceSearchComplete" />
+    <meta name="categories" content="geocoding" />
+    <title>HERE Maps API Example: Using the Geocoding Service</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
@@ -29,7 +32,6 @@
 	  <input type="button" value="Search" onclick="startFreeTextSearch()"/>
 	</div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
 <script  type="text/javascript" >
 function afterHereMapLoad (map){
 	this.map = map;
@@ -90,9 +92,6 @@ function startFreeTextSearch(){
 }
    
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"
-	id="HereMapsPrettyPrint" /*This identifies the Loader Script */ 
-	data-display-functions="startGeoCode,onGeocodeComplete,startFreeTextSearch,onPlaceSearchComplete">
-</script>
+<script type="text/javascript" src="libs/prettyprint.js"/></script>
 </body>
 </html>
