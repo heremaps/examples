@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="createMarkerBars,barChart" />
-    <meta name="categories" content="marker" />
     <title>HERE Maps API Example: Adding a Bar Chart to the Map</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -13,19 +12,19 @@
 
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
-    	data-map-container="mapContainer" 
-    	data-params="maps" /*These are the features to load */
-    	data-callback="afterHereMapLoad" 
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
+    	data-callback="afterHereMapLoad"
     	data-libs="sidebar-control"  >
     </script>
     <script type="text/javascript" src="data/population-data-for-german-cities.js" /></script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
      <style type="text/css">
-    	
-    	#sidebar {position:absolute; 
-    		 
+
+    	#sidebar {position:absolute;
+
     		top:120px; left:550px;
     		color: rgb(102, 102, 102);
 
@@ -34,11 +33,11 @@
     	}
 
 		#sidebar .nm_sidebar{
-					
+
 			list-style: none;
 			width:250px;
 			height:270px;
-    		overflow:auto;		  	  			  	  
+    		overflow:auto;
 		}
 	</style>
 </head>
@@ -48,7 +47,8 @@
 	cities in Germany.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="sidebar"></div>
-        <script type="text/javascript">
+<script id="example-code" data-categories="marker" type="text/javascript">
+//<![CDATA[
 function afterHereMapLoad(map){
 	infoBubbles = new nokia.maps.map.component.InfoBubbles();
 	map.set( "zoomLevel", 6 );
@@ -56,12 +56,12 @@ function afterHereMapLoad(map){
 	map.components.add(infoBubbles);
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "title"});
-		
+
  	container.addListener("click" ,  function(evt) {
 		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 			}, false);
 	createMarkerBars(container, popData)
-	
+
 	map.objects.add(container);
 }
 
@@ -99,7 +99,7 @@ function barChart(stops, tick) {
 
 function createMarkerBars(container, popData){
 
-	
+
 
 	var  i = popData.length;
 	var tick = 12000; // 12 thousand inhabitants = 1 pixel height
@@ -122,6 +122,7 @@ function createMarkerBars(container, popData){
 	}
 
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
     </body>

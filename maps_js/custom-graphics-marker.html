@@ -1,32 +1,32 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="createGraphicsMarker" />
-    <meta name="categories" content="marker" />
     <title>HERE Maps API Example: Creating a Custom Graphics Marker</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>    
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript"     	
-    	data-params="maps" 
-    	data-map-container="mapContainer" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-params="maps"
+    	data-map-container="mapContainer"
     	data-callback="afterMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Creating a Custom Graphics Marker</h1>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="marker" type="text/javascript" >
+//<![CDATA[
 function afterMapLoad(map){
 	this.map = map;
-	map.set('zoomLevel', 10); 
+	map.set('zoomLevel', 10);
     map.set('center', [19.119, 72.8957]);
 	createGraphicsMarker(map);
 }
@@ -34,11 +34,11 @@ function afterMapLoad(map){
 function createGraphicsMarker(map){
 	var graphicsContext = new nokia.maps.gfx.Graphics();
 	graphicsContext.beginImage(64,64);
-	
+
 	// Compress a semi-transparent red color
-	
+
 	var my_fill_color = nokia.maps.gfx.Color.compress(255, 0, 0, 127);
-	
+
 	graphicsContext.set("fillColor", my_fill_color);
 	graphicsContext.set("strokeColor", "#000");
 	graphicsContext.set("lineWidth", 4);
@@ -54,6 +54,7 @@ function createGraphicsMarker(map){
 	);
 	map.objects.add(myGfxMarker);
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

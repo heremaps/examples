@@ -1,25 +1,24 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addHighlightableMarker" />
-    <meta name="categories" content="marker" />
     <title>HERE Maps API Example: Highlighting a Marker: Istanbul (Not Constantinople)</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Highlighting a  Marker</h1>
@@ -27,41 +26,42 @@
 	<a href="http://en.wikipedia.org/wiki/Istanbul_%28Not_Constantinople%29">capital of Turkey </a>
 </p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
-
+<script id="example-code" data-categories="marker" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
-	map.setCenter([41.0125,28.975833]);        
-	map.setZoomLevel(5); 
-	
+	map.setCenter([41.0125,28.975833]);
+	map.setZoomLevel(5);
+
 	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
-	map.addComponent( infoBubbles);       
-	
+	map.addComponent( infoBubbles);
+
 	addHighlightableMarker(map);
 }
 
-function addHighlightableMarker(map) { 
+function addHighlightableMarker(map) {
 	var red =  {color: "#FF0000"};
 	var blue=  {color: "#0000FF"};
 
 	var marker =  new nokia.maps.map.StandardMarker
-		(new nokia.maps.geo.Coordinate(41.0125,28.975833), 
+		(new nokia.maps.geo.Coordinate(41.0125,28.975833),
 		{brush: red});
 
 
- 	marker.addListener("mouseover" ,  function(evt) { 
- 		infoBubbles.openBubble("It's Istanbul!", evt.target.coordinate);	
+ 	marker.addListener("mouseover" ,  function(evt) {
+ 		infoBubbles.openBubble("It's Istanbul!", evt.target.coordinate);
  		evt.target.set("brush", blue);
  		map.update(-1, 0);
  	});
 
- 	marker.addListener("mouseout" ,  function(evt) { 
-		infoBubbles.openBubble("not Constantinople" , evt.target.coordinate);	
+ 	marker.addListener("mouseout" ,  function(evt) {
+		infoBubbles.openBubble("not Constantinople" , evt.target.coordinate);
 		evt.target.set("brush", red);
 		map.update(-1, 0);
 	});
 	map.objects.add(marker);
-} 
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

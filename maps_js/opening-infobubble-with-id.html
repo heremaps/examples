@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     	<meta name="keywords" content="getParameterByName,openInfoBubble,addMarkers" />
-    	<meta name="categories" content="infobubble" />
-		<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=EmulateIE10;"/>
+    	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=EmulateIE10;"/>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<title>HERE Maps API for JavaScript Example: Pre-open an information bubble</title>
 		<meta name="description" content="How to load a page with a read opened information bubbler"/>
@@ -25,8 +24,8 @@
 	    	data-params="all" 
 	    	data-callback="afterHereMapLoad"  >
 	    </script>  	
-	    <link rel="icon" href="http://here.com/favicon.ico">
-	    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+	    <link rel="icon" href="http://here.com/favicon.ico"/>
+	    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 	</head>
 	<body>
 		<h1>Opening Infobubbles</h1>
@@ -37,8 +36,8 @@
 			<a href="opening-infobubble-with-id.html?id=2">Ferhsehturm</a><br/>
 			<br/>			
 		</div>
-<script type="text/javascript">
-
+<script id="example-code" data-categories="infobubbles" type="text/javascript">
+//<![CDATA[
 function afterHereMapLoad (map){
 	this.map = map;
 	map.set("center", new nokia.maps.geo.Coordinate(52.52, 13.37));
@@ -114,6 +113,7 @@ function addMarkers (map){
 	);
 	map.objects.add(container);
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 	</body>

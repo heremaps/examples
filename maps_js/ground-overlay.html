@@ -1,26 +1,25 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addGroundOverlay" />
-    <meta name="categories" content="library,ground-overlay" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>HERE Maps API Example: Ground Overlays</title>
   	<!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>  
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="all" 
-    	data-callback="addGroundOverlay"  
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="all"
+    	data-callback="addGroundOverlay"
     	data-libs="groundoverlay" >
-    </script>     
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
   </head>
   <body>
   	<h1>Creating a Ground Overlay: Berlin Occupation Zones</h1>
@@ -35,7 +34,8 @@
 		<p>Code:</p>
 	</div>
   </body>
-<script type="text/javascript">	
+<script id="example-code" data-categories="ground-overlay,library" type="text/javascript">
+//<![CDATA[
 function addGroundOverlay (map){
 	this.map = map;
 	var berlinBounds = new nokia.maps.geo.BoundingBox(
@@ -43,14 +43,15 @@ function addGroundOverlay (map){
 		new nokia.maps.geo.Coordinate(52.328,13.78)
 	);
 
-	map.zoomTo(berlinBounds, false);	
+	map.zoomTo(berlinBounds, false);
 	 dividedBerlin = new GroundOverlay(
 		'./img/berlin-sector.png',
 		berlinBounds);
-	
+
 	map.components.add(dividedBerlin);
 	dividedBerlin.set("opacity", 0.5);
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </html>

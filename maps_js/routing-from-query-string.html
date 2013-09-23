@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
 	<meta name="keywords" content="addMarkerToMap" />
-    <meta name="categories" content="routing,library" />
 	<title>HERE	Maps API Example: Showing Directions Based on a	URL</title>
 	<!-- Set up	constants such as APP ID and token -->
 	<script	type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -14,13 +13,13 @@
 	<script	type="text/javascript" src="libs/hereAsyncLoader.js"
 		id="HereMapsLoaderScript" /*This identifies	the	Loader Script */
 		data-map-container="mapContainer"  /*This is the name of DOM element that holds	the	map	*/
-		data-params="maps,directions,places" /*These are the features to load */
-		data-callback="afterHereMapLoad" /*This	is the name	of the callback	method */ 
+		data-params="maps,directions,places" 
+		data-callback="afterHereMapLoad" /*This	is the name	of the callback	method */
 		data-libs="directions-renderer" >
 	</script>
 	<link rel="icon" href="http://here.com/favicon.ico">
-	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
-	<link href="css/routing.css" rel="stylesheet">
+	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+	<link href="css/routing.css" rel="stylesheet"/>
 </head>
 <body>
 	<h1>Showing	Directions Based on	a URL</h1>
@@ -62,9 +61,9 @@
 			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
 		<p>Code:</p>
 	</div>
-<script	 type="text/javascript"	>
-
- function afterHereMapLoad(map){
+<script id="example-code" data-categories="routing,library" type="text/javascript"	>
+//<![CDATA[
+function afterHereMapLoad(map){
 	this.map = map;
 	map.set("zoomLevel", 6);
 	map.set("center", [43.674, 10.999] );
@@ -76,12 +75,9 @@
 	map.addComponent(new nokia.maps.map.component.ScaleBar ());
 	addDirectionsRenderer (map);
 	findWaypoints();
- }
+}
 
-
-
-
- function addDirectionsRenderer	(map){
+function addDirectionsRenderer	(map){
 	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
 	map.addComponent(directionsRenderer);
 }
@@ -143,7 +139,7 @@ function getParameterByName(name) {
 	name = name.replace(/[\[]/,	"\\\[").replace(/[\]]/, "\\\]");
 	var	regex =	new	RegExp("[\\?&]"	+ name + "=([^&#]*)"),
 	results	= regex.exec(location.search);
-	return results == null ? "" : 
+	return results == null ? "" :
 		decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
@@ -200,11 +196,11 @@ function findWaypoints(){
 		var i = geoCodedWaypoints.length;
 		while(i--) {
 			addressContainer.objects.add(
-			new nokia.maps.map.StandardMarker(	
+			new nokia.maps.map.StandardMarker(
 				geoCodedWaypoints [i]));
 		}
 		map.zoomTo(addressContainer.getBoundingBox());
-		
+
 		makeRouteRequest(geoCodedWaypoints);
 	} else {
 			// If we have neither addresses	nor	geolocations, we can't define a	route.
@@ -223,7 +219,7 @@ function searchManager($index) {
 	if (requestStatus == "OK") {
 		geoCodedWaypoints [$index] =  data.location.position;
 		addressContainer.objects.add(
-			new nokia.maps.map.StandardMarker(	
+			new nokia.maps.map.StandardMarker(
 				geoCodedWaypoints [$index],{text: ($index + 1)}));
 		//increment the counter to notify another	manager has finished
 		managersFinished++;
@@ -246,7 +242,7 @@ function searchManager($index) {
 		makeRouteRequest(geoCodedWaypoints);
 	}
 }};
-
+//]]>
 </script>
 </body>
 </html>

@@ -4,45 +4,44 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="getTileUrl,showCopyright,addTileOverlayToMap"/>
-    <meta name="categories" content="overlay" />
     <title>HERE Maps API Example: Adding an Overlay</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>      
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
     <script type="text/javascript" charset="UTF-8" src="http://nls.tileserver.com/api.js"></script>
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" />
 </head>
 <body>
 	<h1>Adding an Overlay to the map</h1>
-	
+
 	<p>
-	 This example adds an Overlay which retrieves Map Tiles from a tile server run by the 
+	 This example adds an Overlay which retrieves Map Tiles from a tile server run by the
 	 <a href="http://geo.nls.uk/maps/api/">National Library of Scotland</a><br/>
-	 The mapping is based on out-of-copyright Ordnance Survey maps, dating from the 1920s to the 1940s. 
+	 The mapping is based on out-of-copyright Ordnance Survey maps, dating from the 1920s to the 1940s.
 	 <br/>
 	</p>
-	
+
 	 <div>
 	 	<label for="slider" >Opacity</label> <br/><div id="slider" style="left:4em;top:-1em;width:100px;"/>
 	 </div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
 
-<script  type="text/javascript" >
-
+<script id="example-code" data-categories="overlay" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	addTileOverlayToMap (map);
 	$.getScript(HereMapsConstants.JSLibs.jQueryUIUrl , setUpSlider);
-	
+
 }
 
 function setUpSlider(){
@@ -50,13 +49,13 @@ function setUpSlider(){
 	//	range: true,
 		min: 0,
 		max: 100,
-	
+
 		value: 100,
 		slide: function( event, ui ) {
 			nlsOverlay.opacity = (ui.value/100);
-			map.overlays.remove(nlsOverlay);	
+			map.overlays.remove(nlsOverlay);
 			map.overlays.add(nlsOverlay);
-			
+
 		}
 	});
 	$( "#slider" ).slider( "value", 50 );
@@ -70,32 +69,33 @@ function showCopyright(area, zoom) {
 		return [];
 	}
 
-	return [ 
-		{ 
-			label: "Historical maps from <a href='http://geo.nls.uk/maps/api/'>NLS Maps API<\/a>", 
-			alt: "Historical maps from the National Library of Scotland" 
+	return [
+		{
+			label: "Historical maps from <a href='http://geo.nls.uk/maps/api/'>NLS Maps API<\/a>",
+			alt: "Historical maps from the National Library of Scotland"
 		}
 	];
 }
 
 function addTileOverlayToMap (map){
 	this.map = map
-	
+
 	map.set( "zoomLevel", 11);
-	map.set("center" ,[55.953056, -3.188889]); 
-	
-	
+	map.set("center" ,[55.953056, -3.188889]);
+
+
 	tileProviderOptions = {
-		getUrl: getTileUrl, 
-		max:20, 
-		min:5, 
-		opacity: 0.5, 
-		alpha:true, 
-		getCopyrights: showCopyright 
+		getUrl: getTileUrl,
+		max:20,
+		min:5,
+		opacity: 0.5,
+		alpha:true,
+		getCopyrights: showCopyright
 	};
 	this.nlsOverlay = new nokia.maps.map.provider.ImgTileProvider(tileProviderOptions);
 	map.overlays.add(nlsOverlay);
-}    
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

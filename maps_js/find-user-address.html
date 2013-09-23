@@ -1,30 +1,30 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="locateUser,displayAddress" />
-    <meta name="categories" content="positioning,infobubble" />
     <title>HERE Maps API Example: Locating the Address of a User</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript"     	
-    	data-params="maps" 
-    	data-map-container="mapContainer" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-params="maps"
+    	data-map-container="mapContainer"
     	data-callback="afterMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Locating the Address of a User</h1>
 	<p>This example finds the location of a user and displays the address on the map.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="positioning,search,infobubble" type="text/javascript" >
+//<![CDATA[
 function afterMapLoad(map){
 	this.map = map;
 	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
@@ -44,7 +44,7 @@ function locateUser(map){
 					onComplete: displayAddress
 				});
 
-			}, 
+			},
 			// Something went wrong we were unable to retrieve the GPS location
 			function (error) {
 				var errorMsg = "Location could not be determined: ";
@@ -62,26 +62,27 @@ function locateUser(map){
 					longitude: nearby.longitude,
 					onComplete: displayAddress
 				});
-				
-				
+
+
 			}, {maximumAge: 750}
 		);
 	}
 }
 
 function displayAddress(data, requestStatus, requestId)  {
-	infoBubbles.openBubble(data.location.address.text, 
+	infoBubbles.openBubble(data.location.address.text,
 		data.location.position);
 }
 
 function moveRandomly(){
 	var viewPort = map.getViewBounds();
-	var coord = new nokia.maps.geo.Coordinate 
+	var coord = new nokia.maps.geo.Coordinate
 		(viewPort.topLeft.latitude - Math.random()*viewPort.getHeight(),
 		viewPort.topLeft.longitude + Math.random()*viewPort.getWidth()
 	);
  	return coord;
-} 
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

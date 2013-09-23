@@ -1,33 +1,32 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addKMLGenerator,buttonSetUp" />
-    <meta name="categories" content="kml" />
     <title>HERE Maps API Example: KML Placemark Generator</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>    
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
-    	data-params="maps,datarendering" /*These are the features to load */
-    	data-map-container="mapContainer" 
-    	data-callback="afterHereMapLoad" 
+    	id="HereMapsLoaderScript" 
+    	data-params="maps,datarendering" 
+    	data-map-container="mapContainer"
+    	data-callback="afterHereMapLoad"
     	data-libs="kml-generator" >
     </script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
     <style type="text/css">
-    	
-    	#kmlData {position:absolute; 
+
+    	#kmlData {position:absolute;
     		top:10px; left:600px;
     		color: rgb(102, 102, 102);
     		height:500px;
     		margin: 0em;
-    		overflow:auto;	
+    		overflow:auto;
     	}
     </style>
 </head>
@@ -36,17 +35,18 @@
 	<div style="width:500px;margin:1em" >
 		<p>This example is able to covert an arbitrary HERE Map to KML. The sample file shows the
 		location of football grounds in the English Premier League</p>
-		
+
 		 <p>The result can be seen in the  <a href="./load-kml-premier-league-football-teams.html">Premier League Football</a>
-		
-		<div>Generate KML from Map Objects:	
+
+		<div>Generate KML from Map Objects:
 			<input id="generateKML" type="button" value="Generate"  />
 		</div>
 
     	<div id="mapContainer" style="width:540px; height:334px;"></div>
 	</div>
     <div id="kmlData"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="kml" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	map.set('zoomLevel', 5);
@@ -59,8 +59,8 @@ function afterHereMapLoad(map){
  	buttonSetUp();
 }
 
- function addKMLGenerator (map){	 	
-	// Add in coloured standard markers as Icon Styles	
+ function addKMLGenerator (map){
+	// Add in coloured standard markers as Icon Styles
 iconStyles =  "<Style id='000000'>\n"
 	+ "    <IconStyle><Icon><href>http://www.developer.nokia.com/Community/Wiki/images/0/02/000000.png</href></Icon></IconStyle>\n"
 	+ "</Style>\n"
@@ -79,9 +79,9 @@ iconStyles =  "<Style id='000000'>\n"
  	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
 	description: "html",
 	defaultStyles: iconStyles});
- 	map.addComponent(kmlGenerator); 
+ 	map.addComponent(kmlGenerator);
 }
- 
+
 
 function buttonSetUp(){
 	$("#generateKML" ).click(function() {
@@ -183,6 +183,7 @@ new nokia.maps.map.Marker( [53.7285,-2.4892],  {
 		}, false);
 	map.objects.add(container);
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

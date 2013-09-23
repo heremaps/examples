@@ -1,32 +1,31 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="createGeoJsonParser,parseJson" />
-    <meta name="categories" content="marker,xml" />
     <title>HERE Maps API Example: Loading Marker Data from an XML file</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
-    	data-params="maps" /*These are the features to load */
-    	data-map-container="mapContainer" 
-    	data-callback="afterHereMapLoad" 
+    	id="HereMapsLoaderScript" 
+    	data-params="maps" 
+    	data-map-container="mapContainer"
+    	data-callback="afterHereMapLoad"
     	data-libs="geojson-parser">
     </script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Parsing geoJSON data</h1>
 	<p>This example parses geoJSON data and displays it on a map.
 	</p>
-	<p>The full data set can be found at: 
+	<p>The full data set can be found at:
 		<a href="./geojson/test.geojson">./geojson/test.geojson</a>
 	</p>
 	<span>Add a:</span>
@@ -35,32 +34,33 @@
 	<input type="button" id="polygon" value="Polygon" />
 	<input type="button" id="feature" value="Feature" />
 	<input type="button" id="collection" value="FeatureCollection" />
-	
+
 	<br/><br/>
 	 <p>GeoJSON:</p>
 	 <div id="sidebar" style="width:540px; color: rgb(102, 102, 102);">NONE LOADED</div>
 	 <br/>
-	
+
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-   
+
     <div id="src" style="width:100%">
     	<br/>
 			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
 			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
 			<br/><p>Code:</p>
 	</div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="geojson,library" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	this.bubble = null;
 	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
 	infoBubbles.options.defaultWidth = 200;
  	infoBubbles.options.width = 200;
- 	
+
  	map.components.add(infoBubbles);
 	map.set("zoomLevel", 16);
 	map.set("center", [35.04267, -80.66252]);
-	
+
 	defineGeoJson();
 	createGeoJsonParser();
 	buttonsSetUp();
@@ -69,18 +69,18 @@ function afterHereMapLoad(map){
 
 
 function buttonsSetUp(){
-	
+
 	var  parse  = function(object){
 		map.objects.clear();
-		if ((bubble)&& 
+		if ((bubble)&&
 			(bubble.getState() == "opened" )){
 			bubble.close();
 		}
 		parseJson(object);
 		displayJSONSource(object);
-	};	
-	
-	
+	};
+
+
 	$("#point" ).click(function() {
 		parse(geoJSON.Point);
 	});
@@ -95,9 +95,9 @@ function buttonsSetUp(){
 	});
 	$("#collection" ).click(function() {
 		parse(geoJSON.FeatureCollection);
-		
+
 	});
-		
+
 }
 
 function createGeoJsonParser(){
@@ -106,13 +106,13 @@ function createGeoJsonParser(){
 
 
 function parseJson(jsonObject){
-	
-	
-	result = parser.parseGeoJSON(jsonObject);	
+
+
+	result = parser.parseGeoJSON(jsonObject);
 	if (parser.state == "finished") {
 		map.objects.addAll(result);
 		map.set("center", map.objects.get(0).getBoundingBox().getCenter());
-		
+
 		map.addListener("click" ,  function(evt) {
 			var text = JSON.stringify(evt.target.properties);
 			bubble = infoBubbles.openBubble(text!== undefined ?   text : "properties undefined",
@@ -124,15 +124,15 @@ function parseJson(jsonObject){
 }
 
 function displayJSONSource(jsonObject){
-	
+
 	$("#sidebar").empty();
-	
+
 	var text = JSON.stringify(jsonObject);
 	var textNode = document.createTextNode(text);
 	var preNode = $("<pre></pre>");
-	var spanNode =  $("<span></span>"); 
+	var spanNode =  $("<span></span>");
 	var codeNode =  $("<code class='prettyprint'></code>");
-	
+
 	codeNode.append(textNode);
 	spanNode.append(codeNode);
 	preNode.append (spanNode)
@@ -223,9 +223,7 @@ function defineGeoJson(){
 		]
 	}
 };}
-
-
-
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

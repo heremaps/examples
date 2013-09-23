@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="locateUser" />
-    <meta name="categories" content="positioning" />
     <title>HERE Maps API Example: Locating the User</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -18,14 +17,15 @@
     	data-map-container="mapContainer" 
     	data-callback="locateUser"  >
     </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Locating the User</h1>
 	<p>This example finds the location of a user and display it on the map.</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="positioning" type="text/javascript" >
+//<![CDATA[
 function locateUser(map){
 	if (nokia.maps.positioning.Manager) {
 		var positioning = new nokia.maps.positioning.Manager();
@@ -52,6 +52,7 @@ function locateUser(map){
 		);
 	}
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

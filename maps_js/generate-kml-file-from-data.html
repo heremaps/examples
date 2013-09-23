@@ -1,27 +1,26 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="categories" content="kml" >
     <title>HERE Maps API Example: KML Placemark Generator</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
-    	data-params="maps,datarendering" /*These are the features to load */
-    	data-map-container="mapContainer" 
-    	data-callback="afterHereMapLoad" 
+    	id="HereMapsLoaderScript"
+    	data-params="maps,datarendering"
+    	data-map-container="mapContainer"
+    	data-callback="afterHereMapLoad"
     	data-libs="kml-generator" >
     </script>
     <link href='./css/prism.css' rel='stylesheet'>
 	<script type='text/javascript' src='libs/prism.js' ></script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>KML Placemark Generator</h1>
@@ -80,7 +79,7 @@
 		Alternatively: <label for="rGeoAttemptLng">Latitiude/Longitude (if known):</label><br />
 		<input id="rGeoAttemptLat" type="text" size="10" value="" />
 		<input id="rGeoAttemptLng" type="text" size="10" value="" /><br />
-	<div style="height: 2.0em; font-size: 2em; color: blue;">3. Run Geocoder: 	
+	<div style="height: 2.0em; font-size: 2em; color: blue;">3. Run Geocoder:
 		<input id="geocodeData" type="button" value="Generate KML"  />
 	</div>
 </div>
@@ -89,11 +88,12 @@
     <div id="kmlData" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102); background-color: #f5f2f0;"></div>
 
     <div id="src"><br/><p>Code:</p></div>
-<script  type="text/javascript" >
-	
+<script id="example-code" data-categories="kml" type="text/javascript" >
+//<![CDATA[
+
 
 function (){
-		
+
 this.afterHereMapLoad = function(map){
 	this.map = map;
 	map.set('zoomLevel', 12);
@@ -101,19 +101,19 @@ this.afterHereMapLoad = function(map){
 	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
  	map.components.add(infoBubbles);
  	addKMLGenerator (map);
- 	
- 	
+
+
  	rightMoveSetUp();
  	chinaSetUp();
  	finlandSetUp();
  	tabSetUp();
  	csvSetUp();
- 	
+
  	geocodeButtonSetUp();
- 	
+
 }
 
- this.addKMLGenerator = function(map){	
+ this.addKMLGenerator = function(map){
  	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
  		datasource : "$data",
  		id :"id",
@@ -121,9 +121,9 @@ this.afterHereMapLoad = function(map){
 		name: "name",
 		address: "address",
 		styleURL: "styleURL" });
- 	map.addComponent(kmlGenerator); 
+ 	map.addComponent(kmlGenerator);
 }
- 
+
 
 
 // Standard Library for spliting up Comma Delimited Texts.
@@ -320,8 +320,8 @@ var onSearchComplete =  function (data, requestStatus) {
 	} else {
 		rGeoFields = "";
 	}
-	
-	
+
+
 
 	// Each of these address strategies will be tried in turn.
 	addressFields.push($('#addressAttempt1').val().split(fieldSep));
@@ -378,9 +378,9 @@ this.doNextGeoCode = function(){
 		styleURL = getFieldsFromDefinition(styleURLFields, headers, row);
 
 
-		
+
 		if (rGeoFields != "") {
-			
+
 			var lat = getFieldsFromDefinition(rGeoFields.latitude, headers, row );
 			var lng = getFieldsFromDefinition(rGeoFields.longitude, headers, row );
 			if (lat != "" && lng != "" ){
@@ -398,10 +398,10 @@ this.doNextGeoCode = function(){
 						currentRecord++;
 				}
 				doNextGeoCode();
-			
+
 			}
-			
-			
+
+
 		}else if (address != "" ){
 			// Assuming we have an address to try, we should geocode it.
 			nokia.places.search.manager.geoCode({
@@ -488,10 +488,8 @@ this.addMarker = function(markerData) {
 
 	map.objects.add(marker);
 }
-
 }
-
-
+//]]>
 </script>
 </body>
 </html>

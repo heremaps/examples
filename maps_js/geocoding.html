@@ -1,50 +1,50 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="startGeoCode,onGeocodeComplete,startFreeTextSearch,onPlaceSearchComplete" />
-    <meta name="categories" content="geocoding" />
     <title>HERE Maps API Example: Using the Geocoding Service</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Using the Geocoding Service</h1>
-	 <div id="extra"> 
-		 <label for="geo_text_box"> Geocode </label><br/>              
+	 <div id="extra">
+		 <label for="geo_text_box"> Geocode </label><br/>
 		<input type="text" id="geo_text_box"/>
 	  <input type="button" value="Geo code with name" onclick="startGeoCode()"/>
-	  <br/> 
-	  	 <label for="free_text_text_box"> Free text search</label><br/>    
+	  <br/>
+	  	 <label for="free_text_text_box"> Free text search</label><br/>
 	  	<input type="text" id="free_text_text_box"/>
 	  <input type="button" value="Search" onclick="startFreeTextSearch()"/>
 	</div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="search" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad (map){
 	this.map = map;
 	map.setCenter (new nokia.maps.geo.Coordinate(18.975, 72.825833));
 	map.setZoomLevel(10);
-} 
+}
 
 function onGeocodeComplete  (data, requestStatus, requestId) {
-	if (requestStatus == "OK") {   		
+	if (requestStatus == "OK") {
 		alert("GEOCODE ENDED SUCCESSFULLY");
 		map.objects.clear();
 		var marker = new nokia.maps.map.StandardMarker(data.location.position);
-		map.objects.add(marker); 
+		map.objects.add(marker);
 		map.zoomTo(marker.getBoundingBox(), false);
 		if(map.get("zoomLevel") > 15){
 			map.setZoomLevel(15);
@@ -53,9 +53,9 @@ function onGeocodeComplete  (data, requestStatus, requestId) {
 		alert("GEOCODE FAILED.");
 	}
 };
- 
+
 function onPlaceSearchComplete (data, requestStatus, requestId) {
-	if (requestStatus == "OK") {   
+	if (requestStatus == "OK") {
 		alert("SEARCH ENDED SUCCESSFULLY");
 		map.objects.clear();
 		// Convert all found locations into a set of markers
@@ -72,17 +72,17 @@ function onPlaceSearchComplete (data, requestStatus, requestId) {
 	} else if(requestStatus == "ERROR") {
 		alert("SEARCH FAILED.");
 	}
-};            
- 
-function startGeoCode(){ 
+};
+
+function startGeoCode(){
 	var geocode = document.getElementById("geo_text_box");
 		nokia.places.search.manager.geoCode({
 			searchTerm :  geocode.value,
 		 	onComplete:  onGeocodeComplete
-	}); 	  
+	});
 }
- 
-function startFreeTextSearch(){ 
+
+function startFreeTextSearch(){
 	var freetext = document.getElementById("free_text_text_box");
 	  nokia.places.search.manager.findPlaces({
 		searchTerm :  freetext.value,
@@ -90,7 +90,7 @@ function startFreeTextSearch(){
 		searchCenter: map.center
 	});
 }
-   
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

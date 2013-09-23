@@ -1,47 +1,46 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addInfoBubble" />
-    <meta name="categories" content="infobubble" />
     <title>HERE Maps API Example: Adding an Infobubble</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>   
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="addInfoBubble"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Adding an Infobubble with HTML content to the map</h1>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="infobubble" type="text/javascript" >
+//<![CDATA[
+function addInfoBubble(map){
 
- function addInfoBubble(map){
- 	
  	map.set("center", new nokia.maps.geo.Coordinate(19.119, 72.8957));
  	map.setZoomLevel(10);
     map.set("baseMapType", map.SATELLITE);
- 	
+
  	var infoBubbles = new nokia.maps.map.component.InfoBubbles();
  	map.components.add(infoBubbles);
- 	
+
  	var myHTMLcontent = "<div class=\"myHtmlContent\">"+"<iframe width='425' height='349' " +
  		" src='http://www.youtube.com/embed/Nr41eRzUnrg' frameborder='0' allowfullscreen>" +
  		"</iframe></div>";
 
- 	infoBubbles.openBubble(myHTMLcontent, 
+ 	infoBubbles.openBubble(myHTMLcontent,
  		new nokia.maps.geo.Coordinate(19.119, 72.8957))	;
- }
-  
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

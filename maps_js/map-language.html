@@ -1,24 +1,23 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="setMapLanguage" />
-    <meta name="categories" content="marker" />
     <title>HERE Maps API Example: Setting the Map Language</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript"     	
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-params="maps"
     	data-callback="setMapLanguage"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Setting the Map Language</h1>
@@ -26,30 +25,32 @@
 	<div id="initialLangauge" style="height: 2.0em; font-size: 2em; color: blue;"></div>
 	<div id="currentLanguage" style="height: 2.0em; font-size: 2em; color: blue;"></div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="map" type="text/javascript" >
+//<![CDATA[
 function setMapLanguage(){
 	var availableLanguages = ["en-US", "en-GB", "de-DE", "es-ES",
 			 "fr-FR", "it-IT", "ru-RU", "zh-CN"] ,
 		randomLanguageIndex = Math.floor(Math.random() * availableLanguages.length),
-		randomLanguage = availableLanguages[randomLanguageIndex]; 
+		randomLanguage = availableLanguages[randomLanguageIndex];
 
- 	$("#initialLangauge").text("The Initial Default Language is " + 
- 	 	nokia.Settings.defaultLanguage); 
+ 	$("#initialLangauge").text("The Initial Default Language is " +
+ 	 	nokia.Settings.defaultLanguage);
 
-	nokia.Settings.set("defaultLanguage", randomLanguage); 
-	$("#currentLanguage").text("Now the Default Language is " + 
-		nokia.Settings.defaultLanguage); 
-	
-	
+	nokia.Settings.set("defaultLanguage", randomLanguage);
+	$("#currentLanguage").text("Now the Default Language is " +
+		nokia.Settings.defaultLanguage);
+
+
 	map = new nokia.maps.map.Display(document.getElementById('mapContainer'), {
 			center: [53.1, 13.1],
-			zoomLevel: 4, 
-			components: [ 
+			zoomLevel: 4,
+			components: [
 				new nokia.maps.map.component.ZoomBar(),
 				new nokia.maps.map.component.Behavior()
 			]
 		});
-}    
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

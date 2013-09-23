@@ -1,40 +1,40 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addSpritesToMap"/>
-    <meta name="categories" content="marker"/>
     <title>HERE Maps API Example: Using Sprites as Markers</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="addSpritesToMap"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
 </head>
 <body>
 	<h1>Adding a Sprite Image as a Marker Icon</h1>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="src"><br/><p>Code:</p></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="marker" type="text/javascript" >
+//<![CDATA[
 function addSpritesToMap (map){
 
-	var iconPackUrl = "./img/sprites.png";	
+	var iconPackUrl = "./img/sprites.png";
 
 	// create an icon from the icon pack url, specify the size (30px x 30px) and an offset
 	// in the image where icon is (35px from the left border, 35px from the top).
 	greyPlaneBitmap = new nokia.maps.gfx.BitmapImage(iconPackUrl, null, 30, 30, 35, 35),
 	// create a second icon from the same url, specify the size (28px x 27px) and another offset
 	// in the image where icon is (5px from the left border, 72px from the top).
-	greenPlaneBitmap = new nokia.maps.gfx.BitmapImage(iconPackUrl, null, 28, 27, 5, 72),				
+	greenPlaneBitmap = new nokia.maps.gfx.BitmapImage(iconPackUrl, null, 28, 27, 5, 72),
 	// Create marker no 1
 	plane1 = new nokia.maps.map.Marker(new nokia.maps.geo.Coordinate(1.381667, 173.166944), {
 		icon: greyPlaneBitmap
@@ -42,15 +42,16 @@ function addSpritesToMap (map){
 	// Create marker no 2
 	plane2 = new nokia.maps.map.Marker(new nokia.maps.geo.Coordinate(1.371667, 173.146944), {
 		icon: greenPlaneBitmap
-	});			
-	
-	// Create a new container						
-	container = new nokia.maps.map.Container()   	    	
+	});
+
+	// Create a new container
+	container = new nokia.maps.map.Container()
 	container.objects.addAll([plane1, plane2]);
-	map.objects.add(container);		
+	map.objects.add(container);
 	map.zoomTo(container.getBoundingBox());
 	map.set("baseMapType", map.SATELLITE);
-}    
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

@@ -1,35 +1,34 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="concurrentSearch,onSearchComplete,onAllManagersFinished" />
-    <meta name="categories" content="geocoding" />
     <title>HERE Maps API Example: Performing multiple concurrent search requests</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Concurrent Search Requests</h1>
 	<p>This example makes twenty concurrent search requests to identify a series of cities from around the world,
-		and displays markers on the map showing their locations. The search terms are: Helsinki, Finland; Zaragoza, Spain; 
-		Berlin, Germany; Colorado Springs, USA; Houston, TX; London, UK; Vancouver, Canada; 
+		and displays markers on the map showing their locations. The search terms are: Helsinki, Finland; Zaragoza, Spain;
+		Berlin, Germany; Colorado Springs, USA; Houston, TX; London, UK; Vancouver, Canada;
 		Hyderabad, India; Beijing, China and Ilomantsi, Finland;</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="src"><br/><p>Code:</p></div>
-<script  type="text/javascript" >
-
+<script id="example-code" data-categories="search" type="text/javascript" >
+//<![CDATA[
 var addressContainer;
 var managersFinished;
 var addresses;
@@ -37,71 +36,72 @@ var addresses;
 function afterHereMapLoad (map){
 	this.map = map;
 	concurrentSearch(map);
-}	
-   
- 
-// this function will be used when all managers have returned     
-function onAllManagersFinished () {     
-	//we get the bounding box of the container         
-	var bbox = addressContainer.getBoundingBox();         
+}
 
-	// if the bounding box is null then there are no objects inside         
-	// meaning no markers have been added to it         
 
-	if (bbox != null) {             
-			// we have at least one address mapped             
-			// so we add the container and zoomTo it             
-			map.objects.add(addressContainer);             
-			map.zoomTo(bbox);         
-	} else {         
-			// otherwise we'll pop up an error message              
-			alert("There are no addresses to show :(");         
-	}     
-};    
-// we will use the same state observer function for all managers     
- 
-function onSearchComplete  (data, requestStatus) {
-	if (requestStatus == "OK") {              
-		// if we are finished, we add a marker for the mapped position             
-		addressContainer.objects.add(
-			new nokia.maps.map.StandardMarker(data.location.position));             
-		//increment the counter to notify another manager has finished             
-		managersFinished++;         
-	} else if(requestStatus === "ERROR") {              
-		// we'll also increment in case of an error             
-		managersFinished++;
-	}         
-	
-	// if all managers are finished, we call the final function         		 
-	if(managersFinished === addresses.length) {
-		onAllManagersFinished(); 
-	}     
+// this function will be used when all managers have returned
+function onAllManagersFinished () {
+	//we get the bounding box of the container
+	var bbox = addressContainer.getBoundingBox();
+
+	// if the bounding box is null then there are no objects inside
+	// meaning no markers have been added to it
+
+	if (bbox != null) {
+			// we have at least one address mapped
+			// so we add the container and zoomTo it
+			map.objects.add(addressContainer);
+			map.zoomTo(bbox);
+	} else {
+			// otherwise we'll pop up an error message
+			alert("There are no addresses to show :(");
+	}
 };
- 
+// we will use the same state observer function for all managers
+
+function onSearchComplete  (data, requestStatus) {
+	if (requestStatus == "OK") {
+		// if we are finished, we add a marker for the mapped position
+		addressContainer.objects.add(
+			new nokia.maps.map.StandardMarker(data.location.position));
+		//increment the counter to notify another manager has finished
+		managersFinished++;
+	} else if(requestStatus === "ERROR") {
+		// we'll also increment in case of an error
+		managersFinished++;
+	}
+
+	// if all managers are finished, we call the final function
+	if(managersFinished === addresses.length) {
+		onAllManagersFinished();
+	}
+};
 
 
-	
+
+
 function concurrentSearch (map){
-	// we will put our address markers into this container   
+	// we will put our address markers into this container
 	addressContainer = new nokia.maps.map.Container();
-	managersFinished = 0; 
-	
-	//Addresses to be displayed 
-	addresses = ["Helsinki, Finland", "Zaragoza, Spain", "Berlin, Germany", 
-		"Colorado Springs, USA", "Houston, TX", "London, UK", "Vancouver, Canada", 
+	managersFinished = 0;
+
+	//Addresses to be displayed
+	addresses = ["Helsinki, Finland", "Zaragoza, Spain", "Berlin, Germany",
+		"Colorado Springs, USA", "Houston, TX", "London, UK", "Vancouver, Canada",
 		"Hyderabad, India", "Beijing, China", "Ilomantsi, Finland" ];
-	var  i = addresses.length;  
-	
-	// iterate over all addresses, create a manager for each of them, 
-	// add the observer and call the geocode method 
-	 
-	while(i--) {     
+	var  i = addresses.length;
+
+	// iterate over all addresses, create a manager for each of them,
+	// add the observer and call the geocode method
+
+	while(i--) {
 		nokia.places.search.manager.geoCode({
 			searchTerm :addresses[i],
 			onComplete:  onSearchComplete
 		});
 	}
-}    
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

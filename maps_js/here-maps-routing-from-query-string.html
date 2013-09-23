@@ -1,9 +1,8 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="categories" content="routing" />
 	<title>HERE	Maps API Example: Forwarding to HERE Directions Based on a URL</title>
 	<!-- Set up	constants such as APP ID and token -->
 	<script	type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -12,11 +11,11 @@
 	<!-- Asynchronously	the	HERE Maps API for  JavaScript -->
 	<script	type="text/javascript" src="libs/hereAsyncLoader.js"
 		id="HereMapsLoaderScript" /*This identifies	the	Loader Script */
-		data-params="maps" /*These are the features to load */
+		data-params="maps" 
 		data-callback="afterHereMapLoad" /*This	is the name	of the callback	method */ >
 	</script>
 	<link rel="icon" href="http://here.com/favicon.ico">
-	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Forwarding to HERE Maps	directions Based on	a URL</h1>
@@ -51,18 +50,18 @@
 			</ul>
 		</div>
 
-<script	 type="text/javascript"	>
-
- function afterHereMapLoad(map){
+<script id="example-code" data-categories="routing" type="text/javascript >
+//<![CDATA[
+function afterHereMapLoad(map){
 	findWaypoints();
- }
+}
 
 
 function getParameterByName(name) {
 	name = name.replace(/[\[]/,	"\\\[").replace(/[\]]/, "\\\]");
 	var	regex =	new	RegExp("[\\?&]"	+ name + "=([^&#]*)"),
 	results	= regex.exec(location.search);
-	return results == null ? "" : 
+	return results == null ? "" :
 		decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
@@ -110,7 +109,7 @@ function findWaypoints(){
 			});
 		}
 	} else if (geoCodedWaypoints.length	> 1){
-		
+
 		buildURLfromWaypoints(geoCodedWaypoints);
 	} else {
 			// If we have neither addresses	nor	geolocations, we can't define a	route.
@@ -129,7 +128,7 @@ function searchManager($index) {
 	if (requestStatus == "OK") {
 		geoCodedWaypoints [$index] =  data.location.position;
 		addressContainer.objects.add(
-			new nokia.maps.map.StandardMarker(	
+			new nokia.maps.map.StandardMarker(
 				geoCodedWaypoints [$index],{text: ($index + 1)}));
 		//increment the counter to notify another	manager has finished
 		managersFinished++;
@@ -154,12 +153,12 @@ buildURLfromWaypoints = function() {
 			break;
 		}
 	}
-	
+
 	var url = 'http://maps.nokia.com/services/directions?';
 	for  (i = 0; i < geoCodedWaypoints.length; i++){
 		if (i > 0){
 			url = url + '&';
-		} 
+		}
 			url = url + 'x' + i+ "=" +  geoCodedWaypoints[i].latitude +
 			 '&y' + i+ "=" +	geoCodedWaypoints[i].longitude;
 
@@ -173,9 +172,9 @@ buildURLfromWaypoints = function() {
 
 	url = url + '&route_type=fastest&transport_mode=car';
 	window.location= encodeURI(url);
-	
-};
 
+};
+//]]>
 </script>
 </body>
 </html>

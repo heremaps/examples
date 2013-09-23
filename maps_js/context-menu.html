@@ -1,24 +1,23 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="createContextMenu,addRemoveGroup" />
-    <meta name="categories" content="context-menu" />
     <title>HERE Maps API Example: Adding a Context Menu to the Map</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>     
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="createContextMenu"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Adding a Context Menu </h1>
@@ -27,13 +26,13 @@
 	<p>Use the button to add and remove additional menu items.</p>
 	<input type = "button" id ="addRemove" value = "Add Menu Items" onclick = "addRemoveGroup(extraMenuItems)"/>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
-	
+<script id="example-code" data-categories="context-menu" type="text/javascript" >
+//<![CDATA[
 var isAdded = false;
 
 function createContextMenu(map){
 	contextMenu = new nokia.maps.map.component.ContextMenu();
- 
+
 	/* Add Custom Context Menu Items */
 
 	//This adds three items with a menu separator
@@ -50,7 +49,7 @@ function createContextMenu(map){
 		group.addEntry("Menu Item 4",
 			function(activationEvent) {alert("Menu Item 4 clicked");});
 	}
-	
+
 	//Two extra items added with a menu separator when Add/Remove button clicked
 	extraMenuItems = function(contextMenuEvent,group){
 		group.addEntry("Menu Item 5",
@@ -58,13 +57,13 @@ function createContextMenu(map){
 		group.addEntry("Menu Item 6",
 				function(activationEvent) {alert("Menu Item 6 clicked");});
 	}
- 
+
 	contextMenu.addHandler(menuItems1);
 	contextMenu.addHandler(menuItems2);
 	map.components.add(contextMenu);
 }
-    
- 
+
+
  // Simple function to add/remove a group of menu items...
 function addRemoveGroup(handler){
 	if (isAdded == false){
@@ -76,7 +75,8 @@ function addRemoveGroup(handler){
 		$('#addRemove').prop('value','Add Menu Items');
 		isAdded = false;
 	}
-} 
+}
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

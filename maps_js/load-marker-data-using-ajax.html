@@ -1,36 +1,36 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="loadXMLFile,parseXML,onXMLLoadFailed" />
-    <meta name="categories" content="marker,xml" />
     <title>HERE Maps API Example: Loading Marker Data from an XML file</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
-    	data-params="maps,datarendering" /*These are the features to load */
-    	data-map-container="mapContainer" 
+    	id="HereMapsLoaderScript" 
+    	data-params="maps,datarendering" 
+    	data-map-container="mapContainer"
     	data-callback="afterHereMapLoad"  >
     </script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Loading XML Marker Data using AJAX</h1>
 	<p>This example retrieves marker data from an XML file using AJAX.
 		The data is held in a proprietory format and parsed using jQuery.
 	</p>
-	<p>The XML file is located at: 
+	<p>The XML file is located at:
 		<a href="./data/markers.xml">./data/markers.xml</a>
 	</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="marker,xml" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	loadXMLFile();
@@ -45,7 +45,7 @@ function loadXMLFile(){
 		success: parseXML,
 		error : onXMLLoadFailed
 	});
-	
+
 }
 
 function parseXML(xml){
@@ -58,9 +58,9 @@ function parseXML(xml){
 		var lat = $(this).find('lat').text();
 		var lng = $(this).find('lng').text();
 		var markerCoords = new nokia.maps.geo.Coordinate
-			(parseFloat(lat), parseFloat(lng));    
+			(parseFloat(lat), parseFloat(lng));
 		container.objects.add(new nokia.maps.map.StandardMarker(
-			markerCoords, {text:nme}));      
+			markerCoords, {text:nme}));
 
 	});
 	map.objects.add(container);
@@ -69,6 +69,7 @@ function parseXML(xml){
 function onXMLLoadFailed(){
 	alert("An Error has occurred.");
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

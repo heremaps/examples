@@ -1,24 +1,23 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="initialiseCoroutines,runCoroutines" />
-    <meta name="categories" content="coroutine" />
     <title>HERE Maps API Example: Coroutines Example</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>    
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Introduction to Coroutines </h1>
@@ -28,16 +27,14 @@
 	<span id="iterator" style="height: 2.0em; font-size: 2em; color: blue;"></span>
 	<span id="printerlog" style="height: 2.0em; font-size: 2em; color: blue;"></span>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
-	
-	
-
+<script id="example-code" data-categories="coroutine" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	this.i = 0;
 	initialiseCoroutines(map);
 	runCoroutines();
-}  
+}
 
 function initialiseCoroutines(map){
 	// Define the 1st coroutine - increase the value of i by one every 10 milliseconds,
@@ -45,32 +42,32 @@ function initialiseCoroutines(map){
 	this.iterationCoroutine = nokia.maps.util.Coroutine.create(
 		"iterator", function( scope, context ) {
 			i++;
-	
+
 			if ( i <= 500 ) {
 				$("#iterator").text("Wait until 500 to see the map move! : "+i+"/500");
 				return nokia.maps.util.Coroutine.sleep(10);
 			}
-	
+
 			// pan the map to the new position after the loop is over
 			this.map.pan(0, 0, 400, 400);
 	});
-	
+
 	// Define the 2nd coroutine display iteration in console.log every 100 miliseconds
 	this.loggingCoroutine = nokia.maps.util.Coroutine.create(
 		"printing", function( scope, context ) {
 			$("#printerlog").text( 'logging count = ' + i);
 			return nokia.maps.util.Coroutine.sleep(100);
 	});
-	
+
 }
 
 function runCoroutines(){
 	// 1st coroutine, init the iteration.
 	var coroutine1 = iterationCoroutine();
-	
+
 	// 2nd second coroutine, init the logging.
 	var coroutine2 = loggingCoroutine();
-	
+
 	// Add an observer to the 1st coroutine for it's status
 	coroutine1.addObserver("status", function( context, key, value, oldValue ) {
 		if ( value == nokia.maps.util.Coroutine.TERMINATED ) { // When gets terminated
@@ -79,6 +76,7 @@ function runCoroutines(){
 		}
 	});
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

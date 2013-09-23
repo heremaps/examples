@@ -1,24 +1,23 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addClickEventListener,processResults" />
-    <meta name="categories" content="geocoding,events" />
     <title>HERE Maps API Example: Find a USA state</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script> 
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Reverse Geocoding Game : Find a USA state </h1>
@@ -31,7 +30,8 @@
 	<span id="incorrect_answers" style="height: 2.0em; font-size: 2em; color: green;"></span>
 
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
+<script id="example-code" data-categories="search,events" type="text/javascript" >
+//<![CDATA[
  var statesArray = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut",
 "Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas",
 "Kentucky","Louisiana","Maine","Maryland",  "Massachusetts","Michigan","Minnesota",
@@ -39,13 +39,13 @@
 "New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania",    "Rhode Island",
 "South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington",
 "West Virginia","Wisconsin","Wyoming"];
- 
+
 var right = 0;
 var wrong = 0;
-	
+
 function afterHereMapLoad(map){
 	this.map = map;
-	
+
 	map.set("center",  new nokia.maps.geo.Coordinate(42.16, -100.16));
 	map.set("zoomLevel", 3);
 	map.set("baseMapType", nokia.maps.map.Display.SATELLITE_PLAIN);
@@ -64,24 +64,24 @@ function addClickEventListener(map){
 			onComplete: processResults
 		})
 	});
-} 
+}
 
 function select_random_state(){
     randomnumber=Math.floor(Math.random()*50);
     $("#question").text('Find : ' +statesArray[randomnumber]);
-} 
+}
 
-function processResults (data, requestStatus, requestId) {	
+function processResults (data, requestStatus, requestId) {
 	if (requestStatus == "OK" ) {
 		if (data.location !== undefined){
 			var state = data.location.address.state;
-			
+
 			if (statesArray[randomnumber] == state){
 				map.objects.clear();
 				select_random_state();
 				$("#answer").text("Correct answer, that was:"	 + state);
 				 right += 1;
-				
+
 			} else {
 				$("#answer").text("That was:"	 + state);
 				 wrong += 1;
@@ -91,7 +91,7 @@ function processResults (data, requestStatus, requestId) {
 		}
 	}
 }
- 
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

@@ -1,25 +1,24 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="clusterDataPoints,ZoomToTheme,addZoomToListener" />
-    <meta name="categories" content="clustering" />
     <title>HERE Maps API Example: Adding 700 Markers on a Map (Clustering)</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>     
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps,datarendering" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps,datarendering"
     	data-callback="afterHereMapLoad"  >
     </script>
     <script type="text/javascript" src="libs/random-point-generator.js"></script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Adding 700 Markers on a Map (Zoom on Click)</h1>
@@ -28,10 +27,8 @@
 		Clicking on a noise point will display some text associated with that data point. </p>
 	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
-	
-	
-
+<script id="example-code" data-categories="clustering" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	map.set("zoomLevel", 2);
@@ -40,7 +37,7 @@ function afterHereMapLoad(map){
 	$("#ticker").text("Generating 7000 Coordinates. Please Wait");
 	pointGenerator.createCoordinates(onCoordinatesCreated);
 
-}  
+}
 
 function onCoordinatesCreated(data){
 	$("#ticker").text("");
@@ -53,7 +50,7 @@ function ZoomToTheme(){
 
 	var baseTheme = new nokia.maps.clustering.MarkerTheme();
 	this.getClusterPresentation= function(dataPoints){
-		var cluster = baseTheme.getClusterPresentation(dataPoints);		
+		var cluster = baseTheme.getClusterPresentation(dataPoints);
 		cluster.$boundingBox = dataPoints.getBounds();
 	   	return cluster;
 	}
@@ -74,7 +71,7 @@ function clusterDataPoints(data){
 		theme : new ZoomToTheme()
 	});
 	clusterProvider.cluster();
-	
+
 	addZoomToListener(map);
 }
 
@@ -88,8 +85,7 @@ function addZoomToListener(map){
 		}
 	} );
 }
-
-
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

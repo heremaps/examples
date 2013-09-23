@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="clusterDataPoints" />
-    <meta name="categories" content="clustering" />
     <title>HERE Maps API Example: Adding 700 Markers on a Map</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
@@ -19,8 +18,8 @@
     	data-callback="afterHereMapLoad"  >
     </script>
     <script type="text/javascript" src="libs/random-point-generator.js"></script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Adding 700 Markers on a Map (Custom Theme)</h1>
@@ -28,10 +27,8 @@
 		clustering algorthm and displayed using a custom theme.</p>
 	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
-	
-	
-
+<script id="example-code" data-categories="clustering" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	map.set("zoomLevel", 2);
@@ -128,6 +125,7 @@ function initialiseSVGParser(){
 		"500": "#FF0000"	  //Red for over 500
 	};
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

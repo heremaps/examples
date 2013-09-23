@@ -1,55 +1,53 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="retrieveMapFeatures" />
-    <meta name="categories" content="features" />
     <title>HERE Maps API Example: Reading and displaying Map Features</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="retrieveMapFeatures"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Reading and displaying Map Features</h1>
 	<p>This example loops through and displays all supported features/sets and features of the loaded current map.
-		 It also attempts to load features and handles success and failure, and in this example the load should be a success. 
+		 It also attempts to load features and handles success and failure, and in this example the load should be a success.
 	</p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
     <div id="src"><br/><p>Code:</p></div>
-<script  type="text/javascript" >
-
-
+<script id="example-code" data-categories="features" type="text/javascript" >
+//<![CDATA[
 function retrieveMapFeatures (map){
 
-	var list = nokia.maps.Features.getFeatureMap(); 
-	
+	var list = nokia.maps.Features.getFeatureMap();
+
 	// Loop through the features and show them in an alert
-	// Returns a map of implementations for each registered feature. 
+	// Returns a map of implementations for each registered feature.
 	for( var i in list ) {
 		if ( list.hasOwnProperty(i) ) {
 			alert("Feature Map: "+list[i]);
-		} 
+		}
 	}
 
-	var list = nokia.maps.Features.getLoadedMap(); 
+	var list = nokia.maps.Features.getLoadedMap();
 	// Loop through the features and show them in an alert
-	// Returns a map of the names of fully loaded feature 
-	// implementations per feature. 
+	// Returns a map of the names of fully loaded feature
+	// implementations per feature.
 	for( var i in list ) {
 	 if ( list.hasOwnProperty(i) ) {
-		alert("Loaded Map:" +list[i]); 
+		alert("Loaded Map:" +list[i]);
 		}
 	}
 
@@ -61,10 +59,10 @@ function retrieveMapFeatures (map){
 	}
 
 	nokia.maps.Features.load(
-		{"map": "auto", "routing": "auto"}, load_Successful, load_Failed); 
-	nokia.maps.Features.load({"map": "auto", "search": "auto"}, load_Successful, load_Failed); 
+		{"map": "auto", "routing": "auto"}, load_Successful, load_Failed);
+	nokia.maps.Features.load({"map": "auto", "search": "auto"}, load_Successful, load_Failed);
 }
-
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

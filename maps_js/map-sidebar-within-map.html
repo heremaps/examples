@@ -1,70 +1,69 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addHtmlControl,addSidebarControl"/>
-    <meta name="categories" content="library" />
     <title>HERE Maps API Example: Sidebar control within map.</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-    
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
     <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" /*This identifies the Loader Script */
-    	data-params="maps,datarendering" /*These are the features to load */
-    	data-map-container="mapContainer" 
-    	data-callback="afterHereMapLoad"  
+    	id="HereMapsLoaderScript" 
+    	data-params="maps,datarendering" 
+    	data-map-container="mapContainer"
+    	data-callback="afterHereMapLoad"
     	data-libs="html-control,sidebar-control" >
     </script>
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
-    
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+
     <style type="text/css">
-    	
-    	#sidebar {position:absolute; 
-    		 
+
+    	#sidebar {position:absolute;
+
     		top:10px; left:10px;
-    		background-color : white; 	
+    		background-color : white;
     		color: rgb(102, 102, 102);
-    		width:150px; 
+    		width:150px;
     		height:265px;
     		margin: 0em;
     	}
 
 		#sidebar .nm_sidebar{
-					
+
 			list-style: none;
 			width:130px;
 			height:240px;
-    		overflow:auto;		  	  			  	  
+    		overflow:auto;
 		}
 		#sidebar .nm_sidebar .highlight{
 			color:black;
 			background:yellow;
-			border: 1px solid black;		  	  			  	  
+			border: 1px solid black;
 		}
     </style>
-     
+
 </head>
 <body>
 	<h1>Sidebar control</h1>
-	
-	
+
+
 	<div style="width:500px;margin:1em" >
 		<p>This example demonstrates a side bar control held within the map. The sample data shows the
 		location of football grounds in the English Premier League</p>
 		<p>Clicking an entry in the side bar is equivalent to clicking a marker.</p>
 		<p>Default styling just makes an entry bold, additional CSS can be used to
 		make the highlighting more obvious.</p>
-		
+
 			<div id="mapContainer" style="width:540px; height:334px;"></div>
-	</div>	
-    	
-	
-   
+	</div>
+
+
+
 <div id="src" >
     	<br/>
 		<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
@@ -75,7 +74,8 @@
 		<p>Code:</p>
 	</div>
 
-<script  type="text/javascript" >
+<script id="example-code" data-categories="library" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
 	map.set('zoomLevel', 5);
@@ -85,8 +85,8 @@ function afterHereMapLoad(map){
 
  	addHtmlControl(map);
  	addSidebarControl (map);
- 	
- 	
+
+
 }
  function addHtmlControl (map){
 
@@ -94,7 +94,7 @@ function afterHereMapLoad(map){
     	 "<div id='sidebar'><strong>Premiership Teams</strong>", "Sidebar");
     map.components.add(htmlControl);
 }
- 	
+
  function addSidebarControl (map){
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "title"});// This indicates that the summary is held in a property called "title"
@@ -106,7 +106,7 @@ function afterHereMapLoad(map){
 	map.objects.add(container);
 
 }
- 
+
 
 
 function createMarkerArray(){
@@ -217,9 +217,9 @@ new nokia.maps.map.Marker( [53.7285,-2.4892],  {
 
 
 	return markers;
-	
-}
 
+}
+//]]>
 
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>

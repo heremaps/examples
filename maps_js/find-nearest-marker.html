@@ -1,25 +1,24 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="findNearestMarker,addClickEventListenerToMap" />
-    <meta name="categories" content="marker,events" />
     <title>HERE Maps API Example: Finding the Nearest Marker</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
     <!-- Bootstrap jQuery Library -->
     <script type="text/javascript" src="libs/jQl.min.js"></script>
-     
+
     <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="maps" 
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
     	data-callback="afterHereMapLoad"  >
-    </script>  	
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Finding the Nearest Marker</h1>
@@ -28,36 +27,36 @@
 	 position.</p>
 	<p>The nearest marker is: <span id="nearestMarker">*None*</span></p>
     <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script  type="text/javascript" >
-
+<script id="example-code" data-categories="marker,events" type="text/javascript" >
+//<![CDATA[
 function afterHereMapLoad(map){
 	this.map = map;
-	map.setCenter([60.1697768639186, 24.82923586371288]);        
-	map.setZoomLevel(16);        
-	map.set("baseMapType", map.SATELLITE);  
+	map.setCenter([60.1697768639186, 24.82923586371288]);
+	map.setZoomLevel(16);
+	map.set("baseMapType", map.SATELLITE);
 	// Set up five markers.
-	var coords =[[60.1697768639186, 24.82923586371288], 
-		[60.170497332447866, 24.828592133548653 ], 
-		[60.17093227431904, 24.827707004572943 ], 
-		[60.170057048001865, 24.826505374933163 ], 
+	var coords =[[60.1697768639186, 24.82923586371288],
+		[60.170497332447866, 24.828592133548653 ],
+		[60.17093227431904, 24.827707004572943 ],
+		[60.170057048001865, 24.826505374933163 ],
 		[60.170025027084705, 24.82839365008141]];
-	
+
 	$.each(coords , function(index, value) {
     	map.objects.add(
-    		new nokia.maps.map.StandardMarker(value, {  
-				text:  (index + 1),                     
-				draggable: true                     
+    		new nokia.maps.map.StandardMarker(value, {
+				text:  (index + 1),
+				draggable: true
 			})
-		);    	
-	}); 
+		);
+	});
 	// Add the click event listener.
 	addClickEventListenerToMap(map);
 }
 
-function findNearestMarker(coords) { 
-	var minDist = 1000;           
-	var nearest_text = "*None*";            
-	for (i=0; i< map.objects.getLength(); i++) {                
+function findNearestMarker(coords) {
+	var minDist = 1000;
+	var nearest_text = "*None*";
+	for (i=0; i< map.objects.getLength(); i++) {
 		if ( map.objects.get(i) instanceof nokia.maps.map.StandardMarker ) {
 			var markerDist  =  map.objects.get(i).coordinate.distance(coords);
 			if (markerDist < minDist) {
@@ -66,9 +65,9 @@ function findNearestMarker(coords) {
 			}
 		}
 	}
-	
+
 	nearestMarker.innerHTML = nearest_text;
-} 
+}
 
 function addClickEventListenerToMap(map){
 	map.addListener("click", function(evt){
@@ -76,6 +75,7 @@ function addClickEventListenerToMap(map){
 		findNearestMarker (coords);
 	}, false);
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>

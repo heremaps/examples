@@ -1,10 +1,9 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
     <meta name="keywords" content="addMapRestriction" />
-    <meta name="categories" content="map,library" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>HERE Maps API Example: Restricting the Map</title>
   	<!-- Set up constants such as APP ID and token -->
@@ -20,8 +19,8 @@
     	data-callback="addMapRestriction" 
     	data-libs="restrict-map-control" >
     </script> 
-    <link rel="icon" href="http://here.com/favicon.ico">
-    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet">
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
   </head>
   <body>
   	<h1>Restricting the Map to a specified area</h1>
@@ -35,7 +34,8 @@
 		<p>Code:</p>
 	</div>
   </body>
-<script type="text/javascript">	
+<script id="example-code" data-categories="map,library" type="text/javascript">
+//<![CDATA[
 function addMapRestriction (map){
 	this.map = map;
 	map.set("zoomLevel",  5);
@@ -72,6 +72,7 @@ function addOutline(map){
 		}
 	));	
 }
+//]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>  
 </html>
