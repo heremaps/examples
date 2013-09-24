@@ -91,7 +91,7 @@ Tooltip.prototype.init = function (){
 }
 
 
-Tooltip.prototype.attach = function (mapDisplay) {
+Tooltip.prototype.attach = function (map) {
 	this.map = map;
 	
 	map.getUIContainer().appendChild(this.tooltip);
