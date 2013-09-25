@@ -478,7 +478,9 @@ this.addMarker = function(markerData) {
 	});
 
 	// When the marker is clicked,show Infobubble.
-	marker.addListener("click" ,  function(evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	marker.addListener(CLICK,  function(evt) {
 		if ( evt.target.$data.description != ""){
 			infoBubbles.openBubble(evt.target.$data.description, evt.target.coordinate);
 		} else {

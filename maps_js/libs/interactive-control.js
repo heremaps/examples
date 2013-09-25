@@ -45,13 +45,17 @@ Interactive.prototype.init =  function() {
 Interactive.prototype.attach = function (map) {
 	map.addListener("mouseover", this.eventHandlers.onMouseOver);
 	map.addListener("mouseout", this.eventHandlers.onMouseOut);
-	map.addListener("click", this.eventHandlers.onClick);
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.addListener(CLICK, this.eventHandlers.onClick);
 }
 
 Interactive.prototype.detach = function(map){
 	map.removeListener("mouseover", this.eventHandlers.onMouseOver);
 	map.removeListener("mouseout", this.eventHandlers.onMouseOut);
-	map.removeListener("click", this.eventHandlers.onClick);
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.removeListener(CLICK, this.eventHandlers.onClick);
 };
 
 Interactive.prototype.getId = function () {

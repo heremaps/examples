@@ -31,8 +31,10 @@ function addInfoBubble(map){
  	var infoBubbles = new nokia.maps.map.component.InfoBubbles();
  	map.components.add(infoBubbles);
 
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
  	container = new nokia.maps.map.Container();
- 	container.addListener("click" ,  function(evt) {
+ 	container.addListener(CLICK ,  function(evt) {
 		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 			}, false);
 	map.objects.add(container);

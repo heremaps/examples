@@ -64,8 +64,10 @@ function addGeoJSONContainer (map){
 	});
 
 	map.objects.add(geoJsonContainer);
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
 
-	geoJsonContainer.addListener("click" ,  function(evt) {
+	geoJsonContainer.addListener(CLICK ,  function(evt) {
 		// Extract the data from the properties.
 		var text =
 			"Name: " + evt.target.properties.NAME + '<br/>' +

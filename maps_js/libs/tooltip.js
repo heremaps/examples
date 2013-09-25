@@ -94,19 +94,24 @@ Tooltip.prototype.init = function (){
 Tooltip.prototype.attach = function (map) {
 	this.map = map;
 	
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	
 	map.getUIContainer().appendChild(this.tooltip);
 	map.addListener("mouseover", this.eventHandlers.showTooltip);
 	map.addListener("mouseout", this.eventHandlers.hideTooltip);
-	map.addListener("click", this.eventHandlers.hideTooltip);
+	map.addListener(CLICK, this.eventHandlers.hideTooltip);
 	map.addListener("drag", this.eventHandlers.dragTooltip);
 
 };
 
 Tooltip.prototype.detach = function(map){
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
 	this.tooltip.parentNode.removeChild(this.tooltip); 
 	map.removeListener("mouseover", this.eventHandlers.showTooltip);	
 	map.removeListener("mouseout" , this.eventHandlers.hideTooltip);
-	map.removeListener("click" , this.eventHandlers.hideTooltip);	
+	map.removeListener(CLICK, this.eventHandlers.hideTooltip);	
 	map.removeListener("drag", this.eventHandlers.dragTooltip);
 	this.map = null;
 };

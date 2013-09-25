@@ -100,7 +100,9 @@ function afterHereMapLoad(map){
 		{title : "title"});// This indicates that the summary is held in a property called "title"
 
 	container.objects.addAll(createMarkerArray()); // This is the data to display.
-	container.addListener("click" ,  function(evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	container.addListener(CLICK ,  function(evt) {
 		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 		}, false);
 	map.objects.add(container);

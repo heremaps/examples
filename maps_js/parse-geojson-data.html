@@ -112,8 +112,10 @@ function parseJson(jsonObject){
 	if (parser.state == "finished") {
 		map.objects.addAll(result);
 		map.set("center", map.objects.get(0).getBoundingBox().getCenter());
+		var TOUCH = nokia.maps.dom.Page.browser.touch,
+			CLICK = TOUCH ? "tap" : "click";
 
-		map.addListener("click" ,  function(evt) {
+		map.addListener(CLICK,  function(evt) {
 			var text = JSON.stringify(evt.target.properties);
 			bubble = infoBubbles.openBubble(text!== undefined ?   text : "properties undefined",
 				 evt.target.getBoundingBox().getCenter());

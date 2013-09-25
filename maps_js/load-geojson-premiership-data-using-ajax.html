@@ -82,7 +82,9 @@ function onGeoJSONParsed(geoJSON){
 		var err = resultSet.addGeoJSON(jsonManager.object);
 		if (resultSet.state == "finished") {
 			map.zoomTo(container.getBoundingBox());
-			container.addListener("click" ,  function(evt) {
+			var TOUCH = nokia.maps.dom.Page.browser.touch,
+				CLICK = TOUCH ? "tap" : "click";
+			container.addListener(CLICK ,  function(evt) {
 				infoBubbles.openBubble(evt.target.properties.Description,
 				 evt.target.getBoundingBox().getCenter());
 			}, false);

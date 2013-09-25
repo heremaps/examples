@@ -186,7 +186,9 @@ function addMarker(markerData) {
 	}
 
 	// When the marker is clicked, the edit boxes must be refreshed.
-	marker.addListener("click" ,  function(evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	marker.addListener(CLICK ,  function(evt) {
 		currentMarker = evt.target;
 		setMarkerData(currentMarker);
 	});

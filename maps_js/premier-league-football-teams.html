@@ -178,7 +178,9 @@ new nokia.maps.map.Marker( [53.7285,-2.4892],  {
 
 	container =  new nokia.maps.map.Container();
 	container.objects.addAll(markers);
-	container.addListener("click" ,  function(evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	container.addListener(CLICK,  function(evt) {
 		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 		}, false);
 	map.objects.add(container);

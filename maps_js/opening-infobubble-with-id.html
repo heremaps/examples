@@ -66,9 +66,11 @@ function openInfoBubble(){
 	for (var i = 0; i < container.objects.getLength(); i++){
 		if (param  === container.objects.get(i).id){
 			// fire an event to open the bubble.
+			var TOUCH = nokia.maps.dom.Page.browser.touch,
+				CLICK = TOUCH ? "tap" : "click";
 			container.dispatch(
 				 new nokia.maps.dom.Event(
-				 	{type: "click", 
+				 	{type: CLICK, 
 				 	target: container.objects.get(i)}));
 			map.zoomTo(container.objects.get(i).getBoundingBox(), true)
 			break;
@@ -105,8 +107,10 @@ function addMarkers (map){
 	// Add the markers onto the map
 	container.objects.addAll([brandenburgerTorMarker, fernsehturmMarker]); 
 	// Add a listener to the on click event for the markers.
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
 	container.addListener(
-		"click", function (evt) { 
+		CLICK, function (evt) { 
 			// Set the tail of the bubble to the coordinate of the marker
 			infoBubbles.openBubble(evt.target.bubbleText, evt.target.coordinate);
 		}

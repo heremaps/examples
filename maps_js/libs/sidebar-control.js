@@ -55,7 +55,9 @@ Sidebar.prototype.init = function (panel, options){
 			that.outputToPanel(oList, operation, element, idx);
 		}
 	);
-	that.addListener("click" ,  function(evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	that.addListener(CLICK ,  function(evt) {
 		if (that.olNode !== undefined){
 			for (var i = 0; i < that.olNode.childNodes.length; i++){
 				that.olNode.childNodes[i].className =
@@ -99,9 +101,11 @@ Sidebar.prototype.init = function (panel, options){
 		var liNode =  document.createElement("li");
 		liNode.object = element;
 		liNode.onclick = function() {
+			var TOUCH = nokia.maps.dom.Page.browser.touch,
+				CLICK = TOUCH ? "tap" : "click";
 			that.dispatch(
 				 new nokia.maps.dom.Event(
-				 	{type: "click",
+				 	{type: CLICK,
 				 	target: this.object}));
 		};
 		var text =  (that.options.title !== undefined) ?

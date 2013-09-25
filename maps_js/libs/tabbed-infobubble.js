@@ -121,7 +121,9 @@ TabbedInfoBubbles.prototype.init= function(backgroundColor, color, tabColor) {
 		// Attach EventTarget interface to the document.
 		EventTarget(infoBubbleDisplay);
 		// Add a listener for the click event to the node and show an alert if clicked.
-		infoBubbleDisplay.addListener("click", that.clickFunction , false);
+		var TOUCH = nokia.maps.dom.Page.browser.touch,
+			CLICK = TOUCH ? "tap" : "click";
+		infoBubbleDisplay.addListener(CLICK, that.clickFunction , false);
 	}
 	
 	that.tabbedContent = function (tabs, content, title){

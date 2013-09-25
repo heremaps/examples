@@ -29,7 +29,9 @@ function setUpClickListener (map){
 	/* Attach an event listener to map display
 	 * obtain the coordinates an display in an alert box.
 	 */
-	map.addListener("click", function (evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.addListener(CLICK, function (evt) {
 		var coord = map.pixelToGeo(evt.displayX, evt.displayY);
 		alert("Clicked at " + coord);
 	});

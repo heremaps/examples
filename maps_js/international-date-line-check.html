@@ -38,7 +38,9 @@ function afterHereMapLoad(map){
 }
 
 function addOnClickEventListener(map){
-	map.addListener("click", function(evt){
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.addListener(CLICK, function(evt){
 		evt.preventDefault();
 		coordinate = map.pixelToGeo(evt.displayX, evt.displayY);
 		container.objects.add(new nokia.maps.map.Marker(coordinate));

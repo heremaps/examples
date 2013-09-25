@@ -59,7 +59,9 @@ function afterHereMapLoad(map){
 	map.components.add(infoBubbles);
 	container =  new Sidebar(document.getElementById("sidebar"),
 		{title : "title"});
- 	container.addListener("click" ,  function(evt) {
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+ 	container.addListener(CLICK,  function(evt) {
 		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
 		map.set("center", evt.target.coordinate);
 			}, false);

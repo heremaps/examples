@@ -25,7 +25,9 @@
 <script id="example-code" data-categories="events" type="text/javascript" >
 //<![CDATA[
 function addClickListener(map){
-	map.addListener("click", function (evt){
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.addListener(CLICK, function (evt){
 		alert("in EventListener");
 		coordinate = map.pixelToGeo(evt.displayX, evt.displayY);
 		alert("Adding a Marker at: "+ coordinate.toString());
