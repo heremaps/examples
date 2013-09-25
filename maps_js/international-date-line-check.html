@@ -31,10 +31,30 @@ function afterHereMapLoad(map){
 	map.set("center", new nokia.maps.geo.Coordinate(-18.10, 180.0));
 	map.set("zoomLevel", 15);
 
+	addDateline(map);
 	setUpContainer();
 	checkDateBorder(container);
 	addOnClickEventListener(map);
 
+}
+
+function addDateline(map) {
+	// Set of initial geo coordinates to create the purple polyline
+	var points = [
+			new nokia.maps.geo.Coordinate(85, 180),
+			new nokia.maps.geo.Coordinate(-85, 180)
+		];
+	
+	// Transparent purple polyline
+	map.objects.add(new nokia.maps.map.Polyline(
+		points,
+		{	
+			pen: {
+				strokeColor: "#22CA", 
+				lineWidth: 5
+			}
+		}
+	));	
 }
 
 function addOnClickEventListener(map){
