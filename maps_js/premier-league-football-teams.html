@@ -19,16 +19,6 @@
     </script>
     <link rel="icon" href="http://here.com/favicon.ico"/>
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
-    <style type="text/css">
-
-    	#kmlData {position:absolute;
-    		top:10px; left:600px;
-    		color: rgb(102, 102, 102);
-    		height:500px;
-    		margin: 0em;
-    		overflow:auto;
-    	}
-    </style>
 </head>
 <body>
 	<h1>KML Placemark Generator</h1>
@@ -43,8 +33,9 @@
 		</div>
 
     	<div id="mapContainer" style="width:540px; height:334px;"></div>
+    	 <div id="kmlData"></div>
 	</div>
-    <div id="kmlData"></div>
+   
 <script id="example-code" data-categories="kml" type="text/javascript" >
 //<![CDATA[
 function afterHereMapLoad(map){

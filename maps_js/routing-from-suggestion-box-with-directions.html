@@ -25,7 +25,7 @@
 <body>
 	<h1>Calculating a route between two points using the Places Suggestion Box</h1>
 	<p style="width:540px;" >This example uses a pair of places suggestions boxes to populate the
-	routing manager and calculate a route between two loacations.
+	routing manager and calculate a route between two locations.
 		Directions instructions are written to the right of the map.
 	</p>
 
@@ -51,9 +51,9 @@
 		</br/>
 	</div>
 
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="directions" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102);"></div>
-    <div id="src" style="width:540px;" ><br/>
+    <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
+    <div id="directions" style="float:left; color: rgb(102, 102, 102);height:334px;overflow:auto;width:500px"></div>
+    <div id="src" style="clear:both;width:100%" ><br/>
 			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
 			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
 		<p>Code:</p>

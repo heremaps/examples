@@ -29,8 +29,9 @@
 
 
 	<div id="ticker" style="height:	2.0em; font-size: 2em; color: blue;"></div>
-	<div id="mapContainer" style="width:540px; height:334px;"></div>
-	<div id="uiContainer">
+	<div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
+	<div id="directions" style="float:left; color: rgb(102, 102, 102);height:334px;overflow:auto;"></div>
+	<div id="uiContainer" style="clear:both;width:100%">
 			Click on a link	to pre-open	the	directions renderer:<br>
 
 			<ul>
@@ -55,8 +56,8 @@
 				</li>
 			</ul>
 		</div>
-	<div id="directions" style="position:absolute; width:540px;	top:30px; left:600px; color: rgb(102, 102, 102);"></div>
-	<div id="src" style="width:540px;" ><br/>
+	
+	<div id="src" style="clear:both;width:100%" ><br/>
 			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
 			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
 		<p>Code:</p>

@@ -33,10 +33,12 @@
 	<p>The JSON file is located at:
 		<a href="./geojson/premiership.geojson">./geojson/premiership.geojson</a>
 	</p>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="sidebar" style="position:absolute; width:540px; top:100px; left:600px; color: rgb(102, 102, 102);">
-    	<strong>Premiership Teams</strong></div>
-    <div id="src" style="width:100%">
+    <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
+    <div  style="float:left; color: rgb(102, 102, 102);">
+    	<strong>Premiership Teams</strong>
+    	<div id="sidebar" style="height:300px; overflow:auto;"></div>
+    </div>
+    <div id="src" style="clear:both;width:100%">
     	<br/>
 			<p>The parser can be loaded using the following <code>&lt;script&gt;</code> element:
 			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>

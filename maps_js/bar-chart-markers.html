@@ -23,11 +23,8 @@
     <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
      <style type="text/css">
 
-    	#sidebar {position:absolute;
-
-    		top:120px; left:550px;
+    	#sidebar {float:left;
     		color: rgb(102, 102, 102);
-
     		height:300px;
     		margin: 0em;
     	}
@@ -45,8 +42,9 @@
 	<h1>Adding a Bar Chart to the Map</h1>
 	<p>The example shows a series of bars showing the relative population of one hundred
 	cities in Germany.</p>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
     <div id="sidebar"></div>
+    <div id="src" style="clear:both;width:100%"/><div>
 <script id="example-code" data-categories="marker" type="text/javascript">
 //<![CDATA[
 function afterHereMapLoad(map){

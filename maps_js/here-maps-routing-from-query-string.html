@@ -10,14 +10,12 @@
 	<script	type="text/javascript" src="libs/jQl.min.js"></script>
 	<!-- Asynchronously	the	HERE Maps API for  JavaScript -->
 	<script	type="text/javascript" src="libs/hereAsyncLoader.js"
-		id="HereMapsLoaderScript" /*This identifies	the	Loader Script */
-		data-params="maps" 
-		data-callback="afterHereMapLoad" /*This	is the name	of the callback	method */ >
+		id="HereMapsLoaderScript" data-params="maps" data-callback="afterHereMapLoad">
 	</script>
 	<link rel="icon" href="http://here.com/favicon.ico">
 	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
 </head>
-<body>
+<body style="">
 	<h1>Forwarding to HERE Maps	directions Based on	a URL</h1>
 	<p style="width:540px;"	>This uses geocoding , to forward a request to HERE Maps.
 	</p>
@@ -50,8 +48,9 @@
 			</ul>
 		</div>
 
-<script id="example-code" data-categories="routing" type="text/javascript >
+<script id="example-code" data-categories="routing" type="text/javascript" >
 //<![CDATA[
+
 function afterHereMapLoad(map){
 	findWaypoints();
 }
