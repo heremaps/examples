@@ -1,4 +1,3 @@
-
 function extend(B, A) {
 	function I() {}
 	I.prototype = A.prototype;
@@ -25,7 +24,7 @@ ShadowMarker.prototype.init = function ( props) {
 		that.set("shadowOffset", new nokia.maps.util.Point(0, 0));
 	};
 
-	that.createMarkerWithShadow = function(shadow){
+	that.createMarkerWithShadow = function(markerImage, shadow){
 		var GraphicsImage = nokia.maps.gfx.GraphicsImage,
 			Color = nokia.maps.gfx.Color,
 			parseCss = Color.parseCss;
@@ -33,19 +32,26 @@ ShadowMarker.prototype.init = function ( props) {
 		var maxWidth = Math.max(shadow.width + that.shadowOffset.x ,that.icon.width);
 		var maxHeight= Math.max(shadow.height + that.shadowOffset.y , that.icon.height);
 
+		graphics.setIDL(nokia.maps.map.StandardMarker.prototype.getIconForRendering.call(that, document).getIDL());
 		graphics.beginImage(maxWidth, maxHeight, "");
 		graphics.drawImage(shadow, 0, 0, shadow.width, shadow.height , that.shadowOffset.x,
 			that.shadowOffset.y, shadow.width, shadow.height);
-		graphics.drawImage(that.icon.createElement(), 0, 0,
+		graphics.drawImage(markerImage, 0, 0,
 			that.icon.width, that.icon.height, 0, 0, that.icon.width, that.icon.height);
+
 		that.markerWithShadow = new nokia.maps.gfx.GraphicsImage(graphics);
 	}
 	that.updateIcon = function (){
-		var baseBitmap = new Image();
-		baseBitmap.onload = function() {that.createMarkerWithShadow(baseBitmap)}
-		baseBitmap.src = that.get("shadow");
-		if(baseBitmap.naturalWidth > 0){
-			that.createMarkerWithShadow(baseBitmap);
+		var painter = new nokia.maps.gfx.Painter.defaultPainter();
+		that.updateShadow(painter.createElement(that.get("icon").getIDL()));
+	}
+
+	that.updateShadow = function (markerImage){
+		var shadow = new Image();
+		shadow.onload = function() {that.createMarkerWithShadow(markerImage, shadow)}
+		shadow.src = that.get("shadow");
+		if(shadow.naturalWidth > 0){
+			that.createMarkerWithShadow(markerImage, shadow);
 		}
 	}
 
