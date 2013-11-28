@@ -1,0 +1,1309 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 30.600000, "LON": -78.600000, "TIME": "07\/31\/21Z", "WIND": 25, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.600000, 30.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1A", "LAT": 30.900000, "LON": -78.600000, "TIME": "08\/01\/00Z", "WIND": 25, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.600000, 30.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 31.400000, "LON": -78.900000, "TIME": "08\/01\/03Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.900000, 31.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2A", "LAT": 31.600000, "LON": -78.900000, "TIME": "08\/01\/06Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.900000, 31.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 32.100000, "LON": -79.100000, "TIME": "08\/01\/09Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.100000, 32.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3A", "LAT": 32.500000, "LON": -79.200000, "TIME": "08\/01\/12Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 32.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 31.900000, "LON": -79.200000, "TIME": "08\/01\/15Z", "WIND": 30, "PR": 1011, "STAT": "TROPICAL DEPRESSION", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 31.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 31.700000, "LON": -79.100000, "TIME": "08\/01\/18Z", "WIND": 35, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.100000, 31.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 31.700000, "LON": -79.200000, "TIME": "08\/01\/21Z", "WIND": 35, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 31.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 31.500000, "LON": -79.200000, "TIME": "08\/02\/00Z", "WIND": 35, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 31.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 31.500000, "LON": -79.200000, "TIME": "08\/02\/03Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 31.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 31.400000, "LON": -79.400000, "TIME": "08\/02\/06Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.400000, 31.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 31.400000, "LON": -79.500000, "TIME": "08\/02\/09Z", "WIND": 35, "PR": 1004, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.500000, 31.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 31.300000, "LON": -79.000000, "TIME": "08\/02\/12Z", "WIND": 50, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.000000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 31.500000, "LON": -78.700000, "TIME": "08\/02\/15Z", "WIND": 50, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.700000, 31.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9A", "LAT": 31.800000, "LON": -78.600000, "TIME": "08\/02\/18Z", "WIND": 50, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.600000, 31.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 32.100000, "LON": -78.500000, "TIME": "08\/02\/21Z", "WIND": 50, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.500000, 32.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10A", "LAT": 32.400000, "LON": -78.100000, "TIME": "08\/03\/00Z", "WIND": 55, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.100000, 32.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 32.800000, "LON": -77.800000, "TIME": "08\/03\/03Z", "WIND": 60, "PR": 987, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.800000, 32.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11A", "LAT": 33.000000, "LON": -77.400000, "TIME": "08\/03\/06Z", "WIND": 65, "PR": 983, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.400000, 33.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 33.500000, "LON": -76.900000, "TIME": "08\/03\/09Z", "WIND": 70, "PR": 983, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.900000, 33.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12A", "LAT": 34.100000, "LON": -76.500000, "TIME": "08\/03\/12Z", "WIND": 80, "PR": 974, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.500000, 34.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 34.700000, "LON": -75.800000, "TIME": "08\/03\/15Z", "WIND": 85, "PR": 973, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.800000, 34.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13A", "LAT": 35.100000, "LON": -75.400000, "TIME": "08\/03\/17Z", "WIND": 85, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.400000, 35.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13B", "LAT": 35.400000, "LON": -75.100000, "TIME": "08\/03\/19Z", "WIND": 85, "PR": 972, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.100000, 35.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 35.800000, "LON": -74.600000, "TIME": "08\/03\/21Z", "WIND": 85, "PR": 972, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.600000, 35.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14A", "LAT": 36.000000, "LON": -73.800000, "TIME": "08\/04\/00Z", "WIND": 85, "PR": 972, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.800000, 36.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 36.500000, "LON": -72.800000, "TIME": "08\/04\/03Z", "WIND": 80, "PR": 973, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.800000, 36.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 37.100000, "LON": -71.100000, "TIME": "08\/04\/09Z", "WIND": 80, "PR": 973, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.100000, 37.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 37.700000, "LON": -69.000000, "TIME": "08\/04\/15Z", "WIND": 75, "PR": 979, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.000000, 37.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 37.900000, "LON": -67.500000, "TIME": "08\/04\/21Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.500000, 37.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 38.900000, "LON": -64.800000, "TIME": "08\/05\/03Z", "WIND": 5, "PR": 957, "STAT": "HURRICANE-3", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.800000, 38.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 40.000000, "LON": -61.500000, "TIME": "08\/05\/09Z", "WIND": 105, "PR": 957, "STAT": "HURRICANE-3", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.500000, 40.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 41.700000, "LON": -57.600000, "TIME": "08\/05\/15Z", "WIND": 105, "PR": 957, "STAT": "HURRICANE-3", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -57.600000, 41.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 43.600000, "LON": -52.800000, "TIME": "08\/05\/21Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -52.800000, 43.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 44.900000, "LON": -47.400000, "TIME": "08\/06\/03Z", "WIND": 75, "PR": 981, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.400000, 44.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 46.500000, "LON": -41.500000, "TIME": "08\/06\/09Z", "WIND": 65, "PR": 984, "STAT": "HURRICANE-1", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.500000, 46.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 47.500000, "LON": -34.600000, "TIME": "08\/06\/15Z", "WIND": 50, "PR": 987, "STAT": "TROPICAL STORM", "NAME": "Alex", "DATES": "31 JUL-06 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.600000, 47.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 13.200000, "LON": -54.200000, "TIME": "08\/03\/15Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -54.200000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 13.600000, "LON": -56.600000, "TIME": "08\/03\/21Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -56.600000, 13.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2A", "LAT": 13.500000, "LON": -57.300000, "TIME": "08\/04\/00Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -57.300000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 13.600000, "LON": -58.300000, "TIME": "08\/04\/03Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -58.300000, 13.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3A", "LAT": 13.700000, "LON": -59.700000, "TIME": "08\/04\/06Z", "WIND": 30, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -59.700000, 13.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 13.800000, "LON": -60.700000, "TIME": "08\/04\/09Z", "WIND": 30, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -60.700000, 13.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 13.800000, "LON": -61.500000, "TIME": "08\/04\/12Z", "WIND": 30, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -61.500000, 13.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 13.800000, "LON": -62.700000, "TIME": "08\/04\/15Z", "WIND": 30, "PR": 1011, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -62.700000, 13.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 13.500000, "LON": -63.500000, "TIME": "08\/04\/21Z", "WIND": 30, "PR": 1011, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 2", "DATES": "03-04 AUG 200" }, "geometry": { "type": "Point", "coordinates": [ -63.500000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 23.200000, "LON": -88.700000, "TIME": "08\/09\/21Z", "WIND": 40, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.700000, 23.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 23.400000, "LON": -89.200000, "TIME": "08\/10\/03Z", "WIND": 45, "PR": 1006, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -89.200000, 23.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 23.600000, "LON": -90.100000, "TIME": "08\/10\/09Z", "WIND": 45, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.100000, 23.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 24.200000, "LON": -90.600000, "TIME": "08\/10\/15Z", "WIND": 50, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.600000, 24.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 24.700000, "LON": -90.500000, "TIME": "08\/10\/21Z", "WIND": 45, "PR": 1004, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.500000, 24.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 25.000000, "LON": -90.400000, "TIME": "08\/11\/03Z", "WIND": 40, "PR": 1004, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.400000, 25.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12A", "LAT": 25.200000, "LON": -90.400000, "TIME": "08\/11\/06Z", "WIND": 40, "PR": 1004, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.400000, 25.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 25.500000, "LON": -90.500000, "TIME": "08\/11\/09Z", "WIND": 40, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.500000, 25.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13A", "LAT": 25.700000, "LON": -90.500000, "TIME": "08\/11\/12Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.500000, 25.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 25.900000, "LON": -90.300000, "TIME": "08\/11\/15Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.300000, 25.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14A", "LAT": 26.200000, "LON": -89.500000, "TIME": "08\/11\/18Z", "WIND": 55, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -89.500000, 26.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 26.700000, "LON": -89.300000, "TIME": "08\/11\/21Z", "WIND": 55, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -89.300000, 26.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15A", "LAT": 27.100000, "LON": -88.700000, "TIME": "08\/12\/00Z", "WIND": 55, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.700000, 27.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 27.400000, "LON": -88.400000, "TIME": "08\/12\/03Z", "WIND": 50, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.400000, 27.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16A", "LAT": 27.700000, "LON": -88.200000, "TIME": "08\/12\/06Z", "WIND": 45, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.200000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 28.400000, "LON": -87.500000, "TIME": "08\/12\/09Z", "WIND": 45, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.500000, 28.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17A", "LAT": 29.000000, "LON": -86.100000, "TIME": "08\/12\/12Z", "WIND": 45, "PR": 1003, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.100000, 29.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 29.500000, "LON": -85.200000, "TIME": "08\/12\/15Z", "WIND": 45, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -85.200000, 29.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18A", "LAT": 30.100000, "LON": -84.000000, "TIME": "08\/12\/18Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.000000, 30.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 31.100000, "LON": -83.000000, "TIME": "08\/12\/21Z", "WIND": 30, "PR": 1006, "STAT": "TROPICAL DEPRESSION", "NAME": "Bonnie", "DATES": "09-12 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.000000, 31.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 11.700000, "LON": -61.100000, "TIME": "08\/09\/17Z", "WIND": 30, "PR": 1011, "STAT": "TROPICAL DEPRESSION", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.100000, 11.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 11.800000, "LON": -62.000000, "TIME": "08\/09\/21Z", "WIND": 30, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.000000, 11.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 12.400000, "LON": -64.100000, "TIME": "08\/10\/03Z", "WIND": 30, "PR": 1010, "STAT": "TROPICAL DEPRESSION", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.100000, 12.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 13.000000, "LON": -66.300000, "TIME": "08\/10\/09Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.300000, 13.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 13.700000, "LON": -68.300000, "TIME": "08\/10\/15Z", "WIND": 40, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.300000, 13.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 14.500000, "LON": -69.700000, "TIME": "01\/11\/00Z", "WIND": 40, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.700000, 14.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 15.200000, "LON": -70.800000, "TIME": "08\/10\/21Z", "WIND": 45, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.800000, 15.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 15.700000, "LON": -71.800000, "TIME": "08\/11\/00Z", "WIND": 55, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.800000, 15.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 16.000000, "LON": -72.800000, "TIME": "08\/11\/03Z", "WIND": 55, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.800000, 16.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7A", "LAT": 16.400000, "LON": -73.800000, "TIME": "08\/11\/06Z", "WIND": 55, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.800000, 16.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 16.900000, "LON": -74.700000, "TIME": "08\/11\/09Z", "WIND": 55, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.700000, 16.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8A", "LAT": 16.900000, "LON": -75.400000, "TIME": "08\/11\/12Z", "WIND": 55, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.400000, 16.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 16.500000, "LON": -76.100000, "TIME": "08\/11\/15Z", "WIND": 60, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.100000, 16.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9A", "LAT": 16.600000, "LON": -76.800000, "TIME": "08\/11\/18Z", "WIND": 65, "PR": 993, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.800000, 16.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 17.000000, "LON": -77.500000, "TIME": "08\/11\/21Z", "WIND": 65, "PR": 993, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.500000, 17.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10A", "LAT": 17.200000, "LON": -78.200000, "TIME": "08\/12\/00Z", "WIND": 65, "PR": 993, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.200000, 17.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 17.800000, "LON": -78.700000, "TIME": "08\/12\/03Z", "WIND": 65, "PR": 993, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.700000, 17.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11A", "LAT": 18.000000, "LON": -79.200000, "TIME": "08\/12\/06Z", "WIND": 75, "PR": 989, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 18.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 19.700000, "LON": -81.200000, "TIME": "08\/12\/15Z", "WIND": 80, "PR": 983, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.200000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12A", "LAT": 19.200000, "LON": -80.500000, "TIME": "08\/12\/12Z", "WIND": 75, "PR": 986, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.500000, 19.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 19.700000, "LON": -81.200000, "TIME": "08\/12\/15Z", "WIND": 80, "PR": 983, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.200000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13A", "LAT": 20.400000, "LON": -81.500000, "TIME": "08\/12\/18Z", "WIND": 85, "PR": 980, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.500000, 20.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 21.200000, "LON": -81.900000, "TIME": "08\/12\/21Z", "WIND": 90, "PR": 980, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.900000, 21.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14A", "LAT": 21.700000, "LON": -82.300000, "TIME": "08\/13\/00Z", "WIND": 90, "PR": 976, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.300000, 21.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 22.200000, "LON": -82.400000, "TIME": "08\/13\/03Z", "WIND": 90, "PR": 975, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.400000, 22.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15A", "LAT": 23.000000, "LON": -82.600000, "TIME": "08\/13\/06Z", "WIND": 90, "PR": 973, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.600000, 23.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 23.900000, "LON": -82.900000, "TIME": "08\/13\/09Z", "WIND": 95, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.900000, 23.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16A", "LAT": 24.300000, "LON": -82.900000, "TIME": "08\/13\/11Z", "WIND": 95, "PR": 969, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.900000, 24.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16B", "LAT": 24.700000, "LON": -82.900000, "TIME": "08\/13\/13Z", "WIND": 95, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.900000, 24.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 25.200000, "LON": -82.800000, "TIME": "08\/13\/15Z", "WIND": 95, "PR": 965, "STAT": "HURRICANE-2", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.800000, 25.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17A", "LAT": 25.700000, "LON": -82.500000, "TIME": "08\/13\/17Z", "WIND": 110, "PR": 964, "STAT": "HURRICANE-3", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.500000, 25.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 26.000000, "LON": -82.400000, "TIME": "08\/13\/18Z", "WIND": 125, "PR": 954, "STAT": "HURRICANE-4", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.400000, 26.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 26.900000, "LON": -82.200000, "TIME": "08\/13\/21Z", "WIND": 120, "PR": 941, "STAT": "HURRICANE-4", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.200000, 26.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19A", "LAT": 27.700000, "LON": -81.800000, "TIME": "08\/13\/23Z", "WIND": 100, "PR": 950, "STAT": "HURRICANE-3", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.800000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19B", "LAT": 28.400000, "LON": -81.400000, "TIME": "08\/14\/01Z", "WIND": 80, "PR": 965, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.400000, 28.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 29.100000, "LON": -81.100000, "TIME": "08\/14\/03Z", "WIND": 75, "PR": 975, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.100000, 29.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20A", "LAT": 30.100000, "LON": -80.800000, "TIME": "08\/14\/06Z", "WIND": 75, "PR": 993, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.800000, 30.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 31.200000, "LON": -80.500000, "TIME": "08\/14\/09Z", "WIND": 75, "PR": 994, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.500000, 31.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21A", "LAT": 32.300000, "LON": -79.700000, "TIME": "08\/14\/12Z", "WIND": 75, "PR": 993, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.700000, 32.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 33.200000, "LON": -79.000000, "TIME": "08\/14\/15Z", "WIND": 65, "PR": 990, "STAT": "HURRICANE-1", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.000000, 33.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22A", "LAT": 34.800000, "LON": -77.900000, "TIME": "08\/14\/18Z", "WIND": 60, "PR": 995, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.900000, 34.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 36.000000, "LON": -77.000000, "TIME": "08\/14\/21Z", "WIND": 60, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.000000, 36.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23A", "LAT": 36.900000, "LON": -75.900000, "TIME": "08\/15\/00Z", "WIND": 45, "PR": 1008, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.900000, 36.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 37.900000, "LON": -74.900000, "TIME": "08\/15\/03Z", "WIND": 35, "PR": 1012, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.900000, 37.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24A", "LAT": 39.200000, "LON": -73.800000, "TIME": "08\/15\/06Z", "WIND": 35, "PR": 1014, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.800000, 39.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 40.800000, "LON": -73.000000, "TIME": "08\/15\/09Z", "WIND": 35, "PR": 1012, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.000000, 40.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25A", "LAT": 42.000000, "LON": -71.000000, "TIME": "08\/15\/12Z", "WIND": 35, "PR": 1016, "STAT": "TROPICAL STORM", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.000000, 42.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 43.000000, "LON": -69.000000, "TIME": "08\/15\/15Z", "WIND": 30, "PR": 1016, "STAT": "TROPICAL DEPRESSION", "NAME": "Charley", "DATES": "09-15 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.000000, 43.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 12.200000, "LON": -22.700000, "TIME": "08\/13\/15Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -22.700000, 12.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 12.500000, "LON": -24.000000, "TIME": "08\/13\/21Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -24.000000, 12.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 12.700000, "LON": -24.800000, "TIME": "08\/14\/03Z", "WIND": 35, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -24.800000, 12.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 13.200000, "LON": -25.900000, "TIME": "08\/14\/09Z", "WIND": 40, "PR": 1004, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -25.900000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 13.300000, "LON": -27.300000, "TIME": "08\/14\/15Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -27.300000, 13.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 13.700000, "LON": -28.700000, "TIME": "08\/14\/21Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -28.700000, 13.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 14.200000, "LON": -30.000000, "TIME": "08\/15\/03Z", "WIND": 65, "PR": 987, "STAT": "HURRICANE-1", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -30.000000, 14.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 14.200000, "LON": -31.600000, "TIME": "08\/15\/09Z", "WIND": 75, "PR": 981, "STAT": "HURRICANE-1", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -31.600000, 14.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 15.000000, "LON": -32.700000, "TIME": "08\/15\/15Z", "WIND": 75, "PR": 981, "STAT": "HURRICANE-1", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -32.700000, 15.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 15.400000, "LON": -33.900000, "TIME": "08\/15\/21Z", "WIND": 85, "PR": 975, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.900000, 15.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 16.400000, "LON": -35.400000, "TIME": "08\/16\/03Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.400000, 16.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 17.200000, "LON": -36.300000, "TIME": "08\/16\/09Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -36.300000, 17.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 18.200000, "LON": -37.700000, "TIME": "08\/16\/15Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.700000, 18.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 19.700000, "LON": -38.600000, "TIME": "08\/16\/21Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.600000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 21.000000, "LON": -39.200000, "TIME": "08\/17\/03Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.200000, 21.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 22.300000, "LON": -39.900000, "TIME": "08\/17\/09Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.900000, 22.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 24.000000, "LON": -40.200000, "TIME": "08\/17\/15Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.200000, 24.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 25.800000, "LON": -40.500000, "TIME": "08\/17\/21Z", "WIND": 85, "PR": 974, "STAT": "HURRICANE-2", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.500000, 25.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 26.500000, "LON": -40.600000, "TIME": "08\/18\/03Z", "WIND": 80, "PR": 978, "STAT": "HURRICANE-1", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.600000, 26.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 27.900000, "LON": -40.700000, "TIME": "08\/18\/09Z", "WIND": 65, "PR": 985, "STAT": "HURRICANE-1", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.700000, 27.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 28.500000, "LON": -39.500000, "TIME": "08\/18\/15Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.500000, 28.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 29.300000, "LON": -38.400000, "TIME": "08\/18\/21Z", "WIND": 45, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.400000, 29.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 29.600000, "LON": -37.500000, "TIME": "08\/19\/03Z", "WIND": 40, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.500000, 29.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 30.000000, "LON": -37.500000, "TIME": "08\/19\/09Z", "WIND": 40, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.500000, 30.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 30.000000, "LON": -37.400000, "TIME": "08\/19\/15Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.400000, 30.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 30.000000, "LON": -37.400000, "TIME": "08\/19\/21Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.400000, 30.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27", "LAT": 29.700000, "LON": -36.700000, "TIME": "08\/20\/03Z", "WIND": 35, "PR": 1008, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -36.700000, 29.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28", "LAT": 30.300000, "LON": -37.000000, "TIME": "08\/20\/09Z", "WIND": 35, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.000000, 30.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29", "LAT": 30.800000, "LON": -37.400000, "TIME": "08\/20\/15Z", "WIND": 35, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.400000, 30.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30", "LAT": 31.000000, "LON": -37.700000, "TIME": "08\/20\/21Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.700000, 31.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31", "LAT": 31.200000, "LON": -38.300000, "TIME": "08\/21\/03Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.300000, 31.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32", "LAT": 30.600000, "LON": -38.800000, "TIME": "08\/21\/09Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.800000, 30.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33", "LAT": 30.700000, "LON": -39.100000, "TIME": "08\/21\/15Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Danielle", "DATES": "13-21 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.100000, 30.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 8.900000, "LON": -46.200000, "TIME": "08\/13\/21Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.200000, 8.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 9.400000, "LON": -48.300000, "TIME": "08\/14\/03Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.300000, 9.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 9.800000, "LON": -49.800000, "TIME": "08\/14\/09Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.800000, 9.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 10.400000, "LON": -52.200000, "TIME": "08\/14\/15Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -52.200000, 10.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 10.500000, "LON": -53.500000, "TIME": "08\/14\/18Z", "WIND": 30, "PR": 1008, "STAT": "TROPICAL DEPRESSION", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -53.500000, 10.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 10.800000, "LON": -54.500000, "TIME": "08\/14\/21Z", "WIND": 35, "PR": 1006, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -54.500000, 10.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 11.100000, "LON": -55.800000, "TIME": "08\/15\/00Z", "WIND": 35, "PR": 1006, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -55.800000, 11.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 11.300000, "LON": -56.800000, "TIME": "08\/15\/03Z", "WIND": 35, "PR": 1006, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -56.800000, 11.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 11.400000, "LON": -57.900000, "TIME": "08\/15\/06Z", "WIND": 35, "PR": 1006, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -57.900000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 11.700000, "LON": -59.100000, "TIME": "08\/15\/09Z", "WIND": 40, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -59.100000, 11.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7A", "LAT": 11.800000, "LON": -60.800000, "TIME": "08\/15\/12Z", "WIND": 40, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -60.800000, 11.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 11.900000, "LON": -62.000000, "TIME": "08\/15\/15Z", "WIND": 40, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.000000, 11.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8A", "LAT": 12.000000, "LON": -63.000000, "TIME": "08\/15\/18Z", "WIND": 40, "PR": 1011, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.000000, 12.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 12.300000, "LON": -63.800000, "TIME": "08\/15\/21Z", "WIND": 40, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.800000, 12.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 12.700000, "LON": -65.400000, "TIME": "08\/16\/03Z", "WIND": 40, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.400000, 12.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 13.200000, "LON": -67.200000, "TIME": "08\/16\/09Z", "WIND": 40, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.200000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 14.100000, "LON": -70.400000, "TIME": "08\/16\/15Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Earl", "DATES": "13-16 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.400000, 14.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 11.200000, "LON": -36.000000, "TIME": "08\/25\/03Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -36.000000, 11.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 11.400000, "LON": -37.600000, "TIME": "08\/25\/09Z", "WIND": 30, "PR": 1008, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.600000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 11.400000, "LON": -39.100000, "TIME": "08\/25\/15Z", "WIND": 30, "PR": 1008, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.100000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 11.600000, "LON": -40.500000, "TIME": "08\/25\/21Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.500000, 11.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 11.800000, "LON": -41.700000, "TIME": "08\/26\/03Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.700000, 11.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 12.600000, "LON": -43.700000, "TIME": "08\/26\/09Z", "WIND": 50, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -43.700000, 12.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 13.100000, "LON": -45.000000, "TIME": "08\/26\/15Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.000000, 13.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 13.700000, "LON": -46.400000, "TIME": "08\/26\/21Z", "WIND": 70, "PR": 983, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.400000, 13.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 14.000000, "LON": -47.300000, "TIME": "08\/27\/03Z", "WIND": 75, "PR": 980, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.300000, 14.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 14.500000, "LON": -48.400000, "TIME": "08\/27\/09Z", "WIND": 80, "PR": 975, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.400000, 14.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 15.000000, "LON": -49.000000, "TIME": "08\/27\/15Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.000000, 15.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 15.700000, "LON": -49.800000, "TIME": "08\/27\/21Z", "WIND": 100, "PR": 962, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.800000, 15.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 16.300000, "LON": -50.500000, "TIME": "08\/28\/03Z", "WIND": 100, "PR": 962, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -50.500000, 16.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 17.000000, "LON": -51.300000, "TIME": "08\/28\/09Z", "WIND": 100, "PR": 962, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -51.300000, 17.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 17.400000, "LON": -51.900000, "TIME": "08\/28\/15Z", "WIND": 105, "PR": 958, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -51.900000, 17.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 17.900000, "LON": -52.600000, "TIME": "08\/28\/21Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -52.600000, 17.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 18.300000, "LON": -53.400000, "TIME": "08\/29\/03Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -53.400000, 18.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 18.600000, "LON": -54.100000, "TIME": "08\/29\/09Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -54.100000, 18.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 18.600000, "LON": -54.700000, "TIME": "08\/29\/15Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -54.700000, 18.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 18.800000, "LON": -55.600000, "TIME": "08\/29\/21Z", "WIND": 115, "PR": 949, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -55.600000, 18.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20A", "LAT": 18.800000, "LON": -55.800000, "TIME": "08\/30\/00Z", "WIND": 110, "PR": 954, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -55.800000, 18.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 18.900000, "LON": -56.200000, "TIME": "08\/30\/03Z", "WIND": 110, "PR": 954, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -56.200000, 18.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21A", "LAT": 19.000000, "LON": -56.800000, "TIME": "08\/30\/06Z", "WIND": 110, "PR": 959, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -56.800000, 19.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 19.000000, "LON": -57.300000, "TIME": "08\/30\/09Z", "WIND": 105, "PR": 958, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -57.300000, 19.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22A", "LAT": 19.200000, "LON": -58.100000, "TIME": "08\/30\/12Z", "WIND": 105, "PR": 956, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -58.100000, 19.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 19.300000, "LON": -58.700000, "TIME": "08\/30\/15Z", "WIND": 105, "PR": 956, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -58.700000, 19.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23A", "LAT": 19.300000, "LON": -59.400000, "TIME": "08\/30\/18Z", "WIND": 105, "PR": 956, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -59.400000, 19.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 19.500000, "LON": -60.000000, "TIME": "08\/30\/21Z", "WIND": 110, "PR": 948, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -60.000000, 19.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24A", "LAT": 19.600000, "LON": -60.700000, "TIME": "08\/31\/00Z", "WIND": 115, "PR": 945, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -60.700000, 19.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 19.700000, "LON": -61.400000, "TIME": "08\/31\/03Z", "WIND": 110, "PR": 945, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.400000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25A", "LAT": 19.800000, "LON": -62.100000, "TIME": "08\/31\/06Z", "WIND": 110, "PR": 951, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.100000, 19.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 19.900000, "LON": -62.800000, "TIME": "08\/31\/09Z", "WIND": 110, "PR": 949, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.800000, 19.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26A", "LAT": 20.000000, "LON": -63.400000, "TIME": "08\/31\/12Z", "WIND": 115, "PR": 949, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.400000, 20.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27", "LAT": 20.000000, "LON": -64.000000, "TIME": "08\/31\/15Z", "WIND": 115, "PR": 950, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.000000, 20.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27A", "LAT": 20.300000, "LON": -65.000000, "TIME": "08\/31\/18Z", "WIND": 120, "PR": 942, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.000000, 20.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28", "LAT": 20.500000, "LON": -65.900000, "TIME": "08\/31\/21Z", "WIND": 120, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.900000, 20.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28A", "LAT": 20.600000, "LON": -66.300000, "TIME": "09\/01\/00Z", "WIND": 120, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.300000, 20.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29", "LAT": 20.800000, "LON": -67.000000, "TIME": "09\/01\/03Z", "WIND": 120, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.000000, 20.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29A", "LAT": 21.000000, "LON": -67.900000, "TIME": "09\/01\/06Z", "WIND": 120, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.900000, 21.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30", "LAT": 21.200000, "LON": -68.500000, "TIME": "09\/01\/09Z", "WIND": 120, "PR": 935, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.500000, 21.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30A", "LAT": 21.400000, "LON": -69.100000, "TIME": "09\/01\/12Z", "WIND": 120, "PR": 937, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.100000, 21.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31", "LAT": 21.700000, "LON": -69.800000, "TIME": "09\/01\/15Z", "WIND": 120, "PR": 937, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.800000, 21.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31A", "LAT": 21.800000, "LON": -70.400000, "TIME": "09\/01\/18Z", "WIND": 120, "PR": 967, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.400000, 21.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32", "LAT": 22.000000, "LON": -71.000000, "TIME": "09\/01\/21Z", "WIND": 120, "PR": 938, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.000000, 22.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32A", "LAT": 22.300000, "LON": -71.400000, "TIME": "09\/02\/00Z", "WIND": 125, "PR": 938, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.400000, 22.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33", "LAT": 22.600000, "LON": -72.000000, "TIME": "09\/02\/03Z", "WIND": 120, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.000000, 22.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33A", "LAT": 22.700000, "LON": -72.500000, "TIME": "09\/02\/06Z", "WIND": 125, "PR": 937, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.500000, 22.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "34", "LAT": 22.900000, "LON": -73.000000, "TIME": "09\/02\/09Z", "WIND": 125, "PR": 936, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.000000, 22.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "34A", "LAT": 23.200000, "LON": -73.500000, "TIME": "09\/02\/12Z", "WIND": 125, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.500000, 23.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "35", "LAT": 23.400000, "LON": -73.900000, "TIME": "09\/02\/15Z", "WIND": 125, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.900000, 23.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "35A", "LAT": 23.800000, "LON": -74.400000, "TIME": "09\/02\/18Z", "WIND": 125, "PR": 949, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.400000, 23.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "36", "LAT": 24.100000, "LON": -74.800000, "TIME": "09\/02\/21Z", "WIND": 120, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.800000, 24.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "36A", "LAT": 24.300000, "LON": -75.100000, "TIME": "09\/03\/00Z", "WIND": 120, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.100000, 24.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "37", "LAT": 24.500000, "LON": -75.400000, "TIME": "09\/03\/03Z", "WIND": 110, "PR": 948, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.400000, 24.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "37A", "LAT": 24.700000, "LON": -75.700000, "TIME": "09\/03\/06Z", "WIND": 105, "PR": 954, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.700000, 24.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "38", "LAT": 24.900000, "LON": -76.000000, "TIME": "09\/03\/09Z", "WIND": 105, "PR": 954, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.000000, 24.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "38A", "LAT": 25.300000, "LON": -76.400000, "TIME": "09\/03\/12Z", "WIND": 110, "PR": 957, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.400000, 25.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39", "LAT": 25.500000, "LON": -76.700000, "TIME": "09\/03\/15Z", "WIND": 100, "PR": 958, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.700000, 25.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39A", "LAT": 26.300000, "LON": -77.600000, "TIME": "09\/03\/18Z", "WIND": 100, "PR": 961, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.600000, 26.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40", "LAT": 25.900000, "LON": -77.500000, "TIME": "09\/03\/21Z", "WIND": 100, "PR": 959, "STAT": "HURRICANE-3", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.500000, 25.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40A", "LAT": 25.900000, "LON": -77.500000, "TIME": "09\/04\/00Z", "WIND": 90, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.500000, 25.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41", "LAT": 26.100000, "LON": -77.800000, "TIME": "09\/04\/03Z", "WIND": 90, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.800000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41A", "LAT": 26.400000, "LON": -78.000000, "TIME": "09\/04\/06Z", "WIND": 90, "PR": 961, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.000000, 26.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42", "LAT": 26.600000, "LON": -78.100000, "TIME": "09\/04\/09Z", "WIND": 90, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.100000, 26.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42A", "LAT": 26.700000, "LON": -78.400000, "TIME": "09\/04\/12Z", "WIND": 90, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.400000, 26.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43", "LAT": 26.900000, "LON": -78.800000, "TIME": "09\/04\/15Z", "WIND": 90, "PR": 961, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.800000, 26.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43A", "LAT": 26.900000, "LON": -79.000000, "TIME": "09\/04\/18Z", "WIND": 90, "PR": 962, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.000000, 26.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44", "LAT": 26.900000, "LON": -79.300000, "TIME": "09\/04\/21Z", "WIND": 90, "PR": 962, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.300000, 26.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44A", "LAT": 27.000000, "LON": -79.400000, "TIME": "09\/05\/00Z", "WIND": 90, "PR": 951, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.400000, 27.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45", "LAT": 27.100000, "LON": -79.700000, "TIME": "09\/05\/03Z", "WIND": 90, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.700000, 27.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45A", "LAT": 27.200000, "LON": -80.200000, "TIME": "09\/05\/05Z", "WIND": 90, "PR": 963, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.200000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45B", "LAT": 27.200000, "LON": -80.400000, "TIME": "09\/05\/07Z", "WIND": 90, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.400000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46", "LAT": 27.200000, "LON": -80.500000, "TIME": "09\/05\/09Z", "WIND": 85, "PR": 963, "STAT": "HURRICANE-2", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.500000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46A", "LAT": 27.300000, "LON": -80.700000, "TIME": "09\/05\/11Z", "WIND": 80, "PR": 963, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.700000, 27.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46B", "LAT": 27.500000, "LON": -80.900000, "TIME": "09\/05\/13Z", "WIND": 80, "PR": 975, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.900000, 27.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47", "LAT": 27.700000, "LON": -81.200000, "TIME": "09\/05\/15Z", "WIND": 80, "PR": 975, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.200000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47A", "LAT": 27.900000, "LON": -81.700000, "TIME": "09\/05\/18Z", "WIND": 65, "PR": 980, "STAT": "HURRICANE-1", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.700000, 27.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48", "LAT": 28.000000, "LON": -82.200000, "TIME": "09\/05\/21Z", "WIND": 60, "PR": 975, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.200000, 28.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48A", "LAT": 28.100000, "LON": -82.300000, "TIME": "09\/06\/00Z", "WIND": 55, "PR": 975, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.300000, 28.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49", "LAT": 28.300000, "LON": -82.700000, "TIME": "09\/06\/03Z", "WIND": 55, "PR": 976, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.700000, 28.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49A", "LAT": 28.600000, "LON": -83.300000, "TIME": "09\/06\/06Z", "WIND": 60, "PR": 981, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.300000, 28.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50", "LAT": 28.700000, "LON": -83.500000, "TIME": "09\/06\/09Z", "WIND": 55, "PR": 981, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.500000, 28.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50A", "LAT": 29.100000, "LON": -83.600000, "TIME": "09\/06\/12Z", "WIND": 55, "PR": 980, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.600000, 29.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51", "LAT": 29.500000, "LON": -84.000000, "TIME": "09\/06\/15Z", "WIND": 55, "PR": 980, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.000000, 29.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51A", "LAT": 30.100000, "LON": -84.100000, "TIME": "09\/06\/18Z", "WIND": 55, "PR": 980, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.100000, 30.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52", "LAT": 30.600000, "LON": -84.300000, "TIME": "09\/06\/21Z", "WIND": 40, "PR": 982, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.300000, 30.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52A", "LAT": 31.100000, "LON": -84.500000, "TIME": "09\/07\/00Z", "WIND": 35, "PR": 984, "STAT": "TROPICAL STORM", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.500000, 31.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "53", "LAT": 31.300000, "LON": -84.600000, "TIME": "09\/07\/03Z", "WIND": 30, "PR": 985, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.600000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54", "LAT": 32.000000, "LON": -85.100000, "TIME": "09\/07\/09Z", "WIND": 15, "PR": 992, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -85.100000, 32.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55", "LAT": 32.400000, "LON": -85.300000, "TIME": "09\/07\/15Z", "WIND": 15, "PR": 996, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -85.300000, 32.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "56", "LAT": 33.000000, "LON": -84.600000, "TIME": "09\/07\/21Z", "WIND": 15, "PR": 997, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.600000, 33.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "57", "LAT": 33.900000, "LON": -83.800000, "TIME": "09\/08\/03Z", "WIND": 15, "PR": 998, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.800000, 33.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "58", "LAT": 34.400000, "LON": -84.300000, "TIME": "09\/08\/09Z", "WIND": 15, "PR": 999, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.300000, 34.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "59", "LAT": 36.100000, "LON": -82.900000, "TIME": "09\/08\/15Z", "WIND": 15, "PR": 1000, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.900000, 36.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "60", "LAT": 38.100000, "LON": -82.000000, "TIME": "09\/08\/21Z", "WIND": 15, "PR": 1001, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.000000, 38.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "61", "LAT": 39.300000, "LON": -80.700000, "TIME": "09\/09\/03Z", "WIND": 15, "PR": 1001, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.700000, 39.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "62", "LAT": 41.400000, "LON": -79.400000, "TIME": "09\/09\/09Z", "WIND": 15, "PR": 1002, "STAT": "TROPICAL DEPRESSION", "NAME": "Frances", "DATES": "25 AUG-09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.400000, 41.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 31.600000, "LON": -78.100000, "TIME": "08\/27\/21Z", "WIND": 25, "PR": 1014, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.100000, 31.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1A", "LAT": 31.300000, "LON": -77.800000, "TIME": "08\/28\/00Z", "WIND": 25, "PR": 1012, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.800000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 31.300000, "LON": -78.000000, "TIME": "08\/28\/03Z", "WIND": 25, "PR": 1012, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.000000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2A", "LAT": 31.300000, "LON": -78.200000, "TIME": "08\/28\/06Z", "WIND": 25, "PR": 1012, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.200000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 31.200000, "LON": -78.400000, "TIME": "08\/28\/09Z", "WIND": 30, "PR": 1011, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.400000, 31.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3A", "LAT": 31.300000, "LON": -78.300000, "TIME": "08\/28\/12Z", "WIND": 30, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.300000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 31.400000, "LON": -78.500000, "TIME": "08\/28\/15Z", "WIND": 35, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.500000, 31.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 31.300000, "LON": -78.700000, "TIME": "08\/28\/18Z", "WIND": 35, "PR": 1009, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.700000, 31.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 31.400000, "LON": -78.900000, "TIME": "08\/28\/21Z", "WIND": 45, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.900000, 31.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 31.500000, "LON": -79.100000, "TIME": "08\/29\/00Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.100000, 31.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 31.700000, "LON": -79.200000, "TIME": "08\/29\/03Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.200000, 31.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 32.100000, "LON": -79.400000, "TIME": "08\/29\/06Z", "WIND": 55, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.400000, 32.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 32.500000, "LON": -79.500000, "TIME": "08\/29\/09Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.500000, 32.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7A", "LAT": 32.700000, "LON": -79.500000, "TIME": "08\/29\/11Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.500000, 32.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7B", "LAT": 32.900000, "LON": -79.500000, "TIME": "08\/29\/13Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.500000, 32.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 33.200000, "LON": -79.500000, "TIME": "08\/29\/15Z", "WIND": 50, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.500000, 33.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8A", "LAT": 33.500000, "LON": -79.600000, "TIME": "08\/29\/18Z", "WIND": 40, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.600000, 33.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 33.900000, "LON": -79.600000, "TIME": "08\/29\/21Z", "WIND": 35, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.600000, 33.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9A", "LAT": 34.200000, "LON": -79.400000, "TIME": "08\/30\/06Z", "WIND": 30, "PR": 998, "STAT": "TROPICAL DEPRESSION", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.400000, 34.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 37.700000, "LON": -75.800000, "TIME": "08\/31\/03Z", "WIND": 35, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.800000, 37.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 38.400000, "LON": -73.800000, "TIME": "08\/31\/09Z", "WIND": 35, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.800000, 38.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 39.500000, "LON": -71.900000, "TIME": "08\/31\/15Z", "WIND": 35, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.900000, 39.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 40.700000, "LON": -68.600000, "TIME": "08\/31\/21Z", "WIND": 35, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.600000, 40.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 41.800000, "LON": -66.000000, "TIME": "09\/01\/03Z", "WIND": 35, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.000000, 41.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 42.400000, "LON": -61.500000, "TIME": "09\/01\/09Z", "WIND": 45, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Gaston", "DATES": "27 AUG-01 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.500000, 42.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 32.400000, "LON": -71.000000, "TIME": "08\/29\/21Z", "WIND": 35, "PR": 1008, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.000000, 32.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 33.200000, "LON": -71.300000, "TIME": "08\/30\/03Z", "WIND": 40, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.300000, 33.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 34.600000, "LON": -71.500000, "TIME": "08\/30\/09Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.500000, 34.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 36.700000, "LON": -71.500000, "TIME": "08\/30\/15Z", "WIND": 45, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.500000, 36.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 37.400000, "LON": -71.400000, "TIME": "08\/30\/18Z", "WIND": 45, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.400000, 37.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 38.400000, "LON": -71.300000, "TIME": "08\/30\/21Z", "WIND": 45, "PR": 1008, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.300000, 38.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 39.900000, "LON": -71.300000, "TIME": "08\/31\/00Z", "WIND": 35, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.300000, 39.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 41.100000, "LON": -71.100000, "TIME": "08\/31\/03Z", "WIND": 35, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.100000, 41.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 41.500000, "LON": -70.900000, "TIME": "08\/31\/06Z", "WIND": 35, "PR": 1010, "STAT": "TROPICAL STORM", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.900000, 41.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 42.400000, "LON": -69.900000, "TIME": "08\/31\/09Z", "WIND": 25, "PR": 1013, "STAT": "TROPICAL DEPRESSION", "NAME": "Hermine", "DATES": "29-31 AUG 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.900000, 42.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 9.700000, "LON": -29.100000, "TIME": "09\/02\/21Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -29.100000, 9.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 9.800000, "LON": -29.400000, "TIME": "09\/03\/03Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -29.400000, 9.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 10.000000, "LON": -30.700000, "TIME": "09\/03\/09Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -30.700000, 10.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 9.600000, "LON": -32.900000, "TIME": "09\/03\/15Z", "WIND": 40, "PR": 1003, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -32.900000, 9.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 8.900000, "LON": -34.600000, "TIME": "09\/03\/21Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.600000, 8.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 9.100000, "LON": -35.800000, "TIME": "09\/04\/03Z", "WIND": 45, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.800000, 9.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 9.000000, "LON": -37.400000, "TIME": "09\/04\/09Z", "WIND": 50, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.400000, 9.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 8.900000, "LON": -38.900000, "TIME": "09\/04\/15Z", "WIND": 50, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.900000, 8.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 9.100000, "LON": -40.800000, "TIME": "09\/04\/21Z", "WIND": 50, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.800000, 9.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 9.400000, "LON": -42.200000, "TIME": "09\/05\/03Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -42.200000, 9.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 9.700000, "LON": -44.300000, "TIME": "09\/05\/09Z", "WIND": 65, "PR": 987, "STAT": "HURRICANE-1", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -44.300000, 9.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 9.900000, "LON": -46.000000, "TIME": "09\/05\/15Z", "WIND": 75, "PR": 980, "STAT": "HURRICANE-1", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.000000, 9.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 10.100000, "LON": -46.600000, "TIME": "09\/05\/17Z", "WIND": 100, "PR": 960, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.600000, 10.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 10.400000, "LON": -47.700000, "TIME": "09\/05\/21Z", "WIND": 110, "PR": 950, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.700000, 10.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14A", "LAT": 10.600000, "LON": -48.500000, "TIME": "09\/06\/00Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.500000, 10.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 10.800000, "LON": -49.400000, "TIME": "09\/06\/03Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.400000, 10.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15A", "LAT": 10.700000, "LON": -50.600000, "TIME": "09\/06\/06Z", "WIND": 115, "PR": 948, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -50.600000, 10.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 10.800000, "LON": -51.600000, "TIME": "09\/06\/09Z", "WIND": 110, "PR": 951, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -51.600000, 10.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16A", "LAT": 11.100000, "LON": -52.600000, "TIME": "09\/06\/12Z", "WIND": 110, "PR": 951, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -52.600000, 11.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 11.200000, "LON": -53.400000, "TIME": "09\/06\/15Z", "WIND": 110, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -53.400000, 11.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17A", "LAT": 11.400000, "LON": -54.400000, "TIME": "09\/06\/18Z", "WIND": 100, "PR": 969, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -54.400000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 11.600000, "LON": -55.300000, "TIME": "09\/06\/21Z", "WIND": 90, "PR": 968, "STAT": "HURRICANE-2", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -55.300000, 11.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18A", "LAT": 11.300000, "LON": -56.300000, "TIME": "09\/07\/00Z", "WIND": 90, "PR": 964, "STAT": "HURRICANE-2", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -56.300000, 11.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 11.200000, "LON": -57.200000, "TIME": "09\/07\/03Z", "WIND": 90, "PR": 963, "STAT": "HURRICANE-2", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -57.200000, 11.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19A", "LAT": 11.300000, "LON": -57.800000, "TIME": "09\/07\/06Z", "WIND": 90, "PR": 963, "STAT": "HURRICANE-2", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -57.800000, 11.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 11.400000, "LON": -58.500000, "TIME": "09\/07\/09Z", "WIND": 95, "PR": 965, "STAT": "HURRICANE-2", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -58.500000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20A", "LAT": 11.600000, "LON": -59.400000, "TIME": "09\/07\/12Z", "WIND": 100, "PR": 963, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -59.400000, 11.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 11.800000, "LON": -60.200000, "TIME": "09\/07\/15Z", "WIND": 100, "PR": 963, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -60.200000, 11.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21A", "LAT": 11.900000, "LON": -61.200000, "TIME": "09\/07\/18Z", "WIND": 105, "PR": 957, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.200000, 11.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 12.000000, "LON": -62.000000, "TIME": "09\/07\/21Z", "WIND": 105, "PR": 956, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.000000, 12.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22A", "LAT": 12.000000, "LON": -62.600000, "TIME": "09\/08\/00Z", "WIND": 115, "PR": 950, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.600000, 12.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 12.100000, "LON": -63.300000, "TIME": "09\/08\/03Z", "WIND": 115, "PR": 950, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.300000, 12.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23A", "LAT": 12.300000, "LON": -64.100000, "TIME": "09\/08\/06Z", "WIND": 115, "PR": 946, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.100000, 12.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 12.400000, "LON": -64.800000, "TIME": "09\/08\/09Z", "WIND": 120, "PR": 946, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.800000, 12.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24A", "LAT": 12.500000, "LON": -65.500000, "TIME": "09\/08\/12Z", "WIND": 120, "PR": 955, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.500000, 12.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 12.700000, "LON": -66.200000, "TIME": "09\/08\/15Z", "WIND": 120, "PR": 955, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.200000, 12.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25A", "LAT": 13.100000, "LON": -67.000000, "TIME": "09\/08\/18Z", "WIND": 120, "PR": 949, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.000000, 13.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 13.400000, "LON": -67.700000, "TIME": "09\/08\/21Z", "WIND": 120, "PR": 947, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.700000, 13.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26A", "LAT": 13.400000, "LON": -68.400000, "TIME": "09\/09\/00Z", "WIND": 125, "PR": 938, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.400000, 13.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27", "LAT": 13.600000, "LON": -69.100000, "TIME": "09\/09\/03Z", "WIND": 125, "PR": 938, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.100000, 13.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27A", "LAT": 13.700000, "LON": -69.500000, "TIME": "09\/09\/06Z", "WIND": 140, "PR": 925, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.500000, 13.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28", "LAT": 13.900000, "LON": -70.000000, "TIME": "09\/09\/09Z", "WIND": 140, "PR": 921, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.000000, 13.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28A", "LAT": 14.200000, "LON": -70.700000, "TIME": "09\/09\/12Z", "WIND": 140, "PR": 919, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.700000, 14.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29", "LAT": 14.500000, "LON": -71.400000, "TIME": "09\/09\/15Z", "WIND": 140, "PR": 920, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.400000, 14.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29A", "LAT": 14.800000, "LON": -72.000000, "TIME": "09\/09\/18Z", "WIND": 140, "PR": 923, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.000000, 14.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30", "LAT": 15.000000, "LON": -72.500000, "TIME": "09\/09\/21Z", "WIND": 130, "PR": 921, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.500000, 15.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30A", "LAT": 15.200000, "LON": -72.800000, "TIME": "09\/10\/00Z", "WIND": 130, "PR": 923, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.800000, 15.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31", "LAT": 15.500000, "LON": -73.300000, "TIME": "09\/10\/03Z", "WIND": 130, "PR": 923, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.300000, 15.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31A", "LAT": 15.700000, "LON": -73.800000, "TIME": "09\/10\/06Z", "WIND": 125, "PR": 930, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.800000, 15.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32", "LAT": 15.900000, "LON": -74.200000, "TIME": "09\/10\/09Z", "WIND": 125, "PR": 930, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.200000, 15.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32A", "LAT": 16.300000, "LON": -74.700000, "TIME": "09\/10\/12Z", "WIND": 125, "PR": 934, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.700000, 16.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33", "LAT": 16.500000, "LON": -75.100000, "TIME": "09\/10\/15Z", "WIND": 125, "PR": 934, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.100000, 16.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33A", "LAT": 16.800000, "LON": -75.800000, "TIME": "09\/10\/18Z", "WIND": 125, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.800000, 16.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "34", "LAT": 17.000000, "LON": -76.200000, "TIME": "09\/10\/21Z", "WIND": 120, "PR": 937, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.200000, 17.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "34A", "LAT": 17.300000, "LON": -76.500000, "TIME": "09\/11\/00Z", "WIND": 130, "PR": 926, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.500000, 17.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "35", "LAT": 17.500000, "LON": -76.900000, "TIME": "09\/11\/03Z", "WIND": 135, "PR": 920, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.900000, 17.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "35A", "LAT": 17.400000, "LON": -77.300000, "TIME": "09\/11\/06Z", "WIND": 135, "PR": 920, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.300000, 17.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "36", "LAT": 17.500000, "LON": -78.000000, "TIME": "09\/11\/09Z", "WIND": 130, "PR": 923, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.000000, 17.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "36A", "LAT": 17.700000, "LON": -78.400000, "TIME": "09\/11\/12Z", "WIND": 130, "PR": 923, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.400000, 17.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "37", "LAT": 17.900000, "LON": -78.700000, "TIME": "09\/11\/15Z", "WIND": 125, "PR": 925, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.700000, 17.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "37A", "LAT": 18.000000, "LON": -79.000000, "TIME": "09\/11\/18Z", "WIND": 125, "PR": 921, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.000000, 18.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "38", "LAT": 18.200000, "LON": -79.300000, "TIME": "09\/11\/21Z", "WIND": 145, "PR": 914, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.300000, 18.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "38A", "LAT": 18.200000, "LON": -79.700000, "TIME": "09\/12\/00Z", "WIND": 145, "PR": 912, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.700000, 18.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39", "LAT": 18.300000, "LON": -80.000000, "TIME": "09\/12\/03Z", "WIND": 145, "PR": 910, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.000000, 18.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39A", "LAT": 18.400000, "LON": -80.400000, "TIME": "09\/12\/06Z", "WIND": 145, "PR": 910, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.400000, 18.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40", "LAT": 18.600000, "LON": -80.800000, "TIME": "09\/12\/09Z", "WIND": 135, "PR": 918, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.800000, 18.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40A", "LAT": 18.800000, "LON": -81.200000, "TIME": "09\/12\/12Z", "WIND": 135, "PR": 919, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.200000, 18.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41", "LAT": 19.000000, "LON": -81.500000, "TIME": "09\/12\/15Z", "WIND": 135, "PR": 919, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.500000, 19.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41A", "LAT": 19.200000, "LON": -82.100000, "TIME": "09\/12\/18Z", "WIND": 130, "PR": 922, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.100000, 19.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42", "LAT": 19.300000, "LON": -82.500000, "TIME": "09\/12\/21Z", "WIND": 130, "PR": 916, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.500000, 19.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42A", "LAT": 19.500000, "LON": -82.800000, "TIME": "09\/13\/00Z", "WIND": 130, "PR": 915, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.800000, 19.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43", "LAT": 19.700000, "LON": -83.200000, "TIME": "09\/13\/03Z", "WIND": 140, "PR": 917, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.200000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43A", "LAT": 19.900000, "LON": -83.500000, "TIME": "09\/13\/06Z", "WIND": 140, "PR": 920, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.500000, 19.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44", "LAT": 20.200000, "LON": -83.900000, "TIME": "09\/13\/09Z", "WIND": 140, "PR": 920, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.900000, 20.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44A", "LAT": 20.400000, "LON": -84.100000, "TIME": "09\/13\/12Z", "WIND": 140, "PR": 919, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.100000, 20.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45", "LAT": 20.600000, "LON": -84.400000, "TIME": "09\/13\/15Z", "WIND": 140, "PR": 915, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.400000, 20.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45A", "LAT": 20.900000, "LON": -84.700000, "TIME": "09\/13\/18Z", "WIND": 140, "PR": 914, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.700000, 20.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46", "LAT": 21.300000, "LON": -84.900000, "TIME": "09\/13\/21Z", "WIND": 140, "PR": 912, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.900000, 21.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46A", "LAT": 21.600000, "LON": -85.100000, "TIME": "09\/14\/00Z", "WIND": 140, "PR": 914, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -85.100000, 21.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47", "LAT": 22.000000, "LON": -85.400000, "TIME": "09\/14\/03Z", "WIND": 140, "PR": 914, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -85.400000, 22.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47A", "LAT": 22.400000, "LON": -85.600000, "TIME": "09\/14\/06Z", "WIND": 140, "PR": 922, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -85.600000, 22.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48", "LAT": 22.600000, "LON": -86.000000, "TIME": "09\/14\/09Z", "WIND": 140, "PR": 924, "STAT": "HURRICANE-5", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.000000, 22.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48A", "LAT": 23.100000, "LON": -86.100000, "TIME": "09\/14\/12Z", "WIND": 135, "PR": 925, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.100000, 23.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49", "LAT": 23.400000, "LON": -86.200000, "TIME": "09\/14\/15Z", "WIND": 120, "PR": 932, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.200000, 23.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49A", "LAT": 23.700000, "LON": -86.500000, "TIME": "09\/14\/18Z", "WIND": 120, "PR": 931, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.500000, 23.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50", "LAT": 24.200000, "LON": -86.600000, "TIME": "09\/14\/21Z", "WIND": 120, "PR": 929, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.600000, 24.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50A", "LAT": 24.700000, "LON": -87.000000, "TIME": "09\/15\/00Z", "WIND": 120, "PR": 929, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.000000, 24.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51", "LAT": 25.100000, "LON": -87.200000, "TIME": "09\/15\/03Z", "WIND": 120, "PR": 932, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.200000, 25.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51A", "LAT": 25.600000, "LON": -87.400000, "TIME": "09\/15\/06Z", "WIND": 120, "PR": 934, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.400000, 25.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52", "LAT": 26.100000, "LON": -87.800000, "TIME": "09\/15\/09Z", "WIND": 120, "PR": 938, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.800000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52A", "LAT": 26.700000, "LON": -87.900000, "TIME": "09\/15\/12Z", "WIND": 120, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.900000, 26.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "53", "LAT": 27.300000, "LON": -88.000000, "TIME": "09\/15\/15Z", "WIND": 115, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.000000, 27.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "53A", "LAT": 27.800000, "LON": -88.200000, "TIME": "09\/15\/18Z", "WIND": 115, "PR": 939, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.200000, 27.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54", "LAT": 28.400000, "LON": -88.300000, "TIME": "09\/15\/21Z", "WIND": 115, "PR": 933, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.300000, 28.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54A", "LAT": 28.800000, "LON": -88.200000, "TIME": "09\/15\/23Z", "WIND": 115, "PR": 931, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.200000, 28.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54B", "LAT": 29.000000, "LON": -88.200000, "TIME": "09\/16\/01Z", "WIND": 115, "PR": 931, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.200000, 29.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55", "LAT": 29.300000, "LON": -88.100000, "TIME": "09\/16\/03Z", "WIND": 115, "PR": 933, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -88.100000, 29.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55A", "LAT": 29.700000, "LON": -87.900000, "TIME": "01\/16\/03Z", "WIND": 115, "PR": 936, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.900000, 29.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55B", "LAT": 30.200000, "LON": -87.800000, "TIME": "09\/16\/07Z", "WIND": 115, "PR": 943, "STAT": "HURRICANE-4", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.800000, 30.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "56", "LAT": 30.900000, "LON": -87.700000, "TIME": "09\/16\/09Z", "WIND": 100, "PR": 947, "STAT": "HURRICANE-3", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.700000, 30.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "56A", "LAT": 31.600000, "LON": -87.700000, "TIME": "09\/16\/12Z", "WIND": 70, "PR": 965, "STAT": "HURRICANE-1", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.700000, 31.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "57", "LAT": 32.000000, "LON": -87.500000, "TIME": "09\/16\/15Z", "WIND": 65, "PR": 970, "STAT": "HURRICANE-1", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.500000, 32.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "57A", "LAT": 32.600000, "LON": -87.100000, "TIME": "09\/16\/18Z", "WIND": 60, "PR": 975, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.100000, 32.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "58", "LAT": 33.100000, "LON": -87.000000, "TIME": "09\/16\/21Z", "WIND": 50, "PR": 980, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -87.000000, 33.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "59", "LAT": 34.300000, "LON": -86.200000, "TIME": "09\/17\/03Z", "WIND": 30, "PR": 986, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -86.200000, 34.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "60", "LAT": 34.900000, "LON": -84.900000, "TIME": "09\/17\/09Z", "WIND": 15, "PR": 994, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -84.900000, 34.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "61", "LAT": 35.800000, "LON": -83.100000, "TIME": "09\/17\/15Z", "WIND": 15, "PR": 998, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.100000, 35.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "62", "LAT": 36.500000, "LON": -81.500000, "TIME": "09\/17\/21Z", "WIND": 15, "PR": 999, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.500000, 36.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "63", "LAT": 37.500000, "LON": -79.400000, "TIME": "09\/18\/03Z", "WIND": 15, "PR": 1000, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.400000, 37.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "64", "LAT": 37.900000, "LON": -77.500000, "TIME": "09\/18\/09Z", "WIND": 15, "PR": 998, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.500000, 37.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "65", "LAT": 38.900000, "LON": -75.800000, "TIME": "09\/18\/15Z", "WIND": 10, "PR": 1000, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.800000, 38.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "66", "LAT": 37.200000, "LON": -75.200000, "TIME": "09\/18\/21Z", "WIND": 10, "PR": 1002, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.200000, 37.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "67", "LAT": 26.900000, "LON": -89.300000, "TIME": "09\/22\/23Z", "WIND": 30, "PR": 1008, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -89.300000, 26.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "68", "LAT": 27.400000, "LON": -90.000000, "TIME": "09\/23\/03Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.000000, 27.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "68A", "LAT": 27.700000, "LON": -90.800000, "TIME": "09\/23\/06Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.800000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "69", "LAT": 28.200000, "LON": -91.600000, "TIME": "09\/23\/09Z", "WIND": 35, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -91.600000, 28.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "69A", "LAT": 28.900000, "LON": -92.100000, "TIME": "09\/23\/12Z", "WIND": 40, "PR": 1007, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -92.100000, 28.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "70", "LAT": 29.200000, "LON": -92.700000, "TIME": "09\/23\/15Z", "WIND": 50, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -92.700000, 29.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "70A", "LAT": 29.300000, "LON": -92.800000, "TIME": "09\/23\/18Z", "WIND": 45, "PR": 1003, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -92.800000, 29.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "71", "LAT": 29.400000, "LON": -93.000000, "TIME": "09\/23\/21Z", "WIND": 40, "PR": 1003, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -93.000000, 29.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "71A", "LAT": 29.700000, "LON": -93.300000, "TIME": "09\/24\/00Z", "WIND": 40, "PR": 1003, "STAT": "TROPICAL STORM", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -93.300000, 29.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "72", "LAT": 29.800000, "LON": -93.500000, "TIME": "09\/24\/03Z", "WIND": 30, "PR": 1002, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -93.500000, 29.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "73", "LAT": 30.200000, "LON": -94.400000, "TIME": "09\/24\/09Z", "WIND": 25, "PR": 1009, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -94.400000, 30.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "74", "LAT": 30.900000, "LON": -95.000000, "TIME": "09\/24\/15Z", "WIND": 20, "PR": 1013, "STAT": "TROPICAL DEPRESSION", "NAME": "Ivan", "DATES": "02-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -95.000000, 30.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 35.800000, "LON": -34.100000, "TIME": "09\/09\/09Z", "WIND": 30, "PR": 1013, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 10", "DATES": "09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.100000, 35.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 36.600000, "LON": -33.300000, "TIME": "09\/09\/15Z", "WIND": 30, "PR": 1013, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 10", "DATES": "09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.300000, 36.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 35.800000, "LON": -33.300000, "TIME": "09\/09\/21Z", "WIND": 25, "PR": 1014, "STAT": "TROPICAL DEPRESSION", "NAME": "Tropical Depression 10", "DATES": "09 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.300000, 35.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 16.000000, "LON": -60.400000, "TIME": "09\/13\/21Z", "WIND": 25, "PR": 10, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -60.400000, 16.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1A", "LAT": 16.000000, "LON": -60.800000, "TIME": "09\/14\/00Z", "WIND": 25, "PR": 10, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -60.800000, 16.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 16.200000, "LON": -61.200000, "TIME": "09\/14\/03Z", "WIND": 25, "PR": 10, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.200000, 16.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2A", "LAT": 16.300000, "LON": -61.800000, "TIME": "09\/14\/06Z", "WIND": 25, "PR": 10, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.800000, 16.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 16.600000, "LON": -62.200000, "TIME": "09\/14\/09Z", "WIND": 30, "PR": 9, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.200000, 16.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3A", "LAT": 16.600000, "LON": -62.500000, "TIME": "09\/14\/12Z", "WIND": 30, "PR": 9, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -62.500000, 16.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 16.600000, "LON": -63.100000, "TIME": "09\/14\/15Z", "WIND": 35, "PR": 6, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.100000, 16.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 16.700000, "LON": -63.500000, "TIME": "09\/14\/18Z", "WIND": 45, "PR": 2, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.500000, 16.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 16.800000, "LON": -63.900000, "TIME": "09\/14\/21Z", "WIND": 50, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.900000, 16.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 17.000000, "LON": -64.100000, "TIME": "09\/15\/00Z", "WIND": 50, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.100000, 17.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 17.200000, "LON": -64.500000, "TIME": "09\/15\/03Z", "WIND": 50, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.500000, 17.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 17.200000, "LON": -64.800000, "TIME": "09\/15\/06Z", "WIND": 50, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.800000, 17.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 17.500000, "LON": -65.100000, "TIME": "09\/15\/09Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.100000, 17.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7A", "LAT": 17.600000, "LON": -65.400000, "TIME": "09\/15\/12Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.400000, 17.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 17.800000, "LON": -65.800000, "TIME": "09\/15\/15Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.800000, 17.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8A", "LAT": 18.100000, "LON": -66.100000, "TIME": "09\/15\/18Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.100000, 18.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 18.400000, "LON": -66.500000, "TIME": "09\/15\/21Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.500000, 18.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9A", "LAT": 18.500000, "LON": -67.000000, "TIME": "09\/16\/00Z", "WIND": 55, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.000000, 18.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 18.500000, "LON": -67.300000, "TIME": "09\/16\/03Z", "WIND": 55, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.300000, 18.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10A", "LAT": 18.600000, "LON": -67.800000, "TIME": "09\/16\/06Z", "WIND": 60, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.800000, 18.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 18.800000, "LON": -68.100000, "TIME": "09\/16\/09Z", "WIND": 60, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.100000, 18.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11A", "LAT": 18.700000, "LON": -68.400000, "TIME": "09\/16\/12Z", "WIND": 70, "PR": 985, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.400000, 18.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 18.800000, "LON": -68.700000, "TIME": "09\/16\/15Z", "WIND": 70, "PR": 986, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.700000, 18.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12A", "LAT": 18.800000, "LON": -69.000000, "TIME": "09\/16\/18Z", "WIND": 65, "PR": 989, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.000000, 18.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 19.000000, "LON": -69.300000, "TIME": "09\/16\/21Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.300000, 19.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13A", "LAT": 19.200000, "LON": -69.400000, "TIME": "09\/17\/00Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.400000, 19.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 19.400000, "LON": -69.700000, "TIME": "09\/17\/03Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.700000, 19.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14A", "LAT": 19.400000, "LON": -69.900000, "TIME": "09\/17\/06Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.900000, 19.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 19.500000, "LON": -70.100000, "TIME": "09\/17\/09Z", "WIND": 55, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.100000, 19.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15A", "LAT": 19.800000, "LON": -70.900000, "TIME": "09\/17\/12Z", "WIND": 55, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.900000, 19.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 19.500000, "LON": -71.200000, "TIME": "09\/17\/15Z", "WIND": 55, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.200000, 19.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16A", "LAT": 20.100000, "LON": -71.600000, "TIME": "09\/17\/18Z", "WIND": 45, "PR": 2, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.600000, 20.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 20.200000, "LON": -71.800000, "TIME": "09\/17\/21Z", "WIND": 30, "PR": 2, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.800000, 20.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17A", "LAT": 20.100000, "LON": -71.800000, "TIME": "09\/18\/00Z", "WIND": 30, "PR": 0, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.800000, 20.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 20.400000, "LON": -72.200000, "TIME": "09\/18\/03Z", "WIND": 40, "PR": 0, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.200000, 20.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18A", "LAT": 20.400000, "LON": -72.400000, "TIME": "09\/18\/06Z", "WIND": 40, "PR": 0, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.400000, 20.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 20.700000, "LON": -72.600000, "TIME": "09\/18\/09Z", "WIND": 40, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.600000, 20.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19A", "LAT": 21.200000, "LON": -72.800000, "TIME": "09\/18\/12Z", "WIND": 40, "PR": 0, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.800000, 21.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 21.400000, "LON": -73.000000, "TIME": "09\/18\/15Z", "WIND": 45, "PR": 0, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.000000, 21.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20A", "LAT": 21.000000, "LON": -74.000000, "TIME": "09\/18\/18Z", "WIND": 45, "PR": 3, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.000000, 21.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 22.000000, "LON": -72.300000, "TIME": "09\/18\/21Z", "WIND": 40, "PR": 5, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.300000, 22.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21A", "LAT": 22.200000, "LON": -72.300000, "TIME": "09\/19\/00Z", "WIND": 40, "PR": 2, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.300000, 22.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 22.400000, "LON": -72.300000, "TIME": "09\/19\/03Z", "WIND": 40, "PR": 2, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.300000, 22.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22A", "LAT": 22.600000, "LON": -72.300000, "TIME": "09\/19\/06Z", "WIND": 40, "PR": 2, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.300000, 22.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 23.200000, "LON": -72.500000, "TIME": "09\/19\/09Z", "WIND": 40, "PR": 1, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.500000, 23.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 23.500000, "LON": -72.500000, "TIME": "09\/19\/15Z", "WIND": 40, "PR": 0, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.500000, 23.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 24.500000, "LON": -72.300000, "TIME": "09\/19\/21Z", "WIND": 45, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.300000, 24.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 25.200000, "LON": -72.000000, "TIME": "09\/20\/03Z", "WIND": 50, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.000000, 25.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27", "LAT": 26.000000, "LON": -71.900000, "TIME": "09\/20\/09Z", "WIND": 50, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.900000, 26.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28", "LAT": 26.800000, "LON": -71.500000, "TIME": "09\/20\/15Z", "WIND": 55, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.500000, 26.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29", "LAT": 27.400000, "LON": -71.200000, "TIME": "09\/20\/21Z", "WIND": 75, "PR": 983, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.200000, 27.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30", "LAT": 27.400000, "LON": -70.600000, "TIME": "09\/21\/03Z", "WIND": 75, "PR": 982, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.600000, 27.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31", "LAT": 27.600000, "LON": -70.000000, "TIME": "09\/21\/09Z", "WIND": 80, "PR": 972, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.000000, 27.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32", "LAT": 27.500000, "LON": -69.300000, "TIME": "09\/21\/15Z", "WIND": 80, "PR": 972, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.300000, 27.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33", "LAT": 27.300000, "LON": -68.800000, "TIME": "09\/21\/21Z", "WIND": 80, "PR": 972, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.800000, 27.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "34", "LAT": 27.000000, "LON": -68.700000, "TIME": "09\/22\/03Z", "WIND": 80, "PR": 972, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.700000, 27.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "35", "LAT": 26.600000, "LON": -68.600000, "TIME": "09\/22\/09Z", "WIND": 80, "PR": 968, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.600000, 26.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "36", "LAT": 26.300000, "LON": -68.500000, "TIME": "09\/22\/15Z", "WIND": 85, "PR": 968, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -68.500000, 26.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "37", "LAT": 26.100000, "LON": -69.000000, "TIME": "09\/22\/21Z", "WIND": 85, "PR": 967, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.000000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "38", "LAT": 25.600000, "LON": -69.300000, "TIME": "09\/23\/03Z", "WIND": 85, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.300000, 25.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39", "LAT": 25.500000, "LON": -69.500000, "TIME": "09\/23\/09Z", "WIND": 85, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.500000, 25.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39A", "LAT": 25.600000, "LON": -69.500000, "TIME": "09\/23\/12Z", "WIND": 85, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.500000, 25.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40", "LAT": 25.600000, "LON": -69.700000, "TIME": "09\/23\/15Z", "WIND": 90, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -69.700000, 25.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40A", "LAT": 25.800000, "LON": -70.000000, "TIME": "09\/23\/18Z", "WIND": 90, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.000000, 25.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41", "LAT": 25.900000, "LON": -70.300000, "TIME": "09\/23\/21Z", "WIND": 90, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.300000, 25.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41A", "LAT": 26.000000, "LON": -70.400000, "TIME": "09\/24\/00Z", "WIND": 90, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.400000, 26.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42", "LAT": 26.100000, "LON": -70.800000, "TIME": "09\/24\/03Z", "WIND": 90, "PR": 966, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -70.800000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42A", "LAT": 26.100000, "LON": -71.200000, "TIME": "09\/24\/06Z", "WIND": 85, "PR": 969, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.200000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43", "LAT": 26.100000, "LON": -71.600000, "TIME": "09\/24\/09Z", "WIND": 85, "PR": 969, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -71.600000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43A", "LAT": 26.100000, "LON": -72.000000, "TIME": "09\/24\/12Z", "WIND": 85, "PR": 969, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.000000, 26.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44", "LAT": 26.200000, "LON": -72.400000, "TIME": "09\/24\/15Z", "WIND": 85, "PR": 969, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.400000, 26.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44A", "LAT": 26.300000, "LON": -72.900000, "TIME": "09\/24\/18Z", "WIND": 85, "PR": 969, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -72.900000, 26.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45", "LAT": 26.400000, "LON": -73.500000, "TIME": "09\/24\/21Z", "WIND": 85, "PR": 965, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -73.500000, 26.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45A", "LAT": 26.500000, "LON": -74.300000, "TIME": "09\/25\/00Z", "WIND": 85, "PR": 964, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.300000, 26.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46", "LAT": 26.500000, "LON": -74.900000, "TIME": "09\/25\/03Z", "WIND": 85, "PR": 964, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -74.900000, 26.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46A", "LAT": 26.500000, "LON": -75.600000, "TIME": "09\/25\/06Z", "WIND": 90, "PR": 962, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -75.600000, 26.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47", "LAT": 26.500000, "LON": -76.200000, "TIME": "09\/25\/09Z", "WIND": 90, "PR": 958, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -76.200000, 26.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47A", "LAT": 26.500000, "LON": -77.000000, "TIME": "09\/25\/12Z", "WIND": 90, "PR": 957, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.000000, 26.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48", "LAT": 26.600000, "LON": -77.600000, "TIME": "09\/25\/15Z", "WIND": 100, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.600000, 26.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48A", "LAT": 26.800000, "LON": -77.900000, "TIME": "09\/25\/17Z", "WIND": 110, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -77.900000, 26.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48B", "LAT": 27.000000, "LON": -78.400000, "TIME": "09\/25\/19Z", "WIND": 110, "PR": 953, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.400000, 27.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49", "LAT": 27.100000, "LON": -78.800000, "TIME": "09\/25\/21Z", "WIND": 100, "PR": 950, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -78.800000, 27.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49A", "LAT": 27.100000, "LON": -79.100000, "TIME": "09\/25\/23Z", "WIND": 100, "PR": 951, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.100000, 27.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49B", "LAT": 27.200000, "LON": -79.500000, "TIME": "09\/26\/01Z", "WIND": 100, "PR": 951, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -79.500000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50", "LAT": 27.200000, "LON": -80.000000, "TIME": "09\/26\/03Z", "WIND": 100, "PR": 953, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.000000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50A", "LAT": 27.200000, "LON": -80.400000, "TIME": "09\/26\/05Z", "WIND": 105, "PR": 953, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.400000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50B", "LAT": 27.400000, "LON": -80.700000, "TIME": "09\/26\/07Z", "WIND": 100, "PR": 954, "STAT": "HURRICANE-3", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -80.700000, 27.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51", "LAT": 27.400000, "LON": -81.100000, "TIME": "09\/26\/09Z", "WIND": 95, "PR": 955, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.100000, 27.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51A", "LAT": 27.700000, "LON": -81.400000, "TIME": "09\/26\/11Z", "WIND": 85, "PR": 960, "STAT": "HURRICANE-2", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.400000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51B", "LAT": 27.700000, "LON": -81.800000, "TIME": "09\/26\/13Z", "WIND": 75, "PR": 970, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.800000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52", "LAT": 27.900000, "LON": -82.000000, "TIME": "09\/26\/15Z", "WIND": 65, "PR": 970, "STAT": "HURRICANE-1", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.000000, 27.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52A", "LAT": 28.300000, "LON": -82.200000, "TIME": "09\/26\/18Z", "WIND": 60, "PR": 972, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.200000, 28.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "53", "LAT": 28.800000, "LON": -82.600000, "TIME": "09\/26\/21Z", "WIND": 55, "PR": 973, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.600000, 28.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "53A", "LAT": 29.400000, "LON": -82.700000, "TIME": "09\/27\/00Z", "WIND": 45, "PR": 978, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.700000, 29.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54", "LAT": 29.900000, "LON": -82.800000, "TIME": "09\/27\/03Z", "WIND": 45, "PR": 978, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.800000, 29.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54A", "LAT": 30.100000, "LON": -83.300000, "TIME": "09\/27\/06Z", "WIND": 45, "PR": 981, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.300000, 30.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55", "LAT": 30.500000, "LON": -83.600000, "TIME": "09\/27\/09Z", "WIND": 45, "PR": 982, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.600000, 30.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55A", "LAT": 31.000000, "LON": -83.800000, "TIME": "09\/27\/12Z", "WIND": 40, "PR": 985, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.800000, 31.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "56", "LAT": 31.600000, "LON": -83.900000, "TIME": "09\/27\/15Z", "WIND": 35, "PR": 988, "STAT": "TROPICAL STORM", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.900000, 31.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "56A", "LAT": 32.200000, "LON": -83.700000, "TIME": "09\/27\/18Z", "WIND": 30, "PR": 990, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.700000, 32.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "57", "LAT": 32.800000, "LON": -83.400000, "TIME": "09\/27\/21Z", "WIND": 30, "PR": 992, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -83.400000, 32.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "58", "LAT": 33.400000, "LON": -82.900000, "TIME": "09\/28\/03Z", "WIND": 15, "PR": 999, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -82.900000, 33.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "59", "LAT": 34.700000, "LON": -81.800000, "TIME": "09\/28\/09Z", "WIND": 15, "PR": 999, "STAT": "TROPICAL DEPRESSION", "NAME": "Jeanne", "DATES": "13-28 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -81.800000, 34.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 11.400000, "LON": -32.800000, "TIME": "09\/16\/21Z", "WIND": 30, "PR": 7, "STAT": "TROPICAL DEPRESSION", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -32.800000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 11.400000, "LON": -33.900000, "TIME": "09\/17\/03Z", "WIND": 35, "PR": 5, "STAT": "TROPICAL STORM", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.900000, 11.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 11.500000, "LON": -35.300000, "TIME": "09\/17\/09Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.300000, 11.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 12.300000, "LON": -35.500000, "TIME": "09\/17\/15Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.500000, 12.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 13.400000, "LON": -36.400000, "TIME": "09\/17\/21Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -36.400000, 13.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 14.200000, "LON": -37.400000, "TIME": "09\/18\/03Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.400000, 14.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 14.900000, "LON": -38.600000, "TIME": "09\/18\/09Z", "WIND": 75, "PR": 981, "STAT": "HURRICANE-1", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.600000, 14.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 15.200000, "LON": -39.300000, "TIME": "09\/18\/15Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.300000, 15.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 15.900000, "LON": -40.200000, "TIME": "09\/18\/21Z", "WIND": 95, "PR": 965, "STAT": "HURRICANE-2", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.200000, 15.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 16.200000, "LON": -41.300000, "TIME": "09\/19\/03Z", "WIND": 100, "PR": 960, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.300000, 16.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 16.300000, "LON": -42.200000, "TIME": "09\/19\/09Z", "WIND": 100, "PR": 960, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -42.200000, 16.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 16.400000, "LON": -42.900000, "TIME": "09\/19\/15Z", "WIND": 110, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -42.900000, 16.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 17.000000, "LON": -44.000000, "TIME": "09\/19\/21Z", "WIND": 115, "PR": 944, "STAT": "HURRICANE-4", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -44.000000, 17.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 17.200000, "LON": -45.100000, "TIME": "09\/20\/03Z", "WIND": 115, "PR": 944, "STAT": "HURRICANE-4", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.100000, 17.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 17.300000, "LON": -45.500000, "TIME": "09\/20\/09Z", "WIND": 110, "PR": 950, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.500000, 17.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 17.900000, "LON": -46.300000, "TIME": "09\/20\/15Z", "WIND": 105, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.300000, 17.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 18.600000, "LON": -47.100000, "TIME": "09\/20\/21Z", "WIND": 105, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.100000, 18.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 19.100000, "LON": -47.400000, "TIME": "09\/21\/03Z", "WIND": 120, "PR": 938, "STAT": "HURRICANE-4", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.400000, 19.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 20.100000, "LON": -47.500000, "TIME": "09\/21\/09Z", "WIND": 120, "PR": 940, "STAT": "HURRICANE-4", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.500000, 20.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 21.400000, "LON": -48.000000, "TIME": "09\/21\/15Z", "WIND": 110, "PR": 944, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.000000, 21.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 22.900000, "LON": -48.600000, "TIME": "09\/21\/21Z", "WIND": 105, "PR": 948, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.600000, 22.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 24.500000, "LON": -48.900000, "TIME": "09\/22\/03Z", "WIND": 105, "PR": 948, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.900000, 24.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 25.700000, "LON": -49.500000, "TIME": "09\/22\/09Z", "WIND": 100, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.500000, 25.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 26.900000, "LON": -49.000000, "TIME": "09\/22\/15Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.000000, 26.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 28.200000, "LON": -48.300000, "TIME": "09\/22\/21Z", "WIND": 90, "PR": 970, "STAT": "HURRICANE-2", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -48.300000, 28.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 30.000000, "LON": -47.300000, "TIME": "09\/23\/03Z", "WIND": 95, "PR": 965, "STAT": "HURRICANE-2", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.300000, 30.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27", "LAT": 31.700000, "LON": -45.800000, "TIME": "09\/23\/09Z", "WIND": 110, "PR": 948, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.800000, 31.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28", "LAT": 33.800000, "LON": -43.800000, "TIME": "09\/23\/15Z", "WIND": 105, "PR": 955, "STAT": "HURRICANE-3", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -43.800000, 33.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29", "LAT": 35.700000, "LON": -43.300000, "TIME": "09\/23\/21Z", "WIND": 90, "PR": 965, "STAT": "HURRICANE-2", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -43.300000, 35.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30", "LAT": 38.700000, "LON": -41.500000, "TIME": "09\/24\/03Z", "WIND": 80, "PR": 963, "STAT": "HURRICANE-1", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.500000, 38.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31", "LAT": 40.800000, "LON": -41.000000, "TIME": "09\/24\/09Z", "WIND": 75, "PR": 965, "STAT": "HURRICANE-1", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.000000, 40.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32", "LAT": 44.400000, "LON": -40.200000, "TIME": "09\/24\/15Z", "WIND": 70, "PR": 970, "STAT": "HURRICANE-1", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.200000, 44.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33", "LAT": 47.300000, "LON": -40.400000, "TIME": "09\/24\/21Z", "WIND": 65, "PR": 973, "STAT": "HURRICANE-1", "NAME": "Karl", "DATES": "16-24 SEP 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.400000, 47.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 13.300000, "LON": -33.200000, "TIME": "09\/19\/21Z", "WIND": 30, "PR": 1004, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.200000, 13.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 13.200000, "LON": -34.100000, "TIME": "09\/20\/03Z", "WIND": 30, "PR": 1004, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.100000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 13.500000, "LON": -34.900000, "TIME": "09\/20\/09Z", "WIND": 30, "PR": 1005, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.900000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 13.500000, "LON": -35.400000, "TIME": "09\/20\/12Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.400000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 13.600000, "LON": -35.900000, "TIME": "09\/20\/15Z", "WIND": 50, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.900000, 13.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 13.300000, "LON": -33.200000, "TIME": "09\/19\/21Z", "WIND": 30, "PR": 1004, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.200000, 13.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 13.200000, "LON": -34.100000, "TIME": "09\/20\/03Z", "WIND": 30, "PR": 1004, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.100000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 13.500000, "LON": -34.900000, "TIME": "09\/20\/09Z", "WIND": 30, "PR": 1005, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.900000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 13.300000, "LON": -33.200000, "TIME": "09\/19\/21Z", "WIND": 30, "PR": 1004, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -33.200000, 13.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 13.200000, "LON": -34.100000, "TIME": "09\/20\/03Z", "WIND": 30, "PR": 1004, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.100000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 13.500000, "LON": -34.900000, "TIME": "09\/20\/09Z", "WIND": 30, "PR": 1005, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.900000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 13.500000, "LON": -35.400000, "TIME": "09\/20\/12Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.400000, 13.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 13.600000, "LON": -35.900000, "TIME": "09\/20\/15Z", "WIND": 50, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -35.900000, 13.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 13.800000, "LON": -36.800000, "TIME": "09\/20\/21Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -36.800000, 13.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 13.800000, "LON": -37.900000, "TIME": "09\/21\/03Z", "WIND": 50, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -37.900000, 13.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 14.000000, "LON": -38.900000, "TIME": "09\/21\/09Z", "WIND": 50, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -38.900000, 14.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "9", "LAT": 14.200000, "LON": -39.700000, "TIME": "09\/21\/15Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -39.700000, 14.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "10", "LAT": 14.400000, "LON": -40.300000, "TIME": "09\/21\/21Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.300000, 14.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "11", "LAT": 14.400000, "LON": -40.500000, "TIME": "09\/22\/03Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.500000, 14.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "12", "LAT": 14.500000, "LON": -41.200000, "TIME": "09\/22\/09Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.200000, 14.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "13", "LAT": 13.900000, "LON": -41.300000, "TIME": "09\/22\/15Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.300000, 13.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "14", "LAT": 13.700000, "LON": -41.900000, "TIME": "09\/22\/21Z", "WIND": 45, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.900000, 13.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "15", "LAT": 13.200000, "LON": -41.200000, "TIME": "09\/23\/03Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.200000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "16", "LAT": 13.200000, "LON": -41.400000, "TIME": "09\/23\/09Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.400000, 13.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "17", "LAT": 12.100000, "LON": -41.700000, "TIME": "09\/23\/15Z", "WIND": 40, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -41.700000, 12.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "18", "LAT": 14.300000, "LON": -40.700000, "TIME": "09\/23\/21Z", "WIND": 30, "PR": 1003, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.700000, 14.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "19", "LAT": 14.700000, "LON": -42.000000, "TIME": "09\/24\/03Z", "WIND": 30, "PR": 1003, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -42.000000, 14.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "20", "LAT": 14.600000, "LON": -43.500000, "TIME": "09\/24\/09Z", "WIND": 30, "PR": 1003, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -43.500000, 14.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "21", "LAT": 14.100000, "LON": -43.300000, "TIME": "09\/24\/15Z", "WIND": 30, "PR": 1002, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -43.300000, 14.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "22", "LAT": 14.400000, "LON": -44.400000, "TIME": "09\/24\/21Z", "WIND": 30, "PR": 1002, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -44.400000, 14.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "23", "LAT": 14.300000, "LON": -44.700000, "TIME": "09\/25\/03Z", "WIND": 30, "PR": 1002, "STAT": "TROPICAL DEPRESSION", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -44.700000, 14.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "24", "LAT": 15.200000, "LON": -45.200000, "TIME": "09\/25\/09Z", "WIND": 35, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.200000, 15.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "25", "LAT": 15.900000, "LON": -45.600000, "TIME": "09\/25\/15Z", "WIND": 35, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.600000, 15.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "26", "LAT": 17.200000, "LON": -45.800000, "TIME": "09\/25\/21Z", "WIND": 35, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.800000, 17.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "27", "LAT": 18.000000, "LON": -46.200000, "TIME": "09\/26\/03Z", "WIND": 45, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.200000, 18.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "28", "LAT": 18.400000, "LON": -46.000000, "TIME": "09\/26\/09Z", "WIND": 45, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.000000, 18.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "29", "LAT": 19.000000, "LON": -46.100000, "TIME": "09\/26\/15Z", "WIND": 50, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.100000, 19.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "30", "LAT": 19.700000, "LON": -46.100000, "TIME": "09\/26\/21Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.100000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "31", "LAT": 19.700000, "LON": -46.100000, "TIME": "09\/27\/03Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.100000, 19.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "32", "LAT": 20.200000, "LON": -46.200000, "TIME": "09\/27\/09Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.200000, 20.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "33", "LAT": 20.800000, "LON": -46.500000, "TIME": "09\/27\/15Z", "WIND": 40, "PR": 1003, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.500000, 20.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "34", "LAT": 21.500000, "LON": -46.500000, "TIME": "09\/27\/21Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.500000, 21.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "35", "LAT": 22.300000, "LON": -46.400000, "TIME": "09\/28\/03Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.400000, 22.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "36", "LAT": 23.100000, "LON": -46.500000, "TIME": "09\/28\/09Z", "WIND": 35, "PR": 1005, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.500000, 23.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "37", "LAT": 25.000000, "LON": -47.100000, "TIME": "09\/28\/15Z", "WIND": 45, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.100000, 25.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "38", "LAT": 26.400000, "LON": -46.500000, "TIME": "09\/28\/21Z", "WIND": 45, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.500000, 26.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "39", "LAT": 27.000000, "LON": -46.500000, "TIME": "09\/29\/03Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.500000, 27.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "40", "LAT": 28.000000, "LON": -46.100000, "TIME": "09\/29\/09Z", "WIND": 60, "PR": 991, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.100000, 28.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "41", "LAT": 29.700000, "LON": -45.800000, "TIME": "09\/29\/15Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.800000, 29.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "42", "LAT": 30.900000, "LON": -45.900000, "TIME": "09\/29\/21Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.900000, 30.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "43", "LAT": 31.500000, "LON": -46.200000, "TIME": "09\/30\/03Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.200000, 31.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "44", "LAT": 32.500000, "LON": -47.000000, "TIME": "09\/30\/09Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.000000, 32.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "45", "LAT": 32.800000, "LON": -47.700000, "TIME": "09\/30\/15Z", "WIND": 55, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.700000, 32.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "46", "LAT": 33.600000, "LON": -47.900000, "TIME": "09\/30\/21Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.900000, 33.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "47", "LAT": 34.600000, "LON": -47.700000, "TIME": "10\/01\/03Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.700000, 34.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "48", "LAT": 35.600000, "LON": -47.400000, "TIME": "10\/01\/09Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -47.400000, 35.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "49", "LAT": 36.900000, "LON": -46.500000, "TIME": "10\/01\/15Z", "WIND": 60, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -46.500000, 36.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "50", "LAT": 38.400000, "LON": -45.100000, "TIME": "10\/01\/21Z", "WIND": 65, "PR": 987, "STAT": "HURRICANE-1", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -45.100000, 38.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "51", "LAT": 39.600000, "LON": -42.800000, "TIME": "10\/02\/03Z", "WIND": 60, "PR": 988, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -42.800000, 39.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "52", "LAT": 40.800000, "LON": -40.500000, "TIME": "10\/02\/09Z", "WIND": 65, "PR": 987, "STAT": "HURRICANE-1", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -40.500000, 40.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "53", "LAT": 42.000000, "LON": -36.800000, "TIME": "10\/02\/15Z", "WIND": 65, "PR": 987, "STAT": "HURRICANE-1", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -36.800000, 42.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "54", "LAT": 43.100000, "LON": -34.700000, "TIME": "10\/02\/21Z", "WIND": 55, "PR": 990, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -34.700000, 43.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "55", "LAT": 43.900000, "LON": -31.600000, "TIME": "10\/03\/03Z", "WIND": 50, "PR": 992, "STAT": "TROPICAL STORM", "NAME": "Lisa", "DATES": "19 SEP-03 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -31.600000, 43.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 24.200000, "LON": -93.800000, "TIME": "10\/08\/21Z", "WIND": 35, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -93.800000, 24.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 24.700000, "LON": -93.400000, "TIME": "10\/09\/03Z", "WIND": 40, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -93.400000, 24.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 25.600000, "LON": -92.900000, "TIME": "10\/09\/09Z", "WIND": 35, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -92.900000, 25.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 26.700000, "LON": -92.600000, "TIME": "10\/09\/15Z", "WIND": 30, "PR": 1003, "STAT": "TROPICAL DEPRESSION", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -92.600000, 26.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 27.300000, "LON": -91.900000, "TIME": "10\/09\/21Z", "WIND": 35, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -91.900000, 27.300000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5A", "LAT": 27.200000, "LON": -91.300000, "TIME": "10\/10\/00Z", "WIND": 35, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -91.300000, 27.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 27.700000, "LON": -91.300000, "TIME": "10\/10\/03Z", "WIND": 35, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -91.300000, 27.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6A", "LAT": 28.100000, "LON": -91.200000, "TIME": "10\/10\/06Z", "WIND": 35, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -91.200000, 28.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 28.500000, "LON": -91.100000, "TIME": "10\/10\/09Z", "WIND": 35, "PR": 1001, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -91.100000, 28.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7A", "LAT": 29.500000, "LON": -90.800000, "TIME": "10\/10\/12Z", "WIND": 35, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.800000, 29.500000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 29.900000, "LON": -90.800000, "TIME": "10\/10\/15Z", "WIND": 30, "PR": 1001, "STAT": "TROPICAL DEPRESSION", "NAME": "Matthew", "DATES": "08-10 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -90.800000, 29.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 31.800000, "LON": -66.000000, "TIME": "10\/10\/09Z", "WIND": 40, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.000000, 31.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 32.200000, "LON": -66.800000, "TIME": "10\/10\/15Z", "WIND": 40, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.800000, 32.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2A", "LAT": 32.100000, "LON": -67.000000, "TIME": "10\/10\/18Z", "WIND": 40, "PR": 1002, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -67.000000, 32.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 32.000000, "LON": -66.500000, "TIME": "10\/10\/21Z", "WIND": 40, "PR": 1000, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -66.500000, 32.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3A", "LAT": 32.800000, "LON": -65.600000, "TIME": "10\/11\/00Z", "WIND": 40, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.600000, 32.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 33.100000, "LON": -65.000000, "TIME": "10\/11\/03Z", "WIND": 40, "PR": 995, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -65.000000, 33.100000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4A", "LAT": 33.800000, "LON": -64.400000, "TIME": "10\/11\/06Z", "WIND": 40, "PR": 995, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -64.400000, 33.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 34.900000, "LON": -63.600000, "TIME": "10\/11\/09Z", "WIND": 40, "PR": 994, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -63.600000, 34.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 36.000000, "LON": -61.300000, "TIME": "10\/11\/15Z", "WIND": 40, "PR": 988, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.300000, 36.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 40.000000, "LON": -61.000000, "TIME": "10\/11\/21Z", "WIND": 45, "PR": 988, "STAT": "TROPICAL STORM", "NAME": "Nicole", "DATES": "10-11 OCT 2004" }, "geometry": { "type": "Point", "coordinates": [ -61.000000, 40.000000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "1", "LAT": 31.800000, "LON": -51.000000, "TIME": "11\/30\/21Z", "WIND": 40, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -51.000000, 31.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "2", "LAT": 31.600000, "LON": -50.800000, "TIME": "12\/01\/03Z", "WIND": 40, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -50.800000, 31.600000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "3", "LAT": 31.900000, "LON": -50.700000, "TIME": "12\/01\/09Z", "WIND": 45, "PR": 993, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -50.700000, 31.900000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "4", "LAT": 31.400000, "LON": -50.200000, "TIME": "12\/01\/15Z", "WIND": 40, "PR": 998, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -50.200000, 31.400000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "5", "LAT": 30.700000, "LON": -49.900000, "TIME": "12\/01\/21Z", "WIND": 35, "PR": 999, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.900000, 30.700000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "6", "LAT": 30.200000, "LON": -49.700000, "TIME": "12\/02\/03Z", "WIND": 35, "PR": 997, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.700000, 30.200000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "7", "LAT": 29.800000, "LON": -49.900000, "TIME": "12\/02\/09Z", "WIND": 35, "PR": 996, "STAT": "TROPICAL STORM", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -49.900000, 29.800000 ] } }
+,
+{ "type": "Feature", "properties": { "ADV": "8", "LAT": 28.800000, "LON": -50.600000, "TIME": "12\/02\/15Z", "WIND": 30, "PR": 995, "STAT": "TROPICAL DEPRESSION", "NAME": "Otto", "DATES": "30 NOV-02 DEC 2004" }, "geometry": { "type": "Point", "coordinates": [ -50.600000, 28.800000 ] } }
+
+]
+}

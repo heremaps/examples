@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="createMarkerBars,barChart" />
+    <title>HERE Maps API Example: Adding a Bar Chart to the Map</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
+    	data-callback="afterHereMapLoad"
+    	data-libs="sidebar-control"
+    	data-parent="demos/sidebar-component/"  >
+    </script>
+    <script type="text/javascript" src="data/population-data-for-german-cities.js" /></script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+     <style type="text/css">
+
+    	#sidebar {float:left;
+    		color: rgb(102, 102, 102);
+    		height:300px;
+    		margin: 0em;
+    	}
+
+		#sidebar .nm_sidebar{
+
+			list-style: none;
+			width:250px;
+			height:270px;
+    		overflow:auto;
+		}
+	</style>
+</head>
+<body>
+	<h1>Adding a Bar Chart to the Map</h1>
+	<p>The example shows a series of bars showing the relative population of one hundred
+	cities in Germany.</p>
+    <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
+    <div id="sidebar"></div>
+    <div id="src" style="clear:both;width:100%"/><div>
+<script id="example-code" data-categories="marker" type="text/javascript">
+//<![CDATA[
+function afterHereMapLoad(map){
+	infoBubbles = new nokia.maps.map.component.InfoBubbles();
+	map.set( "zoomLevel", 6 );
+	map.set( "center" ,[52.500556, 13.398889]);
+	map.components.add(infoBubbles);
+	container =  new Sidebar(document.getElementById("sidebar"),
+		{title : "title"});
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+ 	container.addListener(CLICK ,  function(evt) {
+		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
+			}, false);
+	createMarkerBars(container, popData)
+
+	map.objects.add(container);
+}
+
+
+
+function barChart(stops, tick) {
+	this.stops = stops;
+	this.tick = tick;
+	this.barSVG = '<svg width="16" height="__VALUE__" xmlns="http://www.w3.org/2000/svg">' +
+	'<rect stroke="#FFF" fill="__MAINCOLOR__" width="16" height="__VALUE__"  />' +
+	'</svg>'
+
+	this.svgParser = new nokia.maps.gfx.SvgParser(),
+	// Helper function that allows us to easily set the text and color of our SVG marker.
+	this.createBar = function (data) {
+		var color;
+		for (var i in this.stops) {
+			if (data.value > i){
+				color = this.stops[i];
+			}
+		}
+
+		var height = Math.round(data.value/tick);
+		var svg = this.barSVG
+			.replace(/__VALUE__/g, height)
+			.replace(/__MAINCOLOR__/g, color);
+
+		return  new nokia.maps.map.Marker( [data.latitude,data.longitude], {
+		icon:  new nokia.maps.gfx.GraphicsImage(this.svgParser.parseSvg(svg)),
+		anchor: new nokia.maps.util.Point (8, height)});
+	};
+};
+
+
+
+function createMarkerBars(container, popData){
+
+
+
+	var  i = popData.length;
+	var tick = 12000; // 12 thousand inhabitants = 1 pixel height
+	var stops = {
+		"0": "#8A8A8A",       //Grey for 0-120,000 inhabitants.
+		"120000": "#CACA00",  //Yellow for 120,001 - 150,000 inhabitants.
+		"150000": "#00CC00",	//Green for 150,001 - 200,000 inhabitants.
+		"200000": "#0000CC",  //Blue for 200,001 - 300,000 inhabitants.
+		"300000": "#CC00CC",	//Purple for 300,001 - 600,000 inhabitants.
+		"600000": "#FF0000"	  //Red for over 600,000 inhabitants.
+	};
+
+	barChart = new barChart(stops, tick);
+
+	while(i--) {
+		var marker = barChart.createBar(popData[i]);
+		marker.html = "<strong>" + popData[i].name + "</strong><br/>Pop: " +  popData[i].value;
+		marker.title = popData[i].name;
+		container.objects.add(marker);
+	}
+
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="asyncLoadMapsLibrary,hereMapLoaderCallback,authenticate,createMap,afterHereMapLoad" />
+
+ <title>Combining HERE Maps API for JavaScript and the RESTful Map API</title>
+ <!-- No additional support required here. -->
+<!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+	<link rel="icon" href="http://here.com/favicon.ico">
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Asynchronous Loading</h1>
+	<p>A static map is loaded in an <code>&lt;img&gt;</code> element on page load.
+		The HERE Maps API for JavaScript is asychronously loaded by jQuery when the map is clicked.
+		Assuming the HERE Maps API has been loaded successfully, a draggable, zoomable map with a
+		marker on it is displayed and the node holding the static map is removed thereafter.
+	</p>
+  <div id="mapContainer" style="width:540px; height:334px;">
+    <img id='HereStaticMap' src="http://m.nok.it/?c=50.5,15.5&amp;h=334&amp;w=540&amp;z=4&amp;nord&amp;nodot&amp;sb=k"
+    	 onclick="asyncLoadMapsLibrary();" alt="Map of Europe" />
+  </div>
+<script id="example-code" data-categories="map" type="text/javascript">
+//<![CDATA[
+
+
+ jQl.loadjQ(HereMapsConstants.JSLibs.jQueryUrl);
+
+ function afterHereMapLoad(map){
+ 	// This matches the static map:
+ 	// http://m.nok.it/?c=50.5,15.5&h=334&w=540&z=4"
+ 	map.set("center", new nokia.maps.geo.Coordinate(50.5,15.5));
+ 	map.setZoomLevel(4);
+ 	var marker = new nokia.maps.map.StandardMarker([50.5,15.5]);
+	map.objects.add(marker);
+
+	$('#HereStaticMap').remove();
+ }
+
+// This method is a convenience function that intialises a map for the
+// Given DOM element and at the specified location.
+
+function createMap (location, domElement) {
+	var map =  new nokia.maps.map.Display(domElement, {
+		center: [location.longitude, location.latitude],
+		zoomLevel: location.zoomLevel, // Bigger numbers are closer in
+		components: [  // We use these components to make the map interactive
+			new nokia.maps.map.component.ZoomBar(),
+			new nokia.maps.map.component.Behavior()
+		]
+	});
+
+	return map;
+};
+
+// This method is a convenience function that intialises the Settings
+// to authenticate the app with the HERE Maps JS library.
+function authenticate (settings){
+		// Add your own appId and token here
+		// sign in and register on http://developer.here.com
+		// and obtain your own developer's API key
+		nokia.Settings.set("app_id", settings.appId);
+		nokia.Settings.set("app_code", settings.appCode);
+
+		// Use staging environment (remove the line for production environment)
+		nokia.Settings.set("serviceMode", "cit");
+		// The language of the map can be changed here.
+		nokia.Settings.set("defaultLanguage", settings.language);
+};
+
+// This method is called once the base JS library has loaded, it
+// initialises the requested features, authenticates the app to
+// the library, and sets up an appropriately located  map in
+// the specified DOM element.
+function hereMapLoaderCallback() {
+	var fmatrix = nokia.Features.getFeaturesFromMatrix(["maps"]);
+
+	// This callback is run if the feature load was successful.
+ 	var onApiFeaturesLoaded = function(error) {
+    	authenticate(HereMapsConstants.AppIdAndToken);
+		var map = createMap(HereMapsConstants.InitialLocation,
+			document.getElementById('mapContainer'));
+		map.addListener("displayready", function () {
+			afterHereMapLoad(map);
+		}, false);
+	};
+	// This callback is run if an error occurs during the feature loading
+	var onApiFeaturesError = function(error) {
+    	alert("Whoops! " + error);
+	};
+    nokia.Features.load(
+        fmatrix,
+        onApiFeaturesLoaded,   // an callback when everything was successfully loaded
+        onApiFeaturesError,     // an error callback
+        null,        // Indicates that the current document applies
+        false    //Indicates that loading should be asynchronous
+    );
+}
+
+function asyncLoadMapsLibrary(){
+	$.getScript(HereMapsConstants.JSLibs.HereMapsUrl , hereMapLoaderCallback);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

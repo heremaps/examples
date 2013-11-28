@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+	<meta name="keywords" content="changeTileProvider,getTileUrl,getHereCopyrights" />
+	<title>HERE Maps API Example: Aerial Map Tile Styles and Modes</title>
+	</style>
+		<!-- Set up constants such as APP ID and token -->
+	<script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+	<!-- Bootstrap jQuery Library -->
+	<script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+	<!-- Asynchronously the HERE Maps API for  JavaScript -->
+	<script type="text/javascript" src="../libs/hereAsyncLoader.js"
+		id="HereMapsLoaderScript" 
+		data-params="maps" 
+		data-map-container="mapContainer"
+		data-callback="afterHereMapLoad"  >
+	</script>
+	<link rel="icon" href="http://here.com/favicon.ico"/>
+	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Aerial Map Tile Styles and Modes</h1>
+	<p>
+		This example shows the map styles & modes available to the <code>aerial</code>
+		Tile server.
+	</p>
+	<div style="margin:5px">
+		<label for="schema">schemes:</label><select id="schema"></select><br/>
+		<label for="tiletype">tiletypes:</label><select id="tiletype"></select><br/>
+		<label for="language">languages:</label><select id="language"></select><br/>
+		<label for="format">formats:</label><select id="format"></select><br/>
+	</div>
+	
+	<p>
+		The URL for each aerial map tile starts with:
+		<ul>
+		<li><code>http://[1-4].aerial.maps.cit.api.here.com/maptile/</code> on the CIT server</li>
+		<li><code>http://[1-4].aerial.maps.api.here.com/maptile/</code> on the LIVE server</li>
+		</ul>
+	</p>
+	
+	<div id="mapContainer" style="width:540px; height:334px;"></div>
+	
+<script>
+//<![CDATA[
+
+if (typeof String.prototype.startsWith != 'function') {
+  // see below for better implementation!
+  String.prototype.startsWith = function (str){
+	return this.indexOf(str) == 0;
+  };
+}
+
+
+function afterHereMapLoad(map) {
+	this.map = map;
+	map.set("zoomLevel", 5);	
+	var url = "http://1.aerial.maps.cit.api.here.com/maptile/2.1/info?output=json&app_code=" + nokia.Settings.app_code + "&app_id=" + nokia.Settings.app_id ;
+	
+	
+	$('#language').change(changeTileProvider);
+	$('#schema').change(changeTileProvider);
+	$('#tiletype').change(changeTileProvider);
+	$('#format').change(changeTileProvider);
+	
+		
+	$.get(url, function(data){
+		$(data.response.languages.language).each(function(index, value) {
+			var option = $("<option/>");
+			option.val(value.id);
+			option.text(value.id);
+			$('#language').append(option)
+		});
+		$(data.response.schemes.scheme).each(function(index, value) {
+			if(isAerialSchema(value.id)){
+				var option = $("<option/>");
+				option.val(value.id);
+				option.text(value.id);
+				$('#schema').append(option)
+			}
+		});
+		$(data.response.tiletypes.tiletype).each(function(index, value) {
+			var option = $("<option/>");
+			option.val(value.id);
+			option.text(value.id);
+			$('#tiletype').append(option)
+		});
+		$(data.response.formats.format).each(function(index, value) {
+			var option = $("<option/>");
+			option.val(value.id);
+			option.text(value.id);
+			$('#format').append(option)
+		});
+		
+		zoomLevels =  $(data.response.zoomLevels)[0];
+		
+		// Now set up the map based on values returned
+		changeTileProvider();
+		
+		
+	}, "json");
+}
+
+function isAerialSchema(schema){
+	return (schema.startsWith("terrain") || schema.startsWith("satellite") || schema.startsWith("hybrid")); 
+}
+
+function changeTileProvider() {
+	var baseMapProvider = new nokia.maps.map.provider.ImgTileProvider({
+			label: $('#schema').val() ,
+			descr: "Map tile provider",
+			width: 256,
+			height: 256,
+			min: parseInt(zoomLevels.min),
+			max: parseInt(zoomLevels.max),
+			getUrl: getTileUrl,
+			getCopyrights: getHereCopyrights
+		});
+
+	 map.set("baseMapType", baseMapProvider);
+}
+
+function getTileUrl(level, row, col){
+	// This uses the CIT server. Replace with LIVE when ready.
+	return ["http://1.aerial.maps.cit.api.here.com/maptile/", "2.1",
+		"/", $('#tiletype').val(), "/", "newest", "/",
+		$('#schema').val(), "/", level, "/", col, "/", row, "/", "256",
+		"/", $('#format').val(), "?lg=", $('#language').val(),
+		"&app_code=", nokia.Settings.app_code, "&app_id=",
+		nokia.Settings.app_id ].join("");
+}
+
+ function getHereCopyrights(area, zoomLevel){
+ 	var schema = $('#schema').val();
+ 	// When using aerial tiles returned from this server,
+	// ensure the correct HERE Copyright is displayed.
+	if (schema.startsWith("terrain")){
+		return nokia.maps.map.Display.TERRAIN.getCopyrights(area, zoomLevel);
+	} else if(schema.startsWith("satellite")){
+		return nokia.maps.map.Display.SATELLITE_PLAIN.getCopyrights(area, zoomLevel);
+	} else if(schema.startsWith("hybrid")){
+		return nokia.maps.map.Display.SATELLITE.getCopyrights(area, zoomLevel);
+	}
+	// For unknown types, use the standard map.
+	return nokia.maps.map.Display.NORMAL.getCopyrights(area, zoomLevel);
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

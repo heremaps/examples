@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="addClickListener" .>
+    <title>HERE Maps API Example: Pixel to Geocoordinate</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
+    	data-callback="addClickListener"  >
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Obtaining the Geocoordinate from a Pixel on the map </h1>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="events" type="text/javascript" >
+//<![CDATA[
+function addClickListener(map){
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.addListener(CLICK, function (evt){
+		alert("in EventListener");
+		coordinate = map.pixelToGeo(evt.displayX, evt.displayY);
+		alert("Adding a Marker at: "+ coordinate.toString());
+		map.objects.add(new nokia.maps.map.Marker(coordinate));
+	});
+ }
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

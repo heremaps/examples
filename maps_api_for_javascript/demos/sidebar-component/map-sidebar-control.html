@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="addSidebarControl" />
+    <title>HERE Maps API Example: Sidebar control</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript" 
+    	data-params="maps,datarendering" 
+    	data-map-container="mapContainer"
+    	data-callback="afterHereMapLoad"
+    	data-libs="sidebar-control"
+    	data-parent="demos/sidebar-component/">
+    </script>
+
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+
+    <style type="text/css">
+
+		#sidebar .nm_sidebar{
+			list-style: circle
+		}
+		#sidebar .nm_sidebar .highlight{
+
+			font-weight: lighter;
+			color:black;
+			background:yellow;
+			border: 1px solid black;
+		}
+    </style>
+
+</head>
+<body>
+	<h1>Sidebar control</h1>
+
+
+	<div style="width:500px;margin:1em" >
+		<p>This example demonstrates a side bar control. The sample data shows the
+		location of football grounds in the English Premier League</p>
+		<p>Clicking an entry in the side bar is equivalent to clicking a marker.</p>
+		<p>Default styling just makes an entry bold, additional CSS can be used to
+		make the highlighting more obvious.</p>
+
+			<div id="mapContainer" style="width:540px; height:334px;float:left"></div>
+	</div>
+
+
+    <div id="sidebar" style="float:left; color: rgb(102, 102, 102);"></div>
+
+<div id="src" style="clear:both;width:100%">
+    	<br/>
+		<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+		<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/sidebar-control.js">libs/sidebar-control.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+	</div>
+
+<script id="example-code" data-categories="library" type="text/javascript" >
+//<![CDATA[
+function afterHereMapLoad(map){
+	this.map = map;
+	map.set('zoomLevel', 5);
+    map.set('center', [53.4,-2]);
+	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
+ 	map.components.add(infoBubbles);
+
+
+ 	addSidebarControl (map);
+
+
+}
+
+ function addSidebarControl (map){
+
+	container =  new Sidebar(document.getElementById("sidebar"),
+		{title : "title"});// This indicates that the summary is held in a property called "title"
+	 markerArray = createMarkerArray(); // This is the data to display.
+	container.objects.addAll(markerArray);
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	container.addListener(CLICK ,  function(evt) {
+		infoBubbles.openBubble(evt.target.html, evt.target.coordinate);
+		}, false);
+	map.objects.add(container);
+
+}
+
+
+
+function createMarkerArray(){
+
+var red = "#FF0000";
+var blue= "#0000FF";
+var white = "#FFFFFF";
+var yellow ="#FFFF00";
+var anchorPoint = new nokia.maps.util.Point(16, 32);
+
+var markers = [
+ new nokia.maps.map.Marker([52.5091,-1.8848],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/3/35/Whav.png",
+		anchor: anchorPoint,
+		title: "Aston Villa",
+		html:  "<div ><a href='http://www.avfc.premiumtv.co.uk' >Aston Villa</a></div><div >Villa Park<br>Capacity: 42,573</div>"
+	}),
+ new nokia.maps.map.Marker([51.5319,0.039396],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/3/35/Whav.png",
+		anchor: anchorPoint,
+		title: "West Ham United",
+		html:  "<div ><a href='http://www.whufc.com' >West Ham United</a></div><div >Upton Park<br>Capacity: 35,647</div>"
+	}),
+ new nokia.maps.map.Marker( [54.9755,-1.6216],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/8/8e/Nufc.png",
+		anchor: anchorPoint,
+		title: "Newcastle United",
+		html:  "<div><a href='http://www.nufc.com/'>Newcastle United</a></div><div>St James\' Park<br>Capacity: 52,316</div>"
+	}),
+
+new nokia.maps.map.Marker([51.5550,-0.1085],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/c/c2/Arsnl.png",
+		anchor: anchorPoint,
+		title: "Arsenal",
+		html:  "<div><a href='http://www.arsenal.com'>Arsenal</a></div><div>Emirates Stadium<br>Capacity: 60,432</div>"
+	}),
+
+ new nokia.maps.map.Marker([53.5476,-2.6541],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/f/f7/Wfc.png",
+		anchor: anchorPoint,
+		title: "Wigan Athletic",
+		html:  "<div ><a href='http://www.wiganlatics.premiumtv.co.uk' >Wigan Athletic</a></div><div >JJB Stadium<br>Capacity: 25,138</div>"
+	}),
+new nokia.maps.map.Marker( [53.7285,-2.4892],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/5/56/Brfc.png",
+		anchor: anchorPoint,
+		title: "Blackburn Rovers",
+		html:  "<div ><a href='http://www.rovers.premiumtv.co.uk' >Blackburn Rovers</a></div><div >Ewood Park<br>Capacity: 31,367</div>"
+	}),
+ new nokia.maps.map.Marker([53.3703,-1.4708],  {
+		icon: "http://www.developer.nokia.com/Community/Wiki/images/8/8f/Sufc.png",
+		anchor: anchorPoint,
+		title: "Sheffield United",
+		html:  "<div ><a href='http://www.sufc.premiumtv.co.uk' >Sheffield United</a></div><div >Bramall Lane<br>Capacity: 33,000</div>"
+	}),
+	new nokia.maps.map.StandardMarker([53.4630,-2.2913],
+		{brush: {color: red},
+			title: "Manchester United",
+		html:  "<div><a href='http://www.manutd.com'>Manchester United</a></div><div>Old Trafford<br>Capacity: 76,000</div>"}),
+	new nokia.maps.map.StandardMarker([53.4393,-2.2211],{
+		title: "Manchester City",
+		html:  "<div><a href='http://www.mcfc.co.uk' >Manchester City</a></div><div >City of Manchester Stadium<br>Capacity: 48,000</div>"}),
+	new nokia.maps.map.StandardMarker([53.4308,-2.9608],
+		 {brush: {color: red},
+		 	title: "Liverpool",
+		html:  "<div ><a href='http://www.liverpoolfc.tv' >Liverpool</a></div><div >Anfield<br>Capacity: 45,362</div>"}),
+	new nokia.maps.map.StandardMarker([53.4388,-2.9663],
+		{brush: {color: blue},
+			title: "Everton",
+		html:  "<div ><a href='http://www.evertonfc.com' >Everton</a></div><div >Goodison Park<br>Capacity: 40,569</div>"}),
+	new nokia.maps.map.StandardMarker([51.4817,-0.1909],
+		{brush: {color: blue},
+			title: "Chelsea",
+		html:  "<div ><a href='http://www.chelseafc.com/' >Chelsea</a></div><div >Stamford Bridge<br>Capacity: 42,449</div>"}),
+	new nokia.maps.map.StandardMarker([51.6033,-0.0658],
+		{brush: {color: white},
+			title: "Tottenham Hotspur",
+		html:  "<div ><a href='http://www.tottenhamhotspur.com/' >Tottenham Hotspur</a></div><div >White Hart Lane<br>Capacity: 36,240</div>"}),
+	new nokia.maps.map.StandardMarker( [54.5783,-1.2169],
+		{brush: {color: red},
+			title: "Middlesbrough",
+		html:  "<div ><a href='http://www.mfc.premiumtv.co.uk' >Middlesbrough</a></div><div >Riverside Stadium<br>Capacity: 35,100</div>"}),
+	new nokia.maps.map.StandardMarker([53.5805,-2.5356],
+		{brush: {color: white},
+			title: "Bolton Wanderers",
+		html:  "<div ><a href='http://www.bwfc.premiumtv.co.uk' >Bolton Wanderers</a></div><div >Reebok Stadium<br>Capacity: 28,723</div>"}),
+	new nokia.maps.map.StandardMarker( [51.4863,0.03654],
+		 {brush: {color: red},
+		 	title: "Charlton Athletic",
+		html:  "<div ><a href='http://www.cafc.co.uk/' >Charlton Athletic</a></div><div >The Valley<br>Capacity: 27,111</div>"}),
+	new nokia.maps.map.StandardMarker( [51.4223,-0.9826],
+		 {brush: {color: blue},
+		 	title: "Reading",
+		html:  "<a href='http://www.readingfc.premiumtv.co.uk' >Reading</a></div><div >Madejski Stadium<br>Capacity: 24,045</div>"}),
+	new nokia.maps.map.StandardMarker([51.4748,-0.2216],
+		{brush: {color: white},
+			title : "Fulham",
+		html:  "<div ><a href='http://www.fulhamfc.com' >Fulham</a></div><div >Craven Cottage <br>Capacity: 22,480</div>"}),
+	new nokia.maps.map.StandardMarker( [50.7963,-1.0638],
+		{brush: {color: blue},
+			title: "Portsmouth",
+		html:  "<div ><a href='http://www.pompeyfc.premiumtv.co.uk' >Portsmouth</a></div><div >Fratton Park<br>Capacity: 20,288</div>"}),
+	new nokia.maps.map.StandardMarker([51.6499,-0.4015],
+		{brush: {color: yellow},
+			title: "Watford",
+		html:  "<div ><a href='http://www.watfordfc.premiumtv.co.uk' >Watford</a></div><div >Vicarage Road<br>Capacity: 19,920</div>"})];
+
+	return markers;
+
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="setUpContainer,addOnClickEventListener,checkDateBorder" />
+    <title>HERE Maps API Example: Checking the International Date Line</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript" 
+    	data-map-container="mapContainer"
+    	data-params="maps" 
+    	data-callback="afterHereMapLoad" >
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Checking the International Date Line</h1>
+	<p>Add additional markers by clicking on the map.</p>
+	<div id="dateline" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="date-line" type="text/javascript" >
+//<![CDATA[
+function afterHereMapLoad(map){
+	this.map = map;
+	map.set("center", new nokia.maps.geo.Coordinate(-18.10, 180.0));
+	map.set("zoomLevel", 15);
+
+	addDateline(map);
+	setUpContainer();
+	checkDateBorder(container);
+	addOnClickEventListener(map);
+
+}
+
+function addDateline(map) {
+	// Set of initial geo coordinates to create the purple polyline
+	var points = [
+			new nokia.maps.geo.Coordinate(85, 180),
+			new nokia.maps.geo.Coordinate(-85, 180)
+		];
+	
+	// Transparent purple polyline
+	map.objects.add(new nokia.maps.map.Polyline(
+		points,
+		{	
+			pen: {
+				strokeColor: "#22CA", 
+				lineWidth: 5
+			}
+		}
+	));	
+}
+
+function addOnClickEventListener(map){
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+	map.addListener(CLICK, function(evt){
+		evt.preventDefault();
+		coordinate = map.pixelToGeo(evt.displayX, evt.displayY);
+		container.objects.add(new nokia.maps.map.Marker(coordinate));
+		checkDateBorder(container);});
+}
+
+
+
+function checkDateBorder(container){
+	if (container.getBoundingBox().isCDB){
+		$("#dateline").text("True - The Bounding box crosses the date border");
+	} else {
+		$("#dateline").text("False - The Bounding box is not crossing the date border");
+	}
+}
+
+function setUpContainer(){
+	this.container = new nokia.maps.map.Container();
+	container.objects.addAll([
+		new nokia.maps.map.StandardMarker([-18.10, 176.46]),
+		new nokia.maps.map.StandardMarker([-18.10, 180.00])]
+		);
+
+	map.objects.add(container);
+	map.zoomTo(container.getBoundingBox());
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

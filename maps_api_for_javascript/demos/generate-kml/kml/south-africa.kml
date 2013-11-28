@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://earth.google.com/kml/2.0">
+    <Document>
+      <name>Countries</name>
+      <visibility>1</visibility>
+
+      <Style id="sa">
+        <LineStyle id="khLineStyle548_6">
+          <color>66000000</color>
+          <width>0.4000000059604645</width>
+        </LineStyle>
+        <PolyStyle id="khPolyStyle548_6">
+          <color>66bebeff</color>
+        </PolyStyle>
+      </Style>
+     <Folder>
+        <name>Countries</name>
+        <visibility>1</visibility>
+
+        <Placemark>
+          <name>South Africa</name>
+          <visibility>1</visibility>
+          <description></description>
+          <styleUrl>#sa</styleUrl>
+          <Style>
+            <PolyStyle>
+              <color>78bebeff</color>
+            </PolyStyle>
+          </Style>
+          <MultiGeometry>
+            <Polygon>
+              <outerBoundaryIs>
+                <LinearRing>
+                  <coordinates> 
+    20.00094,-24.76541,0 20.39,-25.03695,0 20.81028,-25.88083,0 20.64111,-26.82597000000001,0 21.66833,-26.86368,0 22.62481,-26.11156,0 23.01483,-25.29972,0 23.45437,-25.27702,0 23.90194,-25.62486,0 24.68457,-25.82822,0 25.50972000000001,-25.67778,0 25.87139,-24.74445,0 26.41104,-24.62827,0 26.83041,-24.27514,0 27.00521,-23.64375,0 27.52909,-23.37938,0 28.29833,-22.60945,0 29.37362,-22.19241,0 31.2975,-22.41476,0 31.55083,-23.47667,0 32.01611,-24.45945,0 31.96851,-25.95784,0 31.32569,-25.75334,0 30.82944000000001,-26.39083000000001,0 30.82076,-26.81021,0 31.16166,-27.20306,0 31.5175,-27.31306,0 31.98555,-27.31639,0 32.01559,-26.80708,0 32.1334,-26.83963,0 32.89043,-26.84715,0 32.39444,-28.53139,0 31.32583,-29.39083000000001,0 30.02389,-31.28111,0 27.9,-33.04056,0 26.53055,-33.75333,0 25.72500000000001,-33.76723,0 25.70194,-34.03195,0 25.02264,-33.96806,0 24.82472,-34.20167,0 23.6493,-33.98389,0 23.36618,-34.0909,0 22.53916,-34.01118,0 21.8025,-34.38306,0 20.50444,-34.46473,0 20,-34.822,0 19.32041,-34.59528,0 19.27819,-34.40917,0 18.81972,-34.37889,0 18.79903,-34.08889,0 18.48597,-34.09945,0 18.40472000000001,-34.30278,0 18.31055,-34.03556,0 18.43903,-33.70195,0 17.8475,-32.83083000000001,0 18.28972,-32.62931,0 18.27909,-31.90299,0 17.27791,-30.34229,0 16.48959,-28.57818,0 17.07576,-28.03035,0 17.39805,-28.34222,0 17.4009,-28.7084,0 18.18132,-28.90847,0 19.14583,-28.955,0 19.56746,-28.52833,0 19.99695,-28.41559,0 20.00094,-24.76541,0
+                  </coordinates>
+                </LinearRing>
+              </outerBoundaryIs>
+              <innerBoundaryIs>
+                <LinearRing>
+                  <coordinates> 
+    28.80694,-28.7575,0 28.64778,-28.5707,0 28.18284,-28.69827,0 27.01397,-29.62714,0 27.37892,-30.31733,0 27.73736,-30.5966,0 28.07994,-30.65053,0 28.37778,-30.16028,0 29.16653,-29.91542,0 29.14555,-29.71695,0 29.45555,-29.3491,0 29.32694,-29.0875,0 28.80694,-28.7575,0
+                  </coordinates>
+                </LinearRing>
+              </innerBoundaryIs>
+              <tesselate>1</tesselate>
+            </Polygon>
+            <Polygon>
+              <outerBoundaryIs>
+                <LinearRing>
+                  <coordinates>
+    37.82,-46.96973,0 37.57597,-46.91292,0 37.7775,-46.83153,0 37.82,-46.96973,0
+                  </coordinates>
+                </LinearRing>
+              </outerBoundaryIs>
+              <tesselate>1</tesselate>
+            </Polygon>
+          </MultiGeometry>
+          <FIPS_CNTRY>SF</FIPS_CNTRY>
+          <GMI_CNTRY>ZAF</GMI_CNTRY>
+          <ISO_2DIGIT>ZA</ISO_2DIGIT>
+          <ISO_3DIGIT>ZAF</ISO_3DIGIT>
+          <CNTRY_NAME>South Africa</CNTRY_NAME>
+          <LONG_NAME>South Africa</LONG_NAME>
+          <SOVEREIGN>South Africa</SOVEREIGN>
+          <POP_CNTRY>40634126</POP_CNTRY>
+          <CURR_TYPE>Rand</CURR_TYPE>
+          <CURR_CODE>ZAR</CURR_CODE>
+          <LANDLOCKED>N</LANDLOCKED>
+          <SQKM>1219930.25</SQKM>
+          <SQMI>471014.97</SQMI>
+          <COLOR_MAP>7</COLOR_MAP>
+        </Placemark>
+      </Folder>
+      </Document>
+    </kml>

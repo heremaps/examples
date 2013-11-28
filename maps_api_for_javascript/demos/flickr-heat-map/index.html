@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+	<meta name="keywords" content="showHeatMap,addHeatMap" />
+	<title>HERE Maps API Example: Flickr Photo Locations Heat Map</title>
+	<style>
+	.loader {
+		position: relative;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		background-color:black;
+		background-color: rgba(0,0,0,0.5);
+		background-image: url(img/ajax-loader.gif);
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+	</style>
+		<!-- Set up constants such as APP ID and token -->
+	<script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+	<!-- Bootstrap jQuery Library -->
+	<script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+	<!-- Asynchronously the HERE Maps API for  JavaScript -->
+	<script type="text/javascript" src="../libs/hereAsyncLoader.js"
+		id="HereMapsLoaderScript" 
+		data-params="maps,datarendering" 
+		data-map-container="mapContainer"
+		data-callback="afterHereMapLoad" 
+		data-libs="html-control"
+		data-parent="demos/flickr-mashup/">
+	</script>
+	<link rel="icon" href="http://here.com/favicon.ico"/>
+	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Flickr Photo Locations Heat Map</h1>
+	<p>This map shows a heatmap of locations people have taken photos and uploaded
+		them to <a href="http://flickr.com">Flickr</a>.</p>
+	<p>You can position the map anywhere, enter your 
+		<a href="http://www.flickr.com/services/apps/create/apply">Flickr App key</a>
+		then press the Flickr button <img src="img/flickr-small.png"/> below to generate a new heatmap.
+	</p>
+	
+	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;">Enter API Key</div>
+	<p>
+		<label for="flickr_app_key">Flickr App Key:</label> 
+		<input id="flickr_app_key" type="text" placeholder="Enter your key" size="32" />
+		<!--value="f5ef449218ed507a3e715e54216621a3" -->
+		<img src="img/flickr.png" id="reflickr">
+	</p>
+
+	<div id="mapContainer" style="width:540px; height:334px;"></div>
+	
+<script>
+//<![CDATA[
+$('#reflickr').on('click', function(){showHeatMap($('#flickr_app_key').val());});
+
+function afterHereMapLoad(map) {
+	
+	this.map = map;
+	 htmlControl = new HtmlControl(
+    	 "<div class='loader' style='width:540px; height:334px; display:none'></div>", "Loader");
+    map.components.add(htmlControl);
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(foundUserLocation);
+	}
+}
+
+// We successfully found the user's location, lets move the map there
+function foundUserLocation(location) {
+	map.setCenter(location.coords);
+}
+
+// This is the main core of our app
+// We're going to ask the Flickr API to give us the 
+// 500 most recent photos taken near the center of the map.
+function showHeatMap(flickr_app_key) {
+	$('.loader').show();
+
+	// Send the request to Flickr
+	$('#ticker').text("Making API request for "+ map.center);
+	var apiCall = $.get('http://api.flickr.com/services/rest/?' +
+		'method=flickr.photos.search&api_key=' + flickr_app_key +
+		'&min_upload_date=1356886856&lat='+map.center.latitude+'&lon='+
+		map.center.longitude+'&extras=geo&format=json&per_page=500&nojsoncallback=1')
+	.done(function(data) {
+
+		// Gather the locations of each of the photos Flickr gives us
+		var heatMapData = [];
+		if(data.photos && data.photos.photo) {
+			for(var i = 0; i<data.photos.photo.length;i++){
+				heatMapData.push({
+					"latitude": data.photos.photo[i].latitude,
+					"longitude": data.photos.photo[i].longitude
+				});
+			}
+		}
+		if (heatMapData.length == 0){
+			$('#ticker').text('No data in response');
+		} else {
+			// Pass this data to our next function to draw a Heatmap of them
+			addHeatMap(heatMapData);
+		}
+
+		// Hide our loading animation
+		$('.loader').hide();
+	});
+
+}
+
+// This will create a density-based heatmap highlighting the areas with the most photos
+function addHeatMap(heatMapData) {
+	$('#ticker').text('Creating Heat Map over ' + map.center);
+	map.overlays.clear();
+	var heatmap = new nokia.maps.heatmap.Overlay({
+		max: 20,
+		opacity: 0.8,
+		type: "density",
+		coarseness: 2
+		});
+	heatmap.addData(heatMapData);
+	map.overlays.add(heatmap);
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

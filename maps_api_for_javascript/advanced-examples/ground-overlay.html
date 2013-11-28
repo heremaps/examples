@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="addGroundOverlay" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>HERE Maps API Example: Ground Overlays</title>
+  	<!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="all"
+    	data-callback="addGroundOverlay" >
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+  	<h1>Creating a Ground Overlay: Berlin Occupation Zones</h1>
+  	<p>This example adds a custom ground overlay provider, which displays the image
+  		of a map showing the allied occupation sectors in Berlin across a specified
+  		Geographic area. </p>
+    <div id="mapContainer"  style="width:540px; height:334px;" ></div>
+  </body>
+<script id="example-code" data-categories="ground-overlay" type="text/javascript">
+//<![CDATA[
+function addGroundOverlay (map){
+	var berlinBounds = new nokia.maps.geo.BoundingBox(
+		new nokia.maps.geo.Coordinate(52.687,13.06),
+		new nokia.maps.geo.Coordinate(52.328,13.78)
+	);
+	map.zoomTo(berlinBounds, false);
+
+	//create an ImageProvider
+	var dividedBerlin = new nokia.maps.map.provider.ImageProvider({
+		min: 0,
+		max: 20,
+		getBoundingBox: function () {
+			return berlinBounds;
+		},
+		getUrl: function () {
+			return './img/berlin-sector.png';
+		}
+	});
+
+	map.overlays.add(dividedBerlin);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</html>

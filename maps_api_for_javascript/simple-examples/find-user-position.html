@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="locateUser" />
+    <title>HERE Maps API Example: Locating the User</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="libs/jQl.min.js"></script>
+    
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js" 
+    	id="HereMapsLoaderScript"     	
+    	data-params="maps" 
+    	data-map-container="mapContainer" 
+    	data-callback="locateUser"  >
+    </script>  	
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Locating the User</h1>
+	<p>This example finds the location of a user and display it on the map.</p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="positioning" type="text/javascript" >
+//<![CDATA[
+function locateUser(map){
+	if (nokia.maps.positioning.Manager) {
+		var positioning = new nokia.maps.positioning.Manager();
+		// Alternatively : navigator.geolocation.getCurrentPosition()
+		positioning.getCurrentPosition(
+			function (position) {
+				var coords = position.coords,
+				marker = new nokia.maps.map.StandardMarker(coords), 
+				accuracyCircle = new nokia.maps.map.Circle(coords, coords.accuracy);
+				map.objects.addAll([accuracyCircle, marker]);
+				map.zoomTo(accuracyCircle.getBoundingBox());
+			}, 
+			// Something went wrong we were unable to retrieve the GPS location
+			function (error) {
+				var errorMsg = "Location could not be determined: ";
+				errors = ["PERMISSION_DENIED", "POSITION_UNAVAILABLE","TIMEOUT"];
+				if (error.code < 4){
+					 errorMsg += errors[error-1]
+				} else {
+					 errorMsg += "UNKNOWN ERROR";
+				}
+				alert(errorMsg);
+			}, {maximumAge: 750}
+		);
+	}
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

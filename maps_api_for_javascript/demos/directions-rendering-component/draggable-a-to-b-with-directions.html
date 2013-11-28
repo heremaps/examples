@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="addDirectionsRenderer,makeRouteRequest,onRouteCalculated" />
+    <title>HERE Maps API Example: Draggable A to B routing with Directions</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps,directions"
+    	data-callback="afterHereMapLoad"
+    	data-libs="directions-renderer"
+    	data-parent="demos/directions-rendering-component/">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+    <link href="css/routing.css" rel="stylesheet"/>
+</head>
+<body>
+	<h1>Draggable routing between two points</h1>
+	<p style="width:540px;" >This example uses the routing manager to calculate a route between two points specified by draggable markers.
+		Directions instructions are written to the right of the map. Observers are used to ensure that the instructions are correctly
+		updated.
+	</p>
+    <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
+    <div id="directions" style="float:left;width:540px;height:334px;overflow:auto;color: rgb(102, 102, 102);"></div>
+    <div id="src" style="clear:both;width:100%" ><br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+	</div>
+<script id="example-code" data-categories="routing,library" type="text/javascript" >
+//<![CDATA[
+function afterHereMapLoad(map){
+ 	this.map = map;
+ 	infoBubbles = new nokia.maps.map.component.InfoBubbles();
+ 	infoBubbles.options.defaultWidth = 200;
+ 	infoBubbles.options.width = 200;
+ 	map.addComponent(infoBubbles);
+ 	addDirectionsRenderer (map);
+ 	scaleBar = new nokia.maps.map.component.ScaleBar ();
+ 	scaleBar.addObserver("showImperialUnits" , function(obj, key, value, oldValue){
+ 		directionsRenderer.set("showImperialUnits", value);
+ 	});
+ 	map.addComponent(scaleBar);
+
+ 	recalculateRoute =  function (evt) {
+		var coord = map.pixelToGeo(evt.displayX, evt.displayY);
+
+		// Finalize the new created drag marker
+		evt.target.set("coordinate", coord);
+		evt.target.set("visibility", true);
+		// Update the whole route
+		makeRouteRequest();
+	};
+
+ 	start =new nokia.maps.map.StandardMarker( [48.8738, 2.295],
+ 		{brush: {color: "#CC0000"},
+ 		text: "S",
+ 		draggable: true});
+	end  = new nokia.maps.map.StandardMarker(  [48.858222, 2.2945],{
+		brush: {color: "#88CC00"},
+		text: "D",
+		draggable: true});
+ 	map.objects.addAll([start, end]);
+
+ 	start.addListener("dragend",recalculateRoute);
+ 	end.addListener("dragend",recalculateRoute);
+
+ 	makeRouteRequest();
+ }
+
+ function addDirectionsRenderer (map){
+  	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
+ 	map.addComponent(directionsRenderer);
+
+}
+
+function makeRouteRequest(){
+	var waypoints = new nokia.maps.routing.WaypointParameterList();
+
+	waypoints.addCoordinate( start.coordinate);
+	waypoints.addCoordinate( end.coordinate);
+
+	var modes = [{
+		type: "fastest",
+		transportModes: ["car"],
+		options: "avoidTollroad",
+		trafficMode: "default"
+	}];
+
+	router = new nokia.maps.routing.Manager();
+	router.addObserver("state", onRouteCalculated);
+	router.calculateRoute(waypoints, modes);
+}
+
+function onRouteCalculated (observedRouter, key, value){
+	if (value == "finished") {
+		var routes = observedRouter.getRoutes();
+
+		//create the default map representation of a route
+		var first =  (!this.routePolyline);
+		if (!first){
+			map.objects.remove(routePolyline);
+		}
+
+		routePolyline = new nokia.maps.map.Polyline(routes[0].shape, {
+			pen: {
+				lineWidth: 6,
+				lineJoin: 'round'
+			}
+		});
+		if (first){
+			map.zoomTo(routePolyline.getBoundingBox(), false, "default");
+		}
+
+		map.objects.add(routePolyline);
+		directionsRenderer.set("route",routes[0]);
+
+	} else if(value == "failed") {
+		alert("The routing request failed.");
+	}
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

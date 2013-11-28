@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="setUpTabbedInfoBubbles,loadKMLFile,onKMLParsed" />
+    <title>HERE Maps API Example:  Tabbed Infobubbles</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps,datarendering"
+    	data-callback="afterHereMapLoad"
+    	data-libs="tabbed-infobubble"
+    	data-parent="demos/tabbed-infobubble/">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+
+</head>
+<body>
+	<h2> Decisive Battles of the World : KML data with Styled Infobubbles</h2>
+		<p style="width:800px;" > The locations of fourteen of the most of the significant military engagements in World History,
+			as chosen by the historian Sir Edward Shepherd Creasy. For the location of the
+			Battle of Saratoga, see the <a href="./tabbed-infobubble.html">previous example</a>.
+		</p>
+		<p> This is a demonstration of combining styled Infobubbles with KML data. </p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src">
+    	<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/tabbed-infobubble.js">libs/tabbed-infobubble.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+    </div>
+<script id="example-code" data-categories="kml,infobubbles,library" type="text/javascript" >
+//<![CDATA[
+function afterHereMapLoad (map){
+	this.map = map;
+	setUpTabbedInfoBubbles(map);
+	loadKMLFile(map);
+}
+
+function setUpTabbedInfoBubbles(map){
+	infoBubbles = new TabbedInfoBubbles();
+	infoBubbles.options.defaultWidth = 400;
+	map.components.add(infoBubbles);
+}
+
+function loadKMLFile(map){
+	var kml = new nokia.maps.kml.Manager();
+	// We define a callback function for parsing kml file,
+	// and then push the parsing result to map display
+	// Add an observer to kml manager
+	kml.addObserver("state", onKMLParsed);
+	kml.parseKML("data/battles.kml");
+}
+
+function onKMLParsed(kmlManager){
+	var resultSet;
+	// KML file was successfully loaded
+	if (kmlManager.state == "finished") {
+		// KML file was successfully parsed
+		resultSet = new nokia.maps.kml.component.KMLResultSet(kmlManager.kmlDocument, map);
+		resultSet.addObserver("state", function (resultSet) {
+			if (resultSet.state == "finished") {
+				container = resultSet.container;
+				map.objects.add(container);
+				map.zoomTo(container.getBoundingBox());
+			}
+		});
+		resultSet.create();
+	}
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

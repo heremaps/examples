@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+    <meta name="keywords" content="showTabbedInfoBubble" />
+    <title>HERE Maps API Example:  Tabbed Infobubbles</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript"
+    	data-map-container="mapContainer"
+    	data-params="maps"
+    	data-callback="afterHereMapLoad"
+    	data-libs="tabbed-infobubble"
+    	data-parent="demos/tabbed-infobubble/">
+    </script>
+
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+
+    <style type="text/css">
+
+		.nm_bubble_content{
+			color:black;
+			background:white;
+			border: 1px solid black;
+			padding:0px;
+		}
+    </style>
+
+
+</head>
+<body>
+	<h2>Use of Styled Infobubbles: Battle of Saratoga</h2>
+	<p> Click the buttons to show the location of the Battle of Saratoga, chosen as one of the most of the significant military
+		engagements in World History, by the historian Sir Edward Shepherd Creasy. For the remaining entries on the list, see the
+		<a href="load-kml-battles-tabbed.html">decisive battles</a> example.
+	</p>
+	<input id="showInfoBubble" type="button" value="Infobubble" />
+	<input id="showTabbedInfoBubble" type="button" value="Tabbed Infobubble"  />
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="src">
+    	<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/tabbed-infobubble.js">libs/tabbed-infobubble.js</a>"&gt;&lt;/script></code></pre>
+		<p>Code:</p>
+    </div>
+<script id="example-code" data-categories="infobubble,library" type="text/javascript" >
+//<![CDATA[
+function afterHereMapLoad (map){
+	this.map = map;
+	map.set('zoomLevel', 2);
+	map.set('center',[14.632, -11.838] );
+
+	infoBubbles = new TabbedInfoBubbles('white', 'red', 'blue');
+	infoBubbles.options.defaultWidth = 400;
+	map.components.add(infoBubbles);
+
+
+	$("#showTabbedInfoBubble" ).click(function() {
+		showTabbedInfoBubble();
+	});
+	$("#showInfoBubble" ).click(function() {
+		 showInfoBubble();
+	});
+}
+
+function showInfoBubble(){
+
+	var myHTMLcontent =
+		"<h2>Battle of Saratoga</h2>" +
+		"<h3>Excerpt</h3>" +
+		"<div><i><q>" +
+		"The ancient Roman boasted, with reason, of the growth of Rome from humble beginnings to the greatest magnitude " +
+		"which the world had then ever witnessed. But the citizen of the United States is still more justly entitled to claim this praise." +
+		"</q></i></div> " +
+		"<h3>Combatants</h3> " +
+		"<div>Great Britain, Brunswick-Wolfenb&uuml;ttel, Hesse Hesse-Hanau 	 vs. United States<br/>" +
+		"Commanders and leaders: John Burgoyne, Simon Fraser &dagger;, F.A. Riedesel, Johann Specht, Wilhelm R. von Gall, 	Horatio Gates " +
+		"</div>";
+	infoBubbles.openBubble(myHTMLcontent, new nokia.maps.geo.Coordinate(43.09, -73.674));
+}
+
+function showTabbedInfoBubble(){
+
+	var tabs = new Array();
+		tabs.push ("Excerpt");
+		tabs.push ("Combatants");
+
+	var content = new Array();
+		content.push ("<i><q>" +
+			"The ancient Roman boasted, with reason, of the growth of Rome from humble beginnings to the greatest magnitude " +
+			"which the world had then ever witnessed. But the citizen of the United States is still more justly entitled to claim this praise." +
+			"</q></i>");
+		content.push ("Great Britain, Brunswick-Wolfenb&uuml;ttel, Hesse-Hanau 	 vs. United States<br/>" +
+			"Commanders and leaders: John Burgoyne, Simon Fraser &dagger;, F.A. Riedesel, Johann Specht, Wilhelm R. von Gall, 	Horatio Gates ");
+		infoBubbles.addTabbedBubble(tabs, content, "<h2>Battle of Saratoga</h2>", new nokia.maps.geo.Coordinate(43.09, -73.674))	;
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

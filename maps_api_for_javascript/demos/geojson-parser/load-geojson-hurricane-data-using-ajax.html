@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8; IE=EmulateIE9; IE=EmulateIE10;"/>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="addGeoJSONContainer,getGeoJSON,onGeoJSONParsed,createGraphicsMarker" />
+    <title>HERE Maps API Example: Loading custom geoJSON data Points using AJAX: Hurricanes</title>
+    <!-- Set up constants such as APP ID and token -->
+    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+    <!-- Asynchronously the HERE Maps API for  JavaScript -->
+       <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    	id="HereMapsLoaderScript" 
+    	data-params="maps,datarendering" 
+    	data-map-container="mapContainer"
+    	data-callback="afterHereMapLoad"
+    	data-libs="geojson-parser"
+    	data-parent="demos/geojson-parser/">
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Loading custom styled geoJSON data Points using AJAX: Hurricanes</h1>
+	<div style="width:600px; ">
+
+	<p>This retrieves and parses geoJSON data holding  information associated with the storms of the 2004 Hurricane Season.
+		The file is loaded using AJAX. The color of each data point is associated to the legend. The size of each data point is
+		 based on the wind speed.
+	</p>
+	<p>The JSON file is located at:
+		<a href="data/hurricanes.geojson">data/hurricanes.geojson</a>
+	</p>
+
+    <div id="mapContainer" style="width:540px; height:334px;float:left"></div>
+    </div>
+    <div id="legend" style="float:left; color: rgb(102, 102, 102);"><b>2004 Hurricane Season</b></div>
+    <div id="src" style="clear:both;width:100%">
+    	<br/>
+			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
+	</div>
+<script id="example-code" data-categories="geojson,library" type="text/javascript" >
+//<![CDATA[
+function afterHereMapLoad(map){
+	this.map = map;
+	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
+ 	map.components.add(infoBubbles);
+
+ 	defineColors();
+ 	createLegend(colors.data,  document.getElementById("legend"));
+	addGeoJSONContainer (map);
+	getGeoJSON();
+}
+
+function addGeoJSONContainer (map){
+	geoJsonContainer = new GeoJSONContainer({
+		theme : {
+			getPointPresentation :	function(dataPoint, properties){
+				return createGraphicsMarker(dataPoint, properties);
+			}
+		}
+	});
+
+	map.objects.add(geoJsonContainer);
+	var TOUCH = nokia.maps.dom.Page.browser.touch,
+		CLICK = TOUCH ? "tap" : "click";
+
+	geoJsonContainer.addListener(CLICK ,  function(evt) {
+		// Extract the data from the properties.
+		var text =
+			"Name: " + evt.target.properties.NAME + '<br/>' +
+			"Date: " + evt.target.properties.DATES  + '<br/>' +
+			"Pressure: " + evt.target.properties.PR + '<br/>' +
+			"Wind Speed: "  + evt.target.properties.WIND + '<br/>' +
+			"Status: "  + evt.target.properties.STAT;
+
+		infoBubbles.openBubble(text,
+			 evt.target.getBoundingBox().getCenter());
+	}, false);
+}
+
+function getGeoJSON(){
+	var filename = 'data/hurricanes.geojson';
+	jsonManager = new JSONManager();
+	jsonManager.parseJSON(filename);
+	jsonManager.addObserver("state", onGeoJSONParsed);
+}
+
+function onGeoJSONParsed(geoJSON){
+
+	if (jsonManager.state == "finished"){
+		var err = geoJsonContainer.addGeoJSON(jsonManager.object);
+		if (geoJsonContainer.state == "finished") {
+			map.zoomTo(geoJsonContainer.getBoundingBox());
+		} else {
+			console.log(err);
+		}
+	}
+}
+
+
+
+function defineColors(){
+	 colors = arrayToHashTable([
+	 	['Hurricane', 'Color'],
+		["Alex" , "#ff0000"],
+		["Bonnie" ,"#cc00aa"],
+		["Charley" ,"#ff0088"],
+		["Danielle" ,"#00ff00"],
+		["Earl" ,"#00cc00"],
+		["Frances","#448844"],
+		["Gaston" ,"#0088ff"],
+		["Hermine" ,"#008888"],
+		["Ivan" ,"#aa8800"],
+		["Jeanne" ,"#8844ff"],
+		["Karl" ,"#884488"],
+		["Lisa" ,"#884444"],
+		["Nicole" ,"#ff88ff"],
+		["Matthew","#ee44cc"],
+		["Otto","#eeeeaa"],
+		["Other", "#888888"]]);
+	undefinedColor = colors.getItem('Other');
+
+
+}
+
+function createLegend(data, panel){
+
+	painter =  new nokia.maps.gfx.Painter.defaultPainter();
+	graphicsContext =  new nokia.maps.gfx.Graphics();
+
+	nodeUL  = document.createElement("ul");
+	for (var k in data) {
+		// use hasOwnProperty to filter out keys from the Object.prototype
+		if (data.hasOwnProperty(k)) {
+			nodeLI =document.createElement("li");
+			spanNode =  document.createElement("span");
+			spanNode.style.display = "inline-block";
+			spanNode.style.minWidth = "10px";
+			spanNode.style.minHeight = "10px";
+			spanNode.style.backgroundColor = data[k];
+			spanNode.style.border= "1px solid black";
+			nodeLI.appendChild(spanNode);
+			textNode = document.createTextNode(' ' + k);
+			nodeLI.appendChild(textNode);
+			nodeUL.appendChild(nodeLI);
+		}
+		panel.appendChild(nodeUL);
+	}
+
+}
+
+function getColor(name){
+	return (colors.getItem(name) !== undefined) ? colors.getItem(name) : undefinedColor;
+}
+
+function createGraphicsMarker(datapoint, props){
+	var graphicsContext = new nokia.maps.gfx.Graphics();
+
+	var x = ((Math.floor(props.WIND /10))+ 4);
+	graphicsContext.beginImage(x,x);
+	graphicsContext.set("fillColor", nokia.maps.gfx.Color.parseCss(getColor(props.NAME), 0.5));
+	graphicsContext.set("strokeColor", "#000");
+	graphicsContext.set("lineWidth", 1);
+	graphicsContext.drawEllipse(0, 0, x, x);
+	graphicsContext.fill();
+	graphicsContext.stroke();
+
+	return  new nokia.maps.map.Marker( datapoint,
+		{icon: new nokia.maps.gfx.GraphicsImage(graphicsContext.getIDL()),
+			visibility: true,
+			anchor: new nokia.maps.util.Point((x/2),(x/2))}
+	);
+}
+
+
+function arrayToHashTable (rows){
+		var hashTable = new Object();
+		hashTable.data = new Object();
+		hashTable["key"] = rows[0][0];
+		hashTable["value"] = rows[0][1];
+
+		 // Start from 1 since we have a header row.
+		 for(var i = 1; i < rows.length; i += 1) {
+	          var fields = rows[i];
+	          hashTable.data[fields[0]] = fields[1];
+	       }
+
+	   	hashTable.getItem = function(in_key) {
+			return this.data[in_key];
+		};
+		hashTable.hasItem = function(in_key){
+			return typeof(this.data[in_key]) != 'undefined';
+		}
+	    return hashTable;
+};
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

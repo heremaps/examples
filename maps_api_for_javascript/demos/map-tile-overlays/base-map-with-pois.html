@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+	<meta name="keywords" content="addBaseMapWithPOIs,getTileUrl,getHereCopyrights" />
+	<title>HERE Maps API Example: Base Map Tile with POIs</title>
+	<!-- Set up constants such as APP ID and token -->
+	<script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+	<!-- Bootstrap jQuery Library -->
+	<script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+	<!-- Asynchronously the HERE Maps API for  JavaScript -->
+	<script type="text/javascript" src="../libs/hereAsyncLoader.js"
+		id="HereMapsLoaderScript" 
+		data-params="maps" 
+		data-map-container="mapContainer"
+		data-callback="afterHereMapLoad"  >
+	</script>
+	<link rel="icon" href="http://here.com/favicon.ico"/>
+	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>Base Map Tile with POIs</h1>
+	<p>
+		This map shows the basic HERE Map including icons highlighting Points of Interest.
+		The is initially centered over the National Mall, Washington D.C., and the map 
+		clearly displays the landmarks and features to be found in the area
+	</p>
+	<p>
+		The URL for each base map tile starts with:
+		<ul>
+		<li><code>http://[1-4].base.maps.cit.api.here.com/maptile/</code> on the CIT server</li>
+		<li><code>http://[1-4].base.maps.api.here.com/maptile/</code> on the LIVE server</li>
+		</ul>
+	</p>
+	<div id="mapContainer" style="width:540px; height:334px;"></div>
+	
+<script>
+//<![CDATA[
+function afterHereMapLoad(map) {
+	map.set("center", [38.8893, -77.045]);
+	map.set("zoomLevel", 15);
+	addBaseMapWithPOIs(map);
+}
+
+function addBaseMapWithPOIs(map) {
+
+	var poiMapProvider = new nokia.maps.map.provider.ImgTileProvider({
+		label: "normal.day",
+		description: "HERE Maps POI Map tile provider",
+		width: 256,
+		height: 256,
+		min: 0,
+		max: 23,
+		getUrl: getTileUrl,
+		getCopyrights: getHereCopyrights
+	});
+	map.set("baseMapType", poiMapProvider); 
+}
+
+function getHereCopyrights(area, zoomLevel){
+	// When using base tiles returned from this server,
+	// ensure the standard HERE Copyright is displayed.
+	return nokia.maps.map.Display.NORMAL.getCopyrights(area, zoomLevel);
+}
+
+function getTileUrl(level, row, col){
+	// This example uses the CIT server. Replace with LIVE when ready.
+	return ["http://1.base.maps.cit.api.here.com/maptile/2.1/maptile/newest/normal.day/",
+		level, "/", col, "/", row, "/256/png8?",
+		"app_id=", nokia.Settings.app_id, 
+		"&app_code=", nokia.Settings.app_code, "&pois" ].join("");
+}
+
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
