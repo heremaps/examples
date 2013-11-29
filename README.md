@@ -79,13 +79,12 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 
 
 ##### Custom Components
-* [Map Restriction](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/restrict-map/index.html) - Restricts the map to a certain region or zoom level
-* [Interactive Control](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/interactive-markers/index.html) - Simple method to add "onclick" and forwarding to map markers
+* [Map Restriction](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/restrict-map-component/index.html) - Restricts the map to a certain region or zoom level
+* [Interactive Control](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/marker-interactivity-component/index.html) - Simple method to add "onclick" and forwarding to map markers
 * [Magnifier](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/magnifying-glass/index.html) - Demonstration of map observers showing a high zoom map over the base map.
-* [Side Bar within the Map](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/map-sidebar-within-map.html) - combines a Side Bar Container with an HTML Control to display a list on the map.
 * [Text on Icon](https://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/text-on-icon-marker/index.html) - adding text to a custom marker
-* [Tooltips](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/tooltip/index.html) - custom control to add tooltips to markers
-* [x-Ray](http://github.com/heremaps/examples/tree/master/maps_js/x-ray/index.html) - demonstration of map observers showing a satellite map over the base map
+* [Tooltips](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/tooltip-component/index.html) - custom control to add tooltips to markers
+* [x-Ray](http://github.com/heremaps/examples/tree/master/maps_js/x-ray-component/index.html) - demonstration of map observers showing a satellite map over the base map
 
 
 ##### Directions Rendering
