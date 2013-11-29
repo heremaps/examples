@@ -2,7 +2,7 @@
 HERE Maps Community on GitHub
 =============================
 
-Examples, Demos and Custom Map Components(https://github.com/heremaps/examples/#custom-components) written by the HERE Maps Coding Community 
+Examples, Demos and Custom Map Components written by the HERE Maps Coding Community 
 
 **Simple Examples**: A series of graduated code [examples](https://github.com/heremaps/examples/#simple-examples) using the [Maps API for JavaScript](http://developer.here.com/javascript-apis/), each example displays 
 a short snippet of code with the correct syntax to do a specified task - for example _"How do I add a `Polygon` to the map?"_ Useful when getting
@@ -13,7 +13,7 @@ the [Maps API for JavaScript](http://developer.here.com/javascript-apis/). These
 [asynchronous loading](https://github.com/heremaps/examples/#asynchronous-loading),[KML](https://github.com/heremaps/examples/#kml) and
 [Map overlays](https://github.com/heremaps/examples/#overlays).
 
-**Demos and Custom Components**:  Demos showcase the power of the [Maps API for JavaScript](http://developer.here.com/javascript-apis/) when mashed up with other APIs or data sources.
+**Demos and Custom Components**:  [Demos](https://github.com/heremaps/examples/#demos-and-custom-components) showcase the power of the [Maps API for JavaScript](http://developer.here.com/javascript-apis/) when mashed up with other APIs or data sources.
 Custom Components extend the basic functionality of the API to introduce new components which offer additional capabilities (such as `GeoJSON` parsing). The files 
 necessary for each demo can be found in a separate directory. Each custom component also offers a demonstation of usage where the component itself can be found
 within a separate `libs` directory. Obviously demos and custom components cover a very broad range of subjects, so they have been split thematically below:
