@@ -2,81 +2,25 @@
 HERE Maps Community on GitHub
 =============================
 
-Examples, Demos and Custom Map Components written by the HERE Maps Coding Community 
+Examples, Demos and Custom Map Components(https://github.com/heremaps/examples/#custom-components) written by the HERE Maps Coding Community 
 
+**Simple Examples**: A series of graduated code [examples](https://github.com/heremaps/examples/#simple-examples) using the [Maps API for JavaScript](http://developer.here.com/javascript-apis/), each example displays 
+a short snippet of code with the correct syntax to do a specified task - for example _"How do I add a `Polygon` to the map?"_ Useful when getting
+ started, or as an aide-memoire when writing something new.
 
-### Simple Examples
+**Advanced Examples**: A second set of [examples](https://github.com/heremaps/examples/#advanced-examples), demonstrating the using the **advanced** features of 
+the [Maps API for JavaScript](http://developer.here.com/javascript-apis/). These examples cover more difficult concepts such as
+[asynchronous loading](https://github.com/heremaps/examples/#asynchronous-loading),[KML](https://github.com/heremaps/examples/#kml) and
+[Map overlays](https://github.com/heremaps/examples/#overlays).
 
-A series of graduated code examples using the [HERE Maps API for JavaScript](http://developer.here.com/javascript-apis/), each example displays a short snippet of code with the correct
-syntax to do a specified task - for example _"How do I add a `Polygon` to the map?"_ Useful when getting started, or as an aide-memoire when writing something new.
-
-* [Add a Circle to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/circle.html)
-* [Add a Polygon to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/polygon.html)
-* [Add a Rectangle to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/rectangle.html)
-* [Add a Marker to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/simple-marker.html)
-* [Change Marker on Zoom](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/change-marker-on-zoom.html)
-* [Display Place Data](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/display-place-data.html)
-* [Find Nearest Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/find-nearest-marker.html)
-* [Find User Address](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/find-user-address.html)
-* [Find User Position](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/find-user-position.html)
-* [Geocoding](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/geocoding.html)
-* [Geocoordinate on Click](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/geocoordinate-on-click.html)
-* [Highlight a Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/highlighting-a-marker.html)
-* [Infobubble on Click](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/infobubble-on-marker-click.html)
-* [Infobubble](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/infobubble.html)
-* [Map Components](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/map-components.html)
-* [Open Infobubble with Id](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/opening-infobubble-with-id.html)
-* [Pan the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/panning-the-map.html)
-* [Pixel to Geocoordinate](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/pixel-to-geocoordinate.html)
-* [Set Center and Zoom Level](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/map-set-center-and-zoom-level.html)
-* [Simple Routing](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/routing-from-a-to-b.html)
-* [Zoom to All Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/zoom-to-all-markers.html)
-
-### Advanced Examples
-
-A second set of examples, demonstrating the using the *advanced* features of the [HERE Maps API for JavaScript](http://developer.here.com/javascript-apis/).
-These examples cover more difficult concepts such as asynchronous loading, KML and Map overlays. They have been grouped thematically below:
-
-##### Advanced Map Objects
-* [Custom Graphics Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/custom-graphics-marker.html)
-* [Sprite Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/sprite-markers.html)
-
-
-##### Asynchronous Loading
-* [Asynchronous Loading](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/asynchronous-loading.html)
-* [Combining with Static Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/combining-with-here-static-maps.html)
-
-##### Clustering
-* [Clustering with a Theme](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-clustering-with-theme.html)
-* [Clustering with Zoom](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-clustering-with-zoom.html)
-* [Simple Clustering](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-simple-clustering.html)
-* [Unclustered Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-unclustered.html)
-
-##### KML
-* [Simple KML Loader](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/load-kml-file.html)
-* [Cross-domain KML Loader](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/load-kml-file-cross-domain.html)
-	
-##### Overlays
-* [Ground Overlay](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/ground-overlay.html)
-* [Tile Overlay](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/tile-overlay.html)
-
-##### Other
-* [Context Menu](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/context-menu.html)
-* [Coroutine](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/coroutine.html)
-* [IDL Check](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/international-date-line-check.html)
-* [Map Language](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/map-language.html)
-* [OLists](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/olist.html)
-* [Map Features](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/reading-map-features.html)
+**Demos and Custom Components**:  Demos showcase the power of the [Maps API for JavaScript](http://developer.here.com/javascript-apis/) when mashed up with other APIs or data sources.
+Custom Components extend the basic functionality of the API to introduce new components which offer additional capabilities (such as `GeoJSON` parsing). The files 
+necessary for each demo can be found in a separate directory. Each custom component also offers a demonstation of usage where the component itself can be found
+within a separate `libs` directory. Obviously demos and custom components cover a very broad range of subjects, so they have been split thematically below:
 
 
 
 ### Demos and Custom Components
-
-**Demos** showcase the power of the [HERE Maps API for JavaScript](http://developer.here.com/javascript-apis/) when mashed up with other APIs or data sources.
-**Custom Components** extend the basic functionality of the API to introduce new components which offer additional capabilities (such as `GeoJSON` parsing). The files 
-necessary for each demo can be found in a separate directory. Each custom component also offers a demonstation of usage where the component itself can be found
-within a separate `libs` directory. Obviously demos and custom components cover a very broad range of subjects, so they have been split thematically below:
-
 
 ##### Custom Components
 * [Map Restriction](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/restrict-map-component/index.html) - Restricts the map to a certain region or zoom level
@@ -106,21 +50,30 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 
 
 ##### KML + GeoJSON Demos
+
+**KML Generation Tools**
+
 * [KML Generator from Data](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kmlgenerate-kml-file-from-data.html) - Geocoding of files to KML Format.
 * [KML Generator from Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/generate-kml-file-from-map.html) - Point and Click KML Generator
-* [Premier League Football Teams](http://github.com/hermaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/premier-league-football-teams.html) - Map Objects to KML
+* [Premier League Football Teams](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/premier-league-football-teams.html) - Map Objects to KML
 
-* [GeoJSON: Hurricane Season](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/load-geojson-hurricane-data-using-ajax.html)
-* [GeoJSON: Premier League Teams](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/load-geojson-premiership-data-using-ajax.html)
-* [GeoJSON: Russian Provinces](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/load-geojson-russia-data-using-ajax.html)
-* [GeoJSON: Parser Demo](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/parse-geojson-data.html)
+**GeoJSON Parsing Examples**
 
-* [KML: Chinese Cities](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/cities-in-china.html)
-* [KML :Finnish Cities](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-cities-in-finland.html)
-* [KML: Estate Agents](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-estate-agents.html)
-* [KML: Premier League Football Teams](http://gitub.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-premier-league-football-teams.html)
+* [GeoJSON: Hurricane Season](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/load-geojson-hurricane-data-using-ajax.html) - Displays GeoJSON data from the 2004 Hurricane Season
+* [GeoJSON: Premier League Teams](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/load-geojson-premiership-data-using-ajax.html) - Displays the location of Football Stadiums in the English Premier League
+* [GeoJSON: Russian Provinces](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/load-geojson-russia-data-using-ajax.html) - Displays the Name and location of the provinces of Russia
+* [GeoJSON: Parser Demo](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/geojson-parser/parse-geojson-data.html) - Parsing Demo of various standard GeoJSON elements.
 
-* [XML: Marker Data](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/load-marker-data-using-ajax/index.html)
+**KML Parsing Examples**
+
+* [KML: Chinese Cities](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/cities-in-china.html) - Displays KML data about the largest cities in China
+* [KML :Finnish Cities](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-cities-in-finland.html) - Displays KML data about the largest cities in Finland
+* [KML: Estate Agents](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-estate-agents.html) - Displays a KML data file created from a Right Move Estate Agents data file
+* [KML: Premier League Football Teams](http://gitub.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-premier-league-football-teams.html) - Displays a KML data file holding the location of Football Stadiums in the English Premier League
+
+**AJAX Loading***
+
+* [XML: Marker Data](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/load-marker-data-using-ajax/index.html) - Loads marker using an AJAX call.
 
 
 ##### Map Overlay Demos
@@ -131,22 +84,70 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [Community Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/community-map.html) - A demonstration displaying the HERE Maps community map layer using a quad key algorithm.
 * [Grid Overlay](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/svg-grid-overlay/index.html) - A demonstration of **TMS** (Tile Map Server) syntax using a tile overlay from the National Library of Scotland.
 
-
 #### Sidebar Component
 * [German Election Results](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/bar-chart-election-result.html) - election results in a side bar
 * [German City Populations](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/bar-chart-markers.html) - city populations in a side bar
 * [Premier League Football](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/map-sidebar-control.html) - football teams in a side bar
 * [Side Bar within Map](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/map-sidebar-within-map.html) - a side bar within the map itself
 
+### Simple Examples
+Basic code snippets to get you started:
+
+* [Add a Circle to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/circle.html)
+* [Add a Polygon to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/polygon.html)
+* [Add a Rectangle to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/rectangle.html)
+* [Add a Marker to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/simple-marker.html)
+* [Change Marker on Zoom](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/change-marker-on-zoom.html)
+* [Display Place Data](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/display-place-data.html)
+* [Find Nearest Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/find-nearest-marker.html)
+* [Find User Address](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/find-user-address.html)
+* [Find User Position](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/find-user-position.html)
+* [Geocoding](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/geocoding.html)
+* [Geocoordinate on Click](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/geocoordinate-on-click.html)
+* [Highlight a Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/highlighting-a-marker.html)
+* [Infobubble on Click](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/infobubble-on-marker-click.html)
+* [Infobubble](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/infobubble.html)
+* [Map Components](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/map-components.html)
+* [Open Infobubble with Id](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/opening-infobubble-with-id.html)
+* [Pan the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/panning-the-map.html)
+* [Pixel to Geocoordinate](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/pixel-to-geocoordinate.html)
+* [Set Center and Zoom Level](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/map-set-center-and-zoom-level.html)
+* [Simple Routing](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/routing-from-a-to-b.html)
+* [Zoom to All Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/zoom-to-all-markers.html)
 
 
+### Advanced Examples
+The advanced examples are split thematically as shown:
 
+##### Advanced Map Objects
+* [Custom Graphics Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/custom-graphics-marker.html)
+* [Sprite Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/sprite-markers.html)
 
+##### Asynchronous Loading
+* [Asynchronous Loading](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/asynchronous-loading.html)
+* [Combining with Static Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/combining-with-here-static-maps.html)
 
+##### Clustering
+* [Clustering with a Theme](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-clustering-with-theme.html)
+* [Clustering with Zoom](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-clustering-with-zoom.html)
+* [Simple Clustering](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-simple-clustering.html)
+* [Unclustered Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-unclustered.html)
 
+##### KML
+* [Simple KML Loader](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/load-kml-file.html)
+* [Cross-domain KML Loader](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/load-kml-file-cross-domain.html)
+	
+##### Overlays
+* [Ground Overlay](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/ground-overlay.html)
+* [Tile Overlay](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/tile-overlay.html)
 
-
-
+##### Other
+* [Context Menu](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/context-menu.html)
+* [Coroutine](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/coroutine.html)
+* [IDL Check](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/international-date-line-check.html)
+* [Map Language](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/map-language.html)
+* [OLists](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/olist.html)
+* [Map Features](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/reading-map-features.html)
 
 
 
