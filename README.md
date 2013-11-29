@@ -8,7 +8,7 @@ Examples, Demos and Custom Map Components written by the HERE Maps Coding Commun
 a short snippet of code with the correct syntax to do a specified task - for example _"How do I add a `Polygon` to the map?"_ Useful when getting
  started, or as an aide-memoire when writing something new.
 
-**Advanced Examples**: A second set of [examples](https://github.com/heremaps/examples/#advanced-examples), demonstrating the using the **advanced** features of 
+**Advanced Examples**: A second set of [examples](https://github.com/heremaps/examples/#advanced-examples), demonstrating the use of the **advanced** features of 
 the [Maps API for JavaScript](http://developer.here.com/javascript-apis/). These examples cover more difficult concepts such as
 [asynchronous loading](https://github.com/heremaps/examples/#asynchronous-loading),[KML](https://github.com/heremaps/examples/#kml) and
 [Map overlays](https://github.com/heremaps/examples/#overlays).
@@ -71,7 +71,7 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [KML: Estate Agents](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-estate-agents.html) - Displays a KML data file created from a Right Move Estate Agents data file
 * [KML: Premier League Football Teams](http://gitub.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-premier-league-football-teams.html) - Displays a KML data file holding the location of Football Stadiums in the English Premier League
 
-**AJAX Loading***
+**AJAX Loading**
 
 * [XML: Marker Data](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/load-marker-data-using-ajax/index.html) - Loads marker using an AJAX call.
 
@@ -84,7 +84,7 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [Community Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/community-map.html) - A demonstration displaying the HERE Maps community map layer using a quad key algorithm.
 * [Grid Overlay](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/svg-grid-overlay/index.html) - A demonstration of **TMS** (Tile Map Server) syntax using a tile overlay from the National Library of Scotland.
 
-#### Sidebar Component
+##### Sidebar Component
 * [German Election Results](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/bar-chart-election-result.html) - election results in a side bar
 * [German City Populations](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/bar-chart-markers.html) - city populations in a side bar
 * [Premier League Football](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/map-sidebar-control.html) - football teams in a side bar
