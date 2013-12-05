@@ -22,13 +22,17 @@
 </head>
 <body>
 	<h1>Loading a KML File (Cross Domain)</h1>
-	<p>This example retrieves a KML file from another domain  using AJAX, and then
-	parses the file using the KML parser.</p>
+	<p>
+    This example retrieves a KML file from another domain using AJAX, and then
+	  parses the file using the KML parser. Note that the server must support
+    Cross-origin resource sharing (<a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" title="click to go to wikipedia">CORS</a>)
+    and therefore must be set up to send the appropriate headers.
+  </p>
 	<p>The KML file is located at:
 		<a href="http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml">
 		http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml</a>
 	</p>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
 <script id="example-code" data-categories="kml" type="text/javascript" >
 //<![CDATA[
 function afterHereMapLoad(map){
