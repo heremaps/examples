@@ -18,43 +18,68 @@
     	data-libs="kml-generator" 
     	data-parent="demos/generate-kml/">
     </script>
-    <link href='./css/prism.css' rel='stylesheet'>
-	<script type='text/javascript' src='libs/prism.js' ></script>
+    <link href='../css/prism.css' rel='stylesheet'>
+	<script type='text/javascript' src='../libs/prism.js' ></script>
     <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+    <style type="text/css">
+    	h2 {
+    		height: 2.0em; font-size: 2em; color: blue;
+    	}
+    	label {
+    		display: block;
+    		margin: 2px 0;
+    	}
+    	#mapContainer {
+    		width: 540px;
+    		height: 334px;
+    	}
+    	#kmlData{
+    		position:absolute;
+    		width: 540px;
+    		top: 30px;
+    		left: 600px;
+    		color: rgb(102, 102, 102);
+    		background-color: #f5f2f0;
+    	}
+    	.formContainer {
+    		width: 500px;
+    		line-height: 1.5em;
+    	}
+    	.underline {
+    		text-decoration: underline;
+    	}
+    </style>
 </head>
 <body>
 	<h1>KML Placemark Generator</h1>
-<div style="width:500px;margin:1em" >
+<div class="formContainer">
 	<p>This example is able to covert an arbitrary file format to KML.  Three sample files are provided:</p>
 <ul>
 <li>
 		<strong>Proprietary format</strong> of  data from the <a href="http://www.rightmove.co.uk/ps/pdf/guides/V3TestFile.blm"> Right Move Estate Agent</a>
 		 website.<br/>
-		 It uses these <span id="rightMoveSetUp" style="text-decoration:underline" >Settings</span>	.
-		 The result can be seen in the  <a href="./load-kml-estate-agents.html">Estate Agents Example</a>
+		 It uses these <span id="rightMoveSetUp" class="underline">Settings</span>.
+		 The result can be seen in the <a href="./load-kml-estate-agents.html">Estate Agents Example</a>
 </li>
 <li>
-		A <strong>tab delimited text file</strong> of  <a href="./data/chinese-cities.csv">Chinese Cities</a><br/>
-		It uses these <span id="chinaSetUp" style="text-decoration:underline" >Format settings</span>.
+		A <strong>tab delimited text file</strong> of <a href="./data/chinese-cities.csv">Chinese Cities</a><br/>
+		It uses these <span id="chinaSetUp" class="underline">Format settings</span>.
 		The result can be seen here: <a href="./load-kml-cities-in-china.html">Chinese Cities</a>
 </li>
 <li>
-	An <strong>HTML table</strong> showing <a href="./data/Largest_cities_of_Finland.html">Population of Cities in Finland</a>
-	 from Wikipedia uses this <span id="finlandSetUp" style="text-decoration:underline" >format</span>.
-	 The result can be seen here:  <a href="./load-kml-cities-in-finland.html">Cities in Finland</a>
+	An <strong>HTML table</strong> from Wikipedia showing the <a href="./data/Largest_cities_of_Finland.html">Population of Cities in Finland</a>
+	uses this <span id="finlandSetUp" class="underline">format</span>.
+	The result can be seen here: <a href="./load-kml-cities-in-finland.html">Cities in Finland</a>
 </li>
 </ul>
 
-
-<br />
-	<div style="height: 2.0em; font-size: 2em; color: blue;">1. Load Data</div>
+	<h2>1. Load Data</h2>
 	<label for="dataInput">Data Input:</label><br /><textarea id="dataInput" rows="10" cols="70" ></textarea>
 		<br />
 	<hr/>
 
 <br />
-	<div style="height: 2.0em; font-size: 2em; color: blue;">2. Define Format</div>
+	<h2>2. Define Format</h2>
 	<hr/>
 		<label for="headerStart">Start of Header Indicator</label>
 		<input id="headerStart" type="text" value="" />
@@ -73,22 +98,22 @@
 		<label for="nameFields">Name Fields:</label> <input id="nameFields" type="text" size="100" value= "" /><br />
 		<hr />
 		<label for="addressAttempt1">Address Attempts:</label><br />
-		1:<input id="addressAttempt1" type="text" size="100" value="" /><br />
-		2:<input id="addressAttempt2" type="text" size="100" value="" /><br />
-		3:<input id="addressAttempt3" type="text" size="100" value="" /><br />
-		4:<input id="addressAttempt4" type="text" size="100" value="" /><br />
+		<ol>
+			<li><input id="addressAttempt1" type="text" size="100" value="" /></li>
+			<li><input id="addressAttempt2" type="text" size="100" value="" /></li>
+			<li><input id="addressAttempt3" type="text" size="100" value="" /></li>
+			<li><input id="addressAttempt4" type="text" size="100" value="" /></li>
+		</ol>
 		Alternatively: <label for="rGeoAttemptLng">Latitiude/Longitude (if known):</label><br />
 		<input id="rGeoAttemptLat" type="text" size="10" value="" />
 		<input id="rGeoAttemptLng" type="text" size="10" value="" /><br />
-	<div style="height: 2.0em; font-size: 2em; color: blue;">3. Run Geocoder:
-		<input id="geocodeData" type="button" value="Generate KML"  />
-	</div>
+		<h2>3. Run Geocoder: <input id="geocodeData" type="button" value="Generate KML"  /></h2>
 </div>
-	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="kmlData" style="position:absolute; width:540px; top:30px; left:600px; color: rgb(102, 102, 102); background-color: #f5f2f0;"></div>
-
-    <div id="src"><br/><p>Code:</p></div>
+	<h3 id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></h3>
+  <div id="mapContainer"></div>
+  <div id="kmlData"></div>
+  <div id="src"><br/><p>Code:</p></div>
+  
 <script id="example-code" data-categories="kml" type="text/javascript" >
 //<![CDATA[
 
