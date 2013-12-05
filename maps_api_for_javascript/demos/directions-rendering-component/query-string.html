@@ -13,13 +13,13 @@
 	<script	type="text/javascript" src="../libs/hereAsyncLoader.js"
 		id="HereMapsLoaderScript" /*This identifies	the	Loader Script */
 		data-map-container="mapContainer"  /*This is the name of DOM element that holds	the	map	*/
-		data-params="maps,directions,places" 
+		data-params="maps,directions,places"
 		data-callback="afterHereMapLoad" /*This	is the name	of the callback	method */
 		data-libs="directions-renderer"
 		data-parent="demos/directions-rendering-component/">
 	</script>
 	<link rel="icon" href="http://here.com/favicon.ico">
-	<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+	<!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 	<link href="css/routing.css" rel="stylesheet"/>
 </head>
 <body>
@@ -37,27 +37,32 @@
 
 			<ul>
 				<li>
-					<a href="query-string.html?addr1=Avenida	Dona Ana Costa Santos Brazil&amp;addr2=Avenida Paulista	S%C3%A3o Paulo Brazil">
-					Street Level Routing</a> - Avenida Dona	Ana	Costa, Santos to Avenida Paulista, São Paulo
+					<a href="query-string.html?addr1=Avenida	Dona Ana Costa Santos Brazil&amp;addr2=Avenida Paulista	S%C3%A3o Paulo Brazil">Street Level Routing</a>
+					- Avenida Dona	Ana	Costa, Santos to Avenida Paulista, S&atilde;o Paulo
 				</li>
-				<li><a href="query-string.html?addr1=Sacramento California&amp;addr2=San	Francisco California">
-					City and State Routing.</a>	- Sacramento, CA to	San	Francisco, CA
+				<li>
+					<a href="query-string.html?addr1=Sacramento California&amp;addr2=San	Francisco California">City and State Routing.</a>
+					- Sacramento, CA to	San	Francisco, CA
 				</li>
-				<li><a href="query-string.html?addr1=Madrid,Spain&amp;addr2=Marsella,France&amp;ml=es">City to City Routing</a>
-					 - Madrid to Marseilles
+				<li>
+					<a href="query-string.html?addr1=Madrid,Spain&amp;addr2=Marsella,France&amp;ml=es">City to City Routing</a>
+					- Madrid to Marseilles
 				</li>
-				<li><a href="query-string.html?addr1=%E5%8C%97%E4%BA%AC&amp;addr2=%E4%B8%8A%E6%B5%B7">
-					City to	City Routing.</a> -	  北京 (Beijing) to 上海 (Shanghai)
+				<li>
+					<a href="query-string.html?addr1=%E5%8C%97%E4%BA%AC&amp;addr2=%E4%B8%8A%E6%B5%B7">City to  City Routing.</a>
+					- &#21271;&#20140; (Beijing) to &#19978;&#28023; (Shanghai)
 				</li>
-				<li><a href="query-string.html?addr1=Scotland Yard,London,UK&amp;addr2=221b	Baker Street,London,UK&amp;addr3=Bow+Street,WC2,London,UK&amp;sb=m">
-						Routing with intermediate waypoints</a>	- Scotland Yard	to Bow Street via 221b Baker Street	(distances in miles)
+				<li>
+					<a href="query-string.html?addr1=Scotland Yard,London,UK&amp;addr2=221b	Baker Street,London,UK&amp;addr3=Bow+Street,WC2,London,UK&amp;sb=m">Routing with intermediate waypoints</a>
+					- Scotland Yard	to Bow Street via 221b Baker Street	(distances in miles)
 				</li>
-				<li><a href="query-string.html?lat1=-33.859972&amp;long1=151.212111&amp;lat2=-33.859972&amp;long2=151.211111&amp;lat3=-33.859972&amp;long3=151.19">
-					Routing via geocoordinates</a> - around	Sydney harbour.
+				<li>
+					<a href="query-string.html?lat1=-33.859972&amp;long1=151.212111&amp;lat2=-33.859972&amp;long2=151.211111&amp;lat3=-33.859972&amp;long3=151.19">Routing via geocoordinates</a>
+					- around Sydney harbour.
 				</li>
 			</ul>
 		</div>
-	
+
 	<div id="src" style="clear:both;width:100%" ><br/>
 			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
 			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
@@ -190,8 +195,8 @@ function findWaypoints(){
 		var i = addresses.length;
 		while(i--) {
 			nokia.places.search.manager.geoCode({
-				searchTerm :addresses[i],
-					onComplete:	 new searchManager(i).onSearchComplete
+				searchTerm: addresses[i],
+					onComplete: new searchManager(i).onSearchComplete
 			});
 		}
 	} else if (geoCodedWaypoints.length	> 1){
