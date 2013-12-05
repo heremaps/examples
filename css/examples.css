@@ -1,0 +1,192 @@
+#wrap {
+  min-height: 100%;
+}
+.accordion-body {
+  padding-left: 8px;
+}
+.link-selected a {
+  font-weight: bold;
+}
+.link-selected i {
+  color: #00c9ff !important;
+}
+.arrow-menu-icon {
+  vertical-align: top !important;
+  display: inline-block !important;
+}
+.menu-entry {
+  display: inline-block;
+  margin-left: 3%;
+  width: 92%;
+}
+.iframelink:hover {
+  cursor: pointer;
+}
+#text
+{
+	overflow: auto;
+	width: 103.5%;
+}
+.accordion-inner {
+  padding: 1px;
+  border-top: 0px solid #e5e5e5;
+}
+.current_heading{
+		background-color: #CCCCCC !important;
+	}
+#main {
+  overflow: auto;
+  padding-bottom: 50px;
+  /*this needs to be bigger than footer height*/
+
+}
+.accordion-heading
+{
+	padding: 0.2em;
+}
+.accordion-heading a
+{
+	color: #0088cc !important;
+}
+#sidemenu
+{
+	margin-top: 10px;
+}
+
+.tester {
+  color: red;
+}
+.icon-git-example {
+  color: #efefef;
+  float: right;
+}
+.breadcrumb > li {
+  text-shadow: none !important;
+}
+.tinymargin-left {
+  margin-left: 1% !important;
+}
+.tinymargin-top {
+  margin-top: 1% !important;
+}
+.arrow-menu-icon.icon-angle-right
+{
+	color: #CECBCB;
+}
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 0px 15px !important;
+}
+a:hover {
+  color: inherit;
+}
+.wordwrap {
+  /* CSS3 */
+  white-space: -moz-pre-wrap;
+  /* Firefox */
+  white-space: -pre-wrap;
+  /* Opera <7 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* IE */
+
+}
+:focus {
+  outline: none !important;
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin-top: -40px;
+  /* negative value of footer height */
+  color: white;
+}
+.content ul li {
+  padding: 1.5%;
+}
+.input-append button.add-on {
+  height: inherit !important;
+}
+/** initial setup **/
+
+.nano {
+  margin-top: 1%;
+  position: relative;
+  width: 100%;
+  /*height: 99%;*/
+
+}
+.nano .content {
+  position: absolute;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.nano .content:focus {
+  outline: thin dotted;
+}
+.nano .content::-webkit-scrollbar {
+  visibility: hidden;
+}
+.has-scrollbar .content::-webkit-scrollbar {
+  visibility: visible;
+}
+.nano .pane {
+  background: #888888;
+}
+.nano .slider {
+  background: #111111;
+}
+#gitcontrols li {
+  padding: 0;
+  padding-top: .4em;
+}
+.nano > .pane {
+  background: rgba(0, 0, 0, 0.05);
+  position: absolute;
+  width: 1.5px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden\9;
+  /* Target only IE7 and IE8 with this hack */
+  opacity: .01;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.nano > .pane > .slider {
+  background: #444444;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin: 0 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 1.2px;
+}
+.nano:hover > .pane,
+.pane.active,
+.pane.flashed {
+  visibility: visible\9;
+  /* Target only IE7 and IE8 with this hack */
+  opacity: 0.99;
+}
+#src {
+  position: relative;
+  width: 48% !important;
+  display: inline-block;
+  vertical-align: top;
+}
+#header_HERE a:hover {
+  color: #00c9ff;
+}

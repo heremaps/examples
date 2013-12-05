@@ -1,0 +1,66 @@
+@font-face {
+	font-family: herefont_bold;
+	src: url('../libs/fonts/heremaps/NokiaPureText_Bd.ttf'); /* IE9 */
+}
+@font-face {
+	font-family: herefont;
+	src: url('../libs/fonts/heremaps/NokiaPureSymbols.ttf'); /* IE9 */
+}
+@font-face {
+	font-family: herefont_light;
+	src: url('../libs/fonts/heremaps/NokiaPureText_Lt.ttf'); /* IE9 */
+}
+@font-face {
+	font-family: herefont_regular;
+	src: url('../libs/fonts/heremaps/NokiaPureText_Rg.ttf'); /* IE9 */
+}
+body {
+	font: 90.5%/1.1em herefont_light !important;
+	font-size: 14pt !important;
+	background: rgba(250, 250, 250, 0.75) !important;
+}
+#kmlData
+{
+	width: 800px;
+}
+code
+{
+	word-break: break-word;
+	font-size: 10pt;
+	
+}
+.smallmap #mapContainer {
+	display: block;
+}
+.other #mapContainer {
+	width: 98% !important;
+	display: block;
+}
+.loader
+{
+	width:100% !important;
+}
+#regram, #reflickr
+{
+	margin-bottom: -7px;
+}
+
+#icontainer {
+	margin: 0;
+	padding: 0;
+	margin-top: -2em;
+}
+body h4
+{
+	margin-top:0;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.lightblue {
+	color: #00C9FF;
+	text-decoration: none;
+}
+.lightblue:hover
+{
+	color: #005580;
+}

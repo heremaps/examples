@@ -1,0 +1,40 @@
+                                            ==Release notes_NokiaPure Text==
+
+Compiler of release notes: Dalton Maag
+Designer: Dalton Maag
+Designer URL: daltonmaag.com
+
+Date of creation: 2012-09-21
+
+Changes since previous release:
+- Additional glyphs added to support Yoruba and Lingala.
+- Hinting updated for Ethiopic (Light) and Vietnamese.
+- uni02CA uni02CB added (Bug 18)
+
+Basic information
+1 Basic Family name: Nokia Pure Text
+2 TrueType Version record: 1.400
+3 Regional package: Default (previously referred to as European package)
+4 Supported scripts: Latin, Greek, Cyrillic, Armenian, Georgian, Ethiopic
+5 Number of glyphs: 1859
+6 Weights/Styles: Light, Regular, Medium and Bold.  *Important*  The Medium weight is a copy of the Bold, renamed so that it's part of the Light family. The Medium is the Bold of the Light.
+7 Usage: UI and Text
+
+
+Technology
+1 File formats: The files have been delivered in the TrueType-based OpenType format.
+2 Embedding settings: Everything is allowed.
+3 Hinting information: All glyphs are manually hinted.
+4 Default numerals: Tabular numerals as default.
+
+
+Other information 
+1 This version replaces Nokia Pure Text V1.300
+ 
+Please report any technical errors here http://font.nokia.com/bugzilla3/
+
+
+
+
+
+

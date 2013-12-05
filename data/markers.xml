@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+ 
+<markers>
+	<marker>
+		<name>M1</name>
+		<address>ADDRESS 1</address>
+		<lat>52.516617</lat>
+		<lng>13.377675</lng>
+	</marker>
+	<marker>
+		<name>M2</name>
+		<address>ADDRESS 2</address>
+		<lat>52.525286</lat>
+		<lng>13.369499</lng>
+	</marker>
+	<marker>
+		<name>M3</name>
+		<address>ADDRESS 3</address>
+		<lat>52.518506</lat>
+		<lng>13.375082</lng>
+	</marker>
+	<marker>
+		<name>M4</name>
+		<address>ADDRESS 4</address>
+		<lat>52.52446</lat>
+		<lng>13.381562</lng>
+	</marker>
+	<marker>
+		<name>M5</name>
+		<address>ADDRESS 5</address>
+		<lat>52.523572</lat>
+		<lng>13.378451</lng>
+	</marker>
+	<marker>
+		<name>M6</name>
+		<address>ADDRESS 6</address>
+		<lat>52.530386</lat>
+		<lng>13.385189</lng>
+	</marker>
+	<marker>
+		<name>M7</name>
+		<address>ADDRESS 7</address>
+		<lat>52.518545</lat>
+		<lng>13.363709</lng>
+	</marker>
+	<marker>
+		<name>M8</name>
+		<address>ADDRESS 8</address>
+		<lat>52.515738</lat>
+		<lng>13.378515</lng>
+	</marker>
+</markers>

@@ -1,0 +1,312 @@
+#header_HERE {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+#body_HERE {
+	padding-top: 56px;
+}
+#examples-page
+{
+	background: rgba(250, 250, 250, 0.75);
+}
+.va_top
+{
+	vertical-align: top;
+}
+
+.linkfooter
+{
+	border-top:1px solid #E7E6E6;
+}
+.inline-block
+{
+	display: inline-block;
+}
+
+html {
+	overflow-y: hidden;
+}
+
+.noborder {
+	border: none !important;
+}
+.mid {
+	text-align: center;
+	vertical-align: middle;
+}
+.fixed {
+
+	position: fixed;
+	top: -5px;
+	left: 0;
+	width: 14%;
+}
+.default {
+
+	height: 100%;
+}
+.caption a:hover {
+	color: white;
+}
+.caption:hover {
+	background: rgba(0, 15, 26, 1);
+}
+.blueHEREbackground {
+	background-color: #124191;
+}
+
+.translucentHEREbackground {
+	background-color: rgba(0,15,26,0.85);
+}
+
+.greyHEREbackground {
+	background-color: #43525b;
+}
+.lightgreyHEREbackground {
+	background-color: #efefef;
+}
+.lightblueHEREbackground {
+	background-color: #00C9FF;
+}
+
+.link a:hover {
+	color: #00C9FF;
+}
+
+.link a {
+	color: white;
+}
+
+
+.lightblue {
+	color: #00C9FF;
+}
+
+.darkblue {
+	color: #124191;
+}
+#pointer
+{
+	position: fixed; bottom: 40px; left:50%;z-index: 3; width: 150px; height: 50px; 
+}
+@font-face {
+	font-family: herefont_bold;
+	src: url('../libs/fonts/heremaps/NokiaPureText_Bd.ttf'); /* IE9 */
+}
+@font-face {
+	font-family: herefont;
+	src: url('../libs/fonts/heremaps/NokiaPureSymbols.ttf'); /* IE9 */
+}
+@font-face {
+	font-family: herefont_light;
+	src: url('../libs/fonts/heremaps/NokiaPureText_Lt.ttf'); /* IE9 */
+}
+@font-face {
+	font-family: herefont_regular;
+	src: url('../libs/fonts/heremaps/NokiaPureText_Rg.ttf'); /* IE9 */
+}
+
+.inline li {
+	margin: 0px 30px 0px 30px;;
+}
+
+a:hover, a:focus {
+	color: #005580;
+	text-decoration: none;
+}
+
+.masthead1 {
+
+	background: url('../img/mapview_dubai.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead2 {
+
+	background: url('../img/mapview_gibraltar.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead3 {
+
+	background: url('../img/mapview_monaco.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead4 {
+
+	background: url('../img/hk.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead5 {
+
+	background: url('../img/vatican.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead6 {
+
+	background: url('../img/mecca.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead7 {
+
+	background: url('../img/bondi.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead8 {
+
+	background: url('../img/montjuic.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead9 {
+
+	background: url('../img/la.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead10 {
+
+	background: url('../img/montblanc.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.masthead11 {
+
+	background: url('../img/nokia.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: #cccccc;
+	overflow-x: hidden;
+	z-index: 0;
+}
+.center {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+footer div
+{
+	background-color: #f5f6f6;
+}
+html, body {
+	position: absolute;
+	overflow: auto;
+	width: 100%;
+	line-height: 25px;
+	/*overflow-x: hidden;
+	 position: absolute;
+	 top:0;
+	 bottom: 0;
+	 overflow: auto;
+	 /*background-image: url("http://subtlepatterns.com/patterns/pixel_weave.png");*/
+
+	}
+	.caption {
+		box-sizing: border-box;
+		background: #000f1a;
+		background: rgba(0, 15, 26, 0.85);
+		padding: 1em 1.5em;
+	}
+	#header_HERE a:hover
+	{
+		color: white;
+	}
+	#header_HERE a
+	{
+		color: #00C9FF;
+	}
+	.clicked
+	{
+		color: white;
+	}
+
+	.overflow {
+		overflow: auto;
+	}
+	.nooverflow {
+		overflow: auto;
+	}
+
+	.lightblueHEREbackground:hover
+	{
+		background-color:#00b2e5;
+	}
+
+	.logo {
+		float: left;
+		display: block;
+		height: 80px;
+		width: 86px;
+		background: white url('../img/herelogo.png') 16px 20px no-repeat;
+		color: #fff;
+		position: relative;
+		text-indent: -9000em;
+		z-index: 4;
+	}
+	#head
+	{
+
+		position: fixed;
+		top:0;
+		left:0;
+	}
+

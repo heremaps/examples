@@ -1,0 +1,112 @@
+div.media.span6 {
+	margin-top: 0px;
+}
+.section_header
+{
+	text-align: center;
+}
+.section {
+	padding-top: 0;
+	color: black;
+	overflow: hidden;
+}
+.signup-btn {
+	color: #fff;
+	font-size: 16px;
+	padding: 1px 13px 4px;
+	text-decoration: none;
+	
+	border-radius: 0;
+	
+}
+.main_section
+{
+	padding-top: 70px;
+}
+#pointer
+{
+	position: fixed; bottom: 40px; left:50%;z-index: 3; width: 150px; height: 50px; 
+}
+.media:hover
+{
+	border-radius:0;
+	background-color: rgba(239, 239, 239, 0.19);
+}
+.media:hover img
+{
+	border: 3px outset #00C9FF;
+}
+.media img
+{
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	display: inline-block;
+}
+
+.highlights td
+{
+	width: 50%;
+	border: none;
+}
+.highlights
+{
+	margin-top: 35px;
+}
+#pointer
+{
+	cursor: pointer;
+}
+
+.footer {
+	position: fixed;
+	margin-top: -50px; /* negative value of footer height */
+	width: 100%;
+	clear: both;
+	bottom: 0;
+	left: 0;
+	padding-top: 20px;
+}
+
+.media-body
+{
+	color: #3D3D3D;
+}
+.wrap {
+	min-height: 100%;
+}
+.circleborder_light {
+
+	
+	border: 3px inset #00C9FF;
+	
+}
+
+.circleborder_dark {
+
+	border: 3px solid #124191;
+
+}
+.circleborder_grey {
+
+	border: 1px solid #3D3D3D;
+
+}
+
+.darkgrey
+{
+	color: #3D3D3D;
+}
+
+#main {
+	/* this needs to be bigger than footer height*/
+}
+.exdesc {
+	display: block;
+	position: relative;
+	top: -22px;
+}
+.exdesc:hover {
+	background-color: rgba(0,0,1,0.5);
+	color: white;
+}

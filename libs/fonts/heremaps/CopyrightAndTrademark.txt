@@ -1,0 +1,6 @@
+Copyright © 2011 Nokia. All rights reserved.  
+Reproduction, transfer, distribution or storage of part or all of the contents in this document in any 
+form without the prior written permission of Nokia is prohibited.
+
+Nokia and Nokia Connecting People are trademarks or registered trademarks of Nokia Corporation. 
+Other product and company names mentioned herein may be trademarks or tradenames of their respective owners
