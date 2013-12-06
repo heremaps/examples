@@ -317,7 +317,6 @@ $(document).ready(function() {
 
 	setHeightScroll();
 	testGit();
-	
 
 });
 var newHead = '<head>' + '<link href="css/iframe.css" rel="stylesheet"><link href="libs/fonts/others/font-awesome/css/font-awesome.css" rel="stylesheet">' + getScriptInclude("libs/jquery/jquery.js") + getScriptInclude("libs/github-examples-script/hereAppIdAndToken.js");
@@ -325,19 +324,15 @@ var newHead = '<head>' + '<link href="css/iframe.css" rel="stylesheet"><link hre
 function redoBoilerPlate(contents,type,folder) {
 
 	var new_url= repo.raw_url+type+'/';
-	contents= replaceAll("<body",'<body class="other"', contents);
+	if(contents.indexOf('<body class="small-map"')== -1)
+	{
+		contents= replaceAll("<body",'<body class="big-map"', contents);
+	}
 	if(type=='demos')
 	{
 		new_url+=folder+'/';
-		if(folder.indexOf('directions')!== -1 || folder.indexOf('sidebar')!== -1)
-		{
-			contents= replaceAll('class="other"','class="smallmap"', contents);
-		}
 	}
-	
-
 	contents = removeFromContent('jQl.min.js', contents,type);
-
 	contents = removeFromContent('prettyprint.js', contents,type);
 	contents = removeFromContent('hereAppIdAndToken.js', contents,type);
 	contents = removeFromContent('prism.js', contents,type);
@@ -373,9 +368,7 @@ function redoBoilerPlate(contents,type,folder) {
 	//contents = replaceAll('src="data/', 'src="http://rawgithub.com/'+repo.user+'/'+repo.repo_id+'/master/'+repo.folder+'/+type+/data/', contents);
 	contents = replaceAll('<head>', newHead, contents);
 	contents = replaceAll('</body>', getScriptInclude("libs/github-examples-script/prettyprint.js") + '</body>', contents);
-
 	//  contents = replaceAll('./data/', 'https://raw.github.com/heremaps/examples/master/maps_js/data/', contents);
-	
 	return contents;
 }
 

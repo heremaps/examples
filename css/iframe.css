@@ -27,12 +27,11 @@ code
 {
 	word-break: break-word;
 	font-size: 10pt;
-	
 }
-.smallmap #mapContainer {
+.small-map #mapContainer {
 	display: block;
 }
-.other #mapContainer {
+.big-map #mapContainer {
 	width: 98% !important;
 	display: block;
 }
