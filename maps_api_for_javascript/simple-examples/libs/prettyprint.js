@@ -43,27 +43,28 @@
 		baseNS = null,
 		mapsNS = null;
 		
-	var functions = $('meta[name=keywords]').attr("content");
-	if ( $("#src").length == 0 ) {
-		$('body').append('<div id="src"><br/><p>Code:</p></div>');
-	}
-	functionsArr = functions.split(',');
-	$.each(functionsArr , function(index, value) {
-		var functionToDisplay = exports[value];	
-		if (functionToDisplay !== undefined){
-			var text = functionToDisplay.toString();
-			var textNode = ctx.createTextNode(text);
-			var preNode = $("<pre></pre>");
-			var spanNode =  $("<span></span>"); 
-			var codeNode =  $("<code class='prettyprint language-javascript'></code>");
-			
-			codeNode.append(textNode);
-			spanNode.append(codeNode);
-			preNode.append (spanNode)
-			$('#src').append(preNode)
+		var functions = $('meta[name=keywords]').attr("content");
+		if ( $("#src").length == 0 ) {
+			$('body').append('<div id="src"><br/><p>Code:</p></div>');
 		}
-    	
-	});
-	Prism.highlightAll();
+		functionsArr = functions.split(',');
+		$.each(functionsArr , function(index, value) {
+			var functionToDisplay = exports[value];	
+			if (functionToDisplay !== undefined){
+				var text = functionToDisplay.toString();
+				var textNode = ctx.createTextNode(text);
+				var preNode = $("<pre></pre>");
+				var spanNode =  $("<span></span>"); 
+				var codeNode =  $("<code class='prettyprint language-javascript'></code>");
+				
+				codeNode.append(textNode);
+				spanNode.append(codeNode);
+				preNode.append (spanNode)
+				$('#src').append(preNode)
+			}
+		});
+		try{
+			Prism.highlightAll();
+		} catch(e){}
 	}));
 })(window, document);
