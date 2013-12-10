@@ -35,12 +35,20 @@ RestrictMap.prototype.init = function (minZoom, maxZoom, boundingBox) {
 				evt.cancel();
 			}
 		}
-		this.restrictZoom = function(obj, key, newValue, oldValue) {
-			if (newValue < that.minZoom){
-	 	 		that.__map.set("zoomLevel", that.minZoom);
+		this.baseMapTypeObserver = function (obj, key, newValue, oldValue) {
+			if (oldValue){
+				oldValue.min = that.unrestrictedMin;
+				oldValue.max = that.unrestrictedMax;
 			}
-			if (newValue > that.maxZoom){
-				 that.__map.set("zoomLevel", that.maxZoom);
+			if (newValue){
+				that.unrestrictedMin = newValue.min;
+				that.unrestrictedMax = newValue.max;
+				if( that.minZoom){
+					newValue.min = that.minZoom;
+				}
+				if( that.maxZoom){
+					newValue.max = that.maxZoom;
+				}
 			}
 		}
 	}
@@ -52,13 +60,16 @@ RestrictMap.prototype.attach = function (map) {
 	this.__map = map;
 	map.addListener("dragend", this.eventHandlers.restrictCenter);
 	map.addListener("mapviewchangeend", this.eventHandlers.restrictCenter);
-	map.addObserver("zoomLevel",  this.eventHandlers.restrictZoom);
+	map.addObserver("baseMapType", this.eventHandlers.baseMapTypeObserver);
+	this.eventHandlers.baseMapTypeObserver(map, "baseMapType", map.get("baseMapType"), null);
+
 };
 
 RestrictMap.prototype.detach = function(map){
 	map.removeListener("dragend",  this.eventHandlers.restrictCenter);
 	map.removeListener("mapviewchangeend",  this.eventHandlers.restrictCenter);
-	map.removeObserver("zoomLevel",  this.eventHandlers.restrictZoom);
+	this.eventHandlers.baseMapTypeObserver(map, "baseMapType", null, map.get("baseMapType"));
+	map.removeObserver("baseMapType", this.eventHandlers.baseMapTypeObserver);
 	this.__map = null;
 	
 };
