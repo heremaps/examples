@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="concurrentSearch,onSearchComplete,onAllManagersFinished" />
+    <meta name="keywords" content="makeRequests,onSearchComplete,onAllManagersFinished" />
     <title>HERE Maps API Example: Performing multiple concurrent search requests</title>
     <!-- Set up constants such as APP ID and token -->
     <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
@@ -20,8 +20,8 @@
     <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>Concurrent Search Requests</h1>
-	<p>This example makes twenty concurrent search requests to identify a series of cities from around the world,
+	<h1>Servicing Multiple Search Requests</h1>
+	<p>This example makes a series of twenty search requests to identify a series of cities from around the world,
 		and displays markers on the map showing their locations. The search terms are: Helsinki, Finland; Zaragoza, Spain;
 		Berlin, Germany; Colorado Springs, USA; Houston, TX; London, UK; Vancouver, Canada;
 		Hyderabad, India; Beijing, China and Ilomantsi, Finland;</p>
@@ -29,15 +29,10 @@
     <div id="src"><br/><p>Code:</p></div>
 <script id="example-code" data-categories="search" type="text/javascript" >
 //<![CDATA[
-var addressContainer;
-var managersFinished;
-var addresses;
-
-function afterHereMapLoad (map){
-	this.map = map;
-	concurrentSearch(map);
-}
-
+var addressContainer,
+	managersFinished,
+	addresses,
+	map;
 
 // this function will be used when all managers have returned
 function onAllManagersFinished () {
@@ -47,7 +42,7 @@ function onAllManagersFinished () {
 	// if the bounding box is null then there are no objects inside
 	// meaning no markers have been added to it
 
-	if (bbox != null) {
+	if (bbox) {
 			// we have at least one address mapped
 			// so we add the container and zoomTo it
 			map.objects.add(addressContainer);
@@ -59,7 +54,7 @@ function onAllManagersFinished () {
 };
 // we will use the same state observer function for all managers
 
-function onSearchComplete  (data, requestStatus) {
+function onSearchComplete (data, requestStatus) {
 	if (requestStatus == "OK") {
 		// if we are finished, we add a marker for the mapped position
 		addressContainer.objects.add(
@@ -77,22 +72,20 @@ function onSearchComplete  (data, requestStatus) {
 	}
 };
 
-
-
-
-function concurrentSearch (map){
-	// we will put our address markers into this container
+function makeRequests (map){
+	// We will put our address markers into this container
 	addressContainer = new nokia.maps.map.Container();
 	managersFinished = 0;
 
-	//Addresses to be displayed
+	// Addresses to be displayed
 	addresses = ["Helsinki, Finland", "Zaragoza, Spain", "Berlin, Germany",
 		"Colorado Springs, USA", "Houston, TX", "London, UK", "Vancouver, Canada",
 		"Hyderabad, India", "Beijing, China", "Ilomantsi, Finland" ];
 	var  i = addresses.length;
 
-	// iterate over all addresses, create a manager for each of them,
-	// add the observer and call the geocode method
+	// Iterate over all addresses, fire the search manager for each of them,
+	// add the observer and call the geocode method. Since the calls are asynchronous,
+	// the order of the responses cannot be guaranteed.
 
 	while(i--) {
 		nokia.places.search.manager.geoCode({
@@ -100,6 +93,11 @@ function concurrentSearch (map){
 			onComplete:  onSearchComplete
 		});
 	}
+}
+
+function afterHereMapLoad (theMap){
+	map = theMap;
+	makeRequests(map);
 }
 //]]>
 </script>
