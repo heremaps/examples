@@ -1,47 +1,49 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="createOListAndAddItems" />
-    <title>HERE Maps API Example: Introduction to OLists</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="createOListAndAddItems" />
+  <title>HERE Maps API Example: Introduction to OLists</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
 
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-map-container="mapContainer"
-    	data-params="maps"
-    	data-callback="createOListAndAddItems"  >
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="createOListAndAddItems" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>Introduction to OLists</h1>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
+  <h1>Introduction to OLists</h1>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <div id="src"><br/><p>Code:</p></div>
 <script id="example-code" data-categories="olist,events" type="text/javascript" >
 //<![CDATA[
-function createOListAndAddItems (map){
-	list = new nokia.maps.util.OList();
+var list;
 
-	list.add([53.1]);
-	list.add([13.1]);
-	list.add([23.1]);
+function createOListAndAddItems() {
+  list = new nokia.maps.util.OList();
 
-	alert("Length of the list: " + list.getLength());
-	list.addObserver (
-		function(){
-			alert("List was modified!");
-			alert("Length of the list: " + list.getLength());
-		}
-	);
+  list.add([53.1]);
+  list.add([13.1]);
+  list.add([23.1]);
 
-	list.add([53.1]);
+  alert("Length of the list: " + list.getLength());
+  list.addObserver(
+    function () {
+      alert("List was modified!");
+      alert("Length of the list: " + list.getLength());
+    }
+  );
+
+  list.add([53.1]);
 }
 //]]>
 </script>

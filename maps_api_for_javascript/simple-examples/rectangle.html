@@ -1,49 +1,51 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="addRectangleToMap" />
-    <title>HERE Maps API Example: Adding a Rectangle</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addRectangleToMap" />
+  <title>HERE Maps API Example: Adding a Rectangle</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
 
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-map-container="mapContainer"
-    	data-params="maps"
-    	data-callback="afterHereMapLoad"  >
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>Adding a rectangle to the map</h1>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
+  <h1>Adding a rectangle to the map</h1>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <div id="src"><br/><p>Code:</p></div>
 <script id="example-code" data-categories="geoshape" type="text/javascript" >
 //<![CDATA[
-function afterHereMapLoad(map){
- 	map.set("center", new nokia.maps.geo.Coordinate(53.1, 13.1));
- 	map.setZoomLevel(3);
- 	addRectangleToMap(map);
+function addRectangleToMap(map) {
+  var boundingBox = new nokia.maps.geo.BoundingBox(
+    [53.1, 13.1],
+    [43.1, 40.1]
+  );
+  map.objects.add(
+    new nokia.maps.map.Rectangle(boundingBox, {
+      precision: 36,
+      simplify: 16,
+      fillColor: 'FFFFCC',
+      color: 'E8FA75',
+      width: 8
+    })
+  );
 }
 
-function addRectangleToMap (map){
-	var boundingBox = new nokia.maps.geo.BoundingBox
-		 ([53.1, 13.1], [43.1, 40.1]);
-	map.objects.add(
-		new nokia.maps.map.Rectangle(boundingBox, {
-			precision: 36,
-			simplify: 16,
-			fillColor: "FFFFCC",
-			color: "E8FA75",
-			width: 8
-		})
-	);
+function afterHereMapLoad(map) {
+  map.set('center', new nokia.maps.geo.Coordinate(53.1, 13.1));
+  map.setZoomLevel(3);
+  addRectangleToMap(map);
 }
 //]]>
 </script>

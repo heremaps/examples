@@ -1,88 +1,95 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="loadCrossDomainKMLFile,onKMLParsed,onKMLFileLoaded,onKMLFileLoadError" />
-    <title>HERE Maps API Example: Loading a KML file</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="loadCrossDomainKMLFile,onKMLParsed,onKMLFileLoaded,onKMLFileLoadError" />
+  <title>HERE Maps API Example: Loading a KML file</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
 
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" 
-    	data-params="maps,datarendering" 
-    	data-map-container="mapContainer"
-    	data-callback="afterHereMapLoad"  >
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" 
+    data-params="maps,datarendering" 
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>Loading a KML File (Cross Domain)</h1>
-	<p>
-    This example retrieves a KML file from another domain using AJAX, and then
-	  parses the file using the KML parser. Note that the server must support
-    Cross-origin resource sharing (<a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" title="click to go to wikipedia">CORS</a>)
-    and therefore must be set up to send the appropriate headers.
+  <h1>Loading a KML File (Cross Domain)</h1>
+  <p>
+  This example retrieves a KML file from another domain using AJAX, and then
+   parses the file using the KML parser. Note that the server must support
+  Cross-origin resource sharing (<a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" title="click to go to wikipedia">CORS</a>)
+  and therefore must be set up to send the appropriate headers.
+ </p>
+  <p>The KML file is located at:
+    <a href="http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml">
+    http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml</a>
   </p>
-	<p>The KML file is located at:
-		<a href="http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml">
-		http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml</a>
-	</p>
-  <div id="mapContainer" style="width:540px; height:334px;"></div>
+ <div id="mapContainer" style="width:540px; height:334px;"></div>
 <script id="example-code" data-categories="kml" type="text/javascript" >
 //<![CDATA[
-function afterHereMapLoad(map){
-	this.map = map;
-	this.infoBubbles = new nokia.maps.map.component.InfoBubbles();
- 	map.components.add(infoBubbles);
-	loadCrossDomainKMLFile(map);
+var map,
+  infoBubbles,
+  container,
+  doc;
+
+
+function onKMLParsed(kmlManager) {
+  var resultSet;
+  // KML file was successfully loaded
+  if (kmlManager.state === 'finished') {
+    // KML file was successfully parsed
+    resultSet = new nokia.maps.kml.component.KMLResultSet(kmlManager.kmlDocument, map);
+    resultSet.addObserver('state', function (resultSet) {
+      if (resultSet.state === 'finished') {
+        // Retrieve map objects container from KML resultSet
+        container = resultSet.container;
+
+        // Add the container to the map's object collection so they will be rendered onto the map.
+        map.objects.add(container);
+
+        // Switch the viewport of the map do show all KML map objects within the container
+        map.zoomTo(container.getBoundingBox());
+      }
+    });
+    resultSet.create();
+  }
 }
 
-function loadCrossDomainKMLFile(map){
-	jQuery.support.cors = true;
-	$.ajax({
-		type: "GET",
-		url: "http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml" ,
-		dataType: "xml",
-		success: onKMLFileLoaded,
-		error : onKMLFileLoadError});
+function onKMLFileLoaded(xml) {
+  var kml = new nokia.maps.kml.Manager();
+  kml.addObserver('state', onKMLParsed);
+  doc = xml.getElementsByTagName('Document')[0];
+  kml.parse(doc);
 }
 
-function onKMLFileLoaded(xml)
-{
-	var kml = new nokia.maps.kml.Manager();
-	kml.addObserver("state", onKMLParsed);
-	doc =  xml.getElementsByTagName('Document')[0];
-	kml.parse( doc);
-}
-function onKMLFileLoadError (err){
-	alert("An Error has occurred.");
+function onKMLFileLoadError(err) {
+  alert('An Error has occurred.' + err);
 }
 
-function onKMLParsed(kmlManager){
-	var resultSet;
-	// KML file was successfully loaded
-	if (kmlManager.state == "finished") {
-		// KML file was successfully parsed
-		resultSet = new nokia.maps.kml.component.KMLResultSet(kmlManager.kmlDocument, map);
-		resultSet.addObserver("state", function (resultSet) {
-				if (resultSet.state == "finished") {
-						// Retrieve map objects container from KML resultSet
-						container = resultSet.container;
+function loadCrossDomainKMLFile() {
+  jQuery.support.cors = true;
+  $.ajax({
+    type: 'GET',
+    url: 'http://api.maps.nokia.com/en/playground/examples/maps/res/kml/berlin_airport/schoenefeld.kml',
+    dataType: 'xml',
+    success: onKMLFileLoaded,
+    error : onKMLFileLoadError
+  });
+}
 
-						// Add the container to the map's object collection so they will be rendered onto the map.
-						map.objects.add(container);
-
-						// Switch the viewport of the map do show all KML map objects within the container
-						map.zoomTo(container.getBoundingBox());
-				}
-		});
-		resultSet.create();
-	}
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  map.components.add(infoBubbles);
+  loadCrossDomainKMLFile();
 }
 //]]>
 </script>

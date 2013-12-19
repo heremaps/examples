@@ -1,61 +1,59 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="createGraphicsMarker" />
-    <title>HERE Maps API Example: Creating a Custom Graphics Marker</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-params="maps"
-    	data-map-container="mapContainer"
-    	data-callback="afterMapLoad"  >
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <meta charset='utf-8'/>
+  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
+  <meta name='keywords' content='createGraphicsMarker' />
+  <title>HERE Maps API Example: Creating a Custom Graphics Marker</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type='text/javascript' src='libs/hereAppIdAndToken.js'></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type='text/javascript' src='libs/jQl.min.js'></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type='text/javascript' src='libs/hereAsyncLoader.js'
+    id='HereMapsLoaderScript'
+    data-params='maps'
+    data-map-container='mapContainer'
+    data-callback='afterMapLoad' >
+  </script>
+  <link rel='icon' href='http://here.com/favicon.ico'/>
+  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
 </head>
 <body>
-	<h1>Creating a Custom Graphics Marker</h1>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-<script id="example-code" data-categories="marker" type="text/javascript" >
+  <h1>Creating a Custom Graphics Marker</h1>
+  <div id='mapContainer' style='width:540px; height:334px;'></div>
+<script id='example-code' data-categories='marker' type='text/javascript' >
 //<![CDATA[
-function afterMapLoad(map){
-	this.map = map;
-	map.set('zoomLevel', 10);
-    map.set('center', [19.119, 72.8957]);
-	createGraphicsMarker(map);
+function createGraphicsMarker(map) {
+  var graphicsContext = new nokia.maps.gfx.Graphics(),
+    my_fill_color = nokia.maps.gfx.Color.compress(255, 0, 0, 127),
+    myGfxMarker;
+
+  graphicsContext.beginImage(64, 64);
+  graphicsContext.set('fillColor', my_fill_color);
+  graphicsContext.set('strokeColor', '#000');
+  graphicsContext.set('lineWidth', 4);
+  graphicsContext.drawEllipse(1, 1, 48, 48);
+  graphicsContext.fill();
+  graphicsContext.stroke();
+
+  myGfxMarker = new nokia.maps.map.Marker(
+    {latitude: 19.119, longitude: 72.8957},
+    {icon: new nokia.maps.gfx.GraphicsImage(graphicsContext.getIDL()),
+      visibility: true,
+      anchor: new nokia.maps.util.Point(0, 0),
+      draggable: true}
+  );
+  map.objects.add(myGfxMarker);
 }
 
-function createGraphicsMarker(map){
-	var graphicsContext = new nokia.maps.gfx.Graphics();
-	graphicsContext.beginImage(64,64);
-
-	// Compress a semi-transparent red color
-
-	var my_fill_color = nokia.maps.gfx.Color.compress(255, 0, 0, 127);
-
-	graphicsContext.set("fillColor", my_fill_color);
-	graphicsContext.set("strokeColor", "#000");
-	graphicsContext.set("lineWidth", 4);
-	graphicsContext.drawEllipse(1, 1, 48, 48);
-	graphicsContext.fill();
-	graphicsContext.stroke();
-	var myGfxMarker = new nokia.maps.map.Marker(
-		{latitude:19.119, longitude:72.8957},
-		{icon: new nokia.maps.gfx.GraphicsImage(graphicsContext.getIDL()),
-			visibility: true,
-			anchor: new nokia.maps.util.Point(0,0),
-			draggable: true}
-	);
-	map.objects.add(myGfxMarker);
+function afterMapLoad(map) {
+  map.set('zoomLevel', 10);
+  map.set('center', [19.119, 72.8957]);
+  createGraphicsMarker(map);
 }
 //]]>
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"></script>
+<script type='text/javascript' src='libs/prettyprint.js'></script>
 </body>
 </html>

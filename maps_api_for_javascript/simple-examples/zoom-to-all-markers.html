@@ -1,45 +1,43 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="addMarkersAndZoomTo" />
-    <title>HERE Maps API Example: Zooming to all markers.</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addMarkersAndZoomTo" />
+  <title>HERE Maps API Example: Zooming to all markers.</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
 
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-map-container="mapContainer"
-    	data-params="maps"
-    	data-callback="addMarkersAndZoomTo">
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="addMarkersAndZoomTo">
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>Zooming to all markers </h1>
-	<p>Adds three markers and zooms the map to display them.</p>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <h1>Zooming to all markers </h1>
+  <p>Adds three markers and zooms the map to display them.</p>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
 <script id="example-code" data-categories="marker,map" type="text/javascript" >
 //<![CDATA[
-function addMarkersAndZoomTo (map){
-	markerOne  = new nokia.maps.map.Marker([19.119, 72.8957]);
-	markerTwo  = new nokia.maps.map.Marker([19.119, 73.8957]);
-	markerThree = new nokia.maps.map.Marker([19.119, 74.8957]);
+function addMarkersAndZoomTo(map) {
+  var markerOne = new nokia.maps.map.Marker([19.119, 72.8957]),
+    markerTwo = new nokia.maps.map.Marker([19.119, 73.8957]),
+    markerThree = new nokia.maps.map.Marker([19.119, 74.8957]),
+    container = new nokia.maps.map.Container();
 
-	var container = new nokia.maps.map.Container()
+  container.objects.add(markerOne);
+  container.objects.add(markerTwo);
+  container.objects.add(markerThree);
 
-	container.objects.add(markerOne);
-	container.objects.add(markerTwo);
-	container.objects.add(markerThree);
-
-	map.objects.add(container)
-	map.zoomTo(container.getBoundingBox());
-
+  map.objects.add(container);
+  map.zoomTo(container.getBoundingBox());
 }
 //]]>
 </script>

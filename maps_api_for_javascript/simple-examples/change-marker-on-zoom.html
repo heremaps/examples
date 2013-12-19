@@ -1,59 +1,66 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="addZoomObserver,updateMarker" />
-    <title>HERE Maps API Example: Change Marker with Zoom Level</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-map-container="mapContainer"
-    	data-params="maps"
-    	data-callback="afterHereMapLoad"  >
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addZoomObserver,updateMarker" />
+  <title>HERE Maps API Example: Change Marker with Zoom Level</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>Change a Marker when the Map is Zoomed in or out</h1>
-	<p>This example displays the zoom level on a marker, and alters its color.</p>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
-    <div id="src"><br/><p>Code:</p></div>
+  <h1>Change a Marker when the Map is Zoomed in or out</h1>
+  <p>This example displays the zoom level on a marker, and alters its color.</p>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <div id="src"><br/><p>Code:</p></div>
 <script id="example-code" data-categories="marker,events" type="text/javascript" >
 //<![CDATA[
 
-var arrColor = ["#0C0101","#220202","#320303","#410505","#520707","#640909","#7A0C0C","#910F0F",
-"#AB0E0E","#D21313","#FC1111","#9DA008","#F4F80E","#0EF82A","#6ADB78","#0C0101","#220202",
-"#320303","#410505","#520707","#640909","#AB0E0E","#D21313","#FC1111","#9DA008"];
+var arrColor = ['#0C0101', '#220202', '#320303', '#410505', '#520707', '#640909', '#7A0C0C', '#910F0F',
+    '#AB0E0E', '#D21313', '#FC1111', '#9DA008', '#F4F80E', '#0EF82A', '#6ADB78', '#0C0101', '#220202',
+    '#320303', '#410505', '#520707', '#640909', '#AB0E0E', '#D21313', '#FC1111', '#9DA008'],
+  map,
+  marker;
 
-function afterHereMapLoad(map){
-	this.map = map;
-	addMarkerToMap(map);
-	addZoomObserver(map);
+function updateMarker() {
+  marker.set('text', Math.floor(map.zoomLevel));
+  var brush = {color: arrColor[Math.floor(map.zoomLevel)]};
+  marker.set('brush', brush);
 }
 
-function addZoomObserver(map){
-	map.addObserver("zoomLevel",function(){
-		updateMarker();
-	});
- }
+function addZoomObserver(map) {
+  map.addObserver('zoomLevel', function () {
+    updateMarker();
+  });
+}
 
-function addMarkerToMap (map){
-	var coord = new nokia.maps.geo.Coordinate(52.53, 13.39);
-	marker = new nokia.maps.map.StandardMarker(coord);
-	updateMarker();
-	map.objects.add(marker);
+function addMarkerToMap(map) {
+  var coord = new nokia.maps.geo.Coordinate(52.53, 13.39);
+  marker = new nokia.maps.map.StandardMarker(coord);
+  updateMarker();
+  map.objects.add(marker);
 }
-function updateMarker(){
-	marker.set("text",  Math.floor(map.zoomLevel));
-	var brush = {color: arrColor[Math.floor(map.zoomLevel)]};
-	marker.set("brush", brush);
+
+//
+// This is the callback method fired once the bootstrapper has loaded the map.
+//
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  addMarkerToMap(map);
+  addZoomObserver(map);
 }
+
 //]]>
 </script>
 <script type="text/javascript" src="libs/prettyprint.js"></script>

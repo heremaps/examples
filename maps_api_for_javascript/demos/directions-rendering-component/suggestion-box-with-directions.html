@@ -1,145 +1,152 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="setUpSuggestionBoxes,addDirectionsRenderer,makeRouteRequest,onRouteCalculated" />
-    <title>HERE Maps API Example: Routing with Directions using Places Suggestions</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="../libs/jQl.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="setUpSuggestionBoxes,addDirectionsRenderer,makeRouteRequest,onRouteCalculated" />
+  <title>HERE Maps API Example: Routing with Directions using Places Suggestions</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
 
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-map-container="mapContainer"
-    	data-params="maps,directions,places"
-    	data-callback="afterHereMapLoad"
-    	data-libs="directions-renderer"
-    	data-parent="demos/directions-rendering-component/">
-    </script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
-    <link href="css/routing.css" rel="stylesheet"/>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps,directions,places"
+    data-callback="afterHereMapLoad"
+    data-libs="directions-renderer"
+    data-parent="demos/directions-rendering-component/">
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <link href="css/routing.css" rel="stylesheet"/>
 </head>
 <body class="small-map">
-	<h1>Calculating a route between two points using the Places Suggestion Box</h1>
-	<p style="width:540px;" >This example uses a pair of places suggestions boxes to populate the
-	routing manager and calculate a route between two locations.
-		Directions instructions are written to the right of the map.
-	</p>
+  <h1>Calculating a route between two points using the Places Suggestion Box</h1>
+  <p style="width:540px;" >This example uses a pair of places suggestions boxes to populate the
+  routing manager and calculate a route between two locations.
+    Directions instructions are written to the right of the map.
+  </p>
 
 
-	<div style="width:500px; padding: 1em;">
-		<a class="anchor" name="Customized suggestion list"></a>
-		<div id="fromSearchBox" class="main-search">
-			<span class ="caption">from:</span>
-			<div module="SearchBox">
-				<input rel="searchbox-input" class="search-box-bckgrnd" type="text" />
-				<div rel="searchbox-list" class="search-list"></div>
-			</div>
-		</div>
-		<div id="toSearchBox" class="main-search">
-			<span class ="caption">To:</span>
-			<div module="SearchBox">
-				<input rel="searchbox-input" class="search-box-bckgrnd" type="text" />
-				<div rel="searchbox-list" class="search-list"></div>
-			</div>
-		</div>
+  <div style="width:500px; padding: 1em;">
+    <a class="anchor" name="Customized suggestion list"></a>
+    <div id="fromSearchBox" class="main-search">
+      <span class ="caption">from:</span>
+      <div module="SearchBox">
+        <input rel="searchbox-input" class="search-box-bckgrnd" type="text" />
+        <div rel="searchbox-list" class="search-list"></div>
+      </div>
+    </div>
+    <div id="toSearchBox" class="main-search">
+      <span class ="caption">To:</span>
+      <div module="SearchBox">
+        <input rel="searchbox-input" class="search-box-bckgrnd" type="text" />
+        <div rel="searchbox-list" class="search-list"></div>
+      </div>
+    </div>
 
-		<input  type="button" id="findRoute" value="Find Route" />
-		</br/>
-	</div>
+    <input type="button" id="findRoute" value="Find Route" />
+    </br/>
+  </div>
 
-    <div id="mapContainer" style="width:540px; height:334px;float:left;" class="no-expand"></div>
-    <div id="directions" style="float:left; color: rgb(102, 102, 102);height:334px;overflow:auto;width:500px"></div>
-    <div id="src" style="clear:both;width:100%" ><br/>
-			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
-			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
-		<p>Code:</p>
-	</div>
-<script   id="example-code" data-categories="routing,library" type="text/javascript" >
+  <div id="mapContainer" style="width:540px; height:334px;float:left;" class="no-expand"></div>
+  <div id="directions" style="float:left; color: rgb(102, 102, 102);height:334px;overflow:auto;width:500px"></div>
+  <div id="src" style="clear:both;width:100%" ><br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
+    <p>Code:</p>
+  </div>
+<script  id="example-code" data-categories="routing,library" type="text/javascript" >
 //<![CDATA[
-function afterHereMapLoad(map){
- 	this.map = map;
- 	infoBubbles = new nokia.maps.map.component.InfoBubbles();
- 	infoBubbles.options.defaultWidth = 200;
- 	infoBubbles.options.width = 200;
- 	map.addComponent(infoBubbles);
- 	addDirectionsRenderer (map);
- 	setUpSuggestionBoxes();
+var map,
+  startPoint,
+  endPoint,
+  router,
+  directionsRenderer;
 
- }
+function onRouteCalculated(observedRouter, key, value) {
+  if (value === 'finished') {
+    var routes = observedRouter.getRoutes(),
+      //create the default map representation of a route
+      mapRoute =
+        new nokia.maps.routing.component.RouteResultSet(
+          routes[0]
+        ).container; //first option found
+    map.objects.add(mapRoute);
+    directionsRenderer.set('route', routes[0]);
 
-function setUpSuggestionBoxes(){
-	var fromSearchBox = new nokia.places.widgets.SearchBox({
-		targetNode: "fromSearchBox",
-		template: "fromSearchBox",
-		map: map,
-		onResults: function (data) {
-			// The argument data, which is an instance of nokia.places.objectsSearchResponseView
-			// contains the search results
-			startPoint =data.results.items[0].position;
-		}
-	});
-
-	var toSearchBox = new nokia.places.widgets.SearchBox({
-		targetNode: "toSearchBox",
-		template: "toSearchBox",
-		map: map,
-		onResults: function (data) {
-			// The argument data, which is an instance of nokia.places.objectsSearchResponseView
-			// contains the search results
-			endPoint = data.results.items[0].position;
-		}
-	});
-	$( "#findRoute" ).click(function() {
-		makeRouteRequest(startPoint, endPoint);
-});
+    //Zoom to the bounding box of the route
+    map.zoomTo(mapRoute.getBoundingBox(), false, 'default');
+  } else if (value === 'failed') {
+    alert('The routing request failed.');
+  }
 }
 
- function addDirectionsRenderer (map){
- 	directionsRenderer = new DirectionsRenderer(document.getElementById("directions"));
- 	map.addComponent(directionsRenderer);
+function makeRouteRequest(startPoint, endPoint) {
+  var waypoints = new nokia.maps.routing.WaypointParameterList(),
+    modes = [{
+      type: 'shortest',
+      transportModes: ['car'],
+      options: 'avoidTollroad',
+      trafficMode: 'default'
+    }];
+
+  waypoints.addCoordinate(startPoint);
+  waypoints.addCoordinate(endPoint);
+
+  router = new nokia.maps.routing.Manager();
+  router.addObserver('state', onRouteCalculated);
+  router.calculateRoute(waypoints, modes);
+}
+
+function setUpSuggestionBoxes() {
+  var fromSearchBox = new nokia.places.widgets.SearchBox({
+    targetNode: 'fromSearchBox',
+    template: 'fromSearchBox',
+    map: map,
+    onResults: function (data) {
+      // The argument data, which is an instance of nokia.places.objectsSearchResponseView
+      // contains the search results
+      startPoint = data.results.items[0].position;
+    }
+  }),
+    toSearchBox = new nokia.places.widgets.SearchBox({
+      targetNode: 'toSearchBox',
+      template: 'toSearchBox',
+      map: map,
+      onResults: function (data) {
+        // The argument data, which is an instance of nokia.places.objectsSearchResponseView
+        // contains the search results
+        endPoint = data.results.items[0].position;
+      }
+    });
+  $('#findRoute').click(function () {
+    makeRouteRequest(startPoint, endPoint);
+  });
+}
+
+function addDirectionsRenderer(map) {
+   directionsRenderer = new DirectionsRenderer(document.getElementById('directions'));
+   map.addComponent(directionsRenderer);
 
 }
 
-function makeRouteRequest(startPoint, endPoint){
-	var waypoints = new nokia.maps.routing.WaypointParameterList();
 
-	waypoints.addCoordinate(startPoint);
-	waypoints.addCoordinate(endPoint);
 
-	var modes = [{
-		type: "shortest",
-		transportModes: ["car"],
-		options: "avoidTollroad",
-		trafficMode: "default"
-	}];
 
-	router = new nokia.maps.routing.Manager();
-	router.addObserver("state", onRouteCalculated);
-	router.calculateRoute(waypoints, modes);
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  infoBubbles.options.defaultWidth = 200;
+  infoBubbles.options.width = 200;
+  map.addComponent(infoBubbles);
+  addDirectionsRenderer(map);
+  setUpSuggestionBoxes();
 }
-
-function onRouteCalculated (observedRouter, key, value){
-	if (value == "finished") {
-		var routes = observedRouter.getRoutes();
-
-		//create the default map representation of a route
-		var mapRoute =
-			new nokia.maps.routing.component.RouteResultSet(
-				routes[0]).container; //first option found
-		map.objects.add(mapRoute);
-		directionsRenderer.set("route",routes[0]);
-
-		//Zoom to the bounding box of the route
-		map.zoomTo(mapRoute.getBoundingBox(), false, "default");
-	} else if(value == "failed") {
-		alert("The routing request failed.");
-	}
-};
 //]]>
 </script>
 <script type="text/javascript" src="../libs/prettyprint.js"></script>

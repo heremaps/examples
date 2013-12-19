@@ -1,55 +1,58 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <meta name="keywords" content="onMarkersAdded" />
-    <title>HERE Maps API Example: Adding 700 Markers on a Map (Unclustered)</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <meta charset='utf-8'/>
+  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
+  <meta name='keywords' content='onMarkersAdded' />
+  <title>HERE Maps API Example: Adding 700 Markers on a Map (Unclustered)</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type='text/javascript' src='libs/hereAppIdAndToken.js'></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type='text/javascript' src='libs/jQl.min.js'></script>
 
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript"
-    	data-map-container="mapContainer"
-    	data-params="maps"
-    	data-callback="afterHereMapLoad"  >
-    </script>
-    <script type="text/javascript" src="libs/random-point-generator.js"></script>
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type='text/javascript' src='libs/hereAsyncLoader.js'
+    id='HereMapsLoaderScript'
+    data-map-container='mapContainer'
+    data-params='maps'
+    data-callback='afterHereMapLoad' >
+  </script>
+  <script type='text/javascript' src='libs/random-point-generator.js'></script>
+  <link rel='icon' href='http://here.com/favicon.ico'/>
+  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
 </head>
 <body>
-	<h1>Adding 700 Markers on a Map (Unclustered)</h1>
-	<p>This is an illustration of the "too many markers problem". 700 Markers are added to a map.
-		The markers are not clustered. Rendering is slow and individual markers cannot be distinguished </p>
-	<div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
-    <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <h1>Adding 700 Markers on a Map (Unclustered)</h1>
+  <p>This is an illustration of the 'too many markers problem'. 700 Markers are added to a map.
+    The markers are not clustered. Rendering is slow and individual markers cannot be distinguished </p>
+  <div id='ticker' style='height: 2.0em; font-size: 2em; color: blue;'></div>
+  <div id='mapContainer' style='width:540px; height:334px;'></div>
 
-<script id="example-code" data-categories="clustering" type="text/javascript" >
+<script id='example-code' data-categories='clustering' type='text/javascript' >
 //<![CDATA[
-function afterHereMapLoad(map){
-	this.map = map;
-	map.set("zoomLevel", 2);
-	map.set("center", [30, -54]);
-	pointGenerator =  new randomLocationGenerator(10);
-	$("#ticker").text("Generating 7000 Coordinates. Please Wait");
-	pointGenerator.createCoordinates(onCoordinatesCreated);
+var map,
+  pointGenerator;
+
+function onCoordinatesCreated(data) {
+  $('#ticker').text('Creating 7000 Markers. Please Wait');
+  pointGenerator.addPointsAsMarkersToContainer(data, onMarkersAdded);
 }
 
-function onCoordinatesCreated(data){
-	$("#ticker").text("Creating 7000 Markers. Please Wait");
-	pointGenerator.addPointsAsMarkersToContainer(data, onMarkersAdded);
+function onMarkersAdded(containerWith7000Markers) {
+  $('#ticker').text('');
+  map.objects.add(containerWith7000Markers);
 }
 
-function onMarkersAdded(containerWith7000Markers){
-	$("#ticker").text("");
-	map.objects.add(containerWith7000Markers);
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.set('zoomLevel', 2);
+  map.set('center', [30, -54]);
+  pointGenerator = new randomLocationGenerator(10);
+  $('#ticker').text('Generating 7000 Coordinates. Please Wait');
+  pointGenerator.createCoordinates(onCoordinatesCreated);
 }
 //]]>
 </script>
-<script type="text/javascript" src="libs/prettyprint.js"></script>
+<script type='text/javascript' src='libs/prettyprint.js'></script>
 </body>
 </html>
