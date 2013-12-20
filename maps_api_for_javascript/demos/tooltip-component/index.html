@@ -1,87 +1,81 @@
 <!doctype html>
 <html>
 <head>
-  	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-  	<meta name="keywords" content="addTooltipControlToMap,addMarkersWithTooltips"/>
-		<title>HERE Maps API Example: Creating Tooltips</title>
+   <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
+   <meta name='keywords' content='addTooltipControlToMap,addMarkersWithTooltips'/>
+    <title>HERE Maps API Example: Creating Tooltips</title>
 
-		 <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="../libs/jQl.min.js"></script>     
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="../libs/hereAsyncLoader.js" 
-    	id="HereMapsLoaderScript" 
-    	data-map-container="mapContainer" 
-    	data-params="all" 
-    	data-callback="afterHereMapLoad"  
-    	data-libs="tooltip"
-    	data-parent="demos/tooltip-component/">
-    </script>  
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+     <!-- Set up constants such as APP ID and token -->
+  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type='text/javascript' src='../libs/jQl.min.js'></script>   
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type='text/javascript' src='../libs/hereAsyncLoader.js' 
+    id='HereMapsLoaderScript' 
+    data-map-container='mapContainer' 
+    data-params='all' 
+    data-callback='afterHereMapLoad' 
+    data-libs='tooltip'
+    data-parent='demos/tooltip-component/'>
+  </script> 
+  <link rel='icon' href='http://here.com/favicon.ico'/>
+  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
 </head>
 <body>
-	<h1>Creating a Marker Tooltip</h1>
-	<p>This example adds a custom map component, which adds tooltips to the map markers.
-	 Hover over a marker to see the tooltip text</p>
-	
-	<div id="mapContainer" style="width:540px; height:334px;"></div>
+  <h1>Creating a Marker Tooltip</h1>
+  <p>This example adds a custom map component, which adds tooltips to the map markers.
+   Hover over a marker to see the tooltip text</p>
+  
+  <div id='mapContainer' style='width:540px; height:334px;'></div>
 
-	<div id="src">
-		<br/>
-			<p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
-			<pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/tooltip.js">libs/tooltip.js</a>"&gt;&lt;/script></code></pre>
-		<p>Code:</p>
-	</div>
-<script id="example-code" data-categories="marker,library" type="text/javascript">
+  <div id='src'>
+    <br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type='text/javascript' charset='UTF-8' src='<a href='libs/tooltip.js'>libs/tooltip.js</a>'&gt;&lt;/script></code></pre>
+    <p>Code:</p>
+  </div>
+<script id='example-code' data-categories='marker,library' type='text/javascript'>
 //<![CDATA[
-function afterHereMapLoad (map){ 
-	this.map = map;
-
-	map.set("center", new nokia.maps.geo.Coordinate(52.52, 13.37));
-	map.set("zoomLevel", 12);
-	map.set("baseMapType", map.SATELLITE);
-
-	addTooltipControlToMap(map);
-	addMarkersWithTooltips(map);
-
-
+function addTooltipControlToMap(map) {
+  var tooltip = new Tooltip();
+  map.components.add(tooltip);
 }
-function addTooltipControlToMap (map){ 
-	th = new Tooltip();
-	map.components.add(th  );
+
+function addMarkersWithTooltips(map) {
+
+    // Simple Marker with tooltip
+  var brandenburgerTorMarker = new nokia.maps.map.StandardMarker(
+    new nokia.maps.geo.Coordinate(52.516237, 13.35),
+    {title : 'Brandenburger Tor'}
+  ),
+    // Marker with HTML Tooltip
+    fernsehturmTooltip = '<div>' +
+    '<h2>Tooltip with HTML content<\/h2>' +
+    '<img width=\'120\' height=90 src=' +
+    '\'http://upload.wikimedia.org/wikipedia/commons/' +
+    '8/84/Berlin-fernsehturm.JPG\' ' +
+    'alt=\'\'/><br/><b>Fernsehturm, Berlin<\/b>' +
+    '<\/div>',
+    fernsehturmMarker = new nokia.maps.map.StandardMarker(
+      new nokia.maps.geo.Coordinate(52.520816, 13.409417),
+      {title : fernsehturmTooltip}
+    );
+
+  // Add the markers onto the map
+  map.objects.addAll([brandenburgerTorMarker, fernsehturmMarker]);
+  map.zoomTo(map.getBoundingBox());
 }
-function addMarkersWithTooltips (map){
 
-	// Simple Marker with tooltip
-	var brandenburgerTorMarker = new nokia.maps.map.StandardMarker(
-		new nokia.maps.geo.Coordinate(52.516237, 13.35),
-		{title : "Brandenburger Tor"}
-	);
+function afterHereMapLoad(map) {
+  map.set('center', new nokia.maps.geo.Coordinate(52.52, 13.37));
+  map.set('zoomLevel', 12);
+  map.set('baseMapType', map.SATELLITE);
 
-
-	//
-	//  Marker with HTML Tooltip
-	//
-	var  fernsehturmTooltip = '<div>' +
-			'<h2>Tooltip with HTML content<\/h2>' +
-			'<img width=120 height=90 src=' +
-			'"http://upload.wikimedia.org/wikipedia/commons/' +
-			'8/84/Berlin-fernsehturm.JPG" ' +
-			'alt=""/><br/><b>Fernsehturm, Berlin<\/b>' +
-	    '<\/div>';
-	var fernsehturmMarker = new nokia.maps.map.StandardMarker(
-		new nokia.maps.geo.Coordinate(52.520816, 13.409417),
-		{title : fernsehturmTooltip}
-	);
-
-	// Add the markers onto the map
-	map.objects.addAll([brandenburgerTorMarker, fernsehturmMarker]);
-	map.zoomTo(map.getBoundingBox());
+  addTooltipControlToMap(map);
+  addMarkersWithTooltips(map);
 }
 //]]>
 </script>
-<script type="text/javascript" src="../libs/prettyprint.js"></script>
-	</body>
+<script type='text/javascript' src='../libs/prettyprint.js'></script>
+  </body>
 </html>

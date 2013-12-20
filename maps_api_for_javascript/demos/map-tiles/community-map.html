@@ -1,77 +1,75 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-	<meta name="keywords" content="afterHereMapLoad,replicateEvent" />
-	<title>HERE Maps API Example: Community Map Tiles</title>
-		<!-- Set up constants such as APP ID and token -->
-	<script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
-	<!-- Bootstrap jQuery Library -->
-	<script type="text/javascript" src="../libs/jQl.min.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="afterHereMapLoad,replicateEvent" />
+  <title>HERE Maps API Example: Community Map Tiles</title>
+    <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
 
-	<!-- Asynchronously the HERE Maps API for  JavaScript -->
-	<script type="text/javascript" src="../libs/hereAsyncLoader.js"
-		id="HereMapsLoaderScript" 
-		data-params="maps" 
-		data-map-container="mapContainer"
-		data-callback="afterHereMapLoad"  >
-	</script>
-	<link rel="icon" href="http://here.com/favicon.ico"/>
-	<!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" 
+    data-params="maps" 
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body class="small-map">
-	<h1>Community Map Tiles</h1>
-	<p>
-		This example shows a <code>nokia.maps.map.Display.NORMAL</code> Map on the left, and a <code> nokia.maps.map.Display.NORMAL_COMMUNITY</code> Map  on the right.
-		The Community Map includes additional unverified community edits consisting of crowd sourced street and place information. The map is initially centered over Minsk, Belarus.
-	</p>
-	<div>
-		<div id="mapContainer" style="width:540px; height:500px; float: left;" class="no-expand"></div>
-		<div id="communityMapContainer" style="width:540px; height:500px; float: left;"></div>
-	</div>
-	
+  <h1>Community Map Tiles</h1>
+  <p>
+    This example shows a <code>nokia.maps.map.Display.NORMAL</code> Map on the left, and a <code> nokia.maps.map.Display.NORMAL_COMMUNITY</code> Map on the right.
+    The Community Map includes additional unverified community edits consisting of crowd sourced street and place information. The map is initially centered over Minsk, Belarus.
+  </p>
+  <div>
+    <div id="mapContainer" style="width:540px; height:500px; float: left;" class="no-expand"></div>
+    <div id="communityMapContainer" style="width:540px; height:500px; float: left;"></div>
+  </div>
+  
 <script>
 //<![CDATA[
 var center = [53.90325, 27.54918],
-	zoomLevel = 14,
-	communityMap;
+  zoomLevel = 14,
+  communityMap
+  map;
 
-function afterHereMapLoad(basicMap) {
-	basicMap.set("center", center);
-	basicMap.set("zoomLevel", zoomLevel);
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.set("center", center);
+  map.set("zoomLevel", zoomLevel);
 
-	// Create a second map inside the community map container
-	communityMap = new nokia.maps.map.Display($("#communityMapContainer")[0], {
-		// set the base map type to be community maps
-		baseMapType: nokia.maps.map.Display.NORMAL_COMMUNITY,
-		// initial center and zoom level of the map
-		center: center,
-		zoomLevel: zoomLevel,
-		components: [
-			// ZoomBar provides a UI to zoom the map in & out
-			new nokia.maps.map.component.ZoomBar(),
-			// We add the behavior component to allow panning / zooming of the map
-			new nokia.maps.map.component.Behavior(),
-		]
-	});
+  // Create a second map inside the community map container
+  communityMap = new nokia.maps.map.Display($("#communityMapContainer")[0], {
+    // set the base map type to be community maps
+    baseMapType: nokia.maps.map.Display.NORMAL_COMMUNITY,
+    // initial center and zoom level of the map
+    center: center,
+    zoomLevel: zoomLevel,
+    components: [
+      new nokia.maps.map.component.ZoomBar(),
+      new nokia.maps.map.component.Behavior(),
+    ]
+  });
+  
+  // Replicate events from base map to community map
+  replicateEvent("center",  map, communityMap);
+  replicateEvent("zoomLevel",  map, communityMap);
 
-	//communityMap.set("padding", {left:-2 * $("#mapContainer").width(), top: 0, bottom: 0, right:0})
-
-	// Replicate events from base map to community map
-	replicateEvent("center", basicMap, communityMap);
-	replicateEvent("zoomLevel", basicMap, communityMap);
-
-	// Replicate events from community map to base map
-	replicateEvent("center", communityMap, basicMap);
-	replicateEvent("zoomLevel", communityMap, basicMap);
+  // Replicate events from community map to base map
+  replicateEvent("center", communityMap,  map);
+  replicateEvent("zoomLevel", communityMap,  map);
 }
 
-function replicateEvent (eventName, fromMap, toMap) {
-	fromMap.addObserver(eventName, function (obj, key, value, oldValue) {
-		if (toMap.get(key).toString() != value.toString())
-			toMap.set(key, value); 
-	});
+function replicateEvent(eventName, fromMap, toMap) {
+  fromMap.addObserver(eventName, function (obj, key, value, oldValue) {
+    if (toMap.get(key).toString() != value.toString())
+      toMap.set(key, value); 
+  });
 }
 //]]>
 </script>

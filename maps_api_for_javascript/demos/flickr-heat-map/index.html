@@ -125,7 +125,7 @@ function afterHereMapLoad(theMap) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(foundUserLocation);
   }
-  
+
   $('#reflickr').on('click', function (){showHeatMap($('#flickr_app_key').val());});
 }
 
