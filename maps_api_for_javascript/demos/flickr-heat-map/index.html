@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='showHeatMap,addHeatMap' />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="showHeatMap,addHeatMap" />
   <title>HERE Maps API Example: Flickr Photo Locations Heat Map</title>
   <style>
   .loader {
@@ -20,40 +20,40 @@
   }
   </style>
     <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
 
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript' 
-    data-params='maps,datarendering' 
-    data-map-container='mapContainer'
-    data-callback='afterHereMapLoad' 
-    data-libs='html-control'
-    data-parent='demos/flickr-heat-map/'>
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" 
+    data-params="maps,datarendering" 
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad" 
+    data-libs="html-control"
+    data-parent="demos/flickr-heat-map/">
   </script>
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
   <h1>Flickr Photo Locations Heat Map</h1>
   <p>This map shows a heatmap of locations people have taken photos and uploaded
-    them to <a href='http://flickr.com'>Flickr</a>.</p>
+    them to <a href="http://flickr.com">Flickr</a>.</p>
   <p>You can position the map anywhere, enter your 
-    <a href='http://www.flickr.com/services/apps/create/apply'>Flickr App key</a>
-    then press the Flickr button <img src='img/flickr-small.png'/> below to generate a new heatmap.
+    <a href="http://www.flickr.com/services/apps/create/apply">Flickr App key</a>
+    then press the Flickr button <img src="img/flickr-small.png"/> below to generate a new heatmap.
   </p>
   
-  <div id='ticker' style='height: 2.0em; font-size: 2em; color: blue;'>Enter API Key</div>
+  <div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;">Enter API Key</div>
   <p>
-    <label for='flickr_app_key'>Flickr App Key:</label> 
-    <input id='flickr_app_key' type='text' placeholder='Enter your key' size='32' />
-    <!--value='f5ef449218ed507a3e715e54216621a3' -->
-    <img src='img/flickr.png' id='reflickr'>
+    <label for="flickr_app_key">Flickr App Key:</label> 
+    <input id="flickr_app_key" type="text" placeholder="Enter your key" size="32" />
+    <!--value="f5ef449218ed507a3e715e54216621a3" -->
+    <img src="img/flickr.png" id="reflickr">
   </p>
 
-  <div id='mapContainer' style='width:540px; height:334px;'></div>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
   
 <script>
 //<![CDATA[
@@ -132,6 +132,6 @@ function afterHereMapLoad(theMap) {
 
 //]]>
 </script>
-<script type='text/javascript' src='../libs/prettyprint.js'></script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
 </body>
 </html>

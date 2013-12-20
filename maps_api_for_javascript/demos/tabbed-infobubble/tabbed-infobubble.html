@@ -1,28 +1,28 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='showTabbedInfoBubble' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="showTabbedInfoBubble" />
   <title>HERE Maps API Example: Tabbed Infobubbles</title>
   <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript'
-    data-map-container='mapContainer'
-    data-params='maps'
-    data-callback='afterHereMapLoad'
-    data-libs='tabbed-infobubble'
-    data-parent='demos/tabbed-infobubble/'>
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad"
+    data-libs="tabbed-infobubble"
+    data-parent="demos/tabbed-infobubble/">
   </script>
 
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 
-  <style type='text/css'>
+  <style type="text/css">
 
     .nm_bubble_content{
       color:black;
@@ -38,18 +38,18 @@
   <h4>Use of Styled Infobubbles: Battle of Saratoga</h4>
   <p> Click the buttons to show the location of the Battle of Saratoga, chosen as one of the most of the significant military
     engagements in World History, by the historian Sir Edward Shepherd Creasy. For the remaining entries on the list, see the
-    <a href='battles-tabbed.html'>decisive battles</a> example.
+    <a href="battles-tabbed.html">decisive battles</a> example.
   </p>
-  <input id='showInfoBubble' type='button' value='Infobubble' />
-  <input id='showTabbedInfoBubble' type='button' value='Tabbed Infobubble' />
-  <div id='mapContainer' style='width:540px; height:334px;'></div>
-  <div id='src'>
+  <input id="showInfoBubble" type="button" value="Infobubble" />
+  <input id="showTabbedInfoBubble" type="button" value="Tabbed Infobubble" />
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <div id="src">
     <br/>
       <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
-      <pre><code class='prettyprint'>&lt;script type='text/javascript' charset='UTF-8' src='<a href='libs/tabbed-infobubble.js'>libs/tabbed-infobubble.js</a>'&gt;&lt;/script></code></pre>
+      <pre><code class="prettyprint">&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/tabbed-infobubble.js">libs/tabbed-infobubble.js</a>"&gt;&lt;/script></code></pre>
     <p>Code:</p>
   </div>
-<script id='example-code' data-categories='infobubble,library' type='text/javascript' >
+<script id="example-code" data-categories="infobubble,library" type="text/javascript" >
 //<![CDATA[
 var map,
   infoBubbles;
@@ -105,6 +105,6 @@ function afterHereMapLoad(theMap) {
 }
 //]]>
 </script>
-<script type='text/javascript' src='../libs/prettyprint.js'></script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
 </body>
 </html>

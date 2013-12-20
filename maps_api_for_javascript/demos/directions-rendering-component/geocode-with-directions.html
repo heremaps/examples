@@ -1,52 +1,52 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='setUpGeocodeBox,addDirectionsRenderer,makeRouteRequest,onRouteCalculated' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="setUpGeocodeBox,addDirectionsRenderer,makeRouteRequest,onRouteCalculated" />
   <title>HERE Maps API Example: Combining Routing with Geocoding</title>
   <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
 
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript'
-    data-map-container='mapContainer'
-    data-params='maps,directions,places'
-    data-callback='afterHereMapLoad'
-    data-libs='directions-renderer'
-    data-parent='demos/directions-rendering-component/'>
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps,directions,places"
+    data-callback="afterHereMapLoad"
+    data-libs="directions-renderer"
+    data-parent="demos/directions-rendering-component/">
   </script>
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
-  <link href='css/routing.css' rel='stylesheet'/>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <link href="css/routing.css" rel="stylesheet"/>
 </head>
-<body class='small-map'>
+<body class="small-map">
   <h1>Combining Routing with Geocoding - All Roads lead to Rome</h1>
-  <p style='width:540px;' >This example uses geocoding and a routing manager to calculate the
+  <p style="width:540px;" >This example uses geocoding and a routing manager to calculate the
     the calculate a route between one unknown location supplied by user input and one fixed point. (Rome)
     Directions instructions are written to the right of the map.
   </p>
 
 
-  <div style='width:500px; padding: 1em;'>
+  <div style="width:500px; padding: 1em;">
 
-    <label for='fromSearchBox'>Start Location </label><br/>
-    <input type='text' id='fromSearchBox' value='Genoa,Italy'/>
-    <input type='button' id='findRoute' value='Find Route to Rome' />
+    <label for="fromSearchBox">Start Location </label><br/>
+    <input type="text" id="fromSearchBox" value="Genoa,Italy"/>
+    <input type="button" id="findRoute" value="Find Route to Rome" />
     </br/>
   </div>
 
-  <div id='mapContainer' style='width:540px; height:334px;float:left;' class='no-expand'></div>
-  <div id='directions' style='float:left; color: rgb(102, 102, 102);height:334px;overflow:auto;'></div>
-  <div id='src' style='clear:both;width:100%' ><br/>
+  <div id="mapContainer" style="width:540px; height:334px;float:left;" class="no-expand"></div>
+  <div id="directions" style="float:left; color: rgb(102, 102, 102);height:334px;overflow:auto;"></div>
+  <div id="src" style="clear:both;width:100%" ><br/>
       <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
-      <pre><code class='prettyprint'>&lt;script type='text/javascript' charset='UTF-8' src='<a href='libs/directions-renderer.js'>libs/directions-renderer.js</a>'&gt;&lt;/script></code></pre>
+      <pre><code class="prettyprint">&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
     <p>Code:</p>
   </div>
-<script id='example-code' data-categories='routing,search,library' type='text/javascript' >
+<script id="example-code" data-categories="routing,search,library" type="text/javascript" >
 //<![CDATA[
 var map,
   router,
@@ -127,6 +127,6 @@ function afterHereMapLoad(theMap) {
 }
 //]]>
 </script>
-<script type='text/javascript' src='../libs/prettyprint.js'></script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
 </body>
 </html>

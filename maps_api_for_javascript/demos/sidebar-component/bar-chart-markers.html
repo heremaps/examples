@@ -1,28 +1,28 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='createMarkerBars,barChart' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="createMarkerBars,barChart" />
   <title>HERE Maps API Example: Adding a Bar Chart to the Map</title>
   <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
 
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript'
-    data-map-container='mapContainer'
-    data-params='maps'
-    data-callback='afterHereMapLoad'
-    data-libs='sidebar-control'
-    data-parent='demos/sidebar-component/' >
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad"
+    data-libs="sidebar-control"
+    data-parent="demos/sidebar-component/" >
   </script>
-  <script type='text/javascript' src='data/population-data-for-german-cities.js' /></script>
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
-   <style type='text/css'>
+  <script type="text/javascript" src="data/population-data-for-german-cities.js" /></script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+   <style type="text/css">
 
     #sidebar {float:left;
       color: rgb(102, 102, 102);
@@ -39,14 +39,14 @@
     }
   </style>
 </head>
-<body class='small-map'>
+<body class="small-map">
   <h1>Adding a Bar Chart to the Map</h1>
   <p>The example shows a series of bars showing the relative population of one hundred
   cities in Germany.</p>
-  <div id='mapContainer' style='width:540px; height:334px;float:left;' class='no-expand'></div>
-  <div id='sidebar'></div>
-  <div id='src' style='clear:both;width:100%'/><div>
-<script id='example-code' data-categories='marker' type='text/javascript'>
+  <div id="mapContainer" style="width:540px; height:334px;float:left;" class="no-expand"></div>
+  <div id="sidebar"></div>
+  <div id="src" style="clear:both;width:100%"/><div>
+<script id="example-code" data-categories="marker" type="text/javascript">
 //<![CDATA[
 var map,
   infoBubbles,
@@ -123,6 +123,6 @@ function afterHereMapLoad(theMap) {
 }
 //]]>
 </script>
-<script type='text/javascript' src='../libs/prettyprint.js'></script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
   </body>
 </html>

@@ -1,28 +1,28 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='createGraphicsMarker' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="createGraphicsMarker" />
   <title>HERE Maps API Example: Creating a Custom Graphics Marker</title>
   <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='libs/jQl.min.js'></script>
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript'
-    data-params='maps'
-    data-map-container='mapContainer'
-    data-callback='afterMapLoad' >
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer"
+    data-callback="afterMapLoad" >
   </script>
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
   <h1>Creating a Custom Graphics Marker</h1>
-  <div id='mapContainer' style='width:540px; height:334px;'></div>
-<script id='example-code' data-categories='marker' type='text/javascript' >
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="marker" type="text/javascript" >
 //<![CDATA[
 function createGraphicsMarker(map) {
   var graphicsContext = new nokia.maps.gfx.Graphics(),
@@ -54,6 +54,6 @@ function afterMapLoad(map) {
 }
 //]]>
 </script>
-<script type='text/javascript' src='libs/prettyprint.js'></script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
 </body>
 </html>

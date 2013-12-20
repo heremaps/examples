@@ -1,36 +1,36 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='addClickEventListener,processResults' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addClickEventListener,processResults" />
   <title>HERE Maps API Example: Find a USA state</title>
   <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript'
-    data-map-container='mapContainer'
-    data-params='maps'
-    data-callback='afterHereMapLoad' >
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
   </script>
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
   <h1>Reverse Geocoding Game : Find a USA state </h1>
   <p>This simple game introduces how to use the map Event listener for user map clicks,
    how to find the geocoordinate under the clicked mouse point and how to further use
    the coordinates to perform a reverseGeoCode() search - all this in a form of a guessing game.</p>
-  <div id='question' style='height: 2.0em; font-size: 2em; color: blue;'></div>
-  <div id='answer' style='height: 2.0em; font-size: 2em; color: blue;'></div>
-  <span id='correct_answers' style='height: 2.0em; font-size: 2em; color: green;'></span>
-  <span id='incorrect_answers' style='height: 2.0em; font-size: 2em; color: green;'></span>
+  <div id="question" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+  <div id="answer" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+  <span id="correct_answers" style="height: 2.0em; font-size: 2em; color: green;"></span>
+  <span id="incorrect_answers" style="height: 2.0em; font-size: 2em; color: green;"></span>
 
-  <div id='mapContainer' style='width:540px; height:334px;'></div>
-<script id='example-code' data-categories='search,events' type='text/javascript' >
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="search,events" type="text/javascript" >
 //<![CDATA[
 var map,
   right = 0,
@@ -97,6 +97,6 @@ function afterHereMapLoad(theMap) {
 }
 //]]>
 </script>
-<script type='text/javascript' src='../libs/prettyprint.js'></script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
 </body>
 </html>

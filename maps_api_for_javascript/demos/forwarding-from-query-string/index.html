@@ -1,53 +1,53 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
   <title>HERE  Maps API Example: Forwarding to HERE Directions Based on a URL</title>
   <!-- Set up  constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
   <!-- Asynchronously  the  HERE Maps API for JavaScript -->
-  <script  type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript' data-params='maps' data-callback='findWaypoints'>
+  <script  type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" data-params="maps" data-callback="findWaypoints">
   </script>
-  <link rel='icon' href='http://here.com/favicon.ico'>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
+  <link rel="icon" href="http://here.com/favicon.ico">
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
-<body style=''>
+<body style="">
   <h1>Forwarding to HERE Maps  directions Based on  a URL</h1>
-  <p style='width:540px;'  >This uses geocoding , to forward a request to HERE Maps.
+  <p style="width:540px;"  >This uses geocoding , to forward a request to HERE Maps.
   </p>
 
 
-  <div id='ticker' style='height:  2.0em; font-size: 2em; color: blue;'></div>
-  <div id='uiContainer'>
+  <div id="ticker" style="height:  2.0em; font-size: 2em; color: blue;"></div>
+  <div id="uiContainer">
       Click on a link  to pre-open  the  directions renderer:<br>
 
       <ul>
         <li>
-          <a href='index.html?addr1=Avenida  Dona Ana Costa Santos Brazil&amp;addr2=Avenida Paulista  S%C3%A3o Paulo Brazil'>
+          <a href="index.html?addr1=Avenida  Dona Ana Costa Santos Brazil&amp;addr2=Avenida Paulista  S%C3%A3o Paulo Brazil">
           Street Level Routing</a> - Avenida Dona  Ana  Costa, Santos to Avenida Paulista, S&atilde;o Paulo
         </li>
-        <li><a href='index.html?addr1=Sacramento California&amp;addr2=San  Francisco California'>
+        <li><a href="index.html?addr1=Sacramento California&amp;addr2=San  Francisco California">
           City and State Routing.</a>  - Sacramento, CA to  San  Francisco, CA
         </li>
-        <li><a href='index.html?addr1=Madrid,Spain&amp;addr2=Marsella,France&amp;ml=es'>City to City Routing</a> - Madrid to Marseilles
+        <li><a href="index.html?addr1=Madrid,Spain&amp;addr2=Marsella,France&amp;ml=es">City to City Routing</a> - Madrid to Marseilles
         </li>
-        <li><a href='index.html?addr1=%E5%8C%97%E4%BA%AC&amp;addr2=%E4%B8%8A%E6%B5%B7'>
+        <li><a href="index.html?addr1=%E5%8C%97%E4%BA%AC&amp;addr2=%E4%B8%8A%E6%B5%B7">
           City to  City Routing.</a> - &#21271;&#20140; (Beijing) to &#19978;&#28023; (Shanghai)
         </li>
-        <li><a href='index.html?addr1=Scotland Yard,London,UK&amp;addr2=221b  Baker Street,London,UK&amp;addr3=Bow+Street,WC2,London,UK&amp;sb=m'>
+        <li><a href="index.html?addr1=Scotland Yard,London,UK&amp;addr2=221b  Baker Street,London,UK&amp;addr3=Bow+Street,WC2,London,UK&amp;sb=m">
             Routing  with intermediate waypoints</a>  - Scotland Yard  to Bow Street via 221b Baker Street  (distances in miles)
         </li>
-        <li><a href='index.html?lat1=-33.859972&amp;long1=151.212111&amp;lat2=-33.859972&amp;long2=151.211111&amp;lat3=-33.859972&amp;long3=151.19'>
+        <li><a href="index.html?lat1=-33.859972&amp;long1=151.212111&amp;lat2=-33.859972&amp;long2=151.211111&amp;lat3=-33.859972&amp;long3=151.19">
           Routing via geocoordinates</a> - around  Sydney harbour.
         </li>
       </ul>
     </div>
 
-<script id='example-code' data-categories='routing' type='text/javascript' >
+<script id="example-code" data-categories="routing" type="text/javascript" >
 //<![CDATA[
 
 var addresses =  [],

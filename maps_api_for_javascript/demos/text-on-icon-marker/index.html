@@ -1,37 +1,37 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8'/>
-  <meta http-equiv='X-UA-Compatible' content='IE=7; IE=EmulateIE9; IE=10' />
-  <meta name='keywords' content='addMarkerToMap' />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addMarkerToMap" />
   <title>HERE Maps API Example: Adding a Defaced Custom Marker</title>
   <!-- Set up constants such as APP ID and token -->
-  <script type='text/javascript' src='../libs/hereAppIdAndToken.js'></script>
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
   <!-- Bootstrap jQuery Library -->
-  <script type='text/javascript' src='../libs/jQl.min.js'></script>
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
   <!-- Asynchronously the HERE Maps API for JavaScript -->
-  <script type='text/javascript' src='../libs/hereAsyncLoader.js'
-    id='HereMapsLoaderScript'
-    data-map-container='mapContainer'
-    data-params='maps'
-    data-callback='addMarkerToMap'
-    data-libs='text-on-icon-marker'
-    data-parent='demos/text-on-icon-marker/'>
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="addMarkerToMap"
+    data-libs="text-on-icon-marker"
+    data-parent="demos/text-on-icon-marker/">
   </script>
-  <link rel='icon' href='http://here.com/favicon.ico'/>
-  <!--<link href='http://developer.here.com/html/css/main.css' rel='stylesheet' />-->
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
   <h1>Adding a Defaced Custom Marker to the map</h1>
   <p>This example extends the custom marker to allow text to be placed over the image.
   Legacy browsers which are unable to support this feature display as normal.</p>
-  <div id='mapContainer' style='width:540px; height:334px;'></div>
-  <div id='src'><br/>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+  <div id="src"><br/>
     <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
-      <pre><code class='prettyprint'>&lt;script type='text/javascript' charset='UTF-8' src='<a href='libs/text-on-icon-marker.js'>libs/text-on-icon-marker.js</a>'&gt;&lt;/script></code></pre>
+      <pre><code class="prettyprint">&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/text-on-icon-marker.js">libs/text-on-icon-marker.js</a>"&gt;&lt;/script></code></pre>
       </p><p>Code:</p>
   </div>
-<script id='example-code' data-categories='marker,library' type='text/javascript' >
+<script id="example-code" data-categories="marker,library" type="text/javascript" >
 //<![CDATA[
 function addMarkerToMap(map) {
   var imageMarker = new TextOnIconMarker([52.53, 13.39], {
@@ -43,6 +43,6 @@ function addMarkerToMap(map) {
 }
 //]]>
 </script>
-<script type='text/javascript' src='../libs/prettyprint.js'></script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
 </body>
 </html>
