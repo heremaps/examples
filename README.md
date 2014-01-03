@@ -1,4 +1,3 @@
-
 HERE Maps Community on GitHub
 =============================
 
@@ -28,7 +27,7 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [Magnifier](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/magnifying-glass/index.html) - Demonstration of map observers showing a high zoom map over the base map.
 * [Text on Icon](https://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/text-on-icon-marker/index.html) - adding text to a custom marker
 * [Tooltips](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/tooltip-component/index.html) - custom control to add tooltips to markers
-* [x-Ray](http://github.com/heremaps/examples/tree/master/maps_js/x-ray-component/index.html) - demonstration of map observers showing a satellite map over the base map
+* [x-Ray](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/x-ray-component/index.html) - demonstration of map observers showing a satellite map over the base map
 
 
 ##### Directions Rendering
@@ -40,7 +39,7 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 
 
 ##### Geocoding Demos
-* [Concurrent Search](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/concurrent-search-requests/index.html) - Making concurrent requests.
+* [Concurrent Search](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/multiple-search-requests/index.html) - Making concurrent requests.
 * [Find a US State](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/find-an-american-state/index.html) - A simple game based on Geocoding.
 
 
@@ -53,7 +52,7 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 
 **KML Generation Tools**
 
-* [KML Generator from Data](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kmlgenerate-kml-file-from-data.html) - Geocoding of files to KML Format.
+* [KML Generator from Data](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/generate-kml-file-from-data.html) - Geocoding of files to KML Format.
 * [KML Generator from Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/generate-kml-file-from-map.html) - Point and Click KML Generator
 * [Premier League Football Teams](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/premier-league-football-teams.html) - Map Objects to KML
 
@@ -66,10 +65,10 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 
 **KML Parsing Examples**
 
-* [KML: Chinese Cities](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/cities-in-china.html) - Displays KML data about the largest cities in China
-* [KML :Finnish Cities](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-cities-in-finland.html) - Displays KML data about the largest cities in Finland
-* [KML: Estate Agents](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-estate-agents.html) - Displays a KML data file created from a Right Move Estate Agents data file
-* [KML: Premier League Football Teams](http://gitub.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/generate-kml/load-kml-premier-league-football-teams.html) - Displays a KML data file holding the location of Football Stadiums in the English Premier League
+* [KML: Chinese Cities](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/generate-kml/cities-in-china.html) - Displays KML data about the largest cities in China
+* [KML :Finnish Cities](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/generate-kml/load-kml-cities-in-finland.html) - Displays KML data about the largest cities in Finland
+* [KML: Estate Agents](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/generate-kml/load-kml-estate-agents.html) - Displays a KML data file created from a Right Move Estate Agents data file
+* [KML: Premier League Football Teams](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/generate-kml/premier-league-football-teams.html) - Displays a KML data file holding the location of Football Stadiums in the English Premier League
 
 **AJAX Loading**
 
@@ -77,18 +76,18 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 
 
 ##### Map Overlay Demos
-* [Aerial HERE Maps Styles](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/aerial-map-tile-styles-and-modes.html)  - A demonstration of available aerial HERE Maps map types (terrain, satellite etc.) and available languages.
-* [Base HERE Maps Styles](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/base-map-styles-and-modes.html) - A demonstration of available HERE Maps base map types and available languages.
-* [Map with POIs](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/base-map-with-pois.html) - A HERE Map displaying points of interest icons.
-* [Bilingual Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/bilingual-map.html) - A HERE Map in Chinese and English
-* [Community Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tile-overlays/community-map.html) - A demonstration displaying the HERE Maps community map layer using a quad key algorithm.
+* [Aerial HERE Maps Styles](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/aerial-map-tile-styles-and-modes.html)  - A demonstration of available aerial HERE Maps map types (terrain, satellite etc.) and available languages.
+* [Base HERE Maps Styles](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/base-map-styles-and-modes.html) - A demonstration of available HERE Maps base map types and available languages.
+* [Map with POIs](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/base-map-with-pois.html) - A HERE Map displaying points of interest icons.
+* [Bilingual Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/bilingual-map.html) - A HERE Map in Chinese and English
+* [Community Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/community-map.html) - A demonstration displaying the HERE Maps community map layer using a quad key algorithm.
 * [Grid Overlay](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/svg-grid-overlay/index.html) - A demonstration of **TMS** (Tile Map Server) syntax using a tile overlay from the National Library of Scotland.
 
 ##### Sidebar Component
-* [German Election Results](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/bar-chart-election-result.html) - election results in a side bar
-* [German City Populations](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/bar-chart-markers.html) - city populations in a side bar
-* [Premier League Football](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/map-sidebar-control.html) - football teams in a side bar
-* [Side Bar within Map](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/map-sidebar-within-map.html) - a side bar within the map itself
+* [German Election Results](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/bar-chart-election-result.html) - election results in a side bar
+* [German City Populations](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/bar-chart-markers.html) - city populations in a side bar
+* [Premier League Football](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/map-sidebar-control.html) - football teams in a side bar
+* [Side Bar within Map](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/map-sidebar-within-map.html) - a side bar within the map itself
 
 ### Simple Examples
 Basic code snippets to get you started:
