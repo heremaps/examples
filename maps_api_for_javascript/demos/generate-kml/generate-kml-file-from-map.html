@@ -1,78 +1,78 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
-    <title>HERE Maps API Example: KML Placemark Generator</title>
-    <!-- Set up constants such as APP ID and token -->
-    <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
-    <!-- Bootstrap jQuery Library -->
-    <script type="text/javascript" src="../libs/jQl.min.js"></script>
-    <!-- Asynchronously the HERE Maps API for  JavaScript -->
-    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
-    	id="HereMapsLoaderScript" 
-    	data-params="maps" 
-    	data-map-container="mapContainer"
-    	data-callback="afterHereMapLoad"
-    	data-libs="kml-generator"
-    	data-parent="demos/generate-kml/">
-    </script>
-    <link href='./css/prism.css' rel='stylesheet'>
-	<script type='text/javascript' src='libs/prism.js' ></script>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <title>HERE Maps API Example: KML Placemark Generator</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" 
+    data-params="maps" 
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="kml-generator"
+    data-parent="demos/generate-kml/">
+  </script>
+  <link href='./css/prism.css' rel='stylesheet'>
+  <script type='text/javascript' src='libs/prism.js' ></script>
 
-    <link rel="icon" href="http://here.com/favicon.ico"/>
-    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
 </head>
 <body>
-	<h1>KML Placemark Generator</h1>
-	<div style="width:500px;margin:1em" >
-		<p>This tool is able to convert an arbitrary HERE Map to KML. </p>
-    	<div id="mapContainer" style="width:540px; height:334px;"></div>
-	</div>
-
-     <div style="position:absolute; width:540px; top:30px; left:600px;">
-      lat: <span id="lat">?</span> long : <span id="lng"></span>?<br />
-
-      <label for="title">Title</label> <input id="title" /><br />
-      <label for="name">Name</label> <input id="name" /><br />
-      <label for="description">Description</label><br />
-      <textarea id="description" rows="4" cols="50"></textarea><br />
-
-      <label for="address">Address</label><br />
-      <textarea id="address" rows="4" cols="50"></textarea><br />
-      <input id="geocode" type="button" value="Get Address from current marker" />
-      <input id="rgeocode" type="button" value="Add address as new marker" /><br />
-      <br />
-      <label for="styleURL">styleURL</label> <input id="styleURL" /><br />
-      <label for="icon">Icon (Inline Style)</label> <input id="icon" style="width:50em" /><br />
-      <hr />
-      <input id="updateMarker" type="button" value="Update Marker"  />
-      <input id="changeToWaypoint" type="button" value="Change Marker to Waypoint" />
-      <input id="deleteMarker" type="button" value="Delete Marker" />
-      <hr />
-      waypoints: <span id="waypoints">?</span><br />
-      <label for="lineStyleURL">line styleURL</label> <input id="lineStyleURL" /><br />
-      <input id="button4" type="button" value="Create Line from Waypoints" onclick=
-      "createLineFromWaypoints( currentWaypoints)" /><br />
-
-      <hr/>
-      <textarea id="kmloutput" cols="50" rows="5"></textarea><br />
-        <input id="readKML" value="Read KML" type="button" />
-    	<input id="addKML" value="Add KML" type="button" />
-    </div>
-
-
-
+  <h1>KML Placemark Generator</h1>
+  <div style="width:500px;margin:1em" >
+    <p>This tool is able to convert an arbitrary HERE Map to KML. </p>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
   </div>
-  <div style="width:500px;margin:1em">
-	  	<strong>KML</strong>
-    <input id="createKML" value="Create KML" type="button" />
 
-    <br>
+   <div style="position:absolute; width:540px; top:30px; left:600px;">
+   lat: <span id="lat">?</span> long : <span id="lng"></span>?<br />
 
-    <label for="kmlData">Output:</label>
-    <div id="kmlData" style="background-color: #f5f2f0" ></div>
-    <hr>
+   <label for="title">Title</label> <input id="title" /><br />
+   <label for="name">Name</label> <input id="name" /><br />
+   <label for="description">Description</label><br />
+   <textarea id="description" rows="4" cols="50"></textarea><br />
+
+   <label for="address">Address</label><br />
+   <textarea id="address" rows="4" cols="50"></textarea><br />
+   <input id="geocode" type="button" value="Get Address from current marker" />
+   <input id="rgeocode" type="button" value="Add address as new marker" /><br />
+   <br />
+   <label for="styleURL">styleURL</label> <input id="styleURL" /><br />
+   <label for="icon">Icon (Inline Style)</label> <input id="icon" style="width:50em" /><br />
+   <hr />
+   <input id="updateMarker" type="button" value="Update Marker" />
+   <input id="changeToWaypoint" type="button" value="Change Marker to Waypoint" />
+   <input id="deleteMarker" type="button" value="Delete Marker" />
+   <hr />
+   waypoints: <span id="waypoints">?</span><br />
+   <label for="lineStyleURL">line styleURL</label> <input id="lineStyleURL" /><br />
+   <input id="button4" type="button" value="Create Line from Waypoints" onclick=
+   "createLineFromWaypoints(currentWaypoints)" /><br />
+
+   <hr/>
+   <textarea id="kmloutput" cols="50" rows="5"></textarea><br />
+    <input id="readKML" value="Read KML" type="button" />
+    <input id="addKML" value="Add KML" type="button" />
+  </div>
+
+
+
+ </div>
+ <div style="width:500px;margin:1em">
+     <strong>KML</strong>
+  <input id="createKML" value="Create KML" type="button" />
+
+  <br>
+
+  <label for="kmlData">Output:</label>
+  <div id="kmlData" style="background-color: #f5f2f0" ></div>
+  <hr>
 </div>
 
 
@@ -81,325 +81,326 @@
 
 <script id="example-code" data-categories="kml" type="text/javascript" >
 //<![CDATA[
-function afterHereMapLoad(map){
-	this.map = map;
-	map.set('zoomLevel', 5);
-    map.set('center', [53.4,-2]);
-	infoBubbles = new nokia.maps.map.component.InfoBubbles();
- 	map.components.add(infoBubbles);
+var map;
 
-	addKMLGenerator (map);
- 	buttonSetUp();
-}
-
- function addKMLGenerator (map){
- 	kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
-		datasource: "$data",
-		address :"address",
-		styleURL: "styleURL",
-		description: "description",
-		name: "name"
-	});
- 	map.addComponent(kmlGenerator);
- 	addClickListener(map);
- 	currentWaypoints = [];
+function addKMLGenerator(map) {
+   kmlGenerator = new KMLGenerator(document.getElementById("kmlData"),{
+    datasource: "$data",
+    address :"address",
+    styleURL: "styleURL",
+    description: "description",
+    name: "name"
+  });
+   map.addComponent(kmlGenerator);
+   addClickListener(map);
+   currentWaypoints = [];
 }
 
 
 
-function addClickListener(map){
-	map.addListener("longpress", function (evt){
-		var data = getMarkerData();
-		data.coords = map.pixelToGeo(evt.targetX , evt.targetY);
-		currentMarker = addMarker(data);
+function addClickListener(map) {
+  map.addListener("longpress", function (evt) {
+    var data = getMarkerData();
+    data.coords = map.pixelToGeo(evt.targetX , evt.targetY);
+    currentMarker = addMarker(data);
 
-		// If a description has been added, display the info bubble.
-		if (data.description != ""){
-			infoBubbles.addBubble(data.description, currentMarker.coords );
-		}
-	});
+    // If a description has been added, display the info bubble.
+    if (data.description != "") {
+      infoBubbles.addBubble(data.description, currentMarker.coords );
+    }
+  });
 }
 
-function getMarkerData(){
-	var markerData = {
-		title : $('#title').val(),
-		description : $('#description').val(),
-		name : $('#name').val(),
-		address: $('#address').val()
-	};
-	// If we have an icon we don't use styleURL since icons are inline styles in this generator.
-	if ($('#icon').val() != ""){
-		markerData.icon = $('#icon').val();
-	} else {
-		markerData.styleURL = $('#styleURL').val();
-	}
-	return markerData;
+function getMarkerData() {
+  var markerData = {
+    title : $('#title').val(),
+    description : $('#description').val(),
+    name : $('#name').val(),
+    address: $('#address').val()
+  };
+  // If we have an icon we don't use styleURL since icons are inline styles in this generator.
+  if ($('#icon').val() != "") {
+    markerData.icon = $('#icon').val();
+  } else {
+    markerData.styleURL = $('#styleURL').val();
+  }
+  return markerData;
 }
 
-function setMarkerData(target){
-	if (target.text === undefined){
-		$('#title').val("");
-	} else {
-		$('#title').val( target.text);
-	}
+function setMarkerData(target) {
+  if (target.text === undefined) {
+    $('#title').val("");
+  } else {
+    $('#title').val(target.text);
+  }
 
-	$('#description').val(target.$data.description);
-	$('#address').val(target.$data.address);
-	$('#name').val(target.$data.name);
-	if (target.icon.src === undefined){
-		$('#icon').val("");
-		$('#styleURL').val(target.$data.styleURL);
-	} else {
-		$('#icon').val(target.icon.src);
-		$('#styleURL').val("");
-	}
+  $('#description').val(target.$data.description);
+  $('#address').val(target.$data.address);
+  $('#name').val(target.$data.name);
+  if (target.icon.src === undefined) {
+    $('#icon').val("");
+    $('#styleURL').val(target.$data.styleURL);
+  } else {
+    $('#icon').val(target.icon.src);
+    $('#styleURL').val("");
+  }
 
-	$('#lat').text(target.coordinate.latitude);
-	$('#lng').text(target.coordinate.longitude);
+  $('#lat').text(target.coordinate.latitude);
+  $('#lng').text(target.coordinate.longitude);
 
-	if ( target.$data.description != ""){
-		infoBubbles.addBubble(target.$data.description, target.coordinate);
-	}
+  if (target.$data.description != "") {
+    infoBubbles.addBubble(target.$data.description, target.coordinate);
+  }
 }
 
 function addMarker(markerData) {
-	var marker;
+  var marker;
 
-	if (markerData.title === undefined){
-		markerData.title = "";
-	}
+  if (markerData.title === undefined) {
+    markerData.title = "";
+  }
 
-	// Either an a Standard Marker or an icon, both are left
-	// Draggable, so the location can be corrected.
-	if (markerData.icon === undefined){
-		marker = new nokia.maps.map.StandardMarker(markerData.coords, {
-			text:  markerData.title, //small title
-			draggable: true,  //the marker is marked  to be draggable
-			$data: markerData
-		});
-	} else {
-		marker =  new nokia.maps.map.Marker(markerData.coords,  {
-		icon: markerData.icon,
-			anchor: new nokia.maps.util.Point(16, 32),
-			draggable: true,  //the marker is marked  to be draggable
-			$data: markerData
-		});
-	}
+  // Either an a Standard Marker or an icon, both are left
+  // Draggable, so the location can be corrected.
+  if (markerData.icon === undefined) {
+    marker = new nokia.maps.map.StandardMarker(markerData.coords, {
+      text: markerData.title, //small title
+      draggable: true, //the marker is marked to be draggable
+      $data: markerData
+    });
+  } else {
+    marker = new nokia.maps.map.Marker(markerData.coords, {
+    icon: markerData.icon,
+      anchor: new nokia.maps.util.Point(16, 32),
+      draggable: true, //the marker is marked to be draggable
+      $data: markerData
+    });
+  }
 
-	// When the marker is clicked, the edit boxes must be refreshed.
-	var TOUCH = nokia.maps.dom.Page.browser.touch,
-		CLICK = TOUCH ? "tap" : "click";
-	marker.addListener(CLICK ,  function(evt) {
-		currentMarker = evt.target;
-		setMarkerData(currentMarker);
-	});
+  // When the marker is clicked, the edit boxes must be refreshed.
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? "tap" : "click";
+  marker.addListener(CLICK , function (evt) {
+    currentMarker = evt.target;
+    setMarkerData(currentMarker);
+  });
 
-	// If a marker is dragged, we need to close the infobox.
-	marker.addListener("drag" ,  function(evt) {
-		removeBubble();
-		currentMarker = evt.target;
-	});
+  // If a marker is dragged, we need to close the infobox.
+  marker.addListener("drag" , function (evt) {
+    removeBubble();
+    currentMarker = evt.target;
+  });
 
-	map.objects.add(marker);
-	return marker;
+  map.objects.add(marker);
+  return marker;
 
 }
 
 function editMarker(addWaypoint) {
-	// deletes the current marker
-	map.objects.remove(currentMarker);
-	removeBubble();
-	if (addWaypoint == true){
-		currentWaypoints.push( currentMarker.coordinate);
-		$('#waypoints').text(JSON.stringify(currentWaypoints));
-	} else {
-		var data = getMarkerData();
-		data.coords = currentMarker.coordinate;
-		currentMarker = addMarker(data);
-		// If a description has been added, display the info bubble.
-		if ( description.value != ""){
-			infoBubbles.addBubble(data.description, data.coords );
-		}
-	}
+  // deletes the current marker
+  map.objects.remove(currentMarker);
+  removeBubble();
+  if (addWaypoint == true) {
+    currentWaypoints.push(currentMarker.coordinate);
+    $('#waypoints').text(JSON.stringify(currentWaypoints));
+  } else {
+    var data = getMarkerData();
+    data.coords = currentMarker.coordinate;
+    currentMarker = addMarker(data);
+    // If a description has been added, display the info bubble.
+    if (description.value != "") {
+      infoBubbles.addBubble(data.description, data.coords );
+    }
+  }
 
 }
 
-function deleteMarker (){
-	map.objects.remove(currentMarker);
-	removeBubble();
+function deleteMarker() {
+  map.objects.remove(currentMarker);
+  removeBubble();
 }
 
 
 
-function removeBubble (){
-	while(infoBubbles.openBubbleHandles.getLength() > 0) {
-		infoBubbles.removeBubble(infoBubbles.openBubbleHandles.get(0));
-	}
+function removeBubble() {
+  while(infoBubbles.openBubbleHandles.getLength() > 0) {
+    infoBubbles.removeBubble(infoBubbles.openBubbleHandles.get(0));
+  }
 }
 
 function createLineFromWaypoints(waypoints) {
-	var lineData = new Object();
-	lineData.lineNo = map.objects.getLength() + 1;
-	lineData.waypoints = waypoints ;
-	if( lineStyleURL.value != ""){
-		lineData.styleURL =  lineStyleURL.value;
-	}
-	addLine(lineData);
+  var lineData = new Object();
+  lineData.lineNo = map.objects.getLength() + 1;
+  lineData.waypoints = waypoints ;
+  if (lineStyleURL.value != "") {
+    lineData.styleURL = lineStyleURL.value;
+  }
+  addLine(lineData);
 
-	// Clear the current waypoint list and the info <span>
-	currentWaypoints = new Array();
-	$('#waypoints').text("");
+  // Clear the current waypoint list and the info <span>
+  currentWaypoints = new Array();
+  $('#waypoints').text("");
 }
 
 function addLine(lineData) {
-	map.objects.add(new nokia.maps.map.Polyline(
-		lineData.waypoints,{
-		color: "#22CA" ,
-		width: 5,
-		$data: lineData
-	}));
+  map.objects.add(new nokia.maps.map.Polyline(
+    lineData.waypoints,{
+    color: "#22CA" ,
+    width: 5,
+    $data: lineData
+  }));
 }
 
-function onSearchComplete (data, requestStatus) {
-	// If the search  has finished we can process the results
-	if (requestStatus == "OK") {
-		var markerData = getMarkerData()
-		markerData.address = data.location.address.text;
-		markerData.coords = data.location.position;
-		// Ensure the address edit box contains the latest address contents.
-		$("#address").val(data.location.address.text);
-		currentMarker = addMarker(markerData);
-		map.setCenter(data.location.position);
+function onSearchComplete(data, requestStatus) {
+  // If the search has finished we can process the results
+  if (requestStatus == "OK") {
+    var markerData = getMarkerData()
+    markerData.address = data.location.address.text;
+    markerData.coords = data.location.position;
+    // Ensure the address edit box contains the latest address contents.
+    $("#address").val(data.location.address.text);
+    currentMarker = addMarker(markerData);
+    map.setCenter(data.location.position);
 
-	} else if (requestStatus == "ERROR") {
-		alert("The search request failed.");
-	}
+  } else if (requestStatus == "ERROR") {
+    alert("The search request failed.");
+  }
 }
 
 
 
 // Reads the KML text and displays the result on the screen.
-function  parseKml(kml){
+function parseKml(kml) {
 
-	// CDATA section can hold HTML and aren't easily parsed by jQuery
-	// convert the data within the CDATA section into escaped format so
-	// we can read it in as text.
-	while ( kml.search ("<!\\[CDATA\\[")  > - 1){
-		var from = kml.search ("<!\\[CDATA\\[");
-		var to= kml.search ("\\]\\]>");
-		kml = kml.substring(0, from) +  escape(kml.substring(from + 9, to)) +  kml.substring(to+ 3);
-	}
+  // CDATA section can hold HTML and aren't easily parsed by jQuery
+  // convert the data within the CDATA section into escaped format so
+  // we can read it in as text.
+  while (kml.search ("<!\\[CDATA\\[") > - 1) {
+    var from = kml.search ("<!\\[CDATA\\[");
+    var to= kml.search ("\\]\\]>");
+    kml = kml.substring(0, from) + escape(kml.substring(from + 9, to)) + kml.substring(to+ 3);
+  }
 
-	$(kml).dataType =  'xml';
-	$(kml).find("Placemark").each(function(){
-		// Iterate through all the placemarks, and add Markers or Polylines as necessary.
-		var markerData = new Object();
-		var lineData = new Object();
+  $(kml).dataType = 'xml';
+  $(kml).find("Placemark").each(function () {
+    // Iterate through all the placemarks, and add Markers or Polylines as necessary.
+    var markerData = new Object();
+    var lineData = new Object();
 
-		// The Editor associates title with id, but this is optional.
-		markerData.title = $(this).attr('id');
-		// load the escaped description as text.
-		descCDATA = $(this).find('description').text();
-		if (descCDATA == null){
-			// If there is no description data, set it blank.
-			markerData.description = "";
-		} else {
-			// If there is description data, convert it back to HTML.
-			markerData.description =  unescape(descCDATA);
-		}
-		// Read in the name, address and style URL elements.
-		markerData.name =  $(this).find('name').text();
-		markerData.address = $(this).find('address').text();
-		markerData.styleURL = $(this).find('styleUrl').text();
+    // The Editor associates title with id, but this is optional.
+    markerData.title = $(this).attr('id');
+    // load the escaped description as text.
+    descCDATA = $(this).find('description').text();
+    if (descCDATA == null) {
+      // If there is no description data, set it blank.
+      markerData.description = "";
+    } else {
+      // If there is description data, convert it back to HTML.
+      markerData.description = unescape(descCDATA);
+    }
+    // Read in the name, address and style URL elements.
+    markerData.name = $(this).find('name').text();
+    markerData.address = $(this).find('address').text();
+    markerData.styleURL = $(this).find('styleUrl').text();
 
-		// Either we have a Point with a coordinate or a LineString with multiple coordinates.
-		var coord = $(this).find('Point').text();
-		var coords = $(this).find('LineString').text();
+    // Either we have a Point with a coordinate or a LineString with multiple coordinates.
+    var coord = $(this).find('Point').text();
+    var coords = $(this).find('LineString').text();
 
 
-	$(this).find('Style').each(function(){
-		// If we have an inline style we may have an icon.
-		var start = $(this).text().search("<href>");
-		var end =  $(this).text().search("</href>");
-		if (start > -1 && end > -1 ){
-		markerData.icon  =  $(this).text().substring(start + 6, end );
-		}
-	});
+  $(this).find('Style').each(function () {
+    // If we have an inline style we may have an icon.
+    var start = $(this).text().search("<href>");
+    var end = $(this).text().search("</href>");
+    if (start > -1 && end > -1 ) {
+    markerData.icon = $(this).text().substring(start + 6, end );
+    }
+  });
 
-	if ( coord != ""){
-		/// add point - parse the coordinate into longitude and latitude.
-		var lng = coord.substring( 0 , coord.search(","));
-		coord = coord.substring(coord.search(",")+ 1);
-		var lat = coord.substring( 0 , coord.search(","));
-		markerData.coords = new nokia.maps.geo.Coordinate(parseFloat(lat), parseFloat(lng));
+  if (coord != "") {
+    /// add point - parse the coordinate into longitude and latitude.
+    var lng = coord.substring(0 , coord.search(","));
+    coord = coord.substring(coord.search(",")+ 1);
+    var lat = coord.substring(0 , coord.search(","));
+    markerData.coords = new nokia.maps.geo.Coordinate(parseFloat(lat), parseFloat(lng));
 
-		currentMarker = addMarker(markerData);
-		map.setCenter( markerData.coords);
-	}
-	if( coords != ""){
-		/// add line  - read each waypoint in with a new line after each one.
-		var waypoints = new Array();
-		var n= 1;
-		do {
-			var lng = coords.substring( 0 , coords.search(","));
-				coords = coords.substring(coords.search(",")+ 1);
-			var lat = coords.substring( 0 , coords.search(","));
-			try {
-				waypoints.push(
-					new nokia.maps.geo.Coordinate(parseFloat(lat), parseFloat(lng)));
-			} catch(err) {}
-			coords = coords.substring(coords.search("\n")+ 1);
-		} while (coords.search("\n") > -1)
+    currentMarker = addMarker(markerData);
+    map.setCenter(markerData.coords);
+  }
+  if (coords != "") {
+    /// add line - read each waypoint in with a new line after each one.
+    var waypoints = new Array();
+    var n= 1;
+    do {
+      var lng = coords.substring(0 , coords.search(","));
+        coords = coords.substring(coords.search(",")+ 1);
+      var lat = coords.substring(0 , coords.search(","));
+      try {
+        waypoints.push(
+          new nokia.maps.geo.Coordinate(parseFloat(lat), parseFloat(lng)));
+      } catch(err) {}
+      coords = coords.substring(coords.search("\n")+ 1);
+    } while (coords.search("\n") > -1)
 
-		// Finally create a Polyline.
-		lineData.waypoints = waypoints ;
-		lineData.styleURL =  markerData.styleURL;
-		addLine(lineData);
-	}
-	});
+    // Finally create a Polyline.
+    lineData.waypoints = waypoints ;
+    lineData.styleURL = markerData.styleURL;
+    addLine(lineData);
+  }
+  });
 }
 
 
-function buttonSetUp(){
-	$("#createKML" ).click(function() {
-		kmlGenerator.generateKML();
-		if(Prism){
-			Prism.highlightAll();
-		}
-	});
-	$("#readKML" ).click(function() {
-		map.objects.clear();
-		parseKml($('#kmloutput').val());
-	});
-	$("#addKML" ).click(function() {
-		 parseKml($('#kmloutput').val());
-	});
-	$("#deleteMarker" ).click(function() {
-		deleteMarker();
-	});
-	$("#changeToWaypoint" ).click(function() {
-		 editMarker(true);
-	});
-	$("#updateMarker" ).click(function() {
-		 editMarker(false);
-	});
+function buttonSetUp() {
+  $("#createKML" ).click(function () {
+    kmlGenerator.generateKML();
+    if (Prism) {
+      Prism.highlightAll();
+    }
+  });
+  $("#readKML" ).click(function () {
+    map.objects.clear();
+    parseKml($('#kmloutput').val());
+  });
+  $("#addKML" ).click(function () {
+     parseKml($('#kmloutput').val());
+  });
+  $("#deleteMarker" ).click(function () {
+    deleteMarker();
+  });
+  $("#changeToWaypoint" ).click(function () {
+     editMarker(true);
+  });
+  $("#updateMarker" ).click(function () {
+     editMarker(false);
+  });
 
-	$("#geocode" ).click(function() {
-		map.objects.remove(currentMarker);
-		nokia.places.search.manager.reverseGeoCode({
-			latitude : currentMarker.coordinate.latitude,
-			longitude : currentMarker.coordinate.longitude,
-			onComplete: onSearchComplete
-		});
-	});
+  $("#geocode" ).click(function () {
+    map.objects.remove(currentMarker);
+    nokia.places.search.manager.reverseGeoCode({
+      latitude : currentMarker.coordinate.latitude,
+      longitude : currentMarker.coordinate.longitude,
+      onComplete: onSearchComplete
+    });
+  });
 
-	$("#rgeocode" ).click(function() {
-			nokia.places.search.manager.geoCode({
-			searchTerm : $('#address').val(),
-			onComplete: onSearchComplete
-		});
-	});
+  $("#rgeocode" ).click(function () {
+      nokia.places.search.manager.geoCode({
+      searchTerm : $('#address').val(),
+      onComplete: onSearchComplete
+    });
+  });
+}
 
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.set('zoomLevel', 5);
+  map.set('center', [53.4,-2]);
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  map.components.add(infoBubbles);
+
+  addKMLGenerator(map);
+  buttonSetUp();
 }
 //]]>
 </script>
