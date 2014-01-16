@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addContainsMethodToPolygon" />
+  <title>HERE Maps API Example: Determining whether a coordinate lies within a polygon</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+</head>
+<body>
+  <h1>Determining whether a coordinate lies within a polygon</h1>
+  <p>Click on the map to see whether the coordinate lies within the polygon.</p>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="geoshape" type="text/javascript" >
+//<![CDATA[
+var poly;
+
+function addPolygonToMap(map) {
+  var geoStrip = new nokia.maps.geo.Strip(
+    [52, 13, 100, 48, 2, 100, 48, 16, 100, 51, 13, 100,
+      51.5, 13, 100, 51.7, 13, 100, 52, 13, 100],
+    'values lat lng alt'
+  );
+  poly =
+    new nokia.maps.map.Polygon(geoStrip, {
+      precision: 36,
+      simplify: 16,
+      fillColor: 'FFFFCC',
+      color: '#829f',
+      width: 2
+    });
+  map.objects.add(poly);
+}
+
+
+function addContainsMethodToPolygon() {
+  nokia.maps.map.Polygon.prototype.containsCoordinate = function (arg) {
+    var latitude, longitude, inPoly, path, numPoints, j, i, vertex1, vertex2;
+
+    if (arg instanceof  nokia.maps.geo.Coordinate) {
+      latitude = arg.latitude;
+      longitude = arg.longitude;
+    } else if (arg instanceof Array && arg.length === 2 && !isNaN(arg[0]) && !isNaN(arg[1])) {
+      latitude = arg[0];
+      longitude = arg[1];
+    }
+
+    if (!poly.getBoundingBox().contains(
+        nokia.maps.geo.BoundingBox.coverAll(
+          [new nokia.maps.geo.Coordinate(
+            latitude,
+            longitude
+          )]
+        )
+      )) {
+      return false;
+    }
+
+    inPoly = false;
+    path = this.path;
+    numPoints = path.getLength();
+    j = numPoints - 1;
+
+    for (i = 0; i < numPoints; i += 1) {
+      vertex1 = path.getLatLng(i);
+      vertex2 = path.getLatLng(j);
+
+      if ((vertex1[1] < longitude && vertex2[1] >= longitude) ||
+          (vertex2[1] < longitude && vertex1[1] >= longitude)) {
+        if (vertex1[0] + (longitude - vertex1[1]) / (vertex2[1] - vertex1[1])
+            * (vertex2[0] - vertex1[0]) < latitude) {
+          inPoly = !inPoly;
+        }
+      }
+      j = i;
+    }
+    return inPoly;
+  };
+}
+
+function addClickListener(map) {
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? 'tap' : 'click',
+    coordinate;
+
+  map.addListener(CLICK, function (evt) {
+    coordinate = map.pixelToGeo(evt.displayX, evt.displayY);
+    map.objects.add(new nokia.maps.map.Marker(coordinate));
+    alert(poly.containsCoordinate(coordinate));
+  });
+}
+
+function afterHereMapLoad(theMap) {
+  var map = theMap;
+  map.set('center', new nokia.maps.geo.Coordinate(53.1, 13.1));
+  map.set('zoomLevel', 4);
+  map.set('baseMapType', map.SATELLITE);
+
+  addContainsMethodToPolygon();
+  addPolygonToMap(map);
+  addClickListener(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>
