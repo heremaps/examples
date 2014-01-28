@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="setUpClickListener,resetClickCheck,doubleClickCallback,singleClickCallback" />
+  <title>HERE Maps API Example: Enabling and Disabling Double Click Zoom</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+</head>
+<body>
+  <h1>Enabling and Disabling Double Click Zoom</h1>
+  <p>Click on the map to fire the click event, double click on the map to fire
+    the double click event. The double click zoom functionality can be toggled on 
+    and off using the button below.</p>
+   <button id="toggleDoubleClick">Disable double click zoom</button>
+  <div id="lastaction" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="events" type="text/javascript" >
+//<![CDATA[
+
+var map,
+  clickCheckTimeOutId,
+  numClicks = 0;
+
+function resetClickCheck() {
+  clearTimeout(clickCheckTimeOutId);
+  numClicks = 0;
+}
+
+function doubleClickCallback() {
+  // Add your double click functionality here.
+  $('#lastaction').text('Double click event');
+}
+
+function singleClickCallback() {
+  // Add your single click functionality here.
+  $('#lastaction').text('Single click event');
+}
+
+function setUpClickListener(map) {
+  map.addListener("click", function () {
+    numClicks += 1;
+    if (numClicks === 1) {
+      //Set a timeout function in order to wait for a second click,
+      // if not then execute the single click callback
+      clickCheckTimeOutId = setTimeout(function () {
+        resetClickCheck();
+        singleClickCallback();
+      }, nokia.maps.dom.Page.DOUBLE_CLICK_TIME);
+      // DOUBLE_CLICK_TIME is the internal time defined for the API between clicks,
+      // in order to consider if is a single or a double click
+    } else {
+      resetClickCheck();
+      doubleClickCallback();
+    }
+  });
+}
+
+function afterHereMapLoad(theMap) {
+  $('#toggleDoubleClick').click(function () {
+
+    if (map.getComponentById('zoom.DoubleClick') === null) {
+      map.addComponent(new nokia.maps.map.component.zoom.DoubleClick());
+      $('#lastaction').text('Double click zoom was enabled');
+      $('#toggleDoubleClick').val('Disable Double Click Zoom');
+    } else {
+      map.removeComponent(map.getComponentById("zoom.DoubleClick"));
+      $('#lastaction').text('Double click zoom was disabled');
+      $('#toggleDoubleClick').val('Enable Double Click Zoom');
+    }
+  });
+  map = theMap;
+  setUpClickListener(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>
