@@ -106,7 +106,7 @@ function addClickListener(map) {
 
     // If a description has been added, display the info bubble.
     if (data.description != "") {
-      infoBubbles.addBubble(data.description, currentMarker.coords );
+      infoBubbles.openBubble(data.description, currentMarker.coords );
     }
   });
 }
@@ -149,7 +149,7 @@ function setMarkerData(target) {
   $('#lng').text(target.coordinate.longitude);
 
   if (target.$data.description != "") {
-    infoBubbles.addBubble(target.$data.description, target.coordinate);
+    infoBubbles.openBubble(target.$data.description, target.coordinate);
   }
 }
 
@@ -209,7 +209,7 @@ function editMarker(addWaypoint) {
     currentMarker = addMarker(data);
     // If a description has been added, display the info bubble.
     if (description.value != "") {
-      infoBubbles.addBubble(data.description, data.coords );
+      infoBubbles.openBubble(data.description, data.coords );
     }
   }
 
@@ -224,7 +224,7 @@ function deleteMarker() {
 
 function removeBubble() {
   while(infoBubbles.openBubbleHandles.getLength() > 0) {
-    infoBubbles.removeBubble(infoBubbles.openBubbleHandles.get(0));
+    infoBubbles.closeBubble(infoBubbles.openBubbleHandles.get(0));
   }
 }
 
