@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>HERE Maps Community Examples</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- <script src="js/gitjs/hereAppIdAndToken.js"></script> -->
+
+	<link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="libs/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/examples.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="libs/fonts/others/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/H_BLUE_16px.jpg" type="image/x-icon">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+
+	<style type="text/css">
+	</style>
+</head>
+
+<body id="examples-page" style="">
+	<div id="block" class="" style="">
+		<div class="loading_msg">
+			<div id="octocat" class="inline-block">
+				<img src="img/here_github_octocat_48.png" style="" />
+			</div>
+			<div class="inline-block">
+				Asking the octocat for directions 
+			</div>
+			<div style="display:inline-block">
+				<img alt="" height="5px" src="img/loadingDots.gif" ></img>
+			</div>
+		</div>
+		<br />
+		<div id="ie-error" class="hide">The octocat says that Github doesn't support this browser. Please update it to continue.</div>
+	</div>
+	<div id="fail" class="hide">We can't find the octocat. Come back in a while.</div>
+</div>
+<div class="container-fluid" style="padding:0; color: white; ">
+	<div class="row-fluid" id="header_HERE" style="height: 80px;">
+
+		<div class="" style="">
+			<a id="logo" class="logo" title="HERE" href="index.html">HERE</a>
+		</div>
+
+		<div id="head" class="span12" style="width: 100%">
+			<div class="row greyHEREbackground" style="height: 40px;">
+				<div style="margin-left: 85px;">
+					<div style="padding-bottom: 0;" class="well-small span10">
+						<i class="icon-github"></i><span style=""> Community Examples </span>
+
+					</div>
+					<a id="fork" style="color: white;" href="https://github.com/heremaps/examples" target="_blank">
+						<div class="span2 well-small lightblueHEREbackground cornerbtn">
+							<div style="height: inherit; width: 100%;">
+								<i class="icon-code-fork well-small inline"></i><span class="hidden-phone hidden-tablet inline">Fork our repository.</span> 
+							</div>
+						</div>
+					</a>
+				</div>
+
+			</div>
+			<div class="row translucentHEREbackground" style="height: 40px;">
+				<div style="margin-left: 85px;">
+					<div class="well-small hidden-phone span8" style="">
+						<a class="nav-link" href="index.html">Overview</a>
+						<a class="clicked nav-link" href="">Examples</a>
+					</div>
+					<div class="hidden-phone span4 well-small"  style=" margin-left: -10px; text-align: right; font-size: 10pt; ">
+
+						<i title="Examples and Demos" class="icon-code"></i><a class="lightblue " id="count-ex"> </a>
+						<span class="divider well-small">.</span><i title="Watchers" class="icon-eye-open"></i>
+						<a class="lightblue" id="count-watch"></a>
+						<span class="divider well-small">.</span>
+						<i title="Contributors" class="icon-male"></i><a class="lightblue" id="count-contributors"> </a>
+					</div>
+				</div>
+
+				<!--<a id="name"> </a><span id="article"> </span><span id="place"> </span> just contributed to <a id="repository"> </a>.-->
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div  id="body_HERE" class="row-fluid" style="position: relative; top:0; left: 0; padding-top: 80px;">
+		<div id="sidemenu" class="span3" style="margin-left: 0; font-size: 12pt; color:black; " >
+
+			<div class="accordion" id="accordion" style="margin-left: .1em;" >
+				<div class="accordion-group noborder" >
+					<div class="accordion-heading lightgreyHEREbackground">
+						<a id="beginner" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#c1" ><h4>Basic Examples</h4></a>
+					</div>
+					<div id="c1" class="accordion-body collapse" >
+						<div class="accordion-inner">
+							<div class="nano">
+								<div id="simple-examples" class="examples content">
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="accordion-group noborder">
+					<div class="accordion-heading lightgreyHEREbackground" >
+						<a  id="advanced" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#c2"> <h4>Advanced Examples</h4> </a>
+					</div>
+					<div id="c2" class="accordion-body collapse" >
+						<div class="accordion-inner">
+							<div class="nano">
+								<div id="advanced-examples" class="examples content">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group noborder">
+					<div class="accordion-heading lightgreyHEREbackground">
+						<a id="demo" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#c3"> <h4>Demo Gallery</h4> </a>
+					</div>
+					<div id="c3" class="accordion-body collapse">
+						<div class="accordion-inner">
+							<div class="nano">
+								<div id="demos"  class="examples content">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="span9 hidden-phone well-small" style="margin-left: .3%;">
+			<div  class="">
+				<div id="text" style="color: black;" class="show">
+					<h2 id="heading"> Lets start with some examples </h2>
+					<hr style="margin-top: -10px;"/>
+					<p id="blurb" >
+
+						We are committed to supporting all the developer communities and providing tools to encourage their growth. Our extensive sets of <a href="http://developer.here.com/javascript-apis/documentation/maps">API documentation</a> and examples are specifically built and curated to help you accelerate your own development. With the HERE Maps API you can now include maps that are fresh, accurate and reliable into your web and mobile applications. Before you start, you will need to <a href="http://developer.here.com"> sign up for an API key</a>.
+					</p>
+					<p id="simple_blurb" >
+						<h3>Basic Examples</h3>
+						<hr  style="margin-top: -10px;"/>
+						Just learning the fundamentals of our JavaScript API? Click on “Basic examples” on the left menu to learn how to perform basic mapping tasks and functions. Get insight into how to add a marker to a map or how to retrieve routing instructions from point A to point B. The full HTML+CSS+JS content can be found on Github.
+					</p>
+					<p id="advanced_blurb" >
+						<h3>Advanced Examples</h3>
+						<hr style="margin-top: -10px;"/>
+						Need to learn how to load a KML file or how to create a custom marker? Click on “Advanced Code Examples” to learn how to use the advanced functionalities of HERE Maps API for JavaScript. Fork the example repository to extend your learning and send us a pull request if you want to contribute with your example.
+
+					</p>
+					<p id="demo_blurb" >
+						<h3> Demo Gallery </h3>
+						<hr style="margin-top: -10px;"/>
+						Already used most of the functionality of our JavaScript API? Click on “Demo Gallery” to see how you can realize great map visualizations using the full potential of HERE Maps API for JavaScript. By forking the entire example repository you get access to all demo assets and community-built libraries. If you have also created some cool demo content or a useful library, just send us a pull to get it available on this page.
+					</p>
+
+				</div>
+				<div id="blob" style="color:black;">
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+<footer class="footer">
+	<div  class="row-fluid linkfooter" style="padding-top: 10px;">
+		<div class="pull-left inline" style="">
+			<ul style="" class="inline" >
+				<li class="">
+					<a class="" href="http://developer.here.com/">Developer</a>
+				</li>
+				<li>
+					<a href="http://developer.here.com/contact-us">Contact us</a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="pull-right inline" style="">
+			<ul style="" class="inline">
+				<li class="">
+					<a class="" href="http://blog.here.com"><i class=" icon-bullhorn"></i></a>
+				</li>
+				<li>
+					<a href="https://twitter.com/here"><i class="icon-twitter-sign"></i></a>
+				</li>
+				<li>
+					<a href="http://www.youtube.com/heremaps"><i class=" icon-youtube"></i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</footer>
+		<!-- Le javascript
+		==================================================
+		<!-- Placed at the end of the document so the pages load faster -->
+
+		<script src="libs/jquery/jquery.js"></script>
+
+		<script src="libs/bootstrap/js/bootstrap.js"></script>
+
+		<script src="libs/jquery/plugins/github-files/github-files.js"></script>
+		<script src="libs/jquery/plugins/nanoscroller/nanoscroller.js"></script>
+		<script src="libs/js/explorer_constants.js"></script>
+		<script src="libs/js/explorer_script.js"></script>
+	</body>
+	</html>

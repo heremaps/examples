@@ -30,34 +30,20 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 		<link rel="shortcut icon" href="../assets/ico/favicon.png">
-		<style type="text/css">
-		body {
-			padding-top: 2%;
-		}
-		#mapContainer {
-			width: 100%;
-			height: 100%;
-			left: 0;
-			top: 0;
-			position: absolute;
-		}
-		</style>
 	</head>
-	<body style="padding:0; font-family:herefont_light; font-size: 14pt;padding:0; color: white;   ">
-		<div id="block" style="position: absolute; top:0; left: 0;background-color: white; z-index: 10; height: 100%;width: 100%; ">
-			
-			<div style="font-size: 22pt; color: black;position: relative; top: 12%; left: 7%;">
-				<div style="display:inline-block">
+	<body style="">
+		<div id="block" style="">
+			<div class="loading_msg" style="">
+				<div class="inline-block">
 					<img id="octocat" src="img/here_github_octocat_48.png" style="" />
 				</div>
-				<div style="display:inline-block">
+				<div class="inline-block">
 					Looking for the octocat...
 				</div>
 			</div>
 			<br />
-			<div id="ie-error" class="hide" style="font-size: 22pt; color: black;position: relative; top: 14%; left: 7%;">The octocat says that Github doesn't support this browser. Please update it to continue.</div>
+			<div id="ie-error" class="hide" style="">The octocat says that Github doesn't support this browser. Please update it to continue.</div>
 		</div>
-		
 		<div class="row-fluid" id="header_HERE" style="height: 80px;">
 
 			<div class="" style="">
@@ -75,9 +61,9 @@
 					<div style="margin-left: 85px;">
 						<div class=" well-small hidden-phone" style="">
 
-							<a class=" clicked" style="vertical-align: bottom; margin-right: 20px;color: white;" href="#">Overview</a>
+							<a class="clicked nav-link" href="#">Overview</a>
 
-							<a style="vertical-align: bottom;" onclick="" href="examples.html">Examples</a>
+							<a class="nav-link" href="explorer.html">Examples</a>
 
 						</div>
 					</div>
@@ -89,57 +75,59 @@
 			</div>
 
 		</div>
-
-		<div class="masthead section container-fluid" style="min-height:630px; padding: 0;margin: 0; position: relative;padding-top:30px;  color: black;">
-
-			<div style=" color: white; padding: 5%;" class="container">
+		<div class="masthead section container-fluid mast-style" style="">
+			<div style="color: white; margin-top: 82px;" class="container">
 				<div class="caption row-fluid " style="font-family: herefont_regular; width: 75%;">
-					<div class="inline-block va_top">
+					<div class="inline-block va_top hidden-tablet hidden-phone">
 						<a title="HERE Maps Github repository page" href="https://github.com/heremaps/examples/">
 							<img src="img/here_github_octocat_128.png" width="80px" />
 						</a>
 					</div>
 					<div class="inline-block">
-						<h1>HERE Maps on Github.</h1>
-						<p class="lightblue">Learn from our mapping examples to create your own personalized experiences.</p>
+						<h3 class="hidden-desktop">HERE Maps on Github.</h1>
+							<h1 class="hidden-phone hidden-tablet">HERE Maps on Github.</h1>
+							<p class="lightblue">Learn from our mapping examples to create your own personalized experiences.</p>
+						</div>
 					</div>
-				</div>
 
-				<div class="row-fluid" style="margin-top: 1em;">
-					<div class="span4 caption" style="position: relative; ">
-						<a class="lightblue" href="#beginner-examples" onclick="hideInfo();">
-							<div style="display: inline-block;width: 95%; padding-bottom: 30px;">
-								<h3 class="media-heading" style="color: white;">Basic Examples</h3>
-								<div class="hidden-phone hidden-tablet" style="color: white;">
-									To help you understand some fundamentals of the HERE Maps API for JavaScript such as create a map, add a marker or perform a simple routing task.
+					<div class="row-fluid" style="margin-top: 1em;">
+						<div class="span4 caption" style="position: relative;">
+							<a class="lightblue" href="#beginner-examples" onclick="hideInfo();">
+								<div class="hero-block">
+									<h3 class="media-heading" style="color: white;">Basic Examples</h3>
+									<div class="hidden-phone hidden-tablet" style="">
+										To help you understand some fundamentals of the HERE Maps API for JavaScript such as create a map, add a marker or perform a simple routing task.
 
+									</div>
 								</div>
-							</div> </a>
-							<a href="https://github.com/heremaps/examples/#simple-examples" style="position: absolute; bottom: 0; left:0;padding: 1em 1.5em;" class="lightblue"><i class="icon-github"></i> View on Github</a>
+							</a>
+							<a href="https://github.com/heremaps/examples/#simple-examples" class="hero-git-link lightblue"><i class="icon-github"></i> View on Github</a>
 
 						</div>
 						<div class="span4 caption" style="position: relative;">
 							<a class="lightblue" href="#advanced-examples" onclick="hideInfo();">
-								<div style="display: inline-block;width: 95%; padding-bottom: 30px;">
+								<div class="hero-block">
 									<h3 class=" media-heading" style="color: white;">Advanced Examples</h3>
-									<div class="hidden-phone hidden-tablet" style="color: white;">
+									<div class="hidden-phone hidden-tablet" style="">
 										To help you gain insight and hit the ground running with some much more advanced and special purpose functionalities such as add a coroutine or display map in different languages.
 									</div>
-								</div> </a>
-								<a href="https://github.com/heremaps/examples/#advanced-examples" style="position: absolute; bottom: 0; left:0;padding: 1em 1.5em;" class="lightblue"><i class="icon-github"></i> View on Github</a>
-
-							</div>
-							<div class="span4 caption" style="position: relative;">
-								<a class="lightblue" href="#demos" onclick="hideInfo();">
-									<div style="display: inline-block;width: 95%; padding-bottom: 30px;">
-										<h3 class=" media-heading" style="color: white;">Demo Gallery</h3>
-										<div class="hidden-phone hidden-tablet" style="color: white;">
-											To show you how others have created custom components using the HERE Maps API for JavaScript. Fork us on Github to showcase your demo on our page.
-										</div>
-									</div> </a>
-									<a href="https://github.com/heremaps/examples/#demos-and-custom-components" style="position: absolute; bottom: 0; left:0;padding: 1em 1.5em;" class="lightblue"><i class="icon-github"></i> View on Github</a>
-
 								</div>
+							</a>
+							<a href="https://github.com/heremaps/examples/#advanced-examples" class="hero-git-link lightblue"><i class="icon-github"></i> View on Github</a>
+
+						</div>
+						<div class="span4 caption" style="position: relative;">
+							<a class="lightblue" href="#demos" onclick="hideInfo();">
+								<div class="hero-block" style="">
+									<h3 class=" media-heading" style="color: white;">Demo Gallery</h3>
+									<div class="hidden-phone hidden-tablet" class="hidden-phone hidden-tablet" style="">
+										To show you how others have created custom components using the HERE Maps API for JavaScript. Fork us on Github to showcase your demo on our page.
+									</div>
+								</div> 
+							</a>
+							<a href="https://github.com/heremaps/examples/#demos-and-custom-components" class="hero-git-link lightblue"><i class="icon-github"></i> View on Github</a>
+
+						</div>
 					<!--<div class="span4 caption" style="position: relative;">
 					<a class="" href="#all" onclick="hideInfo();" style="">
 					<div style="display: inline-block;width: 95%; padding-bottom: 30px;">
@@ -152,13 +140,12 @@
 
 				</div>-->
 			</div>
-			<div class="row-fluid" style="margin-top: 1em;">
+			<div class="row-fluid" style="margin: 1em 0;">
 				<div class="caption" style="width:100%;">
-					<h3 class=" media-heading" style="color: white; display: inline-block">Ready to get started? Sign up for a key now.<a class="signup-btn lightblueHEREbackground" style="display: inline-block; margin-left: 2em;" href="http://developer.here.com/">Sign up</a></h3>
-
+					<h3 class=" media-heading inline-block" style="color: white;">Ready to get started? Sign up for a key now.</h3>
+					<a class="signup-btn lightblueHEREbackground inline-block" style="margin-left: 2em;" href="http://developer.here.com/">Sign up</a>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div id="pointer" style="">
@@ -166,8 +153,7 @@
 			Please Scroll Down &nbsp;<i class="icon-arrow-down mid" style="color:#F1F1F1;"></i>
 		</div>
 	</div>
-
-	<div id="beginner-examples" style="position: relative;  color: #3F3F3F; " class="row-fluid">
+	<div id="beginner-examples" class="row-fluid examples-section">
 		<div class="container">
 			<div class="row-fluid section_header" style="padding-top: 50px;">
 
@@ -176,8 +162,6 @@
 				<h2  style="display: inline-block"  class="darkblue">Basic Examples</h2>
 
 				<hr style="margin-top: 5px;"/>
-
-				
 			</div>
 			<div class="row-fluid" style="padding-top: 10px;">
 				<p>
@@ -187,212 +171,230 @@
 					<tr>
 						<td>
 							<div class="media  well-small">
-								<a class="" href="examples.html#find-user-address"> <img src="img/useraddress.png" alt="..." class="pull-left img-rounded circleborder_light">
+								<a class="" href="explorer.html#find-user-address"> <img src="img/useraddress.png" alt="..." class="pull-left img-rounded circleborder_light">
 									<div class="media-body " style="padding-left:8px;">
 										<h4 class="darkblue media-heading">Locating the Address of a User</h4>
 										Locate user on the map and retrieve address information
-									</div></a>
-								</div></td>
-								<td>
-									<div class="media  well-small">
-										<a class="" href="examples.html#simple-marker"> <img src="img/marker.png" alt="..." class="pull-left circleborder_light" >
-											<div class="media-body " style="padding-left:8px;">
-												<h4 class="darkblue media-heading">Adding a marker to the map</h4>
-												Add a simple marker at a given latitude and longitude on your map.
-											</div></a>
-										</div></td>
-									</tr>
-									<tr>
-										<td>
-											<div class="media  well-small">
-												<a class="" href="examples.html#zoom-to-all-markers"> <img  src="img/zoom.png"  alt="..."  class="pull-left circleborder_light">
-													<div class="media-body " style="padding-left:8px;">
-														<h4 class="darkblue media-heading">Zooming to all markers</h4>
-														Get the map to auto center and auto zoom to fit multiple markers
-													</div></a>
-												</div></td>
-												<td>
-													<div class="media  well-small">
-
-														<a class="" href="examples.html#routing-from-a-to-b"> <img  src="img/atob.png" alt="..."  class="pull-left circleborder_light">
-															<div class="media-body " style="padding-left:8px;">
-																<h4 class="darkblue media-heading">Calculating a route between two points</h4>
-																Get route directions from point A to point B and display route trace on the map
-															</div> </a>
-														</div></td>
-													</tr>
-
-												</table>
-												<br />
-												<a  class="lightblue text-center" style=""  href="examples.html#beginner"> <i class="icon-angle-right well-small"></i> More Basic Examples</a>
-
-											</div>
-										</div>
-
 									</div>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#simple-marker"> <img src="img/marker.png" alt="..." class="pull-left circleborder_light" >
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Adding a marker to the map</h4>
+										Add a simple marker at a given latitude and longitude on your map.
+									</div>
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#zoom-to-all-markers"> <img  src="img/zoom.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Zooming to all markers</h4>
+										Get the map to auto center and auto zoom to fit multiple markers
+									</div>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#routing-from-a-to-b"> <img  src="img/atob.png" alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Calculating a route between two points</h4>
+										Get route directions from point A to point B and display route trace on the map
+									</div>
+								</a>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<a  class="lightblue text-center" style=""  href="explorer.html#beginner"> <i class="icon-angle-right well-small"></i> More Basic Examples</a>
+			</div>
+		</div>
+	</div>
+	<div id="advanced-examples" class="row-fluid examples-section">
 
-									<div id="advanced-examples" style="position: relative; color: #3F3F3F;" class="row-fluid">
+		<div class="container">
 
-										<div class="container">
+			<div class="row-fluid section_header" style="padding-top: 50px;">
 
-											<div class="row-fluid section_header" style="padding-top: 50px;">
+				<img style="display: inline-block; margin-top: -30px" width="60px" src="img/here_github_advanced_users_48.png" />
 
-												<img style="display: inline-block; margin-top: -30px" width="60px" src="img/here_github_advanced_users_48.png" />
+				<h2  style="display: inline-block"  class="darkblue">Advanced Examples</h2>
+				<hr style="margin-top: 5px;"/>
+			</div>
 
-												<h2  style="display: inline-block"  class="darkblue">Advanced Examples</h2>
-												<hr style="margin-top: 5px;"/>
+			<div class="row-fluid" style="padding-top: 10px;">
+				<p>
+					Gain insight and hit the ground running with some much more advanced and enhanced functionalities of the HERE Maps API for JavaScript. Learn how to leverage our most advanced API capabilities to create personalized mapping experiences.
+				</p>
+				<table class="table highlights">
+					<tr>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#700-markers-simple-clustering"> <img  src="img/png8.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Adding 700 Markers on a Map</h4>
+										700 markers are clustered and displayed using a standard clustering algorthm
+									</div>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#map-language"> <img src="img/maplang.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Setting the Map Language</h4>
+										Display map in the language of your choice
+									</div>
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#ground-overlay"> <img  src="img/overlay.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Creating a Ground Overlay: Berlin Occupation Zones</h4>
+										Add map overlays to designate lines, points or areas on the map
+									</div>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="media  well-small">
+								<a  href="explorer.html#sprite-markers"> <img  src="img/sprite.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Adding a Sprite Image as a Marker Icon</h4>
+										Add images to the markers on the map
+									</div>
+								</a>
+							</div>
+						</td>
+					</tr>
 
-											</div>
+				</table>
+				<br />
+				<a style="" href="explorer.html#advanced" class="lightblue text-center"> <i class="icon-angle-right well-small"></i> More Advanced Examples</a>
 
-											<div class="row-fluid" style="padding-top: 10px;">
-												<p>
-													Gain insight and hit the ground running with some much more advanced and enhanced functionalities of the HERE Maps API for JavaScript. Learn how to leverage our most advanced API capabilities to create personalized mapping experiences.
-												</p>
-												<table class="table highlights">
-													<tr>
-														<td>
-															<div class="media  well-small">
-																<a class="" href="examples.html#700-markers-simple-clustering"> <img  src="img/png8.png"  alt="..."  class="pull-left circleborder_light">
-																	<div class="media-body " style="padding-left:8px;">
-																		<h4 class="darkblue media-heading">Adding 700 Markers on a Map</h4>
-																		700 markers are clustered and displayed using a standard clustering algorthm
-																	</div></a>
-																</div></td>
-																<td>
-																	<div class="media  well-small">
-																		<a class="" href="examples.html#map-language"> <img src="img/maplang.png"  alt="..."  class="pull-left circleborder_light">
-																			<div class="media-body " style="padding-left:8px;">
-																				<h4 class="darkblue media-heading">Setting the Map Language</h4>
-																				Display map in the language of your choice
-																			</div></a>
-																		</div></td>
-																	</tr>
-																	<tr>
-																		<td>
-																			<div class="media  well-small">
-																				<a class="" href="examples.html#ground-overlay"> <img  src="img/overlay.png"  alt="..."  class="pull-left circleborder_light">
-																					<div class="media-body " style="padding-left:8px;">
-																						<h4 class="darkblue media-heading">Creating a Ground Overlay: Berlin Occupation Zones</h4>
-																						Add map overlays to designate lines, points or areas on the map
-																					</div></a>
-																				</div></td>
-																				<td>
-																					<div class="media  well-small">
-																						<a  href="examples.html#sprite-markers"> <img  src="img/sprite.png"  alt="..."  class="pull-left circleborder_light">
-																							<div class="media-body " style="padding-left:8px;">
-																								<h4 class="darkblue media-heading">Adding a Sprite Image as a Marker Icon</h4>
-																								Add images to the markers on the map
-																							</div></a>
-																						</div></td>
-																					</tr>
+			</div>
 
-																				</table>
-																				<br />
-																				<a style="" href="examples.html#advanced" class="lightblue text-center"> <i class="icon-angle-right well-small"></i> More Advanced Examples</a>
+		</div>
+	</div>
+	<div id="demos" style="padding-bottom: 150px;" class="row-fluid examples-section">
 
-																			</div>
+		<div class="container">
 
-																		</div>
-																	</div>
-																	<div id="demos" style="position: relative; padding-bottom: 150px; color: #3F3F3F;" class="row-fluid">
+			<div class="row-fluid section_header" style="padding-top: 50px;">
 
-																		<div class="container">
+				<img style="display: inline-block; margin-top: -10px" width="60px" src="img/here_github_demos_48.png" />
 
-																			<div class="row-fluid section_header" style="padding-top: 50px;">
+				<h2  style="display: inline-block"  class="darkblue"> Demo Gallery </h2>
+				<hr style="margin-top: 5px;"/>
+			</div>
 
-																				<img style="display: inline-block; margin-top: -10px" width="60px" src="img/here_github_demos_48.png" />
+			<div class="row-fluid" style="padding-top: 10px;">
+				<p>
+					To help you find custom components like the directions renderer and the tooltip library that can be used instantaneously. Use community repository to download any libraries you need. Send us a pull request if you have a library you want to share.
+				</p>
+				<table class="table highlights">
+					<tr>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#directions-rendering-component__draggable-a-to-b-with-directions"> <img  src="img/drag.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Draggable routing between two points</h4>
+										Use the directions rendering library to drag a route between 2 points on the map
+									</div>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#find-an-american-state__index"> <img  src="img/game.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Reverse Geocoding Game : Find a state in the USA</h4>
+										Learn how to detect where the user clicked on the map using the reverse geocoding feature
+									</div>
+								</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="media  well-small">
+								<a class="" href="explorer.html#instagram-heat-map__index"> <img  src="img/instagram-icon.png"  alt="..."  class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Instagram Locations Heat Map</h4>
+										Create heat maps for photos uploaded with Instagram at each location
+									</div>
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="media  well-small">
+								<a  href="explorer.html#tabbed-infobubble__tabbed-infobubble"> <img  src="img/tabbed.png"  alt="..." class="pull-left circleborder_light">
+									<div class="media-body " style="padding-left:8px;">
+										<h4 class="darkblue media-heading">Use of Styled Infobubbles: Battle of Saratoga</h4>
+										Style and add tabs to an infobubble.
+									</div>
+								</a>
+							</div>
+						</td>
+					</tr>
 
-																				<h2  style="display: inline-block"  class="darkblue"> Demo Gallery </h2>
-																				<hr style="margin-top: 5px;"/>
-																			</div>
+				</table>
+				<br />
+				<a style="" href="explorer.html#demo" class="lightblue text-center"> <i class="icon-angle-right well-small"></i> More Demos</a>
 
-																			<div class="row-fluid" style="padding-top: 10px;">
-																				<p>
-																					To help you find custom components like the directions renderer and the tooltip library that can be used instantaneously. Use community repository to download any libraries you need. Send us a pull request if you have a library you want to share.
-																				</p>
-																				<table class="table highlights">
-																					<tr>
-																						<td>
-																							<div class="media  well-small">
-																								<a class="" href="examples.html#directions-rendering-component__draggable-a-to-b-with-directions"> <img  src="img/drag.png"  alt="..."  class="pull-left circleborder_light">
-																									<div class="media-body " style="padding-left:8px;">
-																										<h4 class="darkblue media-heading">Draggable routing between two points</h4>
-																										Use the directions rendering library to drag a route between 2 points on the map
-																									</div></a>
-																								</div></td>
-																								<td>
-																									<div class="media  well-small">
-																										<a class="" href="examples.html#find-an-american-state__index"> <img  src="img/game.png"  alt="..."  class="pull-left circleborder_light">
-																											<div class="media-body " style="padding-left:8px;">
-																												<h4 class="darkblue media-heading">Reverse Geocoding Game : Find a state in the USA</h4>
-																												Learn how to detect where the user clicked on the map using the reverse geocoding feature
-																											</div></a>
-																										</div></td>
-																									</tr>
-																									<tr>
-																										<td>
-																											<div class="media  well-small">
-																												<a class="" href="examples.html#instagram-heat-map__index"> <img  src="img/instagram-icon.png"  alt="..."  class="pull-left circleborder_light">
-																													<div class="media-body " style="padding-left:8px;">
-																														<h4 class="darkblue media-heading">Instagram Locations Heat Map</h4>
-																														Create heat maps for photos uploaded with Instagram at each location
-																													</div></a>
-																												</div></td>
-																												<td>
-																													<div class="media  well-small">
-																														<a  href="examples.html#tabbed-infobubble__tabbed-infobubble"> <img  src="img/tabbed.png"  alt="..." class="pull-left circleborder_light">
-																															<div class="media-body " style="padding-left:8px;">
-																																<h4 class="darkblue media-heading">Use of Styled Infobubbles: Battle of Saratoga</h4>
-																																Style and add tabs to an infobubble.
-																															</div></a>
-																														</div></td>
-																													</tr>
+			</div>
 
-																												</table>
-																												<br />
-																												<a style="" href="examples.html#demo" class="lightblue text-center"> <i class="icon-angle-right well-small"></i> More Demos</a>
+		</div>
+	</div>
+	<footer class="footer">
+		<div  class="row-fluid linkfooter" style="padding-top: 10px;">
+			<div class="pull-left inline" style="">
+				<ul style="" class="inline" >
+					<li class="">
+						<a class="" href="http://developer.here.com/">Developer</a>
+					</li>
+					<li>
+						<a href="http://developer.here.com/contact-us">Contact us</a>
+					</li>
 
-																											</div>
+				</ul>
 
-																										</div>
-																									</div>
-																									<footer class="footer">
-																										<div  class="row-fluid linkfooter" style="padding-top: 10px;">
-																											<div class="pull-left inline" style="">
-																												<ul style="" class="inline" >
-																													<li class="">
-																														<a class="" href="http://developer.here.com/">Developer</a>
-																													</li>
-																													<li>
-																														<a href="http://developer.here.com/contact-us">Contact us</a>
-																													</li>
+			</div>
+			<div class="pull-right inline" style=" text-align: left;">
+				<ul style="" class="inline">
+					<li class="">
+						<a class="" href="http://blog.here.com"><i class="icon-bullhorn"></i></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/here"><i class="icon-twitter-sign"></i></a>
+					</li>
 
-																												</ul>
+					<li>
+						<a href="http://www.youtube.com/heremaps"><i class="icon-youtube"></i></a>
+					</li>
 
-																											</div>
-																											<div class="pull-right inline" style=" text-align: left;">
-																												<ul style="" class="inline">
-																													<li class="">
-																														<a class="" href="http://blog.here.com"><i class="icon-bullhorn"></i></a>
-																													</li>
-																													<li>
-																														<a href="https://twitter.com/here"><i class="icon-twitter-sign"></i></a>
-																													</li>
+				</ul>
 
-																													<li>
-																														<a href="http://www.youtube.com/heremaps"><i class="icon-youtube"></i></a>
-																													</li>
+			</div>
+		</div>
+	</footer>
+	<script src="libs/jquery/jquery.js"></script>
+	<script src="libs/jquery/jquery-ui-1.10.3.custom.js"></script>
+	<script src="libs/bootstrap/js/bootstrap.js"></script>
+	<script src="http://js.api.here.com/se/2.5.3/jsl.js" type="text/JavaScript" charset="utf-8"></script>
+	<script src="libs/js/index.js"></script>
 
-																												</ul>
-
-																											</div>
-																										</div>
-																									</footer>
-																									<script src="libs/jquery/jquery.js"></script>
-																									<script src="libs/jquery/jquery-ui-1.10.3.custom.js"></script>
-																									<script src="libs/bootstrap/js/bootstrap.js"></script>
-																									<script src="http://js.api.here.com/se/2.5.3/jsl.js" type="text/JavaScript" charset="utf-8"></script>
-																									<script src="libs/js/index.js"></script>
-																									
-																								</body>
-																								</html>
+</body>
+</html>

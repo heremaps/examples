@@ -39,7 +39,7 @@ $(document).ready(function() {
 	} else {
 	}
 
-	$('.section').css('max-height', $(window).height() * .73);
+	$('.section').css('max-height', $(window).height() * 0.89);
 	
 	captions = $('.span4.caption');
 	
@@ -74,27 +74,4 @@ function hideInfo() {
 	$('.navigation').show();
 }
 
-
-function testStack() {
-	$.getJSON('https://api.stackexchange.com/search?order=desc&sort=activity&tagged=nokia-location-api&filter=default&site=stackoverflow&run=true', '', function(data) {
-		var items = [];
-
-		$.each(data, function(key, val) {
-			if (key == 'items') {
-				$.each(val, function(id, question) {
-					var txt = question.title;
-
-					items.push('<li><a>' + txt + '</a></li>');
-				});
-			}
-
-		});
-		$('<ul />', {
-			'class' : '',
-			'style' : 'margin:0',
-			html : items.join('')
-		}).appendTo('#questions');
-
-	});
-}
 

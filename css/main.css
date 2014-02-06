@@ -4,12 +4,36 @@
 	left: 0;
 	z-index: 1;
 }
+#block
+{
+	position: absolute; top:0; left: 0;background-color: white; z-index: 10; height: 100%;width: 100%; 
+}
 #body_HERE {
 	padding-top: 56px;
+}
+.loading_msg
+{
+	font-size: 22pt; color: black;position: relative; top: 12%; left: 7%;
+}
+#ie-error
+{
+	font-size: 22pt; color: black;position: relative; top: 14%; left: 7%;
+}
+#fail
+{
+	font-size: 22pt; color: black;position: relative; top: 16%; left: 7%;
 }
 #examples-page
 {
 	background: rgba(250, 250, 250, 0.75);
+}
+.nav-link
+{
+	vertical-align: bottom; margin-right: 20px;color: white;
+}
+.clicked
+{
+	color: white !important;
 }
 .va_top
 {
@@ -28,7 +52,6 @@
 html {
 	overflow-y: hidden;
 }
-
 .noborder {
 	border: none !important;
 }
@@ -83,7 +106,10 @@ html {
 .lightblue {
 	color: #00C9FF;
 }
-
+.hero-git-link
+{
+	position: absolute; bottom: 0; left:0;padding: 1em 1.5em;
+}
 .darkblue {
 	color: #124191;
 }
@@ -116,7 +142,6 @@ a:hover, a:focus {
 	color: #005580;
 	text-decoration: none;
 }
-
 .masthead1 {
 
 	background: url('../img/mapview_dubai.jpg') no-repeat center center fixed;

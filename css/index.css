@@ -10,14 +10,26 @@ div.media.span6 {
 	color: black;
 	overflow: hidden;
 }
+.examples-section
+{
+	position: relative;  color: #3F3F3F; 
+}
 .signup-btn {
-	color: #fff;
+	color: #FFF;
 	font-size: 16px;
-	padding: 1px 13px 4px;
+	padding: 9px 26px;
 	text-decoration: none;
-	
+	font-weight: 700;
 	border-radius: 0;
-	
+}
+.hero-block
+{
+	display: inline-block;width: 95%; padding-bottom: 30px;
+	color: white;
+}
+.mast-style
+{
+	min-height:630px; padding: 0;margin: 0; position: relative;padding-top:30px;  color: black;
 }
 .main_section
 {
@@ -66,7 +78,9 @@ div.media.span6 {
 	bottom: 0;
 	left: 0;
 }
-
+body {
+	font-family:herefont_light; font-size: 14pt;padding:0; color: white;   
+}
 .media-body
 {
 	color: #3D3D3D;
