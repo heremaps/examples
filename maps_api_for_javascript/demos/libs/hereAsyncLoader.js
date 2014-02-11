@@ -105,7 +105,11 @@
       );
     }
 
-    $.getScript(exports.HereMapsConstants.JSLibs.HereMapsUrl, hereMapLoaderCallback);
+    if ($(script).data('enterprise-only')){
+       $.getScript(exports.HereMapsConstants.JSLibs.HereMapsEnterpriseUrl, hereMapLoaderCallback);
+    } else {
+      $.getScript(exports.HereMapsConstants.JSLibs.HereMapsUrl, hereMapLoaderCallback);
+    }
   });
 
 })(window, document);

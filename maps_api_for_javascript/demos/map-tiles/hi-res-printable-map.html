@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addContextMenu,addBaseMapWithPOIs,getTileUrl,getHereCopyrights" />
+  <title>HERE Maps API Example: High Resolution Map Tile for Printing</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer",
+    data-enterprise-only="true"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>High Resolution Map Tile for Printing</h1>
+  <p>
+    This map shows a hi resolution HERE Map including icons displaying Points of Interest.
+    The is initially centered over Brani Island, Singapre and the map
+    clearly displays the landmarks and features to be found in the area. Right click on the
+    map and it is possible to obtain a map image with content. The hi resolution map tiles
+    are suitable for printing.
+  </p>
+  <p>
+    The URL for each base map tile starts with:
+    <ul>
+    <li><code>http://[1-4].base.maps.cit.api.here.com/maptile/</code> on the CIT server</li>
+    <li><code>http://[1-4].base.maps.api.here.com/maptile/</code> on the LIVE server</li>
+    </ul>
+  </p>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+
+<script>
+//<![CDATA[
+function getHereCopyrights(area, zoomLevel) {
+  // When using base tiles returned from this server,
+  // ensure the standard HERE Copyright is displayed.
+  return nokia.maps.map.Display.NORMAL.getCopyrights(area, zoomLevel);
+}
+
+function getTileUrl(level, row, col) {
+  // This example uses the CIT server. Replace with LIVE when ready.
+  return ['http://1.base.maps.cit.api.here.com/maptile/2.1/maptile/newest/normal.day.hires/',
+    level, '/', col, '/', row, '/256/png8?',
+    'app_id=', nokia.Settings.app_id,
+    '&app_code=', nokia.Settings.app_code, '&pois' ].join('');
+}
+
+function addBaseMapWithPOIs(map) {
+
+  var hiResMapProvider = new nokia.maps.map.provider.ImgTileProvider({
+    label: 'normal.day',
+    description: 'HERE Maps POI Map tile provider',
+    width: 256,
+    height: 256,
+    min: 0,
+    max: 23,
+    getUrl: getTileUrl,
+    getCopyrights: getHereCopyrights
+  });
+  map.set('baseMapType', hiResMapProvider);
+}
+
+function afterHereMapLoad(map) {
+
+  addContextMenu(map);
+  map.set('center', [1.258,103.823]);
+  map.set('zoomLevel', 14);
+  addBaseMapWithPOIs(map);
+  addPolylines(map);
+}
+
+function addContextMenu(map) {
+  var contextMenu = new nokia.maps.map.component.ContextMenu();
+  // Capture Handler is only available with the Enterprise Maps API for JavaScript
+  contextMenu.addHandler(nokia.maps.map.component.ContextMenu.captureHandler);
+  contextMenu.removeHandler(nokia.maps.map.component.ContextMenu.routingHandler);
+  contextMenu.removeHandler(nokia.maps.map.component.ContextMenu.zoomHandler);
+  map.components.add(contextMenu);
+}
+
+function addPolylines(map){
+// Adds some content to the map.
+map.objects.add(new nokia.maps.map.Polyline([
+  [1.2560452, 103.8179694],
+  [1.2557781, 103.8183439],
+  [1.2555206, 103.8184619],
+  [1.2552524, 103.818537],
+  [1.2551022, 103.818655],
+  [1.2549734, 103.8188374],
+  [1.2548876, 103.8189769],
+  [1.255188, 103.8188052],
+  [1.2554562, 103.8186765],
+  [1.2565398, 103.8183761],
+  [1.2567115, 103.8183117],
+  [1.2567544, 103.8182688],
+  [1.256808, 103.8182259],
+  [1.2568617, 103.8182151],
+  [1.2569046, 103.8182259],
+  [1.2569797, 103.8182795],
+  [1.2570012, 103.8183439],
+  [1.2569582, 103.8184619],
+  [1.256851, 103.8185048],
+  [1.2567759, 103.8185048],
+  [1.2567222, 103.8184404],
+  [1.2566793, 103.8184512],
+  [1.2560248, 103.8186443],
+  [1.2559283, 103.818655],
+  [1.2553811, 103.8188052],
+  [1.2548876, 103.8193202],
+  [1.2543833, 103.819921],
+  [1.2541902, 103.8201141],
+  [1.2536323, 103.8205755],
+  [1.2529027, 103.8215733],
+  [1.2526453, 103.8220239],
+  [1.2526453, 103.8227963],
+  [1.2525809, 103.8232362],
+  [1.2525272, 103.8234508],
+  [1.2523878, 103.8237619],
+  [1.2520766, 103.8241053]], {
+    pen: {
+      strokeColor: "#1A8891",
+      lineWidth: 3
+    }
+  }
+));
+
+map.objects.add(new nokia.maps.map.Polyline([
+  [1.2496643, 103.8265944],
+  [1.2498558, 103.8263369],
+  [1.2509501, 103.825146],
+  [1.2510707, 103.8250122],
+  [1.2508214, 103.8252747],
+  [1.2507217, 103.8253884],
+  [1.2509501, 103.825146],
+  [1.2513578, 103.8246953],
+  [1.2514329, 103.8245344],
+  [1.2514805, 103.8245103],
+  [1.2514973, 103.8245022],
+  [1.2515938, 103.824513],
+  [1.2516689, 103.8245559],
+  [1.2517118, 103.8246095],
+  [1.2518513, 103.8248134],
+  [1.252023, 103.8249528],
+  [1.2529135, 103.8258755],
+  [1.25301, 103.8259292],
+  [1.2531495, 103.8259721],
+  [1.2533104, 103.8259614],
+  [1.2534285, 103.8259077],
+  [1.2536108, 103.8258004],
+  [1.2537932, 103.8256502],
+  [1.2540293, 103.8254356],
+  [1.2555099, 103.8242447],
+  [1.2559068, 103.8239443],
+  [1.2562072, 103.8237405],
+  [1.2563789, 103.8236761],
+  [1.2572864, 103.8237106]], {
+    pen: {
+      strokeColor: "#1A4188",
+      lineWidth: 3
+    }
+  }
+));
+
+map.objects.add(new nokia.maps.map.Polyline([
+  [1.2547041, 103.8253641],
+  [1.2548554, 103.8253176],
+  [1.2549734, 103.8252318],
+  [1.2552416, 103.8249314],
+  [1.2559175, 103.8243306],
+  [1.2561965, 103.8240623],
+  [1.2562931, 103.8239229],
+  [1.2564433, 103.8239121],
+  [1.2570977, 103.8239336],
+  [1.2605095, 103.8239658],
+  [1.2608206, 103.82388],
+  [1.2630522, 103.8238478],
+  [1.2634706, 103.8239551],
+  [1.2637603, 103.8239872],
+  [1.2644041, 103.8239765],
+  [1.2647903, 103.8241267],
+  [1.2648976, 103.8241482],
+  [1.2651014, 103.8241482],
+  [1.2653589, 103.8240623],
+  [1.2655091, 103.8239658],
+  [1.2656057, 103.8238907],
+  [1.2656057, 103.8237405],
+  [1.2656271, 103.823365],
+  [1.265552, 103.8213265],
+  [1.2655306, 103.8208008],
+  [1.2655306, 103.8207793],
+  [1.2656271, 103.823365],
+  [1.2656057, 103.8238907],
+  [1.2656593, 103.8245237],
+  [1.2657452, 103.8248885],
+  [1.2659383, 103.825382],
+  [1.2661207, 103.8256717],
+  [1.2663782, 103.826015],
+  [1.2667751, 103.8265085],
+  [1.2664747, 103.8267446],
+  [1.2661958, 103.8269591],
+  [1.2654877, 103.8274956],
+  [1.2652194, 103.8269806],
+  [1.2645642, 103.8257429],
+  [1.2658023, 103.8249957]],
+  {
+    pen: {
+      strokeColor: "#880091",
+      lineWidth: 3
+    }
+  }
+));
+}
+
+
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
