@@ -20,17 +20,10 @@ JSONManager.prototype.init = function () {
   that.set('state', 'initial');
   that.parseJSON = function (filename) {
     that.set('state', 'started');
-    $.ajax({
-      type: 'GET',
-      url: filename,
-      success: function (json) {
+    $.getJSON( filename,function (json) {
         that.set('state', 'loaded');
-        that.set('object', JSON.parse(json));
+        that.set('object', json);
         that.set('state', 'finished');
-      },
-      error : function onFailed(err) {
-        that.set('state', 'failed');
-      }
     });
   };
 };
