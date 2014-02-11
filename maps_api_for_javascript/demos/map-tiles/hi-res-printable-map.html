@@ -25,10 +25,10 @@
   <h1>High Resolution Map Tile for Printing</h1>
   <p>
     This map shows a hi resolution HERE Map including icons displaying Points of Interest.
-    The is initially centered over Brani Island, Singapre and the map
+    The is initially centered over Brani Island, Singapore and the map
     clearly displays the landmarks and features to be found in the area. Right click on the
-    map and it is possible to obtain a map image with content. The hi resolution map tiles
-    are suitable for printing.
+    map when viewing with the Firefox browser, and it is possible to obtain a screenshot including
+    the map content. The hi resolution map tiles are suitable for printing.
   </p>
   <p>
     The URL for each base map tile starts with:
@@ -84,7 +84,6 @@ function addContextMenu(map) {
   // Capture Handler is only available with the Enterprise Maps API for JavaScript
   contextMenu.addHandler(nokia.maps.map.component.ContextMenu.captureHandler);
   contextMenu.removeHandler(nokia.maps.map.component.ContextMenu.routingHandler);
-  contextMenu.removeHandler(nokia.maps.map.component.ContextMenu.zoomHandler);
   map.components.add(contextMenu);
 }
 
