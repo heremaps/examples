@@ -25,6 +25,7 @@ window.HereMapsConstants = {
 		// Check on:  http://developer.here.com/versions
 		// to obtain the latest version.
 		HereMapsUrl : "http://js.cit.api.here.com/se/2.5.4/jsl.js?blank=true",
+		HereMapsEnterpriseUrl :'https://js.cit.api.here.com/ee/2.5.4/jsl.js?blank=true',
 		// versioned URL to load jQuery
 		jQueryUrl : 'http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js',
 		jQueryUIUrl : 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
