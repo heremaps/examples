@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="setUpRoutingManager,onRouteCalculated,startRouting,addDirectionsRenderer" />
+  <title>HERE Maps API Example: Calculating a Public Transport Route</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-enterprise-only="true"
+    data-callback="afterHereMapLoad"
+    data-libs="directions-renderer"
+    data-parent="demos/directions-rendering-component/" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <link href="css/routing.css" rel="stylesheet"/>
+</head>
+<body>
+  <h1>Calculating a Public Transport Route</h1>
+  <p>This example uses the advanced routing manager to calculate a public route between two geocoded locations.
+     To Change the start point or destination, type a name in the relevant box and press enter.
+  	 Directions instructions are written to the right of the map.</p>
+ <div id="InputBox">
+  <div class="inputbx">
+   <span style="height: 1.5em; font-size: 1.5em; color: blue;">1. Start: </span>
+   <input type='text' id='start' value='Eschborn, Duesseldorferstr. 40a'/>
+   <br/><span style="height: 1.5em; font-size: 1.5em; color: blue;">2. Destination: </span>
+   <input type='text' id='dest' value='Frankfurt' /><br/>
+   <br/><input type="button" id="startRouting" value="route" />
+  </div>
+ </div>
+ <div id="mapContainer" style="width:540px; height:334px;float:left" class="no-expand"></div>
+ <div id="directions" style="float:left; color: rgb(102, 102, 102); height:334px;overflow:auto;"></div>
+ <div id="src" style="clear:both;width:100%" ><br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class="prettyprint">&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/directions-renderer.js">libs/directions-renderer.js</a>"&gt;&lt;/script></code></pre>
+    <p>Code:</p>
+  </div>
+<script id="example-code" data-categories="events" type="text/javascript" >
+//<![CDATA[
+var map,
+  directionsRenderer,
+  searchManager,
+  routingManager,
+  resultOne,
+  resultTwo,
+  mapRoute,
+  destSearch,
+  d = null,
+  s = null,
+  routeAfterSearch,
+  markers = [],
+  infoBubbles;
+
+function checkEnter(event){
+  if (event.keyCode == 13){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function startRouting() {
+  if (s === null) {
+    startGeocoding($('#start').val(), false, true);
+    return;
+  }
+  if (d === null) {
+    startGeocoding($('#dest').val(), true, true);
+  }
+  var date = new Date(),
+    routingRequest = {
+      waypoints:[{position: s},{position: d}],
+      // departure: "now",
+      // waypoints:[s,d],
+      representationOptions:{
+        language: "en-US",
+        representationMode: "overview",
+        routeAttributes: ["wp","sm","sh","bb","lg","no","li"],
+        legAttributes: ["wp","mn","li","le","tt"],
+        maneuverAttributes: ["all"],
+        linkAttributes: ["fl"],
+        instructionFormat: "text"
+      },
+      modes: [{
+        type: "fastest",
+        transportModes: ["publicTransport"],
+        trafficMode: "enabled"
+      }]
+  };
+  //make a calculateRoute request
+  routingManager.calculateRoute(routingRequest);
+}
+
+function startGeocoding( destination, dest, fromRouting) {
+  routeAfterSearch = fromRouting;
+  destSearch = dest;
+  //Check if the destination form field is empty
+  if( destination == "" ){
+    alert("Please enter destination address!");
+    return;
+  }
+  searchRequest = {//geocode
+    searchText: destination,
+    representationOptions: {
+      maxResults: 1
+    }
+  };
+
+  searchManager.clear();
+  //make a geocode request
+  searchManager.search(searchRequest);
+}
+
+function onRouteCalculated (observedRouter, key, value) {
+  if (value === 'finished') {
+    var routes = observedRouter.getRoutes();
+
+    if (mapRoute){
+       map.objects.remove(mapRoute);
+    }
+
+    //create the default map representation of a route
+    mapRoute =
+      new nokia.maps.routing.component.RouteResultSet(
+        routes[0]
+      ).container; //first option found
+    map.objects.add(mapRoute);
+    directionsRenderer.set('route', routes[0]);
+
+    //Zoom to the bounding box of the route
+    map.zoomTo(mapRoute.getBoundingBox(), false, 'default');
+  }
+}
+
+function addDirectionsRenderer(map) {
+  directionsRenderer = new DirectionsRenderer(document.getElementById('directions'));
+  map.addComponent(directionsRenderer);
+}
+
+function addInfoBubbles(map) {
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  map.addComponent(infoBubbles);
+}
+
+function setUpSearchManager() {
+searchManager = new nokia.maps.advsearch.Manager();
+  searchManager.addObserver("state", function(observedManager) {
+    if(observedManager.state == "finished") {
+      if (observedManager.getLocations().length > 0){
+      // if we already have a result, delete it first
+        if (resultOne && !destSearch){
+          map.objects.remove(resultOne);
+          map.objects.remove(mapRoute);
+        }
+        if(resultTwo && destSearch){
+          map.objects.remove(resultTwo);
+        }
+        // get search results and just put it no map
+        lat = observedManager.getLocations()[0].displayPosition.latitude;
+        lng = observedManager.getLocations()[0].displayPosition.longitude;
+        var coord = new nokia.maps.geo.Coordinate(lat, lng);
+        if(!destSearch){
+          resultOne = new nokia.maps.map.StandardMarker(coord, {text: "S"});
+          map.objects.add(resultOne);
+          map.set("center", resultOne.getBoundingBox().getCenter());
+        } else {
+          resultTwo = new nokia.maps.map.StandardMarker(coord, {text: "D"});
+          map.objects.add(resultTwo);
+          map.set("center", resultTwo.getBoundingBox().getCenter());
+        }
+        // get address of result and create a address-info-string to display in result info box
+        var loc = observedManager.getLocations()[0].address;
+        if(!destSearch) {
+          s = observedManager.getLocations()[0].displayPosition;
+        } else {
+          d = observedManager.getLocations()[0].displayPosition;
+        }
+        if(routeAfterSearch){
+          startRouting();
+        }
+      }
+    } else if(observedManager.state == "failed") {
+      alert("The request failed.");
+    }
+  });
+}
+
+function setUpRoutingManager() {
+  routingManager = new nokia.maps.advrouting.Manager();
+  routingManager.addObserver("state", onRouteCalculated);
+
+  nokia.maps.Config.setDefaultsNS("advrouting", {
+    "baseUrl": "http://route.cit.api.here.com/routing/7.2/",
+    "secure.baseUrl": "https://route.nlp.nokia.com/routing/7.2/",
+    "getroute.interface": "getroute.json",
+    "calculateroute.interface": "calculateroute.json",
+    "calculateisoline.interface": "calculateisoline.json"
+  });
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.set("baseMapType", nokia.maps.map.Display.SMART_PT);
+  addDirectionsRenderer(map);
+  addInfoBubbles(map);
+  setUpSearchManager();
+  setUpRoutingManager();
+
+  $('#start').keydown(function (event) {
+    if(checkEnter(event)) {
+      startGeocoding($('#start').val(), false, false );
+    }
+  });
+
+   $('#dest').keydown(function (event) {
+    if(checkEnter(event)) {
+      startGeocoding($('#dest').val(), true, false );
+    }
+  });
+
+   $('#startRouting').click(function () {
+    startRouting();
+  });
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
