@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="setUpClickListener,getLinkInfo,onSuccess" />
+  <title>HERE Maps API Example: Getting Speed Limits on Mouse Click</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Getting Speed Limits on Mouse Click</h1>
+  <p>Click on the map to obtain the speed limits of the nearest road in kmh. A solidus (<code>/</code>) indicates that national speed limits apply.</p>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="events" type="text/javascript" >
+//<![CDATA[
+var map;
+function onSuccess(data) {
+  var linkShape,
+    coord,
+    speedKmh = (data.Response.Link[0].SpeedLimit) ?
+      Math.floor(data.Response.Link[0].SpeedLimit * 3.6) : '/';
+  if(data.Response.Link[0]){
+    linkShape =  data.Response.Link[0].Shape[0].split(","); 
+    coord = new nokia.maps.geo.Coordinate(parseFloat(linkShape[0]), parseFloat(linkShape[1]));
+    map.objects.add(new nokia.maps.map.StandardMarker(coord, 
+      {text : speedKmh,
+      textPen: {
+        strokeColor: "#333"
+      },
+      brush: {
+        color: "#FFF"
+      },
+      pen: {
+        strokeColor: speedKmh === '/' ? '#000' : '#E00'
+      }}
+    ));
+  }
+};
+
+function getLinkInfo(coord) {
+  var url = 'http://route.st.nlp.nokia.com/routing/6.2/getlinkinfo.json' +
+      '?app_id=' + nokia.Settings.app_id +
+      '&app_code=' + nokia.Settings.app_code +
+      '&waypoint=' + coord.latitude + ',' + coord.longitude;
+  
+    $.ajax({url: url,
+      dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        jsonpCallback: 'onSuccess'});
+
+}
+
+function setUpClickListener(map) {
+  // Attach an event listener to map display
+  // obtain the coordinates an display in an alert box.
+  //
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? 'tap' : 'click';
+  map.addListener(CLICK, function (evt) {
+    getLinkInfo(map.pixelToGeo(evt.displayX, evt.displayY));
+    
+    
+  });
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  setUpClickListener(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
