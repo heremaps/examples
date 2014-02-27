@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="changeCopyrightLocation" />
+  <title>HERE Maps API Example: Changing the Position of the Map Copyright</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapsLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Changing the Position of the Map Copyright</h1>
+  <p style="width:540px;" >This example sets the <code>copyrightAlignment</code> property to change
+    the position of the copyright text on the map.
+  </p>
+  <div>
+  Copyright Location : <select id="location" >
+    <option value="topleft">topleft</option>
+    <option value="topcenter">topcenter</option>
+    <option value="topright">topright</option>
+    <option value="middleleft">middleleft</option>
+    <option value="middlecenter">middlecenter</option>
+    <option value="middleright">middleright</option>
+    <option value="bottomleft" selected="selected">bottomleft</option>
+    <option value="bottomcenter">bottomcenter</option>
+    <option value="bottomright">bottomright</option>
+  </select> <br/><br/>
+  </div>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="map" type="text/javascript" >
+//<![CDATA[
+var map;
+
+function changeCopyrightLocation() {
+  var newLocation = $('#location').val();
+  map.set("copyrightAlignment", newLocation);
+}
+
+function afterHereMapsLoad(theMap) {
+  map = theMap;
+  map.components.add(new nokia.maps.map.component.Overview());
+  map.components.add(new nokia.maps.map.component.TypeSelector());
+  map.components.add(new nokia.maps.map.component.ScaleBar());
+
+  $('#location').val('bottomleft'); //.change();
+  $('#location').change(changeCopyrightLocation);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>
