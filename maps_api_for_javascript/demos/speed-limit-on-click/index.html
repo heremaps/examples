@@ -21,7 +21,8 @@
 </head>
 <body>
   <h1>Getting Speed Limits on Mouse Click</h1>
-  <p>Click on the map to obtain the speed limits of the nearest road in kmh. A solidus (<code>/</code>) indicates that national speed limits apply.</p>
+  <p>Click on the map to obtain the speed limits of the nearest road in km/h. A solidus (<code>/</code>) indicates that national speed limits apply, An infinity symbol
+    <code>&infin;</code> indicates that a fixed speed limit is not enforced.</p>
   <div id="mapContainer" style="width:540px; height:334px;"></div>
 <script id="example-code" data-categories="events" type="text/javascript" >
 //<![CDATA[
@@ -29,21 +30,38 @@ var map;
 function onSuccess(data) {
   var linkShape,
     coord,
-    speedKmh = (data.Response.Link[0].SpeedLimit) ?
-      Math.floor(data.Response.Link[0].SpeedLimit * 3.6) : '/';
+    speedKmh = '/',
+    fillColor = '#FFF',
+    textColor = "#333",
+    edgeColor = "#000";
+
+
+    if(data.Response.Link[0].SpeedLimit){
+
+      speedKmh = Math.round(data.Response.Link[0].SpeedLimit * 3.6);
+      if (speedKmh > 200){
+          // German Autobahn has no speed limit.
+          speedKmh = '∞';
+          fillColor = '#03F',
+          textColor = "#FFF",
+          edgeColor = "#FFF";
+      } else {
+        edgeColor = "#E00";
+      }
+    } 
   if(data.Response.Link[0]){
     linkShape =  data.Response.Link[0].Shape[0].split(","); 
     coord = new nokia.maps.geo.Coordinate(parseFloat(linkShape[0]), parseFloat(linkShape[1]));
     map.objects.add(new nokia.maps.map.StandardMarker(coord, 
       {text : speedKmh,
       textPen: {
-        strokeColor: "#333"
+        strokeColor: textColor
       },
       brush: {
-        color: "#FFF"
+        color: fillColor
       },
       pen: {
-        strokeColor: speedKmh === '/' ? '#000' : '#E00'
+        strokeColor: edgeColor
       }}
     ));
   }
@@ -77,6 +95,7 @@ function setUpClickListener(map) {
 
 function afterHereMapLoad(theMap) {
   map = theMap;
+  map.set('zoomLevel', 8);
   setUpClickListener(map);
 }
 //]]>
