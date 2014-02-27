@@ -21,8 +21,8 @@
 </head>
 <body>
   <h1>Getting Speed Limits on Mouse Click</h1>
-  <p>Click on the map to obtain the speed limits of the nearest road in km/h. A solidus (<code>/</code>) indicates that national speed limits apply, An infinity symbol
-    <code>&infin;</code> indicates that a fixed speed limit is not enforced.</p>
+  <p>Click on the map to obtain the speed limits of the nearest road in km/h. A solidus (<code>/</code>) indicates that national speed limits apply, An equals sign
+    <code>=</code> indicates that a fixed speed limit is not enforced.</p>
   <div id="mapContainer" style="width:540px; height:334px;"></div>
 <script id="example-code" data-categories="events" type="text/javascript" >
 //<![CDATA[
@@ -41,7 +41,7 @@ function onSuccess(data) {
       speedKmh = Math.round(data.Response.Link[0].SpeedLimit * 3.6);
       if (speedKmh > 200){
           // German Autobahn has no speed limit.
-          speedKmh = '∞';
+          speedKmh = '=';
           fillColor = '#03F',
           textColor = "#FFF",
           edgeColor = "#FFF";
