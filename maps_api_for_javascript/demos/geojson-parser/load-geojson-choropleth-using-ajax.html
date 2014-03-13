@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=8; IE=EmulateIE9; IE=EmulateIE10;"/>
+  <meta charset="utf-8"/>
+  <meta name="keywords" content="defineData,addGeoJSONContainer,getGeoJSON,onGeoJSONParsed" />
+  <title>HERE Maps API Example: Choropleth Map using geoJSON</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+    <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" 
+    data-params="maps,datarendering" 
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="geojson-parser"
+    data-parent="demos/geojson-parser/">
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Choropleth Map : Accession Dates to the European Union</h1>
+  <div style="width:600px; ">
+  <p>
+    Hover over the map to find the accession dates of the EU States.
+    The outline of the each state is loaded from a geoJSON file, the color is
+    altered  prior to creating the map. Darker colored countries joined the group
+    earlier than lighter colored countries.
+  </p>
+  <p>The JSON file is located at:
+    <a href="data/europe.geojson">data/europe.geojson</a>
+  </p>
+
+  <div id="mapContainer" style="width:540px; height:334px;float:left"></div>
+  </div>
+  <div id="src" style="clear:both;width:100%">
+    <br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class="prettyprint">&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
+  </div>
+<script id="example-code" data-categories="geojson,library" type="text/javascript" >
+//<![CDATA[
+var map,
+  infoBubbles,
+  geoJsonContainer,
+  jsonManager,
+  data,
+  undefinedColor;
+
+
+
+function defineData() {
+   data = arrayToHashTable([
+    ['Country', 'Date'],
+    ['France', 1952],
+    ['Germany', 1952],
+    ['Italy', 1952],
+    ['Belgium', 1952],
+    ['Netherlands', 1952],
+    ['Luxembourg', 1952],
+    ['Ireland', 1973],
+    ['United Kingdom', 1973],
+    ['Denmark', 1973],
+    ['Greece', 1981],
+    ['Spain', 1986],
+    ['Portugal', 1986],
+    ['Austria', 1995],
+    ['Sweden', 1995],
+    ['Finland', 1995],
+    ['Cyprus', 2004],
+    ['Malta', 2004],
+    ['Hungary', 2004],
+    ['Poland', 2004],
+    ['Slovakia', 2004],
+    ['Latvia', 2004],
+    ['Estonia', 2004],
+    ['Lithuania', 2004],
+    ['Czech Republic', 2004],
+    ['Slovenia', 2004],
+    ['Bulgaria', 2007],
+    ['Romania', 2007],
+    ['Croatia', 2013]
+  ]);
+}
+
+function arrayToHashTable(rows) {
+  var hashTable = {},
+    i,
+    fields;
+
+  hashTable.data = {};
+  hashTable.key = rows[0][0];
+  hashTable.value = rows[0][1];
+  hashTable.minValue = rows[1][1];
+  hashTable.maxValue = rows[1][1];
+
+  // Start from 1 since we have a header row.
+  for (i = 1; i < rows.length; i += 1) {
+    fields = rows[i];
+    hashTable.data[fields[0]] = fields[1];
+    hashTable.minValue = Math.min(hashTable.minValue,  fields[1]);
+    hashTable.maxValue  =  Math.max(hashTable.maxValue,  fields[1]);
+  }
+
+  hashTable.getItem = function (in_key) {
+    return this.data[in_key];
+  };
+  hashTable.hasItem = function (in_key) {
+    return typeof (this.data[in_key]) !== 'undefined';
+  };
+
+  hashTable.getColor = function (minColor, maxColor, in_key) {
+    var hexMinColor = parseInt(minColor, 16),
+      hexMaxColor = parseInt(maxColor, 16),
+      color = hexMinColor + Math.round(((hexMaxColor -  hexMinColor) *
+        (this.data[in_key] - this.minValue) / (this.maxValue - this.minValue))),
+      hexColor = color.toString(16);
+    return hexColor;
+  };
+
+
+  return hashTable;
+}
+
+function addGeoJSONContainer(map) {
+  geoJsonContainer = new GeoJSONContainer(
+    {
+    theme : {
+      getPolygonPresentation: function (geoStrip, properties) {
+        properties.assessionDate = data.getItem(properties.name);
+        return new nokia.maps.map.Polygon(geoStrip,{
+          pen: { strokeColor: "#000", lineWidth: 1 },
+          brush: { 
+            // The color is based on the accession date.
+            color: "#3" +  
+              data.getColor('0', 'f' ,properties.name) + 
+              data.getColor('8', 'f' ,properties.name) + 
+              'a' 
+            }
+        });
+      }
+    }
+  });
+
+  map.objects.add(geoJsonContainer);
+  
+  geoJsonContainer.addListener("mouseover", function (evt) {
+    // Extract the data from the properties.
+    var text =
+      evt.target.properties.name + ' joined in ' +
+      evt.target.properties.assessionDate;
+
+    infoBubbles.openBubble(text,
+       evt.target.getBoundingBox().getCenter());
+  }, false);
+}
+
+function getGeoJSON() {
+  var filename = 'data/europe.geojson';
+  jsonManager = new JSONManager();
+  jsonManager.parseJSON(filename);
+  jsonManager.addObserver('state', onGeoJSONParsed);
+}
+
+function onGeoJSONParsed() {
+
+  if (jsonManager.state === 'finished') {
+    var err = geoJsonContainer.addGeoJSON(jsonManager.object);
+    if (geoJsonContainer.state === 'finished') {
+      map.zoomTo(geoJsonContainer.getBoundingBox());
+    } else {
+      console.log(err);
+    }
+  }
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  map.components.add(infoBubbles);
+
+  defineData();
+  addGeoJSONContainer(map);
+  getGeoJSON();
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
