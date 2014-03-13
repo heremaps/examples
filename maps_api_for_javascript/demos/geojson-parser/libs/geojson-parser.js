@@ -114,7 +114,7 @@ GeoJSONContainer.prototype.init = function (options) {
       break;
 
     case 'MultiPoint':
-      mapObject = nokia.maps.map.Container();
+      mapObject = new nokia.maps.map.Container();
       for (i = 0; i < geojsonGeometry.coordinates.length; i += 1) {
         point = that.theme.getPointPresentation(
           [geojsonGeometry.coordinates[1], geojsonGeometry.coordinates[0]],
@@ -143,7 +143,7 @@ GeoJSONContainer.prototype.init = function (options) {
       break;
 
     case 'MultiLineString':
-      mapObject = nokia.maps.map.Container();
+      mapObject = new nokia.maps.map.Container();
       for (i = 0; i < geojsonGeometry.coordinates.length; i += 1) {
         path = [];
         for (j = 0; j < geojsonGeometry.coordinates[i].length; j += 1) {
@@ -206,7 +206,7 @@ GeoJSONContainer.prototype.init = function (options) {
       break;
 
     case 'GeometryCollection':
-      mapObject = nokia.maps.map.Container();
+      mapObject = new nokia.maps.map.Container();
       if (!geojsonGeometry.geometries) {
         error = that._error('Invalid GeoJSON object: GeometryCollection object ' +
           ' missing \'geometries\' member.');
