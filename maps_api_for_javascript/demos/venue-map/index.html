@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="changeOverlay,getTileUrl" />
+  <title>HERE Maps API Example: Venue Map Tiles </title>
+  </style>
+    <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer"
+    data-libs="restrict-map-control"
+    data-callback="afterHereMapLoad"
+    data-parent="demos/venue-map/" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Venue Maps Example : The Louvre Museum</h1>
+  <p>
+    This example displays an indoor map of the Louvre Museum in Paris through
+    accessing the  map tiles of the venue maps service.
+  </p>
+
+  <div style="margin:5px">
+    <label for="level">Levels:</label>
+    <select id="level">
+      <option value="L0">Level 0</option>
+      <option value="L1">Level 1</option>
+      <option value="L2">Level 2</option>
+    </select><br/>
+  </div>
+
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+
+<script>
+//<![CDATA[
+
+
+
+var map,
+  signature,
+  zoomLevels,
+  restrictControl,
+  overlay;
+
+
+function getTileUrl(level, row, col) {
+  // This uses the CIT server. Replace with LIVE when ready.
+  var quadKey = [''],
+    digit,
+    mask,
+    qk;
+
+  for (var i = level; i > 0; i--) {
+    digit = '0';
+    mask = 1 << (i - 1);
+    if ((col & mask) != 0) {
+      digit++;
+    }
+    if ((row & mask) != 0) {
+      digit++;
+      digit++;
+    }
+    quadKey.push(digit);
+  }
+  qk = quadKey.toString().replace(/\,/g, '');
+  return ['https://static-1.venue.maps.cit.api.here.com/0/tiles-png/',
+    $('#level').val(), '/',
+    qk, '.png' ,signature
+    ].join('');
+}
+
+
+
+function changeOverlay() {
+
+  var tileProviderOptions = {
+    getUrl: getTileUrl,
+    max: 20,
+    min: 15
+  };
+  overlay = new nokia.maps.map.provider.ImgTileProvider(tileProviderOptions);
+  map.overlays.add(overlay);
+}
+
+function addMapRestriction(map) {
+  // Limit the user to display the Louvre only.
+  var bounds = new nokia.maps.geo.BoundingBox(
+    new nokia.maps.geo.Coordinate(48.863, 2.334),
+    new nokia.maps.geo.Coordinate(48.859, 2.338)
+  ),
+  restrictControl = new RestrictMap(16, 20, bounds);
+  map.components.add(restrictControl);
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.set('zoomLevel', 16);
+  map.set('center', [48.8611, 2.3363]);
+  addMapRestriction(map);
+
+  $('#level').change(changeOverlay);
+
+
+  var url = 'https://signature.venue.maps.cit.api.here.com/venues/signature/v1?app_code=' + nokia.Settings.app_code + '&app_id=' + nokia.Settings.app_id;
+  $.get(url, function (data) {
+    signature = data.SignedQueryString;
+    changeOverlay();
+  }, 'json');
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
