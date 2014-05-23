@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addSidebarControl,addGeoJSONContainer,getGeoJSON,onGeoJSONParsed,getCustomPointPresentation,ZoomToTheme,addZoomToListener,clusterDataPoints" />
+  <title>HERE Maps API Example: Loading clustered geoJSON Points using AJAX: Earthquakes</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps,datarendering"
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="sidebar-control,geojson-parser"
+    data-parent="demos/geojson-parser/">
+  </script>
+
+
+
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Loading clustered geoJSON Points using AJAX: Earthquakes</h1>
+  <p>This retrieves and parses a geoJSON file holding the details of over 200 earthquakes and renders it using standard marker clustering techniques.
+  </p>
+  <p>The JSON file is located at:
+    <a href="data/earthquakes.geojson">data/earthquakes.geojson</a>
+  </p>
+  <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
+  <div id="src" style="clear:both;width:100%">
+    <br/>
+      <p>The parser can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
+  </div>
+<script id="example-code" data-categories="geojson,library" type="text/javascript" >
+//<![CDATA[
+var map,
+  infoBubbles,
+  jsonManager,
+  resultSet,
+  clusterData = [],
+  container;
+
+
+function onGeoJSONParsed() {
+
+  if (jsonManager.state === 'finished') {
+    var err = resultSet.addGeoJSON(jsonManager.object);
+    if (resultSet.state === 'finished') {
+      map.zoomTo(container.getBoundingBox());
+      clusterDataPoints(clusterData);
+    } else {
+      alert(err);
+    }
+  }
+}
+
+function getGeoJSON() {
+  var filename = 'data/earthquakes.geojson';
+  jsonManager = new JSONManager();
+  jsonManager.parseJSON(filename);
+  jsonManager.addObserver('state', onGeoJSONParsed);
+}
+
+
+function ZoomToTheme() {
+  var that = this,
+    baseTheme = new nokia.maps.clustering.MarkerTheme();
+  that.getClusterPresentation = function (dataPoints) {
+    var cluster = baseTheme.getClusterPresentation(dataPoints);
+    cluster.$boundingBox = dataPoints.getBounds();
+    return cluster;
+  };
+  that.getNoisePresentation = function (dataPoint) {
+    var noisePoint = baseTheme.getNoisePresentation(dataPoint);
+    noisePoint.$description = dataPoint.description;
+    return noisePoint;
+  };
+}
+
+
+function addZoomToListener(map) {
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? 'tap' : 'click';
+  map.addListener(CLICK, function (evt) {
+    if (evt.target.$boundingBox !== undefined) {
+      evt.display.zoomTo(evt.target.$boundingBox, false);
+    } else if (evt.target.$description !== undefined) {
+     infoBubbles.openBubble(evt.target.$description,
+          evt.target.coordinate);
+    }
+  });
+}
+
+function clusterDataPoints(data) {
+  var clusterProvider = new nokia.maps.clustering.ClusterProvider(map, {
+    eps: 16,
+    minPts: 1,
+    dataPoints: data,
+    theme : new ZoomToTheme()
+  });
+  clusterProvider.cluster();
+
+  addZoomToListener(map);
+}
+
+
+function getCustomPointPresentation(dataPoint, props) {
+  // Add the point to the cluster data for later rendering.
+  clusterData .push ({
+    latitude: dataPoint[0],
+    longitude: dataPoint[1],
+    description: props.description
+  });
+  // Don't need to override the  standard point presentation.
+  return GeoJSONTheme.getPointPresentation(dataPoint, props);
+}
+
+
+function addGeoJSONContainer(container) {
+  // This  is just being used to load, but not display the data.
+  resultSet = new GeoJSONContainer({
+    container: container,
+    theme : {
+      getPointPresentation :  function (dataPoint, properties) {
+        return getCustomPointPresentation(dataPoint, properties);
+      }
+    }
+  });
+
+}
+
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  map.components.add(infoBubbles);
+  container = new nokia.maps.map.Container();
+  addGeoJSONContainer(container);
+  getGeoJSON();
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
