@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="createWKTParser,parseWellKnownText" />
+  <title>HERE Maps API Example: Loading Marker Data from an WKT file</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="wkt-parser"
+    data-parent="demos/wkt-parser/">
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Parsing Well-Known Text data</h1>
+  <p>This example parses Well known Text data and displays it on a map.
+  </p>
+  <p>The full data set can be found at:
+    <a href="./data/test.json">./data/test.json</a>
+  </p>
+  <span>Add a:</span>
+  <input type="button" id="point" value="Point" />
+  <input type="button" id="lineString" value="LineString" />
+  <input type="button" id="polygon" value="Polygon" />
+  <input type="button" id="multiline" value="Multiline" />
+  <input type="button" id="multipolygon" value="MultiPolygon" />
+
+  <br/><br/>
+   <p>WKT:</p>
+   <div id="sidebar" style="width:540px; color: rgb(102, 102, 102);">NONE LOADED</div>
+   <br/>
+
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+
+  <div id="src" style="width:100%">
+    <br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/WKT-parser.js">libs/WKT-parser.js</a>"&gt;&lt;/script></code></pre>
+      <br/><p>Code:</p>
+  </div>
+<script id="example-code" data-categories="WKT,library" type="text/javascript" >
+//<![CDATA[
+var map,
+  infoBubbles,
+  bubble,
+  WKT,
+  parser,
+  result;
+
+function parseWellKnownText(jsonObject) {
+
+  result = parser.parseWKT(jsonObject);
+  if (parser.state === 'finished') {
+    map.objects.addAll(result);
+    map.set('center', map.objects.get(0).getBoundingBox().getCenter());
+  } else {
+    console.log(result);
+  }
+}
+
+function displayWKTSource(jsonObject) {
+
+  $('#sidebar').empty();
+
+  var text = JSON.stringify(jsonObject),
+    textNode = document.createTextNode(text),
+    preNode = $('<pre></pre>'),
+    spanNode = $('<span></span>'),
+    codeNode = $('<code class=\'prettyprint\'></code>');
+
+  codeNode.append(textNode);
+  spanNode.append(codeNode);
+  preNode.append(spanNode);
+  $('#sidebar').append(preNode);
+}
+
+function defineWellKnownTexts() {
+  WKT = {
+    Point: "POINT (30 10)",
+    LineString: "LINESTRING (30 10, 10 30, 40 40)",
+    Polygon1: "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
+    Polygon2: "POLYGON ((35 10, 45 45, 15 40, 10 20, 35 10),(20 30, 35 35, 30 20, 20 30))",
+    MultiPoint1: "MULTIPOINT ((10 40), (40 30), (20 20), (30 10))",
+    MultiPoint2: "MULTIPOINT (10 40, 40 30, 20 20, 30 10)",
+    MultiLineString: "MULTILINESTRING ((10 10, 20 20, 10 40),(40 40, 30 30, 40 20, 30 10))",
+    MultiPolygon1: "MULTIPOLYGON (((30 20, 45 40, 10 40, 30 20)),((15 5, 40 10, 10 20, 5 10, 15 5)))",
+    MultiPolygon2: "MULTIPOLYGON(((40 40, 20 45, 45 30, 40 40)),((20 35, 10 30, 10 10, 30 5, 45 20, 20 35),(30 20, 20 15, 20 25, 30 20)))"
+};}
+
+
+function buttonsSetUp() {
+
+  var parse = function (object) {
+    map.objects.clear();
+    if (bubble &&
+        bubble.getState() === 'opened') {
+      bubble.close();
+    }
+    parseWellKnownText(object);
+    displayWKTSource(object);
+  };
+
+
+  $('#point').click(function () {
+    parse(WKT.Point);
+  });
+  $('#lineString').click(function () {
+    parse(WKT.LineString);
+  });
+  $('#polygon').click(function () {
+    parse(WKT.Polygon1);
+  });
+  $('#multiline').click(function () {
+    parse(WKT.MultiLineString);
+  });
+  $('#multipolygon').click(function () {
+    parse(WKT.MultiPolygon1);
+  });
+
+}
+
+function createWKTParser() {
+  parser = new WKTContainer();
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  bubble = null;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  infoBubbles.options.defaultWidth = 200;
+  infoBubbles.options.width = 200;
+
+  map.components.add(infoBubbles);
+  map.set('zoomLevel', 2);
+
+  defineWellKnownTexts();
+  createWKTParser();
+  buttonsSetUp();
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
