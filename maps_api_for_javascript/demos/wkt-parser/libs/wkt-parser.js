@@ -88,7 +88,7 @@ WKTContainer.prototype.init = function (options) {
     case 'point':
       coords = coordinateSets[0].match(that.coordsRegex);
       mapObject = that.theme.getPointPresentation(
-        [parseFloat(coords[0]), parseFloat(coords[1])], props
+        [parseFloat(coords[1]), parseFloat(coords[0])], props
       );
       break;
 
@@ -98,7 +98,7 @@ WKTContainer.prototype.init = function (options) {
         coords = coordinateSets[i].match(that.coordsRegex);
         if(coords){
           point = that.theme.getPointPresentation(
-          [parseFloat(coords[0]), parseFloat(coords[1])], props
+          [parseFloat(coords[1]), parseFloat(coords[0])], props
           );
           mapObject.objects.add(point);
         }
@@ -109,7 +109,7 @@ WKTContainer.prototype.init = function (options) {
       coords = coordinateSets[0].match(that.coordsRegex);
       path = [];
       for (i = 0; i < coords.length; i += 2) {
-        ll = new nokia.maps.geo.Coordinate(parseFloat(coords[i+0]), parseFloat(coords[i+1]));
+        ll = new nokia.maps.geo.Coordinate(parseFloat(coords[i+1]), parseFloat(coords[i+0]));
         path.push(ll);
       }
       mapObject = that.theme.getLineStringPresentation(path, props);
@@ -122,8 +122,8 @@ WKTContainer.prototype.init = function (options) {
         if(coords){
           path = [];
           for (j = 0; j < coords.length; j += 2) {
-            ll = new nokia.maps.geo.Coordinate(parseFloat(coords[j+0]),
-               parseFloat(coords[j+1]));
+            ll = new nokia.maps.geo.Coordinate(parseFloat(coords[j+1]),
+               parseFloat(coords[j+0]));
             path.push(ll);
           }
           lineString = that.theme.getLineStringPresentation(path, props);
@@ -138,7 +138,7 @@ WKTContainer.prototype.init = function (options) {
 
       path = [];
       for (i = 0; i < coords.length; i += 2) {
-        ll = new nokia.maps.geo.Coordinate(parseFloat(coords[i+0]), parseFloat(coords[i+1]));
+        ll = new nokia.maps.geo.Coordinate(parseFloat(coords[i+1]), parseFloat(coords[i+0]));
         path.push(ll);
       }
 
@@ -152,8 +152,8 @@ WKTContainer.prototype.init = function (options) {
         if(coords){
           path = [];
           for (j = 0; j < coords.length; j += 2) {
-            ll = new nokia.maps.geo.Coordinate(parseFloat(coords[j+0]),
-               parseFloat(coords[j+1]));
+            ll = new nokia.maps.geo.Coordinate(parseFloat(coords[j+1]),
+               parseFloat(coords[j+0]));
             path.push(ll);
           }
           polygon = that.theme.getPolygonPresentation(path, props);
