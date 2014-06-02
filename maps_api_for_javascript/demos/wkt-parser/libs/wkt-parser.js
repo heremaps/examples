@@ -204,7 +204,7 @@ WKTContainer.prototype.addWKT = function (wellKnownText, props) {
   case 'polygon':
   case 'multipolygon':
     if (parts.length > 1) {
-      this.objects.add(this.geometryToMapObjects(type, parts.slice(1)));
+      this.objects.add(this.geometryToMapObjects(type, parts.slice(1), props));
     } else {
       error = this._error('Invalid WKT object: Geometry object missing \'coordinates\'.');
     }

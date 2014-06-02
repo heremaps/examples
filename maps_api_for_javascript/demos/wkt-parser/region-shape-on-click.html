@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="createWKTParser,geocodeAddress,onSuccess" />
+  <title>HERE Maps API Example: Geocoding Region Data on Mouse Click</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="wkt-parser"
+    data-parent="demos/wkt-parser/">
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1></h1>
+  <p>This example makes a geocoding request and displays a polygon showing the region returned on a map.
+  </p>
+  <p>Note that some countries do not return polygons defining post code areas</p>
+
+
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+
+  <div id="src" style="width:100%">
+    <br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/WKT-parser.js">libs/WKT-parser.js</a>"&gt;&lt;/script></code></pre>
+      <br/><p>Code:</p>
+  </div>
+<script id="example-code" data-categories="WKT,library" type="text/javascript" >
+//<![CDATA[
+var map,
+  infoBubbles,
+  bubble,
+  parser,
+  container;
+
+
+function createWKTParser(container) {
+  parser = new WKTContainer({
+    container:  container,
+    theme: {
+      getPolygonPresentation: function (geoStrip, properties) {
+        return new nokia.maps.map.Polygon(geoStrip,{
+          pen: { strokeColor: "#22AA", lineWidth: 1 },
+          brush: {
+            color: "#0AAA"
+            },
+          address : properties
+        });
+      }
+    }
+  });
+}
+
+function onSuccess(data) {
+  var location = data.Response.View[0].Result[0].Location
+  address = location.Address,
+  wktShape =  location.Shape.Value;
+
+  container.objects.clear();
+  result = parser.addWKT(wktShape, address);
+  if (parser.state === 'finished') {
+    map.zoomTo(container.getBoundingBox());
+    bubble = infoBubbles.openBubble(address.Label,
+      container.getBoundingBox().getCenter());
+  } else {
+    console.log(result);
+  }
+}
+
+function geocodeAddress(coord) {
+  var url = 'http://reverse.geocoder.cit.api.here.com/6.2/reversegeocode.json' +
+      '?app_id=' + nokia.Settings.app_id +
+      '&app_code=' + nokia.Settings.app_code +
+      '&prox=' + coord.latitude + ',' + coord.longitude +',100' +
+      '&mode=retrieveAddresses&maxresults=1' +
+      '&additionaldata=IncludeShapeLevel,' + 'postalCode';
+
+    $.ajax({url: url,
+      dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        jsonpCallback: 'onSuccess'});
+
+}
+
+function setUpClickListener(map) {
+  // Attach an event listener to map display
+  // obtain the coordinates an display in an alert box.
+  //
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? 'tap' : 'click';
+  map.addListener(CLICK, function (evt) {
+    geocodeAddress(map.pixelToGeo(evt.displayX, evt.displayY));
+  });
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+
+  bubble = null;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  infoBubbles.options.defaultWidth = 200;
+  infoBubbles.options.width = 200;
+
+  map.components.add(infoBubbles);
+  map.set('zoomLevel', 2);
+
+  container = new nokia.maps.map.Container();
+  createWKTParser(container);
+
+  map.objects.add(container);
+  setUpClickListener(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
