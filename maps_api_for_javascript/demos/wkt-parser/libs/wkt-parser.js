@@ -64,6 +64,10 @@ WKTContainer.prototype.init = function (options) {
     };
   };
 
+  that.getIncrement = function (coords) {
+    return (coords < 16000) ? 2 : Math.floor(coords/16000) * 2;
+  };
+
 
   that.geometryToMapObjects = function (type, coordinateSets, props) {
 
@@ -134,12 +138,15 @@ WKTContainer.prototype.init = function (options) {
 
     case 'polygon':
 
-      coords = coordinateSets[0].match(that.coordsRegex);
+      coords = coordinateSets[0].match(that.coordsRegex);;
+      i = 0;
+      inc = this.getIncrement(coords.length);
 
       path = [];
-      for (i = 0; i < coords.length; i += 2) {
+      while (i < coords.length) {
         ll = new nokia.maps.geo.Coordinate(parseFloat(coords[i+1]), parseFloat(coords[i+0]));
         path.push(ll);
+        i += inc;
       }
 
       mapObject = that.theme.getPolygonPresentation(path, props);
@@ -150,11 +157,14 @@ WKTContainer.prototype.init = function (options) {
       for (i = 0; i < coordinateSets.length; i += 1) {
         coords = coordinateSets[i].match(that.coordsRegex);
         if(coords){
+          j = 0;
+          inc = this.getIncrement(coords.length);
           path = [];
-          for (j = 0; j < coords.length; j += 2) {
+          while (j < coords.length) {
             ll = new nokia.maps.geo.Coordinate(parseFloat(coords[j+1]),
                parseFloat(coords[j+0]));
             path.push(ll);
+            j += inc;
           }
           polygon = that.theme.getPolygonPresentation(path, props);
           mapObject.objects.add(polygon);

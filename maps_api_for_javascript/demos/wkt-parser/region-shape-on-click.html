@@ -26,8 +26,21 @@
   <h1></h1>
   <p>This example makes a geocoding request and displays a polygon showing the region returned on a map.
   </p>
-  <p>Note that some countries do not return polygons defining post code areas</p>
+  <p>Note that not all countries not have adminstrative districts defined at all levels.
+  </p>
 
+  <div>
+       <label for="shapeLevel">Region to display:</label>
+       <select id="shapeLevel">
+        <option value="country">country</option>
+        <option value="state">state</option>
+        <option value="county">county</option>
+        <option value="city">city</option>
+        <option value="district">district</option>
+        <option value="postalCode">postalCode</option>
+        <option value="default">default</option>
+       </select><br/><br/>
+  </div>
 
   <div id="mapContainer" style="width:540px; height:334px;"></div>
 
@@ -83,9 +96,9 @@ function geocodeAddress(coord) {
   var url = 'http://reverse.geocoder.cit.api.here.com/6.2/reversegeocode.json' +
       '?app_id=' + nokia.Settings.app_id +
       '&app_code=' + nokia.Settings.app_code +
-      '&prox=' + coord.latitude + ',' + coord.longitude +',100' +
+      '&prox=' + coord.latitude + ',' + coord.longitude +',1000' +
       '&mode=retrieveAddresses&maxresults=1' +
-      '&additionaldata=IncludeShapeLevel,' + 'postalCode';
+      '&additionaldata=IncludeShapeLevel,' + $('#shapeLevel').val();
 
     $.ajax({url: url,
       dataType: 'jsonp',
