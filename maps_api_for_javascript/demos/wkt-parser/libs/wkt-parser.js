@@ -36,7 +36,7 @@ WKTContainer.prototype.init = function (options) {
 
   var that = this;
       that.regex = /(?:(?![()]).)*(?:(?![(),]).)/g;
-      that.coordsRegex = /(\d+\.{0,1}\d{0,8})/g;
+      that.coordsRegex = /-?(\d+\.{0,1}\d{0,8})/g;
 
   this.set('state', 'initial');
 
