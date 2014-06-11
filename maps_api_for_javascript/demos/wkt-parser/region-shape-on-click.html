@@ -76,21 +76,7 @@ function createWKTParser(container) {
   });
 }
 
-function onSuccess(data) {
-  var location = data.Response.View[0].Result[0].Location
-  address = location.Address,
-  wktShape =  location.Shape.Value;
 
-  container.objects.clear();
-  result = parser.addWKT(wktShape, address);
-  if (parser.state === 'finished') {
-    map.zoomTo(container.getBoundingBox());
-    bubble = infoBubbles.openBubble(address.Label,
-      container.getBoundingBox().getCenter());
-  } else {
-    console.log(result);
-  }
-}
 
 function geocodeAddress(coord) {
   var url = 'http://reverse.geocoder.cit.api.here.com/6.2/reversegeocode.json' +
@@ -100,11 +86,21 @@ function geocodeAddress(coord) {
       '&mode=retrieveAddresses&maxresults=1' +
       '&additionaldata=IncludeShapeLevel,' + $('#shapeLevel').val();
 
-    $.ajax({url: url,
-      dataType: 'jsonp',
-        jsonp: 'jsoncallback',
-        jsonpCallback: 'onSuccess'});
+    $.getJSON(url,function (data) {
+      var location = data.Response.View[0].Result[0].Location
+      address = location.Address,
+      wktShape =  location.Shape.Value;
 
+      container.objects.clear();
+      result = parser.addWKT(wktShape, address);
+      if (parser.state === 'finished') {
+        map.zoomTo(container.getBoundingBox());
+        bubble = infoBubbles.openBubble(address.Label,
+          coord);
+      } else {
+        console.log(result);
+      }
+    });
 }
 
 function setUpClickListener(map) {

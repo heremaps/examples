@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="findRussianRegions,createWKTParser,setUpClickListener" />
+  <title>HERE Maps API Example: Loading WKT MultiPolygons using AJAX: Russia</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="wkt-parser"
+    data-parent="demos/wkt-parser/">
+  </script>
+
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Loading WKT MultiPolygons using AJAX: Russia </h1>
+  <p>This geocodes the names of the provinces of Russia and reads the shapes as WKT data.
+    Click on the map for more information.
+  </p>
+
+  <div id="mapContainer" style="width:540px; height:334px;float:left; "></div>
+  <div id="sidebar" style="float:left; color: rgb(102, 102, 102);"></div>
+  <div id="src" style="clear:both;width:100%">
+    <br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/WKT-parser.js">libs/WKT-parser.js</a>"&gt;&lt;/script></code></pre>
+      <br/><p>Code:</p>
+  </div>
+<script id="example-code" data-categories="geojson" type="text/javascript" >
+//<![CDATA[
+var map,
+  infoBubbles,
+  bubble,
+  parser,
+  container,
+  regions = ['Центральный',
+    'Дальневосточный',
+    'Приволжский',
+    'Сибирский',
+    'Северо-Кавказский',
+    'Северо-Западный',
+    'Южный',
+    'Уральский'
+    ];
+
+
+function findRussianRegions() {
+  // Region holds a list of Russian states. Центральный',
+  //  'Дальневосточный', etc.
+  $(regions).each(function(){
+      var region = this,
+        url = 'http://geocoder.cit.api.here.com/6.2/geocode.json' +
+        '?app_id=' + nokia.Settings.app_id +
+        '&app_code=' + nokia.Settings.app_code +
+        '&state=' +  region +
+        '&country=RUS' +
+        '&mode=retrieveAddresses&maxresults=1' +
+        '&additionaldata=IncludeShapeLevel,state';
+    $.getJSON(url,  function (data) {
+      var location = data.Response.View[0].Result[0].Location
+      wktShape =  location.Shape.Value;
+      container.objects.add(createWKTParser().addWKT(wktShape, region.toString()));
+    });
+  });
+}
+
+function createWKTParser() {
+  return new WKTContainer({
+    theme: {
+      getPolygonPresentation: function (geoStrip, properties) {
+        return new nokia.maps.map.Polygon(geoStrip,{
+          pen: { strokeColor: "#22AA", lineWidth: 1 },
+          brush: {
+            color: "#0AAA"  // The color blue.
+            },
+          label : properties
+        });
+      }
+    }
+  });
+}
+
+function setUpClickListener(container) {
+  // Attach an event listener to map display
+  // obtain the coordinates an display in an alert box.
+  //
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? 'tap' : 'click';
+  container.addListener(CLICK, function (evt) {
+     infoBubbles.openBubble(evt.target.label,
+      map.pixelToGeo(evt.displayX, evt.displayY));
+  });
+}
+
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+
+  bubble = null;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  infoBubbles.options.defaultWidth = 200;
+  infoBubbles.options.width = 200;
+
+  map.components.add(infoBubbles);
+  map.set('zoomLevel', 2);
+
+  container = new nokia.maps.map.Container();
+  setUpClickListener(container);
+  map.objects.add(container);
+  findRussianRegions();
+
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>
