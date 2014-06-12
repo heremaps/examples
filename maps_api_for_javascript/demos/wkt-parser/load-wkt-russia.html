@@ -44,15 +44,23 @@ var map,
   bubble,
   parser,
   container,
-  regions = [{name:'Центральный'},
-    {name:'Дальневосточный'},
-    {name:'Приволжский'},
-    {name:'Сибирский'},
-    {name:'Северо-Кавказский'},
-    {name:'Северо-Западный'},
-    {name:'Южный'},
-    {name:'Уральский'}
+  regions = [{name:'Dal\'nevostochniy federal\'niy okrug'},
+    {name:'Privolzhskiy federal\'niy okrug'},
+    {name:'Sibirskiy federal\'niy okrug'},
+    {name:'Severo-Kavkazskiy federal\'niy okrug'},
+    {name:'Severo-Zapadniy federal\'niy okrug'},
+    {name:'Yuzhniy federal\'niy okrug'},
+    {name:'Ural\'skiy federal\'niy okrug'},
+    {name:'Tsentral\'niy federal\'niy okrug'}
     ];
+
+
+
+
+
+
+
+
 
 
 function findRussianRegions() {
@@ -65,13 +73,14 @@ function findRussianRegions() {
         '&app_code=' + nokia.Settings.app_code +
         '&state=' +  encodeURI(region.name) +
         '&country=RUS' +
+        '&language=RUS' +
         '&mode=retrieveAddresses&maxresults=1' +
         '&level=state' +
         '&additionaldata=IncludeShapeLevel,state';
     $.getJSON(url,  function (data) {
       var location = data.Response.View[0].Result[0].Location
       wktShape =  location.Shape.Value;
-      container.objects.add(createWKTParser().addWKT(wktShape, region));
+      container.objects.add(createWKTParser().addWKT(wktShape, location.Address));
     });
   });
 }
@@ -85,7 +94,7 @@ function createWKTParser() {
           brush: {
             color: "#0AAA"  // The color blue.
             },
-          label : properties.name
+          label : properties.State
         });
       }
     }
