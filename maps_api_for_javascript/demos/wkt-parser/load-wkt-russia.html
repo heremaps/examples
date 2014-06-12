@@ -63,7 +63,7 @@ function findRussianRegions() {
         url = 'http://geocoder.cit.api.here.com/6.2/geocode.json' +
         '?app_id=' + nokia.Settings.app_id +
         '&app_code=' + nokia.Settings.app_code +
-        '&state=' +  region.name +
+        '&state=' +  encodeURI(region.name) +
         '&country=RUS' +
         '&mode=retrieveAddresses&maxresults=1' +
         '&level=state' +
