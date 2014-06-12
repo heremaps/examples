@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="findCountries,createWKTParser,setUpClickListener,getColor" />
+  <title>HERE Maps API Example: Choropleth Map using WKT</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="../libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="../libs/jQl.min.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="../libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-params="maps"
+    data-map-container="mapContainer"
+    data-callback="afterHereMapLoad"
+    data-libs="wkt-parser"
+    data-parent="demos/wkt-parser/">
+  </script>
+
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Choropleth Map : Accession Dates to the European Union</h1>
+  <p>This geocodes the names of the states of the European Union  and reads the shapes as WKT data.
+    The regions are colored according to the date the state joined the union.
+    Click on the map for more information.
+  </p>
+
+  <div id="mapContainer" style="width:540px; height:334px;float:left; "></div>
+  <div id="sidebar" style="float:left; color: rgb(102, date: 102, date: 102);"></div>
+  <div id="src" style="clear:both;width:100%">
+    <br/>
+      <p>The control can be loaded using the following <code>&lt;script&gt;</code> element:
+      <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/WKT-parser.js">libs/WKT-parser.js</a>"&gt;&lt;/script></code></pre>
+      <br/><p>Code:</p>
+  </div>
+<script id="example-code" data-categories="geojson" type="text/javascript" >
+//<![CDATA[
+var map,
+  infoBubbles,
+  bubble,
+  parser,
+  container;
+
+function getData() {
+  return [{name: 'France', date: 1952},
+    {name: 'Germany', date: 1952},
+    {name: 'Italy', date: 1952},
+    {name: 'Belgium', date: 1952},
+    {name: 'Netherlands', date: 1952},
+    {name: 'Luxembourg', date: 1952},
+    {name: 'Ireland', date: 1973},
+    {name: 'Denmark', date: 1973},
+    {name: 'Greece', date: 1981},
+    {name: 'Spain', date: 1986},
+    {name: 'Portugal', date: 1986},
+    {name: 'Austria', date: 1995},
+    {name: 'Sweden', date: 1995},
+    {name: 'Finland', date: 1995},
+    {name: 'Cyprus', date: 2004},
+    {name: 'Malta', date: 2004},
+    {name: 'Hungary', date: 2004},
+    {name: 'Poland', date: 2004},
+    {name: 'Slovakia', date: 2004},
+    {name: 'Latvia', date: 2004},
+    {name: 'Estonia', date: 2004},
+    {name: 'Lithuania', date: 2004},
+    {name: 'Czech Republic', date: 2004},
+    {name: 'Slovenia', date: 2004},
+    {name: 'Bulgaria', date: 2007},
+    {name: 'Romania', date: 2007},
+    {name: 'Croatia', date: 2013}];
+}
+
+function findCountries( countries, level) {
+  // Countries holds a list of Countries and dates
+  $(countries).each(function(){
+      var country = this,
+        url = 'http://geocoder.cit.api.here.com/6.2/geocode.json' +
+        '?app_id=' + nokia.Settings.app_id +
+        '&app_code=' + nokia.Settings.app_code +
+        '&country=' +  encodeURI(country.name) +
+        '&mode=retrieveAddresses&maxresults=1' +
+        '&level=' + level +
+        '&additionaldata=IncludeShapeLevel,' + level;
+    $.getJSON(url,  function (data) {
+      var location = data.Response.View[0].Result[0].Location,
+        wktShape =  location.Shape.Value;
+      container.objects.add(createWKTParser().addWKT(wktShape, country));
+    });
+  });
+}
+
+
+function getColor(date) {
+ var range = (date - 1952),
+  color;
+
+  if  (date < 1960){
+    color = 'F4';
+  } else if  (date < 1975){
+    color = 'C6';
+  } else if  (date < 1984){
+    color = 'A8';
+  } else if  (date < 1987){
+    color = '8A';
+  } else if  (date < 1995){
+    color = '6C';
+  } else if  (date < 2006){
+    color = '4E';
+  } else {
+    color = '2F'
+  }
+
+  // Color will range from Green to Blue.
+  return '#0' +  color + 'A';
+}
+
+function findUK() {
+  // Special processing for the United Kingdom.
+  var ukNations = ['England' , 'Scotland', 'Northern Ireland', 'Wales'],
+    ukData =  {name: 'United Kingdom', date: 1973},
+    level = 'state';
+  $(ukNations).each(function(){
+      var nation = this,
+        url = 'http://geocoder.cit.api.here.com/6.2/geocode.json' +
+        '?app_id=' + nokia.Settings.app_id +
+        '&app_code=' + nokia.Settings.app_code +
+        '&state=' +  encodeURI(nation) +
+        '&mode=retrieveAddresses&maxresults=1' +
+        '&level=' + level +
+        '&additionaldata=IncludeShapeLevel,' + level;
+    $.getJSON(url,  function (data) {
+      var location = data.Response.View[0].Result[0].Location,
+        wktShape =  location.Shape.Value;
+      container.objects.add(createWKTParser().addWKT(wktShape, ukData));
+    });
+  });
+}
+
+function createWKTParser() {
+  return new WKTContainer({
+    theme: {
+      getPolygonPresentation: function (geoStrip, properties) {
+        return new nokia.maps.map.Polygon(geoStrip,{
+          pen: { strokeColor: "#22AA", lineWidth: 1 },
+          brush: {
+            color: getColor(properties.date)
+            },
+          label : properties.name + ' ' + properties.date
+        });
+      }
+    }
+  });
+}
+
+function setUpClickListener(container) {
+  // Attach an event listener to map display
+  // obtain the coordinates an display in an alert box.
+  //
+  var TOUCH = nokia.maps.dom.Page.browser.touch,
+    CLICK = TOUCH ? 'tap' : 'click';
+  container.addListener(CLICK, function (evt) {
+     infoBubbles.openBubble(evt.target.label,
+      map.pixelToGeo(evt.displayX, evt.displayY));
+  });
+}
+
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+
+  bubble = null;
+  infoBubbles = new nokia.maps.map.component.InfoBubbles();
+  infoBubbles.options.defaultWidth = 200;
+  infoBubbles.options.width = 200;
+
+  map.components.add(infoBubbles);
+  map.set('zoomLevel', 2);
+
+  container = new nokia.maps.map.Container();
+  setUpClickListener(container);
+  map.objects.add(container);
+  findCountries(getData(), 'country');
+  findUK();
+
+}
+//]]>
+</script>
+<script type="text/javascript" src="../libs/prettyprint.js"></script>
+</body>
+</html>

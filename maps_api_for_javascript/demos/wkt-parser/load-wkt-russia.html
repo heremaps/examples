@@ -43,8 +43,11 @@ var map,
   infoBubbles,
   bubble,
   parser,
-  container,
-  regions = [{name:'Dal\'nevostochniy federal\'niy okrug'},
+  container;
+
+
+function getData(){
+  return [{name:'Dal\'nevostochniy federal\'niy okrug'},
     {name:'Privolzhskiy federal\'niy okrug'},
     {name:'Sibirskiy federal\'niy okrug'},
     {name:'Severo-Kavkazskiy federal\'niy okrug'},
@@ -53,6 +56,7 @@ var map,
     {name:'Ural\'skiy federal\'niy okrug'},
     {name:'Tsentral\'niy federal\'niy okrug'}
     ];
+}
 
 
 
@@ -63,10 +67,10 @@ var map,
 
 
 
-function findRussianRegions() {
+function findRussianRegions(regions, level) {
   // Region holds a list of Russian states. Центральный',
   //  'Дальневосточный', etc.
-  $(regions).each(function(){
+  $(regions).each(function () {
       var region = this,
         url = 'http://geocoder.cit.api.here.com/6.2/geocode.json' +
         '?app_id=' + nokia.Settings.app_id +
@@ -75,8 +79,8 @@ function findRussianRegions() {
         '&country=RUS' +
         '&language=RUS' +
         '&mode=retrieveAddresses&maxresults=1' +
-        '&level=state' +
-        '&additionaldata=IncludeShapeLevel,state';
+        '&level=' + level +
+        '&additionaldata=IncludeShapeLevel,' + level;
     $.getJSON(url,  function (data) {
       var location = data.Response.View[0].Result[0].Location
       wktShape =  location.Shape.Value;
@@ -128,7 +132,7 @@ function afterHereMapLoad(theMap) {
   container = new nokia.maps.map.Container();
   setUpClickListener(container);
   map.objects.add(container);
-  findRussianRegions();
+  findRussianRegions(getData(), 'state');
 
 }
 //]]>

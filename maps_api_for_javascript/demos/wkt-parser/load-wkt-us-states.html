@@ -42,77 +42,77 @@ var map,
   infoBubbles,
   bubble,
   parser,
-  container,
-  states = [
-{name: 'Alabama', date: 1819},
-{name: 'Alaska', date: 1959},
-{name: 'Arizona', date: 1912},
-{name: 'Arkansas', date: 1836},
-{name: 'California', date: 1850},
-{name: 'Colorado', date: 1876},
-{name: 'Connecticut', date: 1788},
-{name: 'Delaware', date: 1787},
-{name: 'Florida', date: 1845},
-{name: 'Georgia', date: 1788},
-{name: 'Hawaii', date: 1959},
-{name: 'Idaho', date: 1890},
-{name: 'Illinois', date: 1818},
-{name: 'Indiana', date: 1816},
-{name: 'Iowa', date: 1846},
-{name: 'Kansas', date: 1861},
-{name: 'Kentucky', date: 1792},
-{name: 'Louisiana', date: 1812},
-{name: 'Maine', date: 1820},
-{name: 'Maryland', date: 1788},
-{name: 'Massachusetts', date: 1788},
-{name: 'Michigan', date: 1837},
-{name: 'Minnesota', date: 1858},
-{name: 'Mississippi', date: 1817},
-{name: 'Missouri', date: 1821},
-{name: 'Montana', date: 1889},
-{name: 'Nebraska', date: 1867},
-{name: 'Nevada', date: 1864},
-{name: 'New Hampshire', date: 1788},
-{name: 'New Jersey', date: 1787},
-{name: 'New Mexico', date: 1912},
-{name: 'New York', date: 1788},
-{name: 'North Carolina', date: 1789},
-{name: 'North Dakota', date: 1889},
-{name: 'Ohio', date: 1803},
-{name: 'Oklahoma', date: 1907},
-{name: 'Oregon', date: 1859},
-{name: 'Pennsylvania', date: 1787},
-{name: 'Rhode Island', date: 1790},
-{name: 'South Carolina', date: 1788},
-{name: 'South Dakota', date: 1889},
-{name: 'Tennessee', date: 1796},
-{name: 'Texas', date: 1845},
-{name: 'Utah', date: 1896},
-{name: 'Vermont', date: 1791},
-{name: 'Virginia', date: 1788},
-{name: 'Washington', date: 1889},
-{name: 'West Virginia', date: 1863},
-{name: 'Wisconsin', date: 1848},
-{name: 'Wyoming', date: 1890}
+  container;
 
+function  getData(){
+  return [{name: 'Alabama', date: 1819},
+    {name: 'Alaska', date: 1959},
+    {name: 'Arizona', date: 1912},
+    {name: 'Arkansas', date: 1836},
+    {name: 'California', date: 1850},
+    {name: 'Colorado', date: 1876},
+    {name: 'Connecticut', date: 1788},
+    {name: 'Delaware', date: 1787},
+    {name: 'Florida', date: 1845},
+    {name: 'Georgia', date: 1788},
+    {name: 'Hawaii', date: 1959},
+    {name: 'Idaho', date: 1890},
+    {name: 'Illinois', date: 1818},
+    {name: 'Indiana', date: 1816},
+    {name: 'Iowa', date: 1846},
+    {name: 'Kansas', date: 1861},
+    {name: 'Kentucky', date: 1792},
+    {name: 'Louisiana', date: 1812},
+    {name: 'Maine', date: 1820},
+    {name: 'Maryland', date: 1788},
+    {name: 'Massachusetts', date: 1788},
+    {name: 'Michigan', date: 1837},
+    {name: 'Minnesota', date: 1858},
+    {name: 'Mississippi', date: 1817},
+    {name: 'Missouri', date: 1821},
+    {name: 'Montana', date: 1889},
+    {name: 'Nebraska', date: 1867},
+    {name: 'Nevada', date: 1864},
+    {name: 'New Hampshire', date: 1788},
+    {name: 'New Jersey', date: 1787},
+    {name: 'New Mexico', date: 1912},
+    {name: 'New York', date: 1788},
+    {name: 'North Carolina', date: 1789},
+    {name: 'North Dakota', date: 1889},
+    {name: 'Ohio', date: 1803},
+    {name: 'Oklahoma', date: 1907},
+    {name: 'Oregon', date: 1859},
+    {name: 'Pennsylvania', date: 1787},
+    {name: 'Rhode Island', date: 1790},
+    {name: 'South Carolina', date: 1788},
+    {name: 'South Dakota', date: 1889},
+    {name: 'Tennessee', date: 1796},
+    {name: 'Texas', date: 1845},
+    {name: 'Utah', date: 1896},
+    {name: 'Vermont', date: 1791},
+    {name: 'Virginia', date: 1788},
+    {name: 'Washington', date: 1889},
+    {name: 'West Virginia', date: 1863},
+    {name: 'Wisconsin', date: 1848},
+    {name: 'Wyoming', date: 1890}
   ];
+}
 
-
-function findUSStates() {
+function findUSStates(states, level) {
 
   // Region holds a list of U.S. states and dates joining the union.
   //  {name: 'Alabama', date: 1819},
   // {name: 'Alaska', date: 1959}, etc.
-  $(states).each(function(){
+  $(states).each(function () {
     var state = this,
       url = 'http://geocoder.cit.api.here.com/6.2/geocode.json' +
       '?app_id=' + nokia.Settings.app_id +
       '&app_code=' + nokia.Settings.app_code +
       '&state=' +  state.name +
       '&country=USA' +
-      '&level=state' +
+      '&level=' + level +
       '&mode=retrieveAddresses&maxresults=1' +
-      '&additionaldata=IncludeShapeLevel,state';
+      '&additionaldata=IncludeShapeLevel,' + level;
     $.getJSON(url,  function (data) {
       var location = data.Response.View[0].Result[0].Location
       wktShape =  location.Shape.Value;
@@ -130,7 +130,7 @@ function createWKTParser() {
         return new nokia.maps.map.Polygon(geoStrip,{
           pen: { strokeColor: "#22AA", lineWidth: 1 },
           brush: {
-            color: getColor(properties)
+            color: getColor(properties.date)
             },
           label : properties.name + ' ' + properties.date
         });
@@ -139,8 +139,8 @@ function createWKTParser() {
   });
 }
 
-function getColor(properties){
- var since = properties.date - 1787;
+function getColor(date){
+ var since = date - 1787;
     range =  ((128 - since)/2);
 
   if(range < 1){
@@ -186,7 +186,7 @@ function afterHereMapLoad(theMap) {
   container = new nokia.maps.map.Container();
   setUpClickListener(container);
   map.objects.add(container);
-  findUSStates();
+  findUSStates(getData(), 'state');
 }
 //]]>
 </script>
