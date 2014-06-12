@@ -38,7 +38,6 @@
         <option value="city">city</option>
         <option value="district">district</option>
         <option value="postalCode">postalCode</option>
-        <option value="default">default</option>
        </select><br/><br/>
   </div>
 
@@ -79,12 +78,14 @@ function createWKTParser(container) {
 
 
 function geocodeAddress(coord) {
-  var url = 'http://reverse.geocoder.cit.api.here.com/6.2/reversegeocode.json' +
+  var level = $('#shapeLevel').val(),
+    url = 'http://reverse.geocoder.cit.api.here.com/6.2/reversegeocode.json' +
       '?app_id=' + nokia.Settings.app_id +
       '&app_code=' + nokia.Settings.app_code +
       '&prox=' + coord.latitude + ',' + coord.longitude +',1000' +
       '&mode=retrieveAddresses&maxresults=1' +
-      '&additionaldata=IncludeShapeLevel,' + $('#shapeLevel').val();
+      '&level=' + level +
+      '&additionaldata=IncludeShapeLevel,' + level;
 
     $.getJSON(url,function (data) {
       var location = data.Response.View[0].Result[0].Location

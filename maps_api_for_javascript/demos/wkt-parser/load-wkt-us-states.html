@@ -110,6 +110,7 @@ function findUSStates() {
       '&app_code=' + nokia.Settings.app_code +
       '&state=' +  state.name +
       '&country=USA' +
+      '&level=state' +
       '&mode=retrieveAddresses&maxresults=1' +
       '&additionaldata=IncludeShapeLevel,state';
     $.getJSON(url,  function (data) {
