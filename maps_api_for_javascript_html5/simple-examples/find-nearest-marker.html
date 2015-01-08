@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="findNearestMarker,addClickEventListenerToMap" />
+  <title>HERE Maps API Example: Finding the Nearest Marker</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Finding the Nearest Marker</h1>
+  <p>Click anywhere on the Map to find out which of the five Markers is
+  the nearest to that spot.</p>
+  <p>The nearest marker is: <span id="nearestMarker">*None*</span></p>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="marker,events" type="text/javascript" >
+//<![CDATA[
+var map,
+  dragNode,
+  behaviour;
+
+function findNearestMarker(coords) {
+  var minDist = 1000,
+    nearest_text = '*None*',
+    markerDist,
+    // get all objects added to the map
+    objects = map.getObjects(),
+    len = map.getObjects().length,
+    i;
+
+  // iterate over objects and calculate distance between them
+  for (i = 0; i < len; i += 1) {
+    markerDist = objects[i].getPosition().distance(coords);
+    if (markerDist < minDist) {
+      minDist = markerDist;
+      nearest_text = objects[i].getData();
+    }
+  }
+
+  $("#nearestMarker").text(nearest_text);
+}
+
+function addClickEventListenerToMap(map) {
+  map.addEventListener('tap', function (evt) {
+    var coords =  map.screenToGeo(evt.currentPointer.viewportX, evt.currentPointer.viewportY);
+    findNearestMarker(coords);
+  }, false);
+}
+
+function addFiveMarkers (map){
+  // Set up five markers.
+  var coords = [{ lat:60.1697, lng:24.8292},
+    { lat: 60.1704, lng: 24.8285 },
+    { lat: 60.1709, lng: 24.8277 },
+    { lat: 60.1700, lng: 24.8265 },
+    { lat:60.1700, lng: 24.8283}];
+
+  //Create the svg mark-up
+var svgMarkup = '<svg  width="24" height="24" xmlns="http://www.w3.org/2000/svg">' +
+    '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" height="22" />' +
+    '<text x="12" y="18" font-size="12pt" font-family="Arial" font-weight="bold" ' +
+    'text-anchor="middle" fill="white" >${REPLACE}</text></svg>';
+
+  $.each(coords , function (index, value) {
+    var myIcon = new H.map.Icon(svgMarkup.replace('${REPLACE}', index + 1)),
+    marker = new H.map.Marker(value,  {icon: myIcon});
+    // add custom data to the marker
+    marker.setData(index + 1);
+
+    // set draggable attribute on the marker so it can recieve drag events
+    marker.draggable = true;
+    map.addObject(marker);
+  });
+
+}
+
+function afterHereMapLoad(theMap, platform, theUI) {
+  map = theMap;
+  map.setCenter({lat: 60.1697, lng:24.8292});
+  map.setZoom(16);
+  map.setBaseLayer(platform.createDefaultLayers().satellite.base);
+
+  addFiveMarkers (map);
+  // Add the click event listener.
+  addClickEventListenerToMap(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

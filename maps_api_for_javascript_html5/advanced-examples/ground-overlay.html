@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addGroundOverlay" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <title>HERE Maps API Example: Ground Overlays</title>
+   <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="all"
+    data-callback="addGroundOverlay" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+ </head>
+ <body>
+   <h1>Creating a Ground Overlay: Berlin Occupation Zones</h1>
+   <p>This example adds a custom ground overlay provider, which displays the image
+     of a map showing the allied occupation sectors in Berlin across a specified
+     Geographic area. </p>
+  <div id="mapContainer" style="width:540px; height:334px;" ></div>
+ </body>
+<script id="example-code" data-categories="ground-overlay" type="text/javascript">
+//<![CDATA[
+function addGroundOverlay(map) {
+  var berlinBounds = new H.geo.Rect(52.687, 13.06, 52.328, 13.78),
+    image = document.createElement('img');
+
+  image.style.position = "absolute";
+  image.style.opacity = "0.8";
+  image.src = './img/berlin-sector.png'; // This is the image itself
+
+   updateOverlay = function() {
+    var topLeft = map.geoToScreen(berlinBounds.getTopLeft()),
+      bottomRight = map.geoToScreen(berlinBounds.getBottomRight()),
+      offsetX = topLeft.x,
+      offsetY = topLeft.y,
+      width = bottomRight.x - topLeft.x,
+      height = bottomRight.y - topLeft.y;
+
+    image.style.top = offsetY + "px";
+    image.style.left = offsetX + "px";
+    image.style.width = width + "px";
+    image.style.height = height + "px";
+  };
+
+  map.getViewPort().element.appendChild(image);
+  map.getViewPort().addEventListener('sync', updateOverlay);
+  map.getViewModel().addEventListener('sync', updateOverlay);
+  map.setViewBounds(berlinBounds);
+
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</html>

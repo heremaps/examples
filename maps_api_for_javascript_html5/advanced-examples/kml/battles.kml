@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8'?><kml xmlns='http://www.opengis.net/kml/2.2'><Document>
+
+<Style id='tabbed'>
+	<BalloonStyle><text><![CDATA[<ul class="nm_tabnav">
+			<li class="nm_tab_current">Excerpt</li>
+			<li class="nm_tab">Combatants</li>
+			</ul><h2>$[name]</h2><br/>$[description]]]></text>
+	</BalloonStyle>
+</Style>
+
+<Style id='untabbed'>
+    <BalloonStyle><text><![CDATA[<h2>$[name]</h2><div>$[description]</div>]]></text></BalloonStyle>
+</Style>
+
+
+<Placemark id="1">
+   <styleUrl>#tabbed</styleUrl>
+   <name>Battle of Marathon</name>
+   <description><![CDATA[<div><i><q>
+			Two thousand three hundred and forty years ago, a council of Athenian Officers was summoned on
+ 			the slope of one of the mountains that look over the plain of Marathon, on the eastern coast 
+ 			of Attica. The immediate subject of their meeting was to consider whether they should give battle
+  		to an enemy that lay encamped on the shore beneath them; but on the result of their deliberations
+   		depended, not merely the fate of two armies, but the whole future progress of human civilization.
+			</q></i></div>
+			<div>Athens &amp;  Plataea vs  the	Persian Empire.<br/>
+			Commanders and leaders:
+			Miltiades the Younger, Callimachus &dagger; Datis &dagger; Artaphernes</div>]]></description>
+    <Point><coordinates>23.771093677516234,38.857415306012875,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="2">
+		<styleUrl>#tabbed</styleUrl>
+   	<name>Sicilian Expedition</name>
+   	<description><![CDATA[<div><i><q>
+			Few cities have undergone more memorable sieges during ancient and mediaeval times than has the city of Syracuse.
+			</q></i></div>
+			<div> Athens &amp; allies from the Delian League, Segesta  vs.	Syracuse, Corinth, Sparta <br/>
+			Commanders and leaders:
+			Nicias (POW), Lamachus &dagger;, Demosthenes (POW), Eurymedon &dagger; 	Gylippus, Hermocrates</div>]]></description>
+    <Point><coordinates>15.069921794412636,37.5451833159408,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="3">
+ 		<styleUrl>#tabbed</styleUrl>
+   	<name>Battle of Arbela</name>
+   	<description><![CDATA[<div><i><q>
+			...the ancient Persian empire, which once subjugated all the nations of the earth, was defeated when Alexander had won his victory at Arbela.
+			</q></i></div><div>Macedon, Southern Greek allies  vs.	Achaemenid Empire, Greek mercenaries<br/>
+			Commanders and leaders:
+			Alexander the Great, Hephaestion, Craterus, Parmenion, Ptolemy, Perdiccas, Antigonus, Cleitus, Nearchus, Seleucus 	Darius III
+			Bessus, Mazaeus, Orontes II</div>]]></description>
+    <Point><coordinates>43.150976508065156,35.92526344925816,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="4">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of the Metataurus</name>
+		<description><![CDATA[<div><i><q>
+			That battle was the determining crisis of the contest, not merely between Rome and Carthage, but between the two great families of the world...
+			</q></i></div>
+			<div>
+			Carthage vs.	Roman Republic <br/>
+			Commanders and leaders: 
+			Hasdrubal Barca &dagger; 	Marcus Livius Salinator, Gaius Claudius Nero, Porcius Licinus
+			</div>]]></description>
+		<Point><coordinates>12.652929604661637,43.89844313084216,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="5">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of the Teutoburg Forest</name>
+		<description><![CDATA[<div><i><q>
+			...that victory secured at once and forever the independence of the Teutonic race.
+			</q></i></div>
+			<div>
+			Germanic tribes (Cherusci, Marsi, Chatti, Bructeri, Chauci and Sicambri)  vs.	Roman Empire <br/>
+			Commanders and leaders: Arminius, 	Publius Quinctilius Varus
+			</div>]]></description>
+		<Point><coordinates>10.19199210236971,52.21480691123492,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="6">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of the Catalaunian Fields</name>
+		<description><![CDATA[<div><i><q>
+			The victory which the Roman general, Aetius, with his Gothic allies, had then gained over the Huns,
+			was the last victory of imperial Rome.
+			</q></i></div>
+			<div>
+			Visigoths, Western Roman Empire (including many Germanic soldiers) Franks, Burgundians, Saxons 	 vs. Hunnic Empire
+			<br/>
+			Commanders and leaders :
+			Theodoric&dagger;, Flavius Aetius, Merovech, Gondioc, Sangiban, 	Attila the Hun, Valamir, Ardaric, Berik
+			</div>]]></description>
+		<Point><coordinates>4.215429596803602,49.468620771023566,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="7">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Tours</name>
+		<description><![CDATA[<div><i><q>
+			the great victory won by Charles Martel ... gave a decisive check to the career of Arab conquest in Western Europe.
+			</q></i></div>
+			<div>
+			Carolingian Franks 	vs. Umayyad Caliphate<br/>
+			Commanders and leaders:
+			Charles Martel, 	Abdul Rahman Al Ghafiqi &dagger;
+			</div>]]></description>
+		<Point><coordinates>0.787695218611276,47.24992577670247,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="8">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Hastings</name>
+		<description><![CDATA[<div><i><q>
+			..no one who appreciates the influence of England and her empire upon the destinies of the world will ever rank that victory
+			 as one of secondary importance.
+			</q></i></div>
+			<div>
+			Normans vs.	English <br/>
+			Commanders and leaders:
+			William of Normandy, Odo of Bayeux, 	Harold Godwinson &dagger;
+			</div>]]></description>
+		<Point><coordinates>0.491064358960017,50.91217438852474,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="9">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Siege of Orl&amp;#233;ans</name>
+		<description><![CDATA[<div><i><q>
+			...the struggle by which the unconscious heroine of France, in the beginning of the fifteenth century, rescued her country
+			from becoming a second Ireland under the yoke of the triumphant English.
+			</q></i></div>
+			<div>
+			Kingdom of England  vs.	Kingdom of France<br/>
+			Commanders and leaders:
+			Earl of Shrewsbury, Earl of Salisbury, Joan of Arc, Jean de Brosse
+			</div>]]></description>
+		<Point><coordinates>1.9316466356922888,47.893839398082434,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="10">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Spanish Armada</name>
+		<description><![CDATA[<div><i><q>
+			The England of our own days is so strong, and the Spain of our own days is so feeble, that it is not easy, 
+			without some reflection and care, to comprehend the full extent of the peril which England then ran from 
+			the power and the ambition of Spain, or to appreciate the importance of that crisis in the history of the world.
+			</q></i></div>
+			<div>
+			Kingdom of England, Dutch Republic United Provinces vs 	 Spain <br/>
+			Commanders and leaders:
+			Lord Howard of Effingham, Francis Drake, 	Duke of Medina Sidonia
+			</div>]]></description>
+		<Point><coordinates>1.8410094285766263,51.058277298663484,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="11">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Blenheim</name>
+		<description><![CDATA[<div><i><q>
+			Had it not been for Blenheim, all Europe might at this day suffer under the effect of French conquests resembling
+			those of Alexander in extent and those of the Romans in durability
+			</q></i></div>
+			<div>
+			England, Holy Roman Empire,Dutch Republic,Denmark-Norway vs	 France, Electorate of Bavaria <br/>
+			Commanders and leaders:
+			Duke of Marlborough, Prince Eugene of Savoy, 	 Duc de Tallard, Ferdinand de Marsin, Maximilian II Emanuel
+			</div>]]></description>
+<Point><coordinates>10.44742423151385,48.78294102383179,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="12">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Poltava</name>
+		<description><![CDATA[<div><i><q>
+			The decisive triumph of Russia over Sweden at Pultowa was therefore all-important to the world, 
+			on account of what it overthrew as well as for what it established
+			</q></i></div>
+			<div>
+			Swedish Empire vs	Tsardom of Russia<br/>
+			Commanders and leaders
+			Carl Gustaf Rehnski&ouml;ld, 	Tsar Peter I of Russia
+			</div>]]></description>
+		<Point><coordinates>34.628332457159075,49.530161326534014,0</coordinates></Point>
+</Placemark>
+
+<!-- Placemark id="13">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Saratoga</name>
+		<description><![CDATA[<div><i><q>
+			The ancient Roman boasted, with reason, of the growth of Rome from humble beginnings to the greatest magnitude
+			which the world had then ever witnessed. But the citizen of the United States is still more justly entitled to claim this praise.
+			</q></i></div>
+			<div>
+			Great Britain, Brunswick-Wolfenb&uuml;ttel,
+			Hesse Hesse-Hanau 	 vs. United States<br/>
+			Commanders and leaders:
+			John Burgoyne, Simon Fraser &dagger;, F.A. Riedesel, Johann Specht, Wilhelm R. von Gall, 	Horatio Gates
+			</div>]]></description>
+		<Point><coordinates>-73.67489029995623,43.09051023830682,0</coordinates></Point>
+</Placemark -->
+
+<Placemark id="14">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Valmy</name>
+		<description><![CDATA[<div><i><q>
+			... the kings of Europe, after the lapse of eighteen centuries, trembled once more before a conquering military republic.
+			</q></i></div>
+			<div>
+			France 	vs. Kingdom of Prussia , Habsburg Monarchy <br/>
+			Commanders and leaders:
+			Charles Fran&ccedil;ois Dumouriez, Fran&ccedil;ois Christophe Kellermann, Duke of Brunswick, Prince of Hohenlohe, Count of Clerfayt
+			</div>]]></description>
+		<Point><coordinates>4.734533601193306,49.45166123036807,0</coordinates></Point>
+</Placemark>
+
+<Placemark id="15">
+		<styleUrl>#tabbed</styleUrl>
+		<name>Battle of Waterloo</name>
+		<description><![CDATA[<div><i><q>
+			The exertions which the allied powers made at this crisis to grapple promptly with the French
+			emperor have truly been termed gigantic, and never were Napoleon's genius and activity more
+			signally displayed than in the celerity and skill by which he brought forward all the military
+			resources of France...
+			</q></i></div>
+			<div>
+			French Empire 	 vs  the Seventh Coalition
+			(United Kingdom,Prussia,United Netherlands,Province of Hanover,Nassau,Brunswick)
+			<br/>		
+			Commanders and leaders
+			Napoleon I, Duke of Wellington, Gebhard von Bl&uuml;cher
+			</div>]]></description>
+		<Point><coordinates>4.414556794254679,50.71085767488251,0</coordinates></Point>
+</Placemark>
+
+</Document></kml>

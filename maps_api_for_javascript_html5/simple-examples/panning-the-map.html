@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="panTheMap" />
+  <title>HERE Maps API Example: Panning the Map</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Panning the Map</h1>
+
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+
+<script id="example-code" data-categories="map" type="text/javascript" >
+//<![CDATA[
+var map,
+  myInterval = 0,
+  myTimer,
+  incX = 1,
+  incY = 2,
+  x = 0,
+  y = 0;
+
+function panTheMap() {
+    var viewPort,
+      incX = 1,
+      incY = 2,
+      x = 100,
+      y = 100;
+
+  // Obtain the view port object of the map to manipulate its screen coordinates
+  var viewPort = map.getViewPort(),
+      // function calculates new screen coordinates and calls
+      // viewport's interaction method with them
+      pan = function() {
+        x = x + incX;
+        if (Math.abs(x) > 100) {
+          incX = -incX;
+        }
+
+        y = y + incY;
+        if (Math.abs(y) > 100) {
+          incY = -incY;
+        }
+
+        viewPort.interaction(x, y);
+      };
+
+  // set interaction modifier that provides information which map properties
+  // change with each "interact" call
+  viewPort.startInteraction(H.map.render.RenderEngine.InteractionModifiers.COORD);
+  // set up simple animation loop
+  setInterval(pan, 15);
+}
+
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.setCenter( new H.geo.Point(19.11, 72.89));
+  map.setZoom(3);
+  panTheMap(map);
+}
+
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

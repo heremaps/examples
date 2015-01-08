@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="clusterDataPoints,ZoomToTheme,addZoomToListener" />
+  <title>HERE Maps API Example: Adding 700 Markers on a Map (Clustering)</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-clustering.js"></script>
+
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps,datarendering"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <script type="text/javascript" src="libs/random-point-generator.js"></script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Adding 700 Markers on a Map (Zoom on Click)</h1>
+  <p>700 data points are added to a map.They are clustered and displayed using the standard
+    clustering algorthm. The clicking on a cluster will zoom the map to the data points within it.
+    Clicking on a noise point will display some text associated with that data point. </p>
+  <div id="ticker" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="clustering" type="text/javascript" >
+//<![CDATA[
+var map,
+  pointGenerator;
+
+function ZoomToTheme() {
+  var that = this,
+    baseTheme = new H.clustering.DefaultTheme();
+  that.getClusterPresentation = function (cluster) {
+    var zoomCluster =  baseTheme.getClusterPresentation(cluster);
+    zoomCluster.$boundingBox = cluster.getBounds();
+    return zoomCluster;
+  };
+  that.getNoisePresentation = function (noisePoint) {
+    var noise =  baseTheme.getNoisePresentation(noisePoint);
+    noise.setData(noisePoint.getData());
+    return noise;
+  };
+}
+
+
+function addZoomToListener(map) {
+  map.addEventListener('tap', function (evt) {
+    if (evt.target.$boundingBox !== undefined) {
+      map.setViewBounds(evt.target.$boundingBox, false);
+      $('#ticker').text('');
+    } else if (evt.target.getData() !== undefined) {
+      $('#ticker').text(evt.target.getData() + ' noise point was clicked.');
+    }
+  });
+}
+
+function clusterDataPoints(data) {
+  var dataPoints = data.map(function (item) {
+    return new H.clustering.DataPoint(item.lat, item.lng, null, item.text);
+  });
+
+  var clusteredDataProvider = new H.clustering.Provider(dataPoints, {
+    clusteringOptions: {
+      eps: 32,
+      minWeight: 5
+    },
+    theme : new ZoomToTheme()
+  });
+
+    // Create a layer tha will consume objects from our clustering provider
+  var clusteringLayer = new H.map.layer.ObjectLayer(clusteredDataProvider);
+  map.addLayer(clusteringLayer);
+
+  addZoomToListener(map);
+}
+
+function onCoordinatesCreated(data) {
+  $('#ticker').text('');
+  clusterDataPoints(data);
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.setZoom( 2);
+  map.setCenter( {lat:30, lng:-54});
+  pointGenerator = new randomLocationGenerator(10);
+  $('#ticker').text('Generating 7000 Coordinates. Please Wait');
+  pointGenerator.createCoordinates(onCoordinatesCreated);
+
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

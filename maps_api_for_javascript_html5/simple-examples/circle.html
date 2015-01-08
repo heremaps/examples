@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="addCircleToMap" />
+  <title>HERE Maps API Example: Adding a Circle</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript" data-map-container="mapContainer"
+    data-params="maps" data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Adding a circle to the map</h1>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="geoshape" type="text/javascript" >
+//<![CDATA[
+function addCircleToMap(map) {
+  map.addObject(new H.map.Circle(
+    // The center or the circle will be on
+    // latitude 19.15 longitude 73.91
+    {lat:19.15, lng:73.91},
+    // The radius of the circle in meters
+    450000,
+    {
+      style: {
+        strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
+        lineWidth: 2,
+        fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
+      }
+    }
+  ));
+}
+
+//
+// This is the callback method fired once the bootstrapper has loaded the map.
+//
+function afterHereMapLoad(map) {
+  map.setCenter(new H.geo.Point(19.119, 72.8957));
+  map.setZoom(4);
+  addCircleToMap(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

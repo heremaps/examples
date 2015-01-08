@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="keywords" content="getParameterByName,openInfoBubble,addMarkers" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=EmulateIE10;"/>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>HERE Maps API for JavaScript Example: Pre-open an information bubble</title>
+  <meta name="description" content="How to load a page with a read opened information bubbler"/>
+  <meta name="keywords" content="infobubble, marker, map component, bubble"/>
+    <!-- For scaling content for mobile devices, setting the viewport to the width of the device-->
+  <meta name=viewport content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+      <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+    <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+
+    <!-- Asynchronously the HERE Maps API for JavaScript -->
+    <script type="text/javascript" src="libs/hereAsyncLoader.js"
+      id="HereMapsLoaderScript"
+      data-map-container="mapContainer"
+      data-params="all"
+      data-callback="afterHereMapLoad" >
+    </script>
+    <link rel="icon" href="http://here.com/favicon.ico"/>
+    <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+  </head>
+  <body>
+    <h1>Opening Infobubbles</h1>
+    <div id="mapContainer" style="width:540px; height:334px;"></div>
+    <div id="uigroup">
+      Click on a link to pre-open the info bubble:<br/>
+      <a href="opening-infobubble-with-id.html?id=1">Brandenburg Gate</a><br/>
+      <a href="opening-infobubble-with-id.html?id=2">Ferhsehturm</a><br/>
+      <br/>
+    </div>
+<script id="example-code" data-categories="infobubbles" type="text/javascript">
+//<![CDATA[
+var map,
+  ui,
+  group;
+
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+  results = regex.exec(location.search);
+  return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+function openInfoBubble() {
+  var param = getParameterByName('id'),
+    objects = group.getObjects(),
+    len = objects.length,
+    i;
+  if (param === '') {
+    return; // Don't open a bubble.
+  }
+  // Iterate through the markers to find the correct id.
+  for (i = 0; i < len; i += 1) {
+    if (param === objects[i].id) {
+      // fire an event to open the bubble.
+      objects[i].dispatchEvent('tap');
+      map.setCenter(objects[i].getPosition());
+      break;
+    }
+  }
+}
+
+function addMarkers(map) {
+  group = new H.map.Group();
+
+  /* Add two markers and their infoBubble text
+  * along with a unique id attribute
+  */
+  var brandenburgerTorMarker = new H.map.Marker(
+    {lat:52.516237, lng:13.377686});
+    brandenburgerTorMarker.bubbleText = 'Brandenburger Tor';
+    brandenburgerTorMarker.id = '1'  ;
+  //
+  // The Infobubble attribute can also be HTML.
+  //
+    infoBubbleHTML = '<div>' +
+    '<h2>InfoBubble with HTML content<\/h2>' +
+    '<img width=120 height=90 src=' +
+    '\'http://upload.wikimedia.org/wikipedia/commons/' +
+    '8/84/Berlin-fernsehturm.JPG\' ' +
+    'alt=\'\'/><br/><b>Fernsehturm, Berlin<\/b>' +
+    '<\/div>',
+    fernsehturmMarker = new  H.map.Marker(
+      {lat:52.520816, lng:13.409417});
+
+     fernsehturmMarker.bubbleText = infoBubbleHTML;
+     fernsehturmMarker.id = '2' ;
+
+  // Add the markers onto the map
+  group.addObjects([brandenburgerTorMarker, fernsehturmMarker]);
+
+  // Add a listener to the on click event for the markers.
+  group.addEventListener('tap', function (evt) {
+    // Set the tail of the bubble to the coordinate of the marker
+    var bubble = new H.ui.InfoBubble(
+        evt.target.getPosition() , {
+          content:  evt.target.bubbleText
+        });
+    ui.addBubble(bubble);
+  });
+  map.addObject(group);
+}
+
+
+function afterHereMapLoad(theMap, platform, theUI) {
+  map = theMap;
+  ui = theUI;
+  map.setCenter({lat:52.52, lng:13.37});
+  map.setZoom(13);
+
+  addMarkers(map);
+  openInfoBubble();
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+  </body>
+</html>

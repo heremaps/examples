@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="setUpGroup,addOnClickEventListener,checkDateBorder" />
+  <title>HERE Maps API Example: Checking the International Date Line</title>
+  <!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+  <!-- Asynchronously the HERE Maps API for JavaScript -->
+  <script type="text/javascript" src="libs/hereAsyncLoader.js"
+    id="HereMapsLoaderScript"
+    data-map-container="mapContainer"
+    data-params="maps"
+    data-callback="afterHereMapLoad" >
+  </script>
+  <link rel="icon" href="http://here.com/favicon.ico"/>
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Checking the International Date Line</h1>
+  <p>Add additional markers by clicking on the map.</p>
+  <div id="dateline" style="height: 2.0em; font-size: 2em; color: blue;"></div>
+  <div id="mapContainer" style="width:540px; height:334px;"></div>
+<script id="example-code" data-categories="date-line" type="text/javascript" >
+//<![CDATA[
+var map,
+  group;
+
+function addDateline(map) {
+  // Set of initial geo coordinates to create the purple polyline
+  var points = [
+      {lat:85, lng:180},
+      {lat:-85, lng:180}
+    ],
+    strip = new H.geo.Strip();
+
+  points.forEach(function(point) {
+    strip.pushPoint(point);
+  });
+
+  // Transparent purple polyline
+  map.addObject(new H.map.Polyline(
+    strip, { style: { lineWidth: 2 }}
+  ));
+}
+
+function checkDateBorder(group) {
+  if (group.getBounds().isCDB()) {
+    $('#dateline').text('True - The Bounding box crosses the date border');
+  } else {
+    $('#dateline').text('False - The Bounding box is not crossing the date border');
+  }
+}
+
+
+function addOnClickEventListener(map) {
+  var coordinate;
+  map.addEventListener('tap', function (evt) {
+    evt.preventDefault();
+    coordinate = map.screenToGeo(evt.currentPointer.viewportX, evt.currentPointer.viewportY)
+    group.addObject(new H.map.Marker(coordinate));
+    checkDateBorder(group);
+  });
+}
+
+
+
+
+function setUpGroup() {
+  group = new H.map.Group();
+  group.addObjects([
+    new  H.map.Marker({lat:-18.10, lng: 176.46}),
+    new  H.map.Marker({lat:-18.10, lng: 180.00})]
+    );
+
+  map.addObject(group);
+  map.setViewBounds(group.getBounds());
+}
+
+function afterHereMapLoad(theMap) {
+  map = theMap;
+  map.setCenter( {lat:-18.10, lng:180.0});
+  map.setZoom( 15);
+
+  addDateline(map);
+  setUpGroup();
+  checkDateBorder(group);
+  addOnClickEventListener(map);
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>

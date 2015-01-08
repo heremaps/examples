@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+  <meta name="keywords" content="asyncLoadMapsLibrary,hereMapLoaderCallback,authenticate,createMap,afterHereMapLoad" />
+
+ <title>Combining HERE Maps API for JavaScript and the RESTful Map API</title>
+ <!-- No additional support required here. -->
+<!-- Set up constants such as APP ID and token -->
+  <script type="text/javascript" src="libs/hereAppIdAndToken.js"></script>
+  <!-- Bootstrap jQuery Library -->
+  <script type="text/javascript" src="libs/jQl.min.js"></script>
+
+  <link rel="icon" href="http://here.com/favicon.ico">
+  <!--<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />-->
+</head>
+<body>
+  <h1>Asynchronous Loading</h1>
+  <p>A static map is loaded in an <code>&lt;img&gt;</code> element on page load.
+    The HERE Maps API for JavaScript is asychronously loaded by jQuery when the map is clicked.
+    Assuming the HERE Maps API has been loaded successfully, a draggable, zoomable map with a
+    marker on it is displayed and the node holding the static map is removed thereafter.
+  </p>
+ <div id="mapContainer" style="width:540px; height:334px;">
+  <img id='HereStaticMap' src="http://m.nok.it/?c=50.5,15.5&amp;h=334&amp;w=540&amp;z=4&amp;nord&amp;nodot&amp;sb=k"
+     onclick="asyncLoadMapsLibrary();" alt="Map of Europe" />
+ </div>
+<script id="example-code" data-categories="map" type="text/javascript">
+//<![CDATA[
+jQl.loadjQ(HereMapsConstants.JSLibs.jQueryUrl);
+
+function afterHereMapLoad(map) {
+  // This matches the static map:
+  // http://m.nok.it/?c=50.5,15.5&h=334&w=540&z=4'
+  map.setCenter( new H.geo.Point(50.5, 15.5));
+  map.setZoom(4);
+  var marker = new  H.map.Marker({lat:50.5, lng: 15.5});
+  map.addObject(marker);
+
+  $('#HereStaticMap').remove();
+}
+
+// This method is a convenience function that intialises a map for the
+// Given DOM element and at the specified location.
+
+function createMap(location, domElement) {
+  var maptypes = platform.createDefaultLayers(),
+    map = new H.Map(domElement,
+      maptypes.normal.map, {
+      center: {lng : location.longitude, lat: location.latitude},
+      zoom: location.zoomLevel, // Bigger numbers are closer in
+    }),
+    mapevents = new H.mapevents.MapEvents(map),
+    // Enable map interaction (pan, zoom, pinch-to-zoom)
+    behavior = new H.mapevents.Behavior(mapevents),
+    ui = H.ui.UI.createDefault(map,  maptypes);
+  return map;
+}
+
+// This method is a convenience function that intialises the Settings
+// to authenticate the app with the HERE Maps JS library.
+  function authenticate(settings) {
+       platform = new H.service.Platform({
+        useCIT: (settings.serviceMode === 'cit'),
+        app_id: settings.appId,
+        app_code: settings.appCode
+      });
+       return platform;
+    }
+
+// This method is called once the base JS library has loaded, it
+// initialises the requested features, authenticates the app to
+// the library, and sets up an appropriately located map in
+// the specified DOM element.
+function hereMapLoaderCallback() {
+  platform = authenticate(HereMapsConstants.AppIdAndToken);
+  map = createMap(HereMapsConstants.InitialLocation,
+   document.getElementById('mapContainer'));
+  afterHereMapLoad(map , platform);
+}
+
+function asyncLoadMapsLibrary() {
+   $('head').append('<link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />');
+    $.getScript(HereMapsConstants.JSLibs.HereMapsUrl , function() {
+       $.getScript(HereMapsConstants.JSLibs.HereMapsUrlEvents , function () {
+          $.getScript(HereMapsConstants.JSLibs.HereMapsUrlUI , function () {
+            $.getScript(HereMapsConstants.JSLibs.HereMapsUrlService , hereMapLoaderCallback);
+          });
+       });
+    });
+}
+//]]>
+</script>
+<script type="text/javascript" src="libs/prettyprint.js"></script>
+</body>
+</html>
