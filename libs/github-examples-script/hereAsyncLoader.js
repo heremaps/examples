@@ -8,7 +8,7 @@ var repo= {
 	user: 'heremaps',
 	folder: 'maps_api_for_javascript',
 	url: 'https://github.com/heremaps/examples/blob/master/maps_api_for_javascript/',
-	raw_url:'http://rawgithub.com/heremaps/examples/master/maps_api_for_javascript/'
+	raw_url:'https://rawgithub.com/heremaps/examples/master/maps_api_for_javascript/'
 };
 
 
