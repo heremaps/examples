@@ -29,11 +29,10 @@
   <h1>Loading clustered geoJSON Points using AJAX: Earthquakes</h1>
   <p>This retrieves and parses a geoJSON file holding the details of over 200 earthquakes and renders it using standard marker clustering techniques.
   </p>
-  <p>The JSON file is located at:
-    <a href="data/earthquakes.geojson">data/earthquakes.geojson</a>
+ <p>
+  The JSON file is located at: <a target="_blank" href="http://rawgithub.com/heremaps/examples/master/maps_api_for_javascript/demos/geojson-parser/data/earthquakes.geojson"><code>data/earthquakes.geojson</code></a>
   </p>
-  <div><small>The file <code>earthquakes.geojson</code> is based data from the U.S. Geological Survey, Department of the Interior/USGS. According to <a href="http://www.usgs.gov/laws/info_policies.html"></a>, USGS-authored or produced data and information are considered to be in the U.S. public domain
-  </small></div>
+
 
   <div id="mapContainer" style="width:540px; height:334px;float:left;"></div>
   <div id="src" style="clear:both;width:100%">
@@ -41,6 +40,17 @@
       <p>The parser can be loaded using the following <code>&lt;script&gt;</code> element:
       <pre><code class='prettyprint'>&lt;script type="text/javascript" charset="UTF-8" src="<a href="libs/geojson-parser.js">libs/geojson-parser.js</a>"&gt;&lt;/script></code></pre>
   </div>
+
+  <h2>Credits</h2>
+   <blockquote>
+    <code>earthquakes.geojson</code><br>
+    <small>
+      Credit: U.S. Geological Survey<br>
+      Department of the Interior/USGS<br>
+      According to <a href="http://www.usgs.gov/laws/info_policies.html" target="_blank">USGS policies</a><br>
+      USGS-authored or produced data and information are considered to be in the U.S. public domain
+    </small>
+  </blockquote>
 <script id="example-code" data-categories="geojson,library" type="text/javascript" >
 //<![CDATA[
 var map,
