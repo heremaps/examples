@@ -23,12 +23,11 @@
       // versioned URL to load the HERE maps API.
       // Check on:  http://developer.here.com/versions
       // to obtain the latest version.
-      HereMapsUrl :'http://js.cit.api.here.com/se/2.5.4/jsl.js?blank=true',
+      HereMapsUrl :'https://js.cit.api.here.com/se/2.5.4/jsl.js?blank=true',
       // versioned URL to load jQuery
-      jQueryUrl : 'http://code.jquery.com/jquery-1.10.1.min.js',
-      jQueryUIUrl: 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
+      jQueryUrl : 'https://code.jquery.com/jquery-1.10.1.min.js',
+      jQueryUIUrl: 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
     },
     NS : 'nokia'
-
   }
 })(window, document);
