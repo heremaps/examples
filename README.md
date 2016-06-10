@@ -1,5 +1,4 @@
-HERE Maps Community on GitHub
-=============================
+# HERE Maps Community on GitHub
 
 Examples, Demos and Custom Map Components written by the HERE Maps Coding Community 
 
@@ -17,11 +16,12 @@ Custom Components extend the basic functionality of the API to introduce new com
 necessary for each demo can be found in a separate directory. Each custom component also offers a demonstation of usage where the component itself can be found
 within a separate `libs` directory. Obviously demos and custom components cover a very broad range of subjects, so they have been split thematically below:
 
+See the [LICENSE](LICENSE) file in the root of this project for license details.
 
+## Demos and Custom Components
 
-### Demos and Custom Components
+### Custom Components
 
-##### Custom Components
 * [Map Restriction](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/restrict-map-component/index.html) - Restricts the map to a certain region or zoom level
 * [Interactive Control](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/marker-interactivity-component/index.html) - Simple method to add "onclick" and forwarding to map markers
 * [Magnifier](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/magnifying-glass/index.html) - Demonstration of map observers showing a high zoom map over the base map.
@@ -29,26 +29,25 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [Tooltips](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/tooltip-component/index.html) - custom control to add tooltips to markers
 * [x-Ray](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/x-ray-component/index.html) - demonstration of map observers showing a satellite map over the base map
 
+### Directions Rendering
 
-##### Directions Rendering
 * [Routing with Directions](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/directions-rendering-component/a-to-b-with-directions.html) - demonstrates the use of a custom directions renderer component to display manuever instructions on the page
 * [Suggestion Based Routing](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/directions-rendering-component/suggestion-box-with-directions.html) - complete routing example where the start and end points are based on user suggestions
 * [Context Menu Based Routing](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/directions-rendering-component/context-menu-with-directions.html) - routing example using a context menu
 * [Routing to a known destination](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/directions-rendering-component/geocode-with-directions.html) - routing example to a fixed end point. The user enters a starting address
 * [Query String Routing](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/directions-rendering-component/query-string.html) - complete routing example where the start and end points are encoded in the query string.
 
+### Geocoding Demos
 
-##### Geocoding Demos
 * [Concurrent Search](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/multiple-search-requests/index.html) - Making concurrent requests.
 * [Find a US State](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/find-an-american-state/index.html) - A simple game based on Geocoding.
 
+### Heat Map Mashups
 
-##### Heat Map Mashups
 * [Flickr](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/flickr-heat-map/index.html) -  heatmap of locations people have taken photos and uploaded to Flickr
 * [Instagram](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/instagram-heat-map/index.html) -  heatmap of locations people have taken photos and uploaded to Instagram
 
-
-##### KML + GeoJSON Demos
+### KML + GeoJSON Demos
 
 **KML Generation Tools**
 
@@ -75,7 +74,8 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [XML: Marker Data](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/load-marker-data-using-ajax/index.html) - Loads marker using an AJAX call.
 
 
-##### Map Overlay Demos
+### Map Overlay Demos
+
 * [Aerial HERE Maps Styles](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/aerial-map-tile-styles-and-modes.html)  - A demonstration of available aerial HERE Maps map types (terrain, satellite etc.) and available languages.
 * [Base HERE Maps Styles](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/base-map-styles-and-modes.html) - A demonstration of available HERE Maps base map types and available languages.
 * [Map with POIs](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/base-map-with-pois.html) - A HERE Map displaying points of interest icons.
@@ -83,13 +83,15 @@ within a separate `libs` directory. Obviously demos and custom components cover 
 * [Community Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/demos/map-tiles/community-map.html) - A demonstration displaying the HERE Maps community map layer using a quad key algorithm.
 * [Grid Overlay](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/svg-grid-overlay/index.html) - A demonstration of **TMS** (Tile Map Server) syntax using a tile overlay from the National Library of Scotland.
 
-##### Sidebar Component
+### Sidebar Component
+
 * [German Election Results](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/bar-chart-election-result.html) - election results in a side bar
 * [German City Populations](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/bar-chart-markers.html) - city populations in a side bar
 * [Premier League Football](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/map-sidebar-control.html) - football teams in a side bar
 * [Side Bar within Map](http://github.com/heremaps/examples/blob/master/maps_api_for_javascript/demos/sidebar-component/map-sidebar-within-map.html) - a side bar within the map itself
 
-### Simple Examples
+## Simple Examples
+
 Basic code snippets to get you started:
 
 * [Add a Circle to the Map](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/circle.html)
@@ -115,42 +117,42 @@ Basic code snippets to get you started:
 * [Zoom to All Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/simple-examples/zoom-to-all-markers.html)
 
 
-### Advanced Examples
+## Advanced Examples
+
 The advanced examples are split thematically as shown:
 
-##### Advanced Map Objects
+### Advanced Map Objects
+
 * [Custom Graphics Marker](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/custom-graphics-marker.html)
 * [Sprite Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/sprite-markers.html)
 
-##### Asynchronous Loading
+### Asynchronous Loading
+
 * [Asynchronous Loading](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/asynchronous-loading.html)
 * [Combining with Static Maps](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/combining-with-here-static-maps.html)
 
-##### Clustering
+### Clustering
+
 * [Clustering with a Theme](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-clustering-with-theme.html)
 * [Clustering with Zoom](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-clustering-with-zoom.html)
 * [Simple Clustering](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-simple-clustering.html)
 * [Unclustered Markers](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/700-markers-unclustered.html)
 
-##### KML
+### KML
+
 * [Simple KML Loader](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/load-kml-file.html)
 * [Cross-domain KML Loader](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/load-kml-file-cross-domain.html)
 	
-##### Overlays
+### Overlays
+
 * [Ground Overlay](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/ground-overlay.html)
 * [Tile Overlay](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/tile-overlay.html)
 
-##### Other
+### Other
+
 * [Context Menu](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/context-menu.html)
 * [Coroutine](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/coroutine.html)
 * [IDL Check](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/international-date-line-check.html)
 * [Map Language](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/map-language.html)
 * [OLists](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/olist.html)
 * [Map Features](http://github.com/heremaps/examples/tree/master/maps_api_for_javascript/advanced-examples/reading-map-features.html)
-
-
-
-
-
-
-
