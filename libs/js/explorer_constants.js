@@ -1,7 +1,7 @@
 window.ifurl = 'https://rawgithub.com/heremaps/examples/master/';
 window.opt = {
-	client_id : "75078232e1b082bae407",
-	client_secret : "3938326617c81c42d76c2e405a36c75616992f0a"
+	client_id : "heremaps-bot",
+	client_secret : "918cbdf3a49ba292ff5e51e01e893ae0117c93ac"
 };
 window.repo= {
 	repo_id: 'examples',
