@@ -68,7 +68,7 @@ function onSuccess(data) {
 };
 
 function getLinkInfo(coord) {
-  var url = 'http://route.st.nlp.nokia.com/routing/6.2/getlinkinfo.json' +
+  var url = 'https://route.cit.api.here.com/routing/7.2/getlinkinfo.json' +
       '?app_id=' + nokia.Settings.app_id +
       '&app_code=' + nokia.Settings.app_code +
       '&waypoint=' + coord.latitude + ',' + coord.longitude;
