@@ -2,6 +2,8 @@
 
 Examples, Demos and Custom Map Components written by the HERE Maps Coding Community 
 
+> **NOTE** These examples are for the **deprecated 2.5.4** JavaScript API. Newer 3.x examples can be downloaded [here](https://github.com/heremaps/maps-api-for-javascript-examples) and also viewed on [jsFiddle](https://github.com/heremaps/jsfiddle-github/blob/master/README.md).
+ 
 **Simple Examples**: A series of graduated code [examples](https://github.com/heremaps/examples/#simple-examples) using the [Maps API for JavaScript](http://developer.here.com/javascript-apis/), each example displays 
 a short snippet of code with the correct syntax to do a specified task - for example _"How do I add a `Polygon` to the map?"_ Useful when getting
  started, or as an aide-memoire when writing something new.
